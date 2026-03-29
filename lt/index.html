@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="lt">
+<html lang="lt" data-hreflang-suite="library">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,10 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="alternate" hreflang="lt" href="#" id="hreflang-lt">
     <link rel="alternate" hreflang="en" href="#" id="hreflang-en">
+    <link rel="alternate" hreflang="et" href="#" id="hreflang-et">
+    <link rel="alternate" hreflang="lv" href="#" id="hreflang-lv">
     <link rel="alternate" hreflang="x-default" href="#" id="hreflang-default">
-    <script>(function(){var b=location.pathname.replace(/\/lt\/?.*/,'');var o=location.origin+b;var el;el=document.getElementById('hreflang-lt');if(el)el.href=o+'/lt/';el=document.getElementById('hreflang-en');if(el)el.href=o+'/en/';el=document.getElementById('hreflang-default');if(el)el.href=o+'/en/';})();</script>
+    <script src="../js/hreflang.js"></script>
     <style>html { scroll-behavior: smooth; }</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,11 +175,17 @@
         }
 
         .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             font-size: 15px;
             font-weight: 600;
+        }
+        .lang-switcher-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 8px;
         }
         .lang-current { opacity: 0.95; }
         .lang-link {
@@ -765,7 +773,7 @@
         }
 
         .code-block::before {
-            content: 'Spausk čia ir nukopijuok';
+            content: 'Pažymėk ir nukopijuok';
             position: absolute;
             top: -10px;
             right: 20px;
@@ -1521,8 +1529,12 @@
                 <a href="https://www.promptanatomy.app/" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Pilna Promptų anatomija – interaktyvus mokymas (atidaroma naujame lange)">Promptų anatomija</a>
                 <span class="badge badge-spinoff" role="status" aria-label="Promptų anatomijos spin-off projektas">Spin-off Nr. 1</span>
                 <nav class="lang-switcher" aria-label="Kalba">
-                    <span class="lang-current" aria-current="true">Lietuvių</span>
-                    <a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a>
+                    <ul class="lang-switcher-list">
+                        <li><span class="lang-current" aria-current="page">Lietuvių</span></li>
+                        <li><a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                    </ul>
                 </nav>
             </div>
             <h1>Leisk DI atlikti 30–50% tavo kasdienių užduočių</h1>
@@ -1536,7 +1548,7 @@
 
         <!-- KĄ REALIAI GAUSI -->
         <section class="objectives" aria-labelledby="objectives-title">
-            <h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> Ką realiai gausi</h2>
+            <h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> Ką gausite</h2>
             <p class="objectives-intro">Per 30 minučių įsidiegsi bazinę DI darbo sistemą:</p>
             <ul>
                 <li><i data-lucide="check" aria-hidden="true"></i> 3–5 val. sutaupymas per savaitę</li>
@@ -2052,7 +2064,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
         </section>
 
         <footer class="footer">
-            <h3>Sėkmės analizėms <i data-lucide="rocket" aria-hidden="true"></i></h3>
+            <h3>Sėkmės su promptais <i data-lucide="rocket" aria-hidden="true"></i></h3>
             <p>Jei prompte yra [ĮMONĖ] arba [MANO ROLĖ] – pakeisk savo duomenimis. DI rolė (pvz. „kritiškas analitikas“) – jos keisti nereikia.</p>
             <p class="footer-product-link">Tai <strong>Spin-off Nr. 1</strong> iš „Promptų anatomijos“. Pilnas interaktyvus mokymas ir kiti kursai: <a href="https://www.promptanatomy.app/" target="_blank" rel="noopener noreferrer">Promptų anatomija →</a></p>
             <div class="tags" role="list">
@@ -2079,7 +2091,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
          aria-atomic="true"
          aria-label="Kopijavimo pranešimas">
         <div class="toast-icon" aria-hidden="true"><i data-lucide="check"></i></div>
-        <span>Nukopijuota.</span>
+        <span>Nukopijuota</span>
     </div>
 
     <script>
@@ -2164,19 +2176,19 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                 }
 
                 if (!button || !promptId) {
-                    showError(button, 'Klaida: trūksta parametrų');
+                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
                     return;
                 }
 
                 const promptElement = document.getElementById(promptId);
                 if (!promptElement) {
-                    showError(button, 'Promptas nerastas');
+                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
                     return;
                 }
 
                 const promptText = promptElement.textContent?.trim();
                 if (!promptText) {
-                    showError(button, 'Promptas tuščias');
+                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
                     return;
                 }
 
@@ -2204,7 +2216,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
             function fallbackCopy(text, button) {
                 const textarea = document.getElementById('hiddenTextarea');
                 if (!textarea) {
-                    showError(button, 'Kopijavimas nepavyko');
+                    showError(button, 'Kažkas nepavyko. Bandykite dar kartą. Pažymėkite tekstą ir naudokite Ctrl+C (arba Cmd+C).');
                     isCopying = false;
                     return;
                 }
@@ -2236,7 +2248,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                         throw new Error('execCommand copy nepavyko');
                     }
                 } catch (_) {
-                    showError(button, 'Nepavyko. Pažymėk tekstą ranka ir nukopijuok.');
+                    showError(button, 'Kopijavimas nepavyko. Pažymėkite tekstą ir naudokite Ctrl+C (arba Cmd+C).');
                 } finally {
                     isCopying = false;
                 }
@@ -2249,7 +2261,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                 if (!button) return;
 
                 const original = button.innerHTML;
-                button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>Nukopijuota!</span>';
+                button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>Nukopijuota</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
                 button.classList.add('success');
                 button.setAttribute('aria-label', 'Promptas sėkmingai nukopijuotas');
@@ -2273,10 +2285,10 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                 if (!button) return;
 
                 const original = button.innerHTML;
-                const errorMessage = message || 'Pažymėk tekstą';
+                const errorMessage = message || 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.';
                 button.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><span>' + errorMessage + '</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
-                button.setAttribute('aria-label', 'Klaida: ' + errorMessage);
+                button.setAttribute('aria-label', errorMessage);
                 
                 setTimeout(() => {
                     button.innerHTML = original;

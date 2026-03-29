@@ -11,7 +11,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 
 | Laukas | Reikšmė |
 |--------|--------|
-| Production URL | _užpildyti po pirmo deploy, pvz. https://DITreneris.github.io/03_uzduotys/_ |
+| Production URL | https://DITreneris.github.io/automation/ |
 | Naršyklė(ės) | Chrome, Firefox, Safari, Edge |
 | Mobilus | iOS Safari / Chrome Mobile (pasirinktinai) |
 
@@ -87,4 +87,4 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - [QA_STANDARTAS.md](QA_STANDARTAS.md) – QA kriterijai ir nuoroda į spinoff01  
 - [DEPLOYMENT.md](../DEPLOYMENT.md) – kaip deploy ir kad po deploy būtų testuojama gyvai  
 
-**Paskutinis atnaujinimas:** 2026-02-18
+**Paskutinis atnaujinimas:** 2026-03-29

@@ -26,6 +26,11 @@
 - [ ] Naršyklėse patikrinta (Chrome / Firefox / Safari / Edge)
 - [ ] Mobile responsive patikrintas
 
+## Daugiakalbystė (kai liečia EN)
+
+- [ ] Jei keičiau `en/index.html` ir/ar `en/privacy.html` (UI, struktūra ar privatumo tekstą): paleidau `npm run generate:et-lv`, peržiūrėjau ET/LV biblioteką ir, jei reikia, `et/privacy.html` / `lv/privacy.html`.
+- [ ] Jei keičiau EN bibliotekos inline JS (kopijavimas, toast, klaidos) ar mikrotekstą, kurį turi atkartoti LT: atnaujinau `lt/index.html` ir paleidau `npm run generate:et-lv`.
+
 ## Susiję dokumentai
 
 <!-- Jei reikia atnaujinti README, INTEGRACIJA, AGENTS.md ir pan. – žr. docs/DOCUMENTATION.md -->

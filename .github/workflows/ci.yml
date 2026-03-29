@@ -32,5 +32,9 @@ jobs:
           npx pa11y http://127.0.0.1:3000/en/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
           npx pa11y http://127.0.0.1:3000/lt/privatumas.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
           npx pa11y http://127.0.0.1:3000/en/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
+          npx pa11y http://127.0.0.1:3000/et/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
+          npx pa11y http://127.0.0.1:3000/lv/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
+          npx pa11y http://127.0.0.1:3000/et/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
+          npx pa11y http://127.0.0.1:3000/lv/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
         env:
           CI: true

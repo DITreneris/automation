@@ -16,8 +16,13 @@
             var lang = 'en';
             try {
                 var stored = localStorage.getItem('lang');
-                if (stored === 'lt' || stored === 'en') lang = stored;
-                else if (typeof navigator !== 'undefined' && navigator.language && navigator.language.toLowerCase().indexOf('lt') === 0) lang = 'lt';
+                if (stored === 'lt' || stored === 'en' || stored === 'et' || stored === 'lv') lang = stored;
+                else if (typeof navigator !== 'undefined' && navigator.language) {
+                    var nav = navigator.language.toLowerCase();
+                    if (nav.indexOf('lt') === 0) lang = 'lt';
+                    else if (nav.indexOf('et') === 0 || nav.indexOf('ee') === 0) lang = 'et';
+                    else if (nav.indexOf('lv') === 0) lang = 'lv';
+                }
             } catch (e) {}
             var path = (base ? base + '/' : '/') + lang + '/';
             window.location.replace(path);
@@ -25,6 +30,6 @@
     </script>
 </head>
 <body>
-    <p>Redirecting… <a href="lt/">Lietuvių</a> | <a href="en/">English</a></p>
+    <p>Redirecting… <a href="lt/" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a> | <a href="en/" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a> | <a href="et/" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a> | <a href="lv/" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></p>
 </body>
 </html>

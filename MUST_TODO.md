@@ -7,16 +7,18 @@
 
 ---
 
-## 🌐 Multilingual (LT/EN) – folder-based architektūra
+## 🌐 Multilingual (LT / EN / ET / LV) – folder-based architektūra
 
 **Sprendimai (Orchestrator):**
 
-- **URL schema:** `/lt/` (lietuvių), `/en/` (anglų). Root `/` – redirect į `/lt/` arba `/en/` pagal `navigator.language` arba localStorage.
-- **Failų pavadinimai:** LT: `index.html` (biblioteka), `privatumas.html`. EN: `index.html` (library), `privacy.html`.
-- **Kalbos jungiklis:** Tekstas „Lietuvių | English“ (ne vėliavos), header dešinėje; nuorodos į atitinkamą puslapį kita kalba (path mapping: lt/index ↔ en/index, lt/privatumas ↔ en/privacy).
-- **SEO:** `hreflang` kiekviename puslapyje; `x-default` nurodo EN arba LT pagal prioritetą.
+- **URL schema:** `/lt/`, `/en/`, `/et/`, `/lv/`. Root `/` – redirect pagal `localStorage` (`lang` = `lt` | `en` | `et` | `lv`) arba `navigator.language` (`lt`, `et`/`ee`, `lv` → atitinkamas katalogas; kitaip `/en/`).
+- **Failų pavadinimai:** LT: `index.html`, `privatumas.html`. EN / ET / LV: `index.html`, `privacy.html`.
+- **Kalbos jungiklis:** „Lietuvių | English | Eesti | Latviešu“ (ne vėliavos); nuorodos į visų kalbų atitinkamus path (žr. mapping [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md)).
+- **SEO:** `hreflang` (`lt`, `en`, `et`, `lv`) + `x-default` → EN.
 
-**Užduočių eilė:** Curriculum (path atitikmenys) → Orchestrator/UI (katalogai, root redirect) → Content (EN turinys) → UI/UX (switcher, hreflang) → QA (testai, CI, docs).
+**ET/LV bibliotekos HTML:** generuojama iš `en/index.html` su `node scripts/generate-et-lv-pages.cjs` (šaltinis – `scripts/prompt-bodies-et-lv.cjs`). Po EN pakeitimų – pergeneruoti ir per QA.
+
+**Užduočių eilė:** Curriculum (path) → UI (katalogai, redirect, switcher, hreflang) → Content (vertimai) → QA (testai, CI, docs).
 
 Žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) (Curriculum išvestis).
 

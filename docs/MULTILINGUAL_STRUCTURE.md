@@ -1,4 +1,4 @@
-# Daugiakalbiška struktūra (LT/EN)
+# Daugiakalbiška struktūra (LT / EN / ET / LV)
 
 **Atsakingas:** Curriculum Agent  
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.
@@ -7,13 +7,14 @@
 
 ## 1. Puslapių atitikmenys
 
-| LT path | EN path |
-|---------|---------|
-| `/lt/` (index.html – biblioteka) | `/en/` (index.html – library) |
-| `/lt/privatumas.html` | `/en/privacy.html` |
+| Kalba | Biblioteka | Privatumas |
+|--------|------------|------------|
+| LT | `/lt/` (`lt/index.html`) | `/lt/privatumas.html` |
+| EN | `/en/` (`en/index.html`) | `/en/privacy.html` |
+| ET | `/et/` (`et/index.html`) | `/et/privacy.html` |
+| LV | `/lv/` (`lv/index.html`) | `/lv/privacy.html` |
 
-- **Biblioteka:** LT = `lt/index.html`, EN = `en/index.html`.
-- **Privatumas:** LT = `lt/privatumas.html`, EN = `en/privacy.html`.
+ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy.html`). LT išlaiko `privatumas.html`.
 
 ---
 
@@ -22,40 +23,58 @@
 ### Root `/`
 
 - Vienintelis failas: `index.html` (redirect puslapis).
-- Logika: nustatyti kalbą; tada `window.location.href = base + '/lt/'` arba `base + '/en/'`.
+- Logika: nustatyti kalbą; tada `window.location.replace` į `base + '/lt/'`, `'/en/'`, `'/et/'` arba `'/lv/'`.
 - Kalbos nustatymas (prioritetas):
-  1. `localStorage.getItem('lang')` – jei vartotojas jau rinkosi kalbą.
-  2. `navigator.language` – jei pradedama `lt` → `/lt/`, kitaip → `/en/`.
-- **Base path:** Jei GitHub Pages project site (pvz. repo `biblioteka`), base = `/biblioteka`. Root user site – base = `''`.
+  1. `localStorage.getItem('lang')` – jei reikšmė `lt`, `en`, `et` arba `lv`.
+  2. `navigator.language` (žemiau): jei prasideda `lt` → `/lt/`; `et` arba `ee` → `/et/`; `lv` → `/lv/`; kitaip fallback `/en/`.
+- **Base path:** Jei GitHub Pages project site (pvz. repo `automation`), base = `/automation`. Root user site – base = `''`. Pathname normalizavimas root redirect skripte: žr. `index.html`.
+- **Rankinės nuorodos** („Lietuvių“, „English“ ir t. t.) taip pat kviečia `localStorage.setItem('lang', …)`, kad elgsena sutaptų su kalbos jungikliu viduje locale.
 
 ### Kalbos jungiklis
 
-- Esant **LT** puslapyje `/lt/` → nuoroda į EN: `/en/` (arba `base + '/en/'`).
-- Esant **LT** puslapyje `/lt/privatumas.html` → nuoroda į EN: `/en/privacy.html`.
-- Esant **EN** puslapyje `/en/` → nuoroda į LT: `/lt/`.
-- Esant **EN** puslapyje `/en/privacy.html` → nuoroda į LT: `/lt/privatumas.html`.
+- Visuose bibliotekos ir privatumo puslapiuose: keturios kalbos, struktūra  
+  `<nav class="lang-switcher" aria-label="…"><ul class="lang-switcher-list"><li>…</li></ul></nav>`.
+- Dabartinė kalba: `<span class="lang-current" aria-current="page">`; kitos – `<a class="lang-link" data-lang="…" href="…" onclick="…localStorage.setItem('lang',…)">`.
+- Etiketės gimąja kalba: **Lietuvių**, **English**, **Eesti**, **Latviešu** (be vėliavų).
+- **Privatumas:** tie patys komponentai ir stiliai kaip bibliotekoje (`lang-link`, 44px touch, fokusas), spalvos – privacy puslapio tema.
+- **Privatumo keliai:** `lt/privatumas.html` ↔ `en|et|lv/privacy.html`.
 
 ---
 
-## 3. Path → counterpart (lentelė skriptams)
+## 3. SEO (`hreflang`)
 
-```
-LT → EN:
-  /lt/                 → /en/
-  /lt/privatumas.html  → /en/privacy.html
-
-EN → LT:
-  /en/           → /lt/
-  /en/privacy.html → /lt/privatumas.html
-```
-
-Naudoti santykinius kelius iš root (pvz. `../en/`, `../lt/`) arba su base path priklausomai nuo to, kaip deploy’inama.
+- Kiekvienas puslapis: `hreflang` `lt`, `en`, `et`, `lv` ir `x-default` (`<link rel="alternate" … id="hreflang-lt">` … `id="hreflang-default">`).
+- **`x-default`:** anglų versija (`/en/` arba `/en/privacy.html`).
+- **Įgyvendinimas:** [js/hreflang.js](../js/hreflang.js) (kelias iš poaplankių: `../js/hreflang.js`). Ant `<html>`: `data-hreflang-suite="library"` (biblioteka) arba `"privacy"` (privatumo puslapiai). Skriptas užpildo absoliučius `href` iš `location.origin` + bazės kelio; bazė = `pathname` po pakeitimo regex  
+  `/\/(lt|en|et|lv)(\/.*|$)/i` → `''` (tai nuima locale segmentą ir viską po juo, įskaitant atvejus be trailing slash, pvz. `/repo/lt`).
 
 ---
 
-## 4. EN string sync (LT alignment)
+## 4. Turinio sinchronizacija
 
-Kai keičiami **anglų (EN)** UI tekstai (`en/index.html`, `en/privacy.html`), būtina atnaujinti atitinkamus **lietuviškus (LT)** tekstus `lt/index.html` ir `lt/privatumas.html`, kad abi kalbos būtų išlygintos.
+Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `en/privacy.html`), reikia išlyginti:
 
-- **Pagrindinės vietos:** hero (h1, subline, „Who it’s for“, CTA), sekcijos antraštės (objectives, instructions, progress, next steps, community, footer), mygtukai („Copy prompt“, „Mark as done“), klaidos ir toast pranešimai (JS), code-block tooltip (CSS `::before`), privacy puslapio antraštės ir nuorodos.
-- **Nuoroda:** visi EN stringai inventorizuoti audite [docs/MICROCOPY_AUDIT_EN.md](MICROCOPY_AUDIT_EN.md); pakeitus EN – peržiūrėti atitikmenis LT.
+- **LT:** `lt/index.html`, `lt/privatumas.html`
+- **ET / LV:** regeneruoti iš EN naudojant `npm run generate:et-lv` (`node scripts/generate-et-lv-pages.cjs`; žr. `scripts/prompt-bodies-et-lv.cjs` promptų tekstams) ir rankiniu būdu patikrinti / atnaujinti `et/privacy.html`, `lv/privacy.html`, jei privatumo tekstas keičiasi ne per generatorių.
+
+- **PR:** [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) – checkbox „Daugiakalbystė (kai liečia EN)“.
+- **Pagrindinės vietos:** hero, instrukcijos, progress, mygtukai, JS pranešimai, code-block `::before`, footer, privatumas.
+- **Nuoroda:** EN mikrotekstas – [docs/MICROCOPY_AUDIT_EN.md](MICROCOPY_AUDIT_EN.md).
+
+---
+
+## 5. Path → counterpart (santrauka)
+
+```
+Biblioteka: /lt/ | /en/ | /et/ | /lv/  (kiekviena su index.html)
+Privatumas: /lt/privatumas.html ↔ /en/privacy.html ↔ /et/privacy.html ↔ /lv/privacy.html
+```
+
+Naudoti santykinius kelius (pvz. `../et/`, `../lt/privatumas.html`) arba base path pagal deploy.
+
+---
+
+## 6. Testai ir CI
+
+- Struktūriniai testai: [tests/structure.test.js](../tests/structure.test.js) – `data-hreflang-suite`, `hreflang.js`, `lang-switcher-list`, privatumo `lang-link`, root `localStorage`.
+- GitHub Actions: `npm test` ir pa11y LT/EN/ET/LV bibliotekai bei visiems keturiems privatumo puslapiams – [.github/workflows/ci.yml](../.github/workflows/ci.yml).

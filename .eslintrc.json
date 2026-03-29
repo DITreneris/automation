@@ -13,7 +13,7 @@
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "no-console": ["warn", { "allow": ["warn", "error"] }]
   },
-  "ignorePatterns": ["node_modules/", "*.min.js"],
+  "ignorePatterns": ["node_modules/", "*.min.js", "scripts/**/*.cjs"],
   "overrides": [
     {
       "files": ["google-apps-script.js"],
