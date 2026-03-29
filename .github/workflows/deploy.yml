@@ -1,5 +1,6 @@
 # GitHub Pages deploy – statinė DI Promptų Biblioteka
-# Reikalavimas: Repo Settings → Pages → Build and deployment: GitHub Actions
+# Prieš pirmą sėkmingą paleidimą: Settings → Pages → Build and deployment: GitHub Actions
+# (be to deploy job grąžina 404 „Failed to create deployment“ – žr. DEPLOYMENT.md)
 # Nuoroda: https://github.com/DITreneris/spinoff01 (QA standartas)
 
 name: Deploy to GitHub Pages
