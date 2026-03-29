@@ -106,8 +106,8 @@ ORCHESTRATOR AGENT (koordinacija)
 | `npm test` | Struktūros testai + lint (HTML, JS) |
 | `npm run generate:et-lv` | Iš `en/index.html` ir [js/library.js](js/library.js) generuoja `et/`, `lv/` puslapius ir `library.et.js`, `library.lv.js`, `library.lt.js` ([scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)); prieš commit paleisti, jei keičiate šaltinį |
 | `npm run lint:html` | HTML validacija (9 puslapiai, lokaliai per `html-validate` / [scripts/lint-html.mjs](scripts/lint-html.mjs)) |
-| `npm run lint:js` | ESLint visiems .js failams |
-| CI (GitHub Actions) | Lint, test, pa11y a11y – automatiškai push/PR |
+| `npm run lint:js` | ESLint (flat [eslint.config.js](eslint.config.js), visi tikslinami `.js`) |
+| CI (GitHub Actions) | Node **22**, lint, test, pa11y a11y – automatiškai push/PR |
 
 Prieš PR įsitikinti, kad `npm test` praeina. A11y tikrinimas – per CI arba lokaliai: `npx serve -s . -l 3000`, `npx wait-on http://127.0.0.1:3000/` ir `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs` (įskaitant root `/`).
 

@@ -25,7 +25,7 @@ const JS_LIBRARY_LV = path.join(__dirname, '..', 'js', 'library.lv.js');
 function readFile(filePath) {
   try {
     return fs.readFileSync(filePath, 'utf8');
-  } catch (e) {
+  } catch {
     return null;
   }
 }

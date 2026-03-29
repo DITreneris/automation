@@ -48,7 +48,7 @@
 
 ### 2.5 JavaScript lint – tik atskiri .js failai
 
-- **Vieta:** `package.json` – `"lint:js": "eslint . --ext .js"`.
+- **Vieta:** `package.json` – `"lint:js": "eslint ."` (flat [eslint.config.js](eslint.config.js)).
 - **Problema:** Pagrindinė aplikacijos logika yra `index.html` inline `<script>`. ESLint šio skripto nekontroliuoja.
 - **Poveikis:** Inline kodo stilius ir klaidos nelintinami.
 - **Siūlomas sprendimas:** Arba (A) ištraukti JS į atskirą `app.js` ir jį lintinti, arba (B) naudoti eslint-plugin-html / extract script į temp failą CI ir lintinti (sudėtingiau). Ilguoju laikotarpiu geriau (A).

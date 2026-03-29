@@ -8,13 +8,15 @@
     "test:structure": "node tests/structure.test.js",
     "generate:et-lv": "node scripts/generate-et-lv-pages.cjs",
     "lint:html": "node scripts/lint-html.mjs",
-    "lint:js": "eslint . --ext .js"
+    "lint:js": "eslint ."
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.1.0",
+    "globals": "^16.0.0",
     "html-validate": "^10.11.2",
-    "pa11y": "^6.2.3",
+    "pa11y": "^9.1.1",
     "serve": "^14.2.1",
-    "wait-on": "^8.0.1"
+    "wait-on": "^9.0.4"
   }
 }

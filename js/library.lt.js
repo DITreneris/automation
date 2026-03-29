@@ -262,14 +262,14 @@
                     if (id) {
                         try {
                             cb.checked = localStorage.getItem(PROMPT_DONE_KEY_PREFIX + id) === 'true';
-                        } catch (e) { /* ignore */ }
+                        } catch { /* ignore */ }
                     }
                 });
             }
             function savePromptDoneState(promptId, checked) {
                 try {
                     localStorage.setItem(PROMPT_DONE_KEY_PREFIX + promptId, checked ? 'true' : 'false');
-                } catch (e) { /* ignore */ }
+                } catch { /* ignore */ }
             }
 
             function getPromptDoneCount() {
@@ -278,7 +278,7 @@
                     for (var i = 1; i <= 8; i++) {
                         if (localStorage.getItem(PROMPT_DONE_KEY_PREFIX + i) === 'true') count++;
                     }
-                } catch (e) { /* ignore */ }
+                } catch { /* ignore */ }
                 return count;
             }
 

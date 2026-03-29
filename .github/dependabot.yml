@@ -11,3 +11,7 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    ignore:
+      # v4 išskiria .nojekyll iš artifact – sulaužytų statinį Pages be Jekyll
+      - dependency-name: actions/upload-pages-artifact
+        update-types: [version-update:semver-major]
