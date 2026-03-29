@@ -31,7 +31,7 @@
 2. Pasirinkite promptą ir spauskite ant jo – tekstas automatiškai pažymėsis
 3. Spauskite mygtuką **"Kopijuoti promptą"** arba naudokite `Ctrl+C` / `Cmd+C`
 4. Įklijuokite į ChatGPT, Claude ar kitą DI įrankį
-5. Jei prompte yra `[ĮMONĖ]` – pakeiskite į savo arba kliento įmonę; jei yra `[MANO ROLĖ]` – pakeiskite į savo pareigas. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia
+5. Jei prompte yra vartotojo žymekliai – pakeiskite savo duomenimis: **LT** `[ĮMONĖ]` / `[MANO ROLĖ]`; **EN** `[COMPANY]` / `[MY ROLE]`; **ET** `[ETTEVÕTE]` / `[MINU ROLL]`; **LV** `[UZŅĒMUMS]` / `[MANA LOMA]`. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Lentelės stulpeliai 7-ame prompte taip pat lokalizuoti (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3b).
 
 ## Technologijos
 
@@ -57,20 +57,30 @@
 ├── lv/
 │   ├── index.html      # Bibliotēka (latviešu)
 │   └── privacy.html    # Privātums (LV)
+├── css/
+│   └── library.css     # Bendri bibliotekos stiliai (visos kalbos)
 ├── js/
-│   └── hreflang.js     # Absoliučios hreflang nuorodos (library / privacy)
+│   ├── hreflang.js     # Absoliučios hreflang nuorodos (library / privacy)
+│   ├── library.js      # Bibliotekos logika (EN šaltinis)
+│   ├── library.lt.js   # Ta pati logika LT
+│   ├── library.et.js   # Generuojama: npm run generate:et-lv
+│   └── library.lv.js   # Generuojama: npm run generate:et-lv
 ├── scripts/
-│   ├── generate-et-lv-pages.cjs   # ET/LV index iš EN (po EN pakeitimų – pergeneruoti)
+│   ├── generate-et-lv-pages.cjs   # ET/LV index + library.et.js / library.lv.js iš EN
+│   ├── lint-html.mjs              # html-validate (9 HTML failai)
+│   ├── pa11y-pages.cjs            # pa11y URL sąrašas (CI)
 │   └── prompt-bodies-et-lv.cjs    # META/INPUT/OUTPUT tekstai ET/LV
 ├── README.md           # Dokumentacija
 ├── CHANGELOG.md        # Versijų istorija (Keep a Changelog)
 ├── package.json        # Dev: lint, testai, a11y
 ├── DEPLOYMENT.md       # Deploy instrukcijos (GitHub Pages)
 ├── docs/
-│   ├── DOCUMENTATION.md
+│   ├── DOCUMENTATION.md           # Dokumentų inventorių ir atsakomybės (§1)
 │   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV
-│   ├── QA_STANDARTAS.md   # QA standartas (spinoff01)
-│   └── TESTAVIMAS.md      # Gyvo testavimo žurnalas
+│   ├── BULLET_PROOF_PROMPTS.md    # Promptų META/INPUT/OUTPUT standartas
+│   ├── MICROCOPY_AUDIT_EN.md      # EN UI mikrotekstas
+│   ├── QA_STANDARTAS.md           # QA standartas (spinoff01)
+│   └── TESTAVIMAS.md              # Gyvo testavimo žurnalas
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yml
@@ -78,6 +88,8 @@
 │   └── PULL_REQUEST_TEMPLATE.md
 └── .gitignore
 ```
+
+**Pilnas dokumentų inventorių** (visi `.md`, HTML politikos failai, CI ir kt.) ir atsakomybės: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) §1.
 
 ## Privatumas
 

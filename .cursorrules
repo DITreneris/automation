@@ -1,18 +1,18 @@
 # Cursor Rules - DI Promptų Biblioteka Projektas
 
 ## 🎯 Projekto Apžvalga
-Šis projektas yra interaktyvi HTML platforma verslo analitikams su Google Sheets integracija. Visi taisykles turi atsižvelgti į statinio HTML pobūdį, saugumą ir konfidencialumą.
+Statinė **daugiakalbė** (lt / en / et / lv) HTML biblioteka: root redirect į locale, bendras [css/library.css](css/library.css), kanoninis EN turinys ir JS su generavimu į ET/LV bei rankiniu LT atitikmeniu (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md)). Google Sheets / kontaktų forma šiame etape gali būti išjungta – žr. README; vis tiek taikyti saugumo taisykles, jei integracija įjungiama. Taisyklės: statinis HTML, saugumas, konfidencialumas.
 
-**Agentams:** Rolės ir workflow – [AGENTS.md](AGENTS.md). Dokumentų valdymas ir atsakomybės – [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md). Pakeitimų istorija – [CHANGELOG.md](CHANGELOG.md).
+**Agentams:** Rolės, workflow ir **daugiakalbystės vartai** – [AGENTS.md](AGENTS.md). Dokumentų valdymas ir atsakomybės – [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md). Pakeitimų istorija – [CHANGELOG.md](CHANGELOG.md).
+
+**Prompt Anatomy nuoroda (golden rule):** visur **`https://www.promptanatomy.app/en`** – ne domeno šaknis be `/en`, ne `ditreneris.github.io/anatomija`. Detaliau – [AGENTS.md](AGENTS.md) (1 skyrius).
 
 ---
 
 ## 📝 Q&A – Kalbos ir tono praktika (vartotojui matomas tekstas)
 
-- **Kreipinys:** naudoti **Tu** (ne Jūs): tavo, tau, tu, atlikai, naudojai, gausi, galėsi ir t. t.
-- **Stilius:** paprasta lietuvių kalba, **lakoniškai** – trumpi sakiniai, be pertekliaus.
-- **Tonas:** **motyvacinė, palaikanti** – skatina veikti, bet **be patetikos** (be per didelio entuziazmo, dramos ar tuščios šlovinimo).
-- **Check:** prieš commit patikrinti, ar vartotojui matomi tekstai atitinka Tu + lakonišką, palaikantį toną.
+- **LT puslapiai (`lt/`):** kreipinys **Tu** (ne Jūs); paprasta lietuvių kalba, **lakoniškai**; tonas **motyvacinė, palaikanti**, bet **be patetikos**. Prieš commit – ar LT UI atitinka šias gaires.
+- **EN / ET / LV:** struktūrinis ir UI kanonas – EN (`en/`); ET ir LV generuojami pagal [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) ir `npm run generate:et-lv`. EN mikroteksto inventorius – [docs/MICROCOPY_AUDIT_EN.md](docs/MICROCOPY_AUDIT_EN.md).
 
 ---
 
@@ -23,7 +23,7 @@
 - ✅ Naudokite `.env` failus arba konfigūracijos failus, kurie yra `.gitignore`
 - ✅ Google Apps Script URL turi būti konfigūruojamas per kintamuosius, ne hardcoded
 - ✅ Jei reikia, naudokite environment variables arba konfigūracijos failus
-- ⚠️ **Google Script URL** faile `index.html` turi būti placeholder, ne tikras URL
+- ⚠️ **Google Script URL** – kur integracija naudojama, kiekviename atitinkame locale `index.html` (ar konfigūracijoje) turi būti placeholder, ne tikras URL
 
 ### Input Validacija
 - ✅ **VISADA** validuokite visus vartotojo įvestus duomenis (email, tekstas)
@@ -58,8 +58,8 @@
 ## 🔐 KONFIDENCIALUMAS (Confidentiality)
 
 ### GDPR ir Duomenų Apsauga
-- ✅ Kontaktų formoje **PRIVALOMA** informuoti apie duomenų rinkimą
-- ✅ Pridėkite privatumo politikos nuorodą
+- ✅ Jei kontaktų forma **aktyvi**, **PRIVALOMA** informuoti apie duomenų rinkimą
+- ✅ Pridėkite privatumo politikos nuorodą (daugiakalbė: `lt/privatumas.html`, `en|et|lv/privacy.html` – žr. MULTILINGUAL)
 - ✅ Suteikite galimybę atšaukti sutikimą
 - ✅ Duomenys turi būti saugomi tik tiek, kiek reikia
 
@@ -130,26 +130,27 @@
 ### Dokumentacijos Standartai
 - ✅ **VISI** failai turi turėti aiškų paskirtį ir struktūrą
 - ✅ README.md turi aprašyti projektą, kaip jį paleisti ir naudoti
-- ✅ Kodo komentarai turi būti lietuvių kalba (nes projektas lietuvių kalba)
+- ✅ Kodo komentarai – lietuvių kalba (projekto dokumentacija ir agentų instrukcijos – LT; vartotojo UI – keturios kalbos)
 - ✅ Funkcijos turi turėti JSDoc komentarus su parametrais ir return tipais
 
 ### Dokumentacijos Atnaujinimas
 - ⚠️ **PRIVALOMA** atnaujinti dokumentaciją, kai keičiamas kodas
 - ✅ Jei pridedate naują funkciją, atnaujinkite README.md
 - ✅ Jei keičiate API arba konfigūraciją, atnaujinkite INTEGRACIJA.md
-- ✅ **Release** – būtina atnaujinti CHANGELOG.md (sekciją „Nereleisuota“ perkelti į naują versiją su data). Versijavimas – Semantic Versioning.
+- ✅ **Release** – būtina atnaujinti CHANGELOG.md (sekciją `[Unreleased]` perkelti į naują versiją su data). Versijavimas – Semantic Versioning.
 - ✅ Dokumentų atsakomybės ir kada ką atnaujinti – žr. docs/DOCUMENTATION.md
 - ✅ Dokumentuokite breaking changes
 
 ### Dokumentacijos Struktūra
 - ✅ README.md - projekto apžvalga, instaliacija, naudojimas
-- ✅ CHANGELOG.md - versijų pakeitimų istorija (Keep a Changelog, SemVer). **Release** = atnaujinti CHANGELOG („Nereleisuota“ → nauja versija su data).
+- ✅ CHANGELOG.md - versijų pakeitimų istorija (Keep a Changelog, SemVer). **Release** = atnaujinti CHANGELOG (`[Unreleased]` → nauja versija su data).
 - ✅ docs/DOCUMENTATION.md - dokumentų inventorius, atsakomybės, archyvavimo taisyklės (žr. kada ką atnaujinti).
 - ✅ INTEGRACIJA.md - detali integracijos instrukcija
 - ✅ VARIANTU_PALYGINIMAS.md - palyginimas tarp variantų
 - ✅ AGENTS.md - agentų rolės, workflow, commit prefiksai
 - ✅ feedback-schema.md - Feedback Store duomenų schema
 - ✅ Kodo komentarai - inline dokumentacija sudėtingoms vietoms
+- ✅ **Pilnas dokumentų sąrašas, atsakomybės ir archyvavimas** – [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) §1 (įskaitant MICROCOPY, STYLEGUIDE, VARIANTU, KODO_BAZES ir kt.)
 
 ### Verslo Dokumentacija
 - ⚠️ Jei yra verslo logika arba procesai, dokumentuokite juos
@@ -202,7 +203,7 @@
 - **Orchestrator** – koordinacija, prioritetai, užduočių valdymas
 
 ### Workflow
-- Prieš pakeitimus: žr. AGENTS.md workflow seką
+- Prieš pakeitimus: žr. [AGENTS.md](AGENTS.md) workflow seką ir **daugiakalbystės vartus** (§3); jei liečia EN šaltinį – `npm run generate:et-lv`
 - Prieš PR: naudokite .github/PULL_REQUEST_TEMPLATE.md
 - CI: lint, test, a11y per .github/workflows/ci.yml
 
@@ -216,7 +217,7 @@
 
 ### HTML Struktūra
 - ✅ Naudokite semantinius HTML5 elementus
-- ✅ Pridėkite `lang` atributą (`lang="lt"` lietuvių kalbai)
+- ✅ Kiekvienas locale puslapis – teisingas `lang` (`lt`, `en`, `et`, `lv` pagal katalogą; žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md))
 - ✅ Meta tags turi būti teisingi (charset, viewport, etc.)
 - ✅ Naudokite descriptive ID ir class vardus
 
@@ -261,7 +262,7 @@
 - ✅ Dokumentuokite, kaip nustatyti URL INTEGRACIJA.md faile
 - ✅ Testuokite integraciją su mock duomenimis
 
-### Kontaktų Forma
+### Kontaktų Forma (kai forma įjungta)
 - ✅ **PRIVALOMA** email validacija (HTML5 + JavaScript)
 - ✅ Rodykite loading state siunčiant formą
 - ✅ Rodykite success/error pranešimus vartotojui
@@ -332,6 +333,9 @@ Prieš commit, patikrinkite:
 - [ ] Ar accessibility reikalavimai įvykdyti?
 - [ ] Ar nėra console.log production kode?
 - [ ] Ar commit pranešimas aiškus ir aprašantis?
+- [ ] **Daugiakalbystė:** jei keičiau `en/index.html` ir/ar `en/privacy.html` – ar paleidau `npm run generate:et-lv`, peržiūrėjau ET/LV biblioteką ir, jei reikia, `et/privacy.html` / `lv/privacy.html`?
+- [ ] Jei keičiau EN bibliotekos JS (`js/library.js`) ar mikrotekstą, kurį turi atkartoti LT – ar atnaujinau `js/library.lt.js` (ir/ar `lt/index.html`) ir paleidau `npm run generate:et-lv`?
+- [ ] Ar po `npm run generate:et-lv` nėra necommitinto diff generuojamuose failuose (kaip CI)?
 
 ---
 
@@ -345,6 +349,7 @@ Jei kyla klausimų dėl šių taisyklių:
 
 ---
 
-**Paskutinis atnaujinimas:** 2026-02-18  
-**Projekto kalba:** Lietuvių kalba  
-**Projekto tipas:** Statinis HTML su JavaScript ir Google Apps Script integracija
+**Paskutinis atnaujinimas:** 2026-03-29  
+**Dokumentacija ir agentų instrukcijos:** lietuvių kalba  
+**Vartotojo UI:** lt / en / et / lv ([docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md))  
+**Projekto tipas:** statinė daugiakalbė HTML biblioteka (vanilla JS); Google Apps Script – pasirenkama integracija

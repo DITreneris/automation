@@ -29,7 +29,7 @@
 ## Daugiakalbystė (kai liečia EN)
 
 - [ ] Jei keičiau `en/index.html` ir/ar `en/privacy.html` (UI, struktūra ar privatumo tekstą): paleidau `npm run generate:et-lv`, peržiūrėjau ET/LV biblioteką ir, jei reikia, `et/privacy.html` / `lv/privacy.html`.
-- [ ] Jei keičiau EN bibliotekos inline JS (kopijavimas, toast, klaidos) ar mikrotekstą, kurį turi atkartoti LT: atnaujinau `lt/index.html` ir paleidau `npm run generate:et-lv`.
+- [ ] Jei keičiau EN bibliotekos JS (`js/library.js` – kopijavimas, toast, klaidos) ar mikrotekstą, kurį turi atkartoti LT: atnaujinau `js/library.lt.js` (ir/ar `lt/index.html`) ir paleidau `npm run generate:et-lv` (atnaujins `js/library.et.js`, `js/library.lv.js`).
 
 ## Susiję dokumentai
 

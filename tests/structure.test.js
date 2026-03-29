@@ -17,6 +17,10 @@ const ET_INDEX = path.join(__dirname, '..', 'et', 'index.html');
 const ET_PRIVACY = path.join(__dirname, '..', 'et', 'privacy.html');
 const LV_INDEX = path.join(__dirname, '..', 'lv', 'index.html');
 const LV_PRIVACY = path.join(__dirname, '..', 'lv', 'privacy.html');
+const JS_LIBRARY = path.join(__dirname, '..', 'js', 'library.js');
+const JS_LIBRARY_LT = path.join(__dirname, '..', 'js', 'library.lt.js');
+const JS_LIBRARY_ET = path.join(__dirname, '..', 'js', 'library.et.js');
+const JS_LIBRARY_LV = path.join(__dirname, '..', 'js', 'library.lv.js');
 
 function readFile(filePath) {
   try {
@@ -35,9 +39,11 @@ function assert(condition, message) {
   return true;
 }
 
-function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink) {
+function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, libraryScriptPath) {
   let passed = 0;
   let failed = 0;
+  const scriptSrc = libraryScriptPath ? readFile(libraryScriptPath) || '' : '';
+  const htmlPlusScript = html + scriptSrc;
   for (let i = 1; i <= 8; i++) {
     if (assert(html.includes(`id="prompt${i}"`), `${lang}: Prompt ${i} ID`)) passed++;
     else failed++;
@@ -65,9 +71,9 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink) {
   else failed++;
   if (assert(html.includes(privacyLink), `${lang}: Privacy link`)) passed++;
   else failed++;
-  if (assert(html.includes('copyPrompt') && html.includes('selectText'), `${lang}: Copy functions`)) passed++;
+  if (assert(htmlPlusScript.includes('copyPrompt') && htmlPlusScript.includes('selectText'), `${lang}: Copy functions`)) passed++;
   else failed++;
-  if (assert(html.includes('localStorage') && html.includes('di_prompt_done_'), `${lang}: localStorage`)) passed++;
+  if (assert(htmlPlusScript.includes('localStorage') && htmlPlusScript.includes('di_prompt_done_'), `${lang}: localStorage`)) passed++;
   else failed++;
   if (assert(html.includes('hiddenTextarea'), `${lang}: Fallback textarea`)) passed++;
   else failed++;
@@ -78,6 +84,10 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink) {
   if (assert(html.includes('lang-switcher-list'), `${lang}: lang-switcher-list`)) passed++;
   else failed++;
   if (assert(html.includes('aria-current="page"'), `${lang}: aria-current=page`)) passed++;
+  else failed++;
+  if (assert(html.includes('../css/library.css'), `${lang}: library.css`)) passed++;
+  else failed++;
+  if (assert(libraryScriptPath && scriptSrc.length > 0, `${lang}: library script file`)) passed++;
   else failed++;
   return { passed, failed };
 }
@@ -124,7 +134,7 @@ function run() {
     console.error('❌ lt/index.html nerastas');
     process.exit(1);
   }
-  const ltRes = checkLibraryPage(ltHtml, 'LT', 'Kopijuoti promptą', 'Pereiti prie turinio', 'privatumas.html');
+  const ltRes = checkLibraryPage(ltHtml, 'LT', 'Kopijuoti promptą', 'Pereiti prie turinio', 'privatumas.html', JS_LIBRARY_LT);
   passed += ltRes.passed;
   failed += ltRes.failed;
   if (assert(ltHtml.includes('lang="lt"'), 'LT: html lang="lt"')) passed++;
@@ -136,7 +146,7 @@ function run() {
     console.error('❌ en/index.html nerastas');
     process.exit(1);
   }
-  const enRes = checkLibraryPage(enHtml, 'EN', 'Copy prompt', 'Skip to content', 'privacy.html');
+  const enRes = checkLibraryPage(enHtml, 'EN', 'Copy prompt', 'Skip to content', 'privacy.html', JS_LIBRARY);
   passed += enRes.passed;
   failed += enRes.failed;
   if (assert(enHtml.includes('lang="en"'), 'EN: html lang="en"')) passed++;
@@ -148,7 +158,7 @@ function run() {
     console.error('❌ et/index.html nerastas');
     process.exit(1);
   }
-  const etRes = checkLibraryPage(etHtml, 'ET', 'Kopeeri prompt', 'Otse sisuni', 'privacy.html');
+  const etRes = checkLibraryPage(etHtml, 'ET', 'Kopeerige prompt', 'Otse sisuni', 'privacy.html', JS_LIBRARY_ET);
   passed += etRes.passed;
   failed += etRes.failed;
   if (assert(etHtml.includes('lang="et"'), 'ET: html lang="et"')) passed++;
@@ -160,7 +170,7 @@ function run() {
     console.error('❌ lv/index.html nerastas');
     process.exit(1);
   }
-  const lvRes = checkLibraryPage(lvHtml, 'LV', 'Kopēt promptu', 'Tieši uz saturu', 'privacy.html');
+  const lvRes = checkLibraryPage(lvHtml, 'LV', 'Kopēt promptu', 'Tieši uz saturu', 'privacy.html', JS_LIBRARY_LV);
   passed += lvRes.passed;
   failed += lvRes.failed;
   if (assert(lvHtml.includes('lang="lv"'), 'LV: html lang="lv"')) passed++;

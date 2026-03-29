@@ -3,6 +3,8 @@
 **Atsakingas:** Curriculum Agent  
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.
 
+**Pagrindinio produkto nuoroda (Prompt Anatomy / Promptų anatomija):** visur naudoti **`https://www.promptanatomy.app/en`** (ne `https://www.promptanatomy.app/` be kelio, ne senasis GitHub Pages `ditreneris.github.io/anatomija`). Tas pats badge, footer, community ir dokumentacijoje – žr. [AGENTS.md](../AGENTS.md) (golden rule).
+
 ---
 
 ## 1. Puslapių atitikmenys
@@ -50,12 +52,29 @@ ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy
 
 ---
 
+## 3b. Vartotojo užpildomi žymekliai (promptuose)
+
+Vienoda logika kaip LT: **tokenai atitinka kalbą**, EN lieka tarptautiniu šablonu `[COMPANY]` / `[MY ROLE]`.
+
+| Kalba | Įmonė / organizacija | Rolė / pareigos | 7-o prompto lentelė (stulpelių antraštės) |
+|--------|----------------------|-----------------|-------------------------------------------|
+| LT | `[ĮMONĖ]` | `[MANO ROLĖ]` | `[PROMPTAS]` \| `[KADA NAUDOJU]` \| `[KOKIĄ PROBLEMĄ SPRENDŽIA]` |
+| EN | `[COMPANY]` | `[MY ROLE]` | `[PROMPT]` \| `[WHEN I USE IT]` \| `[PROBLEM IT SOLVES]` |
+| ET | `[ETTEVÕTE]` | `[MINU ROLL]` | `[KÜSITIS]` \| `[MILLAL KASUTAN]` \| `[MILLISE PROBLEEMI LAHENDAB]` |
+| LV | `[UZŅĒMUMS]` | `[MANA LOMA]` | `[PROMPTTEKSTS]` \| `[KAD LIETOJU]` \| `[KĀDU PROBLĒMU RISINA]` |
+
+ET/LV tekstai: `scripts/prompt-bodies-et-lv.cjs`; po EN pakeitimų – `npm run generate:et-lv`.
+
+---
+
 ## 4. Turinio sinchronizacija
 
 Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `en/privacy.html`), reikia išlyginti:
 
 - **LT:** `lt/index.html`, `lt/privatumas.html`
 - **ET / LV:** regeneruoti iš EN naudojant `npm run generate:et-lv` (`node scripts/generate-et-lv-pages.cjs`; žr. `scripts/prompt-bodies-et-lv.cjs` promptų tekstams) ir rankiniu būdu patikrinti / atnaujinti `et/privacy.html`, `lv/privacy.html`, jei privatumo tekstas keičiasi ne per generatorių.
+
+**Bendri ištekliai (biblioteka):** [css/library.css](../css/library.css) – vienas stilių failas visoms kalboms; lokalizuotas code-block užrašas – trumpas inline `<style>:root { --codeblock-copy-hint: '…' }</style>` prieš `link` į `library.css`. **JavaScript:** kanonas – [js/library.js](../js/library.js) (EN); LT – [js/library.lt.js](../js/library.lt.js) (sinchronizuoti ranka su LT); ET/LV – [js/library.et.js](../js/library.et.js) ir [js/library.lv.js](../js/library.lv.js) generuojami tuo pačiu `generate:et-lv` (poros `ET_JS_PAIRS` / `LV_JS_PAIRS` faile generatoriaus). CI tikrina, kad po `generate:et-lv` nebūtų `git diff` šiuose failuose.
 
 - **PR:** [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) – checkbox „Daugiakalbystė (kai liečia EN)“.
 - **Pagrindinės vietos:** hero, instrukcijos, progress, mygtukai, JS pranešimai, code-block `::before`, footer, privatumas.
@@ -76,5 +95,5 @@ Naudoti santykinius kelius (pvz. `../et/`, `../lt/privatumas.html`) arba base pa
 
 ## 6. Testai ir CI
 
-- Struktūriniai testai: [tests/structure.test.js](../tests/structure.test.js) – `data-hreflang-suite`, `hreflang.js`, `lang-switcher-list`, privatumo `lang-link`, root `localStorage`.
-- GitHub Actions: `npm test` ir pa11y LT/EN/ET/LV bibliotekai bei visiems keturiems privatumo puslapiams – [.github/workflows/ci.yml](../.github/workflows/ci.yml).
+- Struktūriniai testai: [tests/structure.test.js](../tests/structure.test.js) – `data-hreflang-suite`, `hreflang.js`, `lang-switcher-list`, privatumo `lang-link`, root `localStorage`, `library.css` / locale `library*.js`.
+- GitHub Actions: [.github/workflows/ci.yml](../.github/workflows/ci.yml) – `npm install`, `npm run generate:et-lv` ir `git diff --exit-code` (`et/index.html`, `lv/index.html`, `js/library.et.js`, `js/library.lv.js`), `npm test`, pa11y (per [scripts/pa11y-pages.cjs](../scripts/pa11y-pages.cjs)); PR – [dependency-review-action](https://github.com/actions/dependency-review-action). Actions versijos prisegtos prie commit SHA. Dependabot: [.github/dependabot.yml](../.github/dependabot.yml) (npm + GitHub Actions).

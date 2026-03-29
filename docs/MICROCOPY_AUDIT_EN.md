@@ -31,7 +31,7 @@
 |---------|--------------|
 | H1 | Let AI do 30–50% of your daily tasks |
 | Subline | 8 exercises with ready-made templates – results in minutes. |
-| Meta (who it’s for) | Who it's for: Managers, specialists, consultants, freelancers. |
+| Meta (who it’s for) | Who it's for: Managers, specialists, consultants, freelancers. (LT: „Kam skirta: …“.) |
 | CTA primary | Start for free |
 | CTA secondary | Join the community |
 
@@ -39,7 +39,7 @@
 
 | Element | Current copy |
 |---------|--------------|
-| H2 | What you actually get |
+| H2 | What you get |
 | Intro | In 30 minutes you’ll have a basic AI workflow: |
 | Bullets | 3–5 hours saved per week; Up to 6× lower error risk; 8 standardized templates; Clear automation logic instead of chaotic prompts |
 
@@ -63,7 +63,7 @@
 
 | Element | Current copy |
 |---------|--------------|
-| Tooltip (hover/focus) | Click here and copy |
+| Tooltip (hover/focus) | Select and copy (`:root { --codeblock-copy-hint }`, žr. `en/index.html`) |
 
 ### 1.8 Prompt cards (repeated pattern)
 
@@ -91,9 +91,9 @@
 | Subline | Shared discussions, tips and news about prompts and AI. |
 | Primary CTA | Join WhatsApp group |
 | Secondary CTA | Prompt Anatomy → |
-| Footer H3 | Good luck with your analysis |
+| Footer H3 | Good luck with your prompts |
 | Footer reminder | If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. |
-| Product link | This is **Spin-off No. 1** from “Prompt Anatomy”. Full interactive course and more: Prompt Anatomy → |
+| Product link | This is **Spin-off No. 1** from “Prompt Anatomy”. Full interactive course and more: canonical link [promptanatomy.app/en](https://www.promptanatomy.app/en) |
 | Tags | AI-optimized, 8 prompts, Quick start, Results |
 | Copyright | © 2026 Tomas Staniulis. Training material. All rights reserved. Privacy |
 
@@ -101,13 +101,10 @@
 
 | Context | Current copy |
 |---------|--------------|
-| Toast (success) | Copied. |
-| Button after copy | Copied! |
-| Error: missing params | Error: missing parameters |
-| Error: no element | Prompt not found |
-| Error: empty | Prompt is empty |
-| Error: copy failed | Copy failed |
-| Error: fallback | Failed. Select the text manually and copy. |
+| Toast (success) | Copied (no period; aligned with button) |
+| Button after copy | Copied |
+| Generic error | Something went wrong. Try copying again. |
+| Clipboard / manual path | Copy didn't work. Select the text and use Ctrl+C (or Cmd+C). |
 | Fallback button label | Select text |
 
 ### 1.12 Privacy page
@@ -119,13 +116,13 @@
 | Intro | **Prompt Anatomy** – minimal app. A brief note about your data. |
 | H2 | Do we collect your data? / What happens on your device? / If we add a form later |
 | Body | (see privacy.html) |
-| Bottom link | ← Back to DI Prompt Library |
+| Bottom link | ← Back to library |
 
 ### 1.13 Root redirect
 
 | Element | Current copy |
 |---------|--------------|
-| Visible text | Redirecting… Lietuvių \| English |
+| Visible text | Redirecting… Lietuvių \| English \| Eesti \| Latviešu |
 
 ---
 
@@ -222,7 +219,7 @@
 2. **Audience:** “Managers, specialists, consultants, freelancers” kept in hero as “Who it’s for:”.
 3. **Error handling:** No technical errors in UI; user-facing messages only; manual copy hint when clipboard fails. *Applied in JS.*
 4. **Tone:** (Privacy “We do not collect” vs “We don’t collect”) – left for later; backlog optional.
-5. **Localization:** EN string sync note added to MULTILINGUAL_STRUCTURE.md §4 so LT stays aligned when EN changes.
+5. **Localization:** EN string sync note added to MULTILINGUAL_STRUCTURE.md (turinio sinchronizacija) so LT stays aligned when EN changes.
 
 ---
 
@@ -244,53 +241,20 @@
 - **Product naming:** “Prompt Anatomy” as primary brand:
   - `en/privacy.html`: title “Privacy policy – Prompt Anatomy”; bottom link “← Back to library”.
   - Root `index.html`: title “Redirect – Prompt Anatomy”.
-- **LT sync:** EN string sync note added to [docs/MULTILINGUAL_STRUCTURE.md](MULTILINGUAL_STRUCTURE.md) §4.
+- **LT sync:** EN string sync note added to [docs/MULTILINGUAL_STRUCTURE.md](MULTILINGUAL_STRUCTURE.md) (turinio sinchronizacija).
 
 ---
 
-## 7. Backlog – medium/low (exact diffs)
+## 7. Medium / low priority – implemented
 
-Apply when ready; keep LT in sync per MULTILINGUAL_STRUCTURE.md §4.
+Šie punktai įgyvendinti bibliotekoje (EN šaltinis, LT rankiniu, ET/LV per `npm run generate:et-lv` kur taikoma); detalės – [CHANGELOG.md](../CHANGELOG.md) sekcija `[Unreleased]` / „Pakeista“.
 
-### Medium
+| Ref | Change |
+|-----|--------|
+| 7.1 | Code-block hint: „Select and copy“ (CSS kintamasis ir lokalizuoti atitikmenys). |
+| 7.2 | Toast ir mygtukas: „Copied“ be šauktuko / taško. |
+| 7.3 | Antraštė „What you get“ (ir lokalizuoti atitikmenys). |
+| 7.4 | Footer „Good luck with your prompts“ (ir lokalizuoti atitikmenys). |
+| 7.6 | Privatumas: viršus ir apačia – „← Back to library“. |
 
-**7.1 Code-block tooltip (CSS)** – `en/index.html`, in `.code-block::before`:
-
-```css
-/* Current */
-content: 'Click here and copy';
-
-/* Suggested */
-content: 'Select and copy';
-```
-
-**7.2 Toast vs button – unify “Copied”** – `en/index.html`:
-
-- Toast (HTML): `<span>Copied.</span>` → `<span>Copied</span>` (no period), or keep and change button to “Copied.” for consistency.
-- Button (JS) `showSuccess`: `'<span>Copied!</span>'` → `'<span>Copied</span>'` to match toast, or keep “Copied!” and set toast to “Copied!”.
-
-**7.3 Objectives H2** – `en/index.html`:
-
-```html
-<!-- Current -->
-<h2 ...>What you actually get</h2>
-
-<!-- Suggested -->
-<h2 ...>What you get</h2>
-```
-
-### Low
-
-**7.4 Footer H3** – `en/index.html`:
-
-```html
-<!-- Current -->
-<h3>Good luck with your analysis ...</h3>
-
-<!-- Suggested -->
-<h3>Good luck with your prompts ...</h3>
-```
-
-**7.5 Progress bar `aria-label`** – `en/index.html`: optional. Update the progress bar element so `aria-label` is dynamic, e.g. “Progress: X of 8 prompts used” (would require JS to set it when count changes).
-
-**7.6 Privacy – back link** – Already aligned: both top and bottom use “← Back to library” after high-priority pass.
+**7.5 (optional, dar neprivaloma):** progress bar `aria-label` vis dar statinis „Progress“; galima vėliau dinamiškai atnaujinti JS (pvz. „Progress: X of 8 prompts used“).

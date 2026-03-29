@@ -48,9 +48,9 @@
 | Komanda | Paskirtis |
 |---------|-----------|
 | `npm test` | Struktūros testai + HTML/JS lint |
-| `npm run lint:html` | HTML validacija (index.html) |
+| `npm run lint:html` | HTML validacija: **9 statiniai HTML** per `html-validate` ([scripts/lint-html.mjs](../scripts/lint-html.mjs)) |
 | `npm run lint:js` | ESLint |
-| A11y lokaliai | `npx serve -s . -l 3000` + `npx pa11y http://localhost:3000/ --standard WCAG2AA` |
+| A11y lokaliai | `npx serve -s . -l 3000`, `npx wait-on http://127.0.0.1:3000/`, tada `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs` (keli URL, įskaitant root `/`; sąrašas – [scripts/pa11y-pages.cjs](../scripts/pa11y-pages.cjs)). Žr. [AGENTS.md](../AGENTS.md) §6. |
 
 ---
 
@@ -61,4 +61,4 @@
 - [docs/TESTAVIMAS.md](TESTAVIMAS.md) – gyvo testavimo scenarijai ir žurnalas  
 - [DEPLOYMENT.md](../DEPLOYMENT.md) – deploy ir testavimas po deploy  
 
-**Paskutinis atnaujinimas:** 2026-02-18
+**Paskutinis atnaujinimas:** 2026-03-29

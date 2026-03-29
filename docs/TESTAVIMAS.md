@@ -15,6 +15,8 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 | Naršyklė(ės) | Chrome, Firefox, Safari, Edge |
 | Mobilus | iOS Safari / Chrome Mobile (pasirinktinai) |
 
+**Automatiniai testai lokaliai / CI:** `npm test` – struktūriniai testai ([tests/structure.test.js](../tests/structure.test.js)), HTML lint (`node scripts/lint-html.mjs`, preset `html-validate:document`, be išorinio W3C API), ESLint. Prieš PR: `npm test`.
+
 ---
 
 ## 2. Scenarijai (checklist)

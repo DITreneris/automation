@@ -7,14 +7,14 @@
     "test": "node tests/structure.test.js && npm run lint:html && npm run lint:js",
     "test:structure": "node tests/structure.test.js",
     "generate:et-lv": "node scripts/generate-et-lv-pages.cjs",
-    "lint:html": "npx html-validator-cli --file index.html && npx html-validator-cli --file lt/index.html && npx html-validator-cli --file lt/privatumas.html && npx html-validator-cli --file en/index.html && npx html-validator-cli --file en/privacy.html && npx html-validator-cli --file et/index.html && npx html-validator-cli --file et/privacy.html && npx html-validator-cli --file lv/index.html && npx html-validator-cli --file lv/privacy.html",
+    "lint:html": "node scripts/lint-html.mjs",
     "lint:js": "eslint . --ext .js"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "html-validator-cli": "^7.0.0",
+    "html-validate": "^10.11.2",
     "pa11y": "^6.2.3",
     "serve": "^14.2.1",
     "wait-on": "^8.0.1"
-    }
+  }
 }

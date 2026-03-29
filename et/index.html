@@ -11,1512 +11,11 @@
     <link rel="alternate" hreflang="lv" href="#" id="hreflang-lv">
     <link rel="alternate" hreflang="x-default" href="#" id="hreflang-default">
     <script src="../js/hreflang.js"></script>
-    <style>html { scroll-behavior: smooth; }</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Promptų anatomija spin-off – spalvų gama */
-            --bg: #F7F8FA;
-            --white: #FFFFFF;
-            --text: #1A202C;
-            --text-light: #4A5568;
-            --border: #CBD5E0;
-
-            /* Pagrindinis akcentas (muted amber/mustard – ramesnė edukacinei platformai) */
-            --accent-gold: #D9A441;
-            --accent-gold-dark: #C7922E;
-
-            /* Antrinis akcentas (tamsiai mėlyna/pilka) – CTA, hero */
-            --accent-dark: #3C485A;
-            --accent-dark-hover: #2D3848;
-
-            /* Hero gradientas: kairė tamsiai pilkai melsva → dešinė šalta pilka (švaresnis tech) */
-            --hero-gradient-start: #3C485A;
-            --hero-gradient-mid: #4A5568;
-            --hero-gradient-end: #5C6370;
-            --cta-bg: #445260;
-            --cta-text: #FFFFFF;
-            --cta-hover: var(--accent-dark-hover);
-
-            /* Tertiarinė (bibliotekos identitetas) – teal */
-            --tertiary: #0D9488;
-            --tertiary-light: #CCFBF1;
-
-            /* Semantiniai – suderinti su palete (muted gold) */
-            --blue: #3C485A;
-            --blue-light: #E8ECF0;
-            --orange: #C7922E;
-            --orange-light: #FBF6EB;
-            --green: #38A169;
-            --purple: #6B5B95;
-
-            /* Community CTA – vienas brand green, be glow */
-            --community-cta-green: #0E7A33;
-            --community-cta-green-hover: #0B6B2D;
-        }
-
-        /* Skip link – prieinamumas (matomas tik su focus) */
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: 0;
-            z-index: 9999;
-            padding: 14px 24px;
-            background: var(--cta-bg);
-            color: var(--cta-text);
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 0 0 10px 0;
-            transition: left 0.2s ease;
-        }
-
-        .skip-link:focus {
-            left: 0;
-            outline: 3px solid var(--text);
-            outline-offset: 2px;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 60px 28px;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            position: relative;
-            background: linear-gradient(to right, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
-            color: white;
-            padding: 56px 48px;
-            border-radius: 20px;
-            margin-bottom: 48px;
-            box-shadow: 0 20px 40px rgba(60, 72, 90, 0.25);
-            overflow: hidden;
-        }
-
-        /* Tamsesnis overlay 10% – tekstas aiškesnis, spalva nusėda, premium pojūtis */
-        .header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.1);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .header .header-badges,
-        .header h1,
-        .header p,
-        .header .header-meta,
-        .header .header-cta {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Safari palaikymas */
-            padding: 9px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .badge-spinoff {
-            border: 1px solid rgba(217, 164, 65, 0.5);
-        }
-
-        .header-badges a.badge {
-            position: relative;
-            z-index: 2;
-            display: inline-flex;
-            align-items: center;
-            min-height: 44px;
-            min-width: 44px;
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .header-badges a.badge:hover,
-        .header-badges a.badge:focus-visible {
-            background: rgba(255, 255, 255, 0.4);
-            outline: 2px solid white;
-            outline-offset: 2px;
-        }
-
-        .lang-switcher {
-            font-size: 15px;
-            font-weight: 600;
-        }
-        .lang-switcher-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 8px;
-        }
-        .lang-current { opacity: 0.95; }
-        .lang-link {
-            color: inherit;
-            text-decoration: none;
-            padding: 10px 14px;
-            min-height: 44px;
-            min-width: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-        .lang-link:hover, .lang-link:focus-visible {
-            background: rgba(255, 255, 255, 0.25);
-            outline: 2px solid white;
-            outline-offset: 2px;
-        }
-
-        .header h1 {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
-        }
-
-        .header p {
-            font-size: 20px;
-            line-height: 1.5;
-            opacity: 0.95;
-            font-weight: 500;
-        }
-
-        .header-meta {
-            font-size: 15px;
-            font-weight: 600;
-            opacity: 0.85;
-            margin-top: 8px;
-        }
-
-        .header-cta {
-            margin-top: 28px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--cta-bg);
-            color: var(--cta-text);
-            padding: 16px 32px;
-            min-height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
-            border: none;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(60, 72, 90, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
-            outline: none;
-        }
-
-        .cta-button:hover {
-            background: var(--cta-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(60, 72, 90, 0.55), 0 0 20px rgba(255, 255, 255, 0.12);
-        }
-
-        .cta-button:focus-visible {
-            outline: 3px solid var(--white);
-            outline-offset: 3px;
-        }
-
-        .cta-button-outline {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: transparent;
-            color: var(--white);
-            padding: 16px 32px;
-            min-height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            outline: none;
-        }
-
-        .cta-button-outline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--white);
-            color: var(--white);
-        }
-
-        .cta-button-outline:focus-visible {
-            outline: 3px solid var(--white);
-            outline-offset: 3px;
-        }
-
-        .cta-secondary {
-            font-size: 15px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .cta-secondary:hover {
-            color: var(--white);
-        }
-
-        /* ===== MODAL / KONTAKTŲ FORMA (rezervuota būsimai – žr. INTEGRACIJA.md) ===== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .modal-overlay.show .modal {
-            transform: scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--bg);
-            border: none;
-            min-width: 44px;
-            min-height: 44px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: var(--text-light);
-            transition: all 0.2s;
-        }
-
-        .modal-close:hover {
-            background: var(--border);
-            color: var(--text);
-        }
-
-        .modal-close:focus-visible {
-            outline: 3px solid var(--accent-dark);
-            outline-offset: 2px;
-        }
-
-        .modal-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .modal-desc {
-            font-size: 16px;
-            color: var(--text-light);
-            margin-bottom: 28px;
-            line-height: 1.6;
-        }
-
-        .modal-privacy {
-            font-size: 14px;
-        }
-
-        .modal-privacy a {
-            color: var(--accent-dark);
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 14px 18px;
-            min-height: 44px;
-            border: 3px solid var(--border);
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-            outline: none;
-        }
-
-        .form-input:focus {
-            border-color: var(--accent-dark);
-            box-shadow: 0 0 0 4px rgba(60, 72, 90, 0.12);
-        }
-
-        .form-input:focus-visible {
-            outline: none;
-            border-color: var(--accent-dark);
-            box-shadow: 0 0 0 4px rgba(60, 72, 90, 0.2);
-        }
-
-        .form-input.error {
-            border-color: #E53E3E;
-        }
-
-        .form-error {
-            color: #E53E3E;
-            font-size: 14px;
-            margin-top: 6px;
-            display: none;
-        }
-
-        .form-error.show {
-            display: block;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 16px;
-            min-height: 44px;
-            background: var(--accent-dark);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-submit:hover:not(:disabled) {
-            background: var(--accent-dark-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(60, 72, 90, 0.4);
-        }
-
-        .form-submit:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        .form-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .form-submit.loading {
-            position: relative;
-            color: transparent;
-        }
-
-        .form-submit.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-            border: 3px solid white;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .form-success.show {
-            display: block;
-        }
-
-        .form-success-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--green);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin: 0 auto 20px;
-        }
-
-        .form-success h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .form-success p {
-            font-size: 16px;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* ===== INSTRUCTIONS BOX ===== */
-        .instructions {
-            background: var(--orange-light);
-            border: 3px solid var(--accent-gold);
-            border-radius: 16px;
-            padding: 36px 40px;
-            margin-bottom: 48px;
-        }
-
-        .instructions-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--accent-dark);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .instructions ol {
-            margin-left: 28px;
-            list-style: none;
-            counter-reset: item;
-        }
-
-        .instructions li {
-            font-size: 18px;
-            margin-bottom: 16px;
-            line-height: 1.7;
-            color: var(--text);
-            position: relative;
-            padding-left: 12px;
-            counter-increment: item;
-        }
-
-        .instructions li::before {
-            content: counter(item) ".";
-            position: absolute;
-            left: -28px;
-            font-weight: 800;
-            color: var(--accent-gold-dark);
-            font-size: 20px;
-        }
-
-        .instructions code {
-            background: white;
-            border: 2px solid var(--accent-gold);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-dark);
-        }
-
-        /* ===== LEARNING OBJECTIVES (M1) ===== */
-        .objectives {
-            background: var(--white);
-            border: 3px solid var(--accent-dark);
-            border-radius: 16px;
-            padding: 28px 36px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .objectives h2 {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--accent-dark);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .objectives h2 .lucide,
-        .objectives h2 i[data-lucide] {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
-        .objectives-intro {
-            font-size: 17px;
-            line-height: 1.5;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-
-        .objectives ul {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .objectives li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 17px;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        .objectives li .lucide,
-        .objectives li i[data-lucide] {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            color: var(--green);
-            margin-top: 2px;
-        }
-
-        .prompt-time {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-light);
-            background: var(--bg);
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-left: 8px;
-        }
-
-        /* ===== PROMPT CARD ===== */
-        .prompt {
-            background: var(--white);
-            border: 3px solid var(--border);
-            border-radius: 20px;
-            margin-bottom: 36px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .prompt:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .prompt-header {
-            background: linear-gradient(to right, var(--blue-light), var(--orange-light));
-            border-bottom: 3px solid var(--accent-dark);
-            padding: 36px 40px;
-        }
-
-        .prompt-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .number {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-gold);
-            color: var(--text);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 800;
-            box-shadow: 0 4px 12px rgba(217, 164, 65, 0.35);
-        }
-
-        .category {
-            padding: 8px 16px;
-            background: var(--tertiary-light);
-            color: #0a5c54;
-            border: 2px solid var(--tertiary);
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .prompt-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .prompt-desc {
-            font-size: 19px;
-            color: var(--text-light);
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        /* ===== PROMPT BODY ===== */
-        .prompt-body {
-            padding: 40px;
-        }
-
-        .code-block {
-            background: #F7F8FA;
-            border: 3px solid var(--accent-dark);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-            outline: none;
-            min-height: 44px;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .code-block:focus {
-            outline: 3px solid var(--accent-dark);
-            outline-offset: 2px;
-        }
-
-        .code-block:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        .code-block::before {
-            content: 'Vali ja kopeeri';
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            transform: translateY(-100%);
-            background: var(--accent-dark);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            opacity: 0;
-            transition: opacity 0.2s;
-            z-index: 1;
-        }
-
-        .code-block:hover::before,
-        .code-block:focus-visible::before {
-            opacity: 1;
-        }
-
-        .code-block:hover {
-            background: var(--orange-light);
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 4px rgba(217, 164, 65, 0.15);
-        }
-
-        .code-block.selected {
-            background: var(--orange-light);
-            border-color: var(--green);
-            box-shadow: 0 0 0 4px rgba(56, 161, 105, 0.2);
-        }
-
-        .code-text {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            line-height: 2;
-            color: var(--text);
-            white-space: pre-wrap;
-            font-weight: 500;
-        }
-
-        /* Prieš naudojant – instrukcijos (nekopijuojamos) */
-        .before-use {
-            margin-top: 20px;
-            margin-bottom: 24px;
-            padding: 20px 24px;
-            background: #F0F4F8;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-        }
-
-        .before-use-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text);
-            margin: 0 0 12px 0;
-        }
-
-        .before-use p {
-            font-size: 15px;
-            line-height: 1.5;
-            color: var(--text);
-            margin: 0 0 10px 0;
-        }
-
-        .before-use p:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .before-use ul {
-            margin: 4px 0 12px 0;
-            padding-left: 20px;
-        }
-
-        .before-use li {
-            font-size: 15px;
-            line-height: 1.5;
-            color: var(--text);
-        }
-
-        /* Info box – tertiarinė (teal) */
-        .info-box {
-            background: var(--tertiary-light);
-            border: 2px solid var(--tertiary);
-            border-radius: 12px;
-            padding: 24px 28px;
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .info-icon {
-            font-size: 28px;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .info-icon .lucide,
-        .info-icon svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        .info-content strong {
-            display: block;
-            font-size: 18px;
-            font-weight: 800;
-            color: #0a5c54;
-            margin-bottom: 6px;
-        }
-
-        .info-content p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text);
-        }
-
-        /* ===== BUTTON ===== */
-        .prompt-footer {
-            padding: 28px 40px;
-            background: #F7FAFC;
-            border-top: 3px solid var(--border);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--accent-dark);
-            color: white;
-            padding: 18px 36px;
-            min-height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
-            border: none;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-            box-shadow: 0 4px 12px rgba(60, 72, 90, 0.35);
-            outline: none;
-        }
-
-        .btn:focus {
-            outline: 3px solid var(--accent-dark);
-            outline-offset: 2px;
-        }
-
-        .btn:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        .btn .lucide,
-        .btn svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-        }
-
-        .btn:hover {
-            background: var(--accent-dark-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(60, 72, 90, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn.success {
-            background: var(--green);
-            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
-        }
-
-        .btn.success:hover {
-            background: #2F855A;
-        }
-
-        .prompt-done-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 16px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text);
-            min-height: 44px;
-            padding: 8px 0;
-        }
-
-        .prompt-done-wrap input {
-            width: 22px;
-            height: 22px;
-            min-width: 22px;
-            min-height: 22px;
-            accent-color: var(--green);
-        }
-
-        /* ===== PROGRESS INDICATOR (S1) ===== */
-        .progress-wrap {
-            background: var(--orange-light);
-            border: 2px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 14px 20px;
-            margin-bottom: 24px;
-            min-height: 44px;
-        }
-
-        .progress-wrap p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-dark);
-        }
-
-        .progress-bar {
-            height: 8px;
-            background: var(--border);
-            border-radius: 4px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: var(--accent-gold);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-
-        /* ===== KAS TOLIAU (S2) ===== */
-        .next-steps {
-            background: var(--white);
-            border: 3px solid var(--tertiary);
-            border-radius: 16px;
-            padding: 28px 36px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .next-steps h2 {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--tertiary);
-            margin-bottom: 16px;
-        }
-
-        .next-steps p {
-            font-size: 16px;
-            color: var(--text);
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .next-steps-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .next-steps-links a {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 18px;
-            min-height: 44px;
-            line-height: 24px;
-            background: #008579;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .next-steps-links a:hover {
-            background: #0f766e;
-        }
-
-        .next-steps-links a:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        /* ===== TOAST ===== */
-        .toast {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            background: white;
-            border: 3px solid var(--green);
-            color: var(--text);
-            padding: 20px 32px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            opacity: 0;
-            transform: translateY(20px) scale(0.9);
-            transition: all 0.3s;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .toast-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--green);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .toast-icon .lucide,
-        .toast-icon svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* ===== BENDRUOMENĖ (puslapio pabaiga) ===== */
-        .community {
-            margin-top: 48px;
-            padding: 32px 40px;
-            background: linear-gradient(to right, var(--blue-light), var(--orange-light));
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .community h2 {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .community p {
-            font-size: 17px;
-            color: var(--text-light);
-            margin-bottom: 24px;
-            line-height: 1.5;
-        }
-
-        /* Pagrindinis CTA – vienas brand green, be glow, subtilus shadow */
-        .community-cta-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--community-cta-green);
-            color: var(--white);
-            padding: 16px 32px;
-            min-height: 48px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .community-cta-primary:hover {
-            background: var(--community-cta-green-hover);
-            transform: scale(1.02);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .community-cta-primary:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        /* Antrinis CTA – outline, ne konkuruoja su pagrindiniu */
-        .community-cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            margin-top: 16px;
-            padding: 12px 20px;
-            border: 2px solid var(--accent-dark);
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--accent-dark);
-            background: transparent;
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
-        }
-
-        .community-cta-secondary:hover {
-            background: var(--blue-light);
-            color: var(--text);
-            border-color: var(--text);
-        }
-
-        .community-cta-secondary:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            margin-top: 48px;
-            padding: 48px;
-            background: white;
-            border: 3px solid var(--border);
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .footer h3 {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .footer p {
-            font-size: 18px;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 28px;
-        }
-
-        .footer-product-link {
-            margin-bottom: 24px;
-        }
-        .footer-product-link a {
-            color: #008579;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .footer-product-link a:hover,
-        .footer-product-link a:focus-visible {
-            text-decoration: underline;
-            outline: 2px solid #008579;
-            outline-offset: 2px;
-        }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            padding: 10px 20px;
-            background: var(--bg);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-light);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .tag .lucide,
-        .tag svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-        }
-
-        .copyright {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 2px solid var(--border);
-        }
-
-        .copyright p {
-            font-size: 14px;
-            color: var(--text-light);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .copyright a {
-            color: var(--accent-dark);
-            font-weight: 600;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .copyright a:hover {
-            color: var(--text);
-        }
-
-        .copyright a:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 2px;
-        }
-
-        /* ===== UTILITIES ===== */
-        .hidden {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 50px 24px;
-            }
-
-            .header h1 {
-                font-size: 44px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-
-            .container {
-                padding: 40px 20px;
-            }
-
-            .header {
-                padding: 40px 28px;
-                border-radius: 16px;
-            }
-
-            .header h1 {
-                font-size: 36px;
-            }
-
-            .header p {
-                font-size: 18px;
-            }
-
-            .cta-button {
-                min-height: 48px;
-                padding: 14px 28px;
-                font-size: 16px;
-            }
-
-            .instructions {
-                padding: 28px 24px;
-            }
-
-            .prompt-header,
-            .prompt-body,
-            .prompt-footer {
-                padding: 28px 24px;
-            }
-
-            .prompt-title {
-                font-size: 26px;
-            }
-
-            .code-text {
-                font-size: 14px;
-            }
-
-            .toast {
-                left: 20px;
-                right: 20px;
-                bottom: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 32px 20px;
-            }
-
-            .header-cta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header h1 {
-                font-size: 28px;
-            }
-
-            .cta-button,
-            .cta-button-outline {
-                min-height: 48px;
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .community {
-                padding: 28px 20px;
-            }
-
-            .community h2 {
-                font-size: 20px;
-            }
-
-            .prompt-title {
-                font-size: 22px;
-            }
-
-            .code-block {
-                padding: 20px;
-            }
-
-            .btn {
-                padding: 14px 28px;
-                font-size: 16px;
-                min-height: 44px;
-            }
-
-            .modal-overlay {
-                padding: 12px;
-                align-items: flex-end;
-            }
-
-            .modal {
-                max-height: 90vh;
-                border-radius: 20px 20px 0 0;
-                padding: 24px 20px 32px;
-            }
-
-            .modal-close {
-                top: 12px;
-                right: 12px;
-            }
-
-            .toast {
-                font-size: 16px;
-                padding: 16px 20px;
-                left: 12px;
-                right: 12px;
-                bottom: 16px;
-            }
-        }
-
-        /* Mobile UI First: mažiausias viewport (320–375px) */
-        @media (max-width: 375px) {
-            .container {
-                padding: 24px 16px;
-            }
-
-            .header {
-                padding: 24px 16px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .next-steps-links {
-                gap: 10px;
-            }
-
-            .next-steps-links a {
-                padding: 12px 14px;
-                min-height: 44px;
-                font-size: 14px;
-            }
-
-            .instructions {
-                padding: 20px 16px;
-            }
-
-            .prompt-header,
-            .prompt-body,
-            .prompt-footer {
-                padding: 20px 16px;
-            }
-
-            .code-text {
-                font-size: 13px;
-                word-break: break-word;
-            }
-
-            .objectives {
-                padding: 20px 16px;
-            }
-
-            .objectives h2 {
-                font-size: 18px;
-            }
-
-            .objectives li {
-                font-size: 15px;
-            }
-
-            .progress-wrap {
-                padding: 12px 16px;
-            }
-
-            .next-steps {
-                padding: 20px 16px;
-            }
-
-            .next-steps h2 {
-                font-size: 18px;
-            }
-
-            .next-steps-links a {
-                padding: 12px 14px;
-                font-size: 14px;
-            }
-        }
-
-        /* ===== PRINT ===== */
-        @media print {
-            body {
-                background: white;
-            }
-
-            .prompt-footer,
-            .toast {
-                display: none;
-            }
-
-            .prompt {
-                page-break-inside: avoid;
-                border: 2px solid #000;
-            }
-        }
-
-        /* ===== ACCESSIBILITY ===== */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <style>:root { --codeblock-copy-hint: 'Valige ja kopeerige'; }</style>
+    <link rel="stylesheet" href="../css/library.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Otse sisuni</a>
@@ -1526,7 +25,7 @@
         <!-- HERO -->
         <header class="header">
             <div class="header-badges">
-                <a href="https://www.promptanatomy.app/" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Täielik Prompt Anatomy – interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy</a>
+                <a href="https://www.promptanatomy.app/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Täielik Prompt Anatomy – interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy</a>
                 <span class="badge badge-spinoff" role="status" aria-label="Prompt Anatomy spin-off projekt">Spin-off nr 1</span>
                 <nav class="lang-switcher" aria-label="Keel">
                     <ul class="lang-switcher-list">
@@ -1541,8 +40,8 @@
             <p>8 harjutust valmis mallidega – tulemused minutitega.</p>
             <p class="header-meta" role="status" aria-label="Kellele">Kellele: juhtidele, spetsialistidele, konsultantidele, vabakutselistele.</p>
             <div class="header-cta">
-                <a href="#block1" class="cta-button" aria-label="Alusta tasuta – mine esimese prompti juurde">Alusta tasuta</a>
-                <a href="#community" class="cta-button-outline" aria-label="Liitu kogukonnaga – WhatsApp grupp">Liitu kogukonnaga</a>
+                <a href="#block1" class="cta-button" aria-label="Alustage tasuta – minge esimese prompti juurde">Alustage tasuta</a>
+                <a href="#community" class="cta-button-outline" aria-label="Liituge kogukonnaga – WhatsApp grupp">Liituge kogukonnaga</a>
             </div>
         </header>
 
@@ -1566,10 +65,10 @@
                 <span class="prompt-time" role="status" aria-label="Orienteeruv aeg: 3–5 min sammu kohta">~3–5 min sammu kohta</span>
             </h2>
             <ol>
-                <li>Vali prompt ja klõpsa sellel – tekst märgistatakse</li>
-                <li>Klõpsa <strong>„Kopeeri prompt“</strong> või kasuta <code>Ctrl+C</code> / <code>Cmd+C</code></li>
-                <li>Kleebi ChatGPT-sse, Claudesse või teise tehisintellekti tööriista</li>
-                <li>Kui promptis on <code>[COMPANY]</code> – asenda oma või kliendi ettevõttega; kui <code>[MY ROLE]</code> – asenda oma rolliga. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea.</li>
+                <li>Valige prompt ja klõpsake sellel – tekst märgistatakse</li>
+                <li>Klõpsake <strong>„Kopeerige prompt“</strong> või kasutage <code>Ctrl+C</code> / <code>Cmd+C</code></li>
+                <li>Kleepige ChatGPT-sse, Claudesse või teise tehisintellekti tööriista</li>
+                <li>Kui promptis on <code>[ETTEVÕTE]</code> – asendage oma või kliendi ettevõtte nimega; kui <code>[MINU ROLL]</code> – asendage oma ametinimetusega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea.</li>
             </ol>
         </section>
 
@@ -1590,50 +89,50 @@
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Tehisintellekti konteksti kontroll</h2>
-                <p class="prompt-desc">Kontrolli, mida ChatGPT teie organisatsiooni kohta teab ja kus võib eksida</p>
+                <p class="prompt-desc">Kontrollige, mida ChatGPT teie organisatsiooni kohta teab ja kus võib eksida</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block" 
                      id="block1" 
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 1"
+                     aria-label="Valige ja kopeerige prompt 1"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: Sa oled kriitiline ärianalüütik. Eesmärk: välja selgitada, mida tehisintellekt tegelikult organisatsiooni kohta teab ja kus vajab täpsustusi.
 
-INPUT: Ettevõte [COMPANY]. Ainult avaliku teabe ja üldiste turuteadmiste põhjal kirjelda, kuidas SINA seda ettevõtet mõistad. Struktuur: 1) Mida tead kindlalt 2) Milliseid eeldusi teed 3) Kus informatsioon puudub ja võid eksida. Lõpus märgi selgelt: "Need punktid vajavad kasutajalt täpsustamist."
+INPUT: Ettevõte [ETTEVÕTE]. Ainult avaliku teabe ja üldiste turuteadmiste põhjal kirjelda, kuidas SINA seda ettevõtet mõistad. Struktuur: 1) Mida tead kindlalt 2) Milliseid eeldusi teed 3) Kus informatsioon puudub ja võid eksida. Lõpus märgi selgelt: "Need punktid vajavad kasutajalt täpsustamist."
 
-OUTPUT: Tulemus: lühike struktureeritud vastus – näed selgelt, kus tehisintellekt võib eksida ja mida enne jätkamist täpsustada.</pre>
+OUTPUT: Tulemus: lühike struktureeritud vastus – näete selgelt, kus tehisintellekt võib eksida ja mida enne jätkamist täpsustada.</pre>
                 </div>
                 <section class="before-use" id="before-use-1" aria-labelledby="before-use-title-1">
                     <h3 class="before-use-title" id="before-use-title-1">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> alustad organisatsiooni analüüsi; tahad kontrollida, mida tehisintellekt ettevõtte kohta teab; valmistud kasutama tehisintellekti kontekstiga.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> alustate organisatsiooni analüüsi; soovite kontrollida, mida tehisintellekt ettevõtte kohta teab; valmistute tehisintellekti kontekstis kasutamiseks.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> See ei ole küsimustik. Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> See ei ole küsimustik. Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
                     <div class="info-content">
                         <strong>Miks see loeb</strong>
-                        <p>Vähendab tehisintellekti „hallutsinatsioone“ ja valesid otsuseid – näed selgelt, mida tehisintellekt teie konteksti kohta tegelikult teab.</p>
+                        <p>Vähendab tehisintellekti „hallutsinatsioone“ ja valesid otsuseid – näete selgelt, mida tehisintellekt teie konteksti kohta tegelikult teab.</p>
                     </div>
                 </div>
             </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt1')"
-                        aria-label="Kopeeri prompt 1 lõikelauale"
+                        aria-label="Kopeerige prompt 1 lõikelauale"
                         data-prompt-id="prompt1">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="1" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="1" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1647,30 +146,30 @@ OUTPUT: Tulemus: lühike struktureeritud vastus – näed selgelt, kus tehisinte
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Organisatsiooni portree</h2>
-                <p class="prompt-desc">Ehita selge profiil ja kontekst oma organisatsioonist</p>
+                <p class="prompt-desc">Ehitage selge profiil ja kontekst teie organisatsioonist</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block2"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 2"
+                     aria-label="Valige ja kopeerige prompt 2"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: Sa oled kogenud ärianalüütik. Eesmärk: luua selge organisatsiooni profiil ja kontekst.
 
-INPUT: Ettevõte [COMPANY]. Analüüsi ja kirjelda: umbkaudne suurus (töötajad, käive); peamised tegevusvaldkonnad; juhtimine/organisatsioonimudel; tüüpilised väljakutsed selles sektoris. Hoia vastus lühike ja struktureeritud. Märgi, kus teed eeldusi.
+INPUT: Ettevõte [ETTEVÕTE]. Analüüsi ja kirjelda: umbkaudne suurus (töötajad, käive); peamised tegevusvaldkonnad; juhtimine/organisatsioonimudel; tüüpilised väljakutsed selles sektoris. Hoia vastus lühike ja struktureeritud. Märgi, kus teed eeldusi.
 
 OUTPUT: Tulemus: organisatsiooni portree, mida saab kasutada teiste promptide kontekstina.</pre>
                 </div>
                 <section class="before-use" id="before-use-2" aria-labelledby="before-use-title-2">
                     <h3 class="before-use-title" id="before-use-title-2">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> tahad selget organisatsiooni profiili; valmistud teiste promptide konteksti; analüüsid klienti või partnerit.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> soovite selget organisatsiooni profiili; valmistute teiste promptide konteksti jaoks; analüüsite klienti või partnerit.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -1683,14 +182,14 @@ OUTPUT: Tulemus: organisatsiooni portree, mida saab kasutada teiste promptide ko
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt2')"
-                        aria-label="Kopeeri prompt 2 lõikelauale"
+                        aria-label="Kopeerige prompt 2 lõikelauale"
                         data-prompt-id="prompt2">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="2" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="2" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1704,51 +203,51 @@ OUTPUT: Tulemus: organisatsiooni portree, mida saab kasutada teiste promptide ko
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Minu roll organisatsioonis</h2>
-                <p class="prompt-desc">Määratle selgelt oma rolli eesmärk, vastutus ja mõju</p>
+                <p class="prompt-desc">Määratlege selgelt teie rolli eesmärk, vastutus ja mõju</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block3"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 3"
+                     aria-label="Valige ja kopeerige prompt 3"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: Sa oled organisatsioonidisaini konsultant. Eesmärk: kirjeldada kasutaja rolli organisatsioonis – eesmärk, vastutus ja mõju.
 
-INPUT: Roll [MY ROLE], ettevõte [COMPANY]. Organisatsiooni analüüsi põhjal kirjelda seda rolli. Kaasa: rolli peamine eesmärk; 5–7 põhikohustust; otsustamise tase (operatiivne / taktikaline / strateegiline); kellele antakse aru ja kellega töötatakse igapäevaselt. Kirjuta lühidalt, ilma teooriata.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Organisatsiooni analüüsi põhjal kirjelda seda rolli. Kaasa: rolli peamine eesmärk; 5–7 põhikohustust; otsustamise tase (operatiivne / taktikaline / strateegiline); kellele antakse aru ja kellega töötatakse igapäevaselt. Kirjuta lühidalt, ilma teooriata.
 
 OUTPUT: Tulemus: selge rollikirjeldus – kasuta järgmiste sammude jaoks.</pre>
                 </div>
                 <section class="before-use" id="before-use-3" aria-labelledby="before-use-title-3">
                     <h3 class="before-use-title" id="before-use-title-3">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> tahad oma rolli selgitada; alustad uue ettevõttega; vajad oma ameti jaoks viiteteksti.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> soovite oma rolli selgitada; alustate uue ettevõttega; vajate oma ameti jaoks viiteteksti.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc);</li>
-                        <li>[MY ROLE] → sinu ametinimetus (nt müügijuht).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
+                        <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
                     <div class="info-content">
                         <strong>Tulemus</strong>
-                        <p>Saad selge rollikirjelduse – kasuta seda järgmiste sammude jaoks.</p>
+                        <p>Saate selge rollikirjelduse – kasutage seda järgmiste sammude jaoks.</p>
                     </div>
                 </div>
             </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt3')"
-                        aria-label="Kopeeri prompt 3 lõikelauale"
+                        aria-label="Kopeerige prompt 3 lõikelauale"
                         data-prompt-id="prompt3">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="3" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="3" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1762,31 +261,31 @@ OUTPUT: Tulemus: selge rollikirjeldus – kasuta järgmiste sammude jaoks.</pre>
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Ametijuhend + KPI</h2>
-                <p class="prompt-desc">Loo praktiline ametijuhend koos KPI-dega</p>
+                <p class="prompt-desc">Looge praktiline ametijuhend koos KPI-dega</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block4"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 4"
+                     aria-label="Valige ja kopeerige prompt 4"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: Sa oled kogenud juht. Eesmärk: luua praktiline ametijuhendi kirjeldus koos KPI-dega.
 
-INPUT: Roll [MY ROLE], ettevõte [COMPANY]. Loo ametijuhend. Kaasa: põhikohustused; nõutavad pädevused; 5–7 mõõdetavat KPI-d; milline on "hea tulemus" 6 kuu pärast. Keskendu tegelikule tööle, mitte HR paberimajandusele.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo ametijuhend. Kaasa: põhikohustused; nõutavad pädevused; 5–7 mõõdetavat KPI-d; milline on "hea tulemus" 6 kuu pärast. Keskendu tegelikule tööle, mitte HR paberimajandusele.
 
 OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisseelamiseks.</pre>
                 </div>
                 <section class="before-use" id="before-use-4" aria-labelledby="before-use-title-4">
                     <h3 class="before-use-title" id="before-use-title-4">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> vajad ametijuhendit; valmistud ülevaatuseks või sisseelamiseks; tahad mõõdetavaid KPI-sid.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> vajate ametijuhendit; valmistute ülevaatuseks või sisseelamiseks; soovite mõõdetavaid KPI-sid.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc);</li>
-                        <li>[MY ROLE] → sinu ametinimetus (nt müügijuht).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
+                        <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -1799,14 +298,14 @@ OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisse
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt4')"
-                        aria-label="Kopeeri prompt 4 lõikelauale"
+                        aria-label="Kopeerige prompt 4 lõikelauale"
                         data-prompt-id="prompt4">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="4" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="4" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1820,51 +319,51 @@ OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisse
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Põhitööprotsessid</h2>
-                <p class="prompt-desc">Tuvasta, kuhu läheb aeg ja energia (Pareto 80/20)</p>
+                <p class="prompt-desc">Tuvastage, kuhu läheb aeg ja energia (Pareto 80/20)</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block5"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 5"
+                     aria-label="Valige ja kopeerige prompt 5"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: Sa oled äriprotsesside analüütik. Eesmärk: tuvastada 5 kõige olulisemat tööprotsessi (Pareto 80/20) – kuhu aeg ja energia läheb.
 
-INPUT: Roll [MY ROLE], ettevõte [COMPANY]. Kirjelda 5 kõige olulisemat protsessi, mida see roll tegelikult teeb. Igaühe jaoks: eesmärk; peamised sammud; osapooled; kus see tavaliselt kinni jookseb. 80% tegevus, 20% selgitus.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Kirjelda 5 kõige olulisemat protsessi, mida see roll tegelikult teeb. Igaühe jaoks: eesmärk; peamised sammud; osapooled; kus see tavaliselt kinni jookseb. 80% tegevus, 20% selgitus.
 
 OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõju (samm 6).</pre>
                 </div>
                 <section class="before-use" id="before-use-5" aria-labelledby="before-use-title-5">
                     <h3 class="before-use-title" id="before-use-title-5">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> tahad näha, kuhu aeg läheb; optimeerid tööpäeva; valmistud tehisintellekti lõimimiseks.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> soovite näha, kuhu aeg läheb; optimeerite tööpäeva; valmistute tehisintellekti lõimimiseks.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc);</li>
-                        <li>[MY ROLE] → sinu ametinimetus (nt müügijuht).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
+                        <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
                     <div class="info-content">
                         <strong>Optimeerimine</strong>
-                        <p>Kui protsessid on selged, näed, kus tehisintellektil on suurim mõju.</p>
+                        <p>Kui protsessid on selged, näete, kus tehisintellektil on suurim mõju.</p>
                     </div>
                 </div>
             </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt5')"
-                        aria-label="Kopeeri prompt 5 lõikelauale"
+                        aria-label="Kopeerige prompt 5 lõikelauale"
                         data-prompt-id="prompt5">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="5" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="5" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1878,14 +377,14 @@ OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõ
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Tehisintellekti abi ja optimeerimine</h2>
-                <p class="prompt-desc">Muuda tehisintellekt tõeliseks tööabiliseks – konkreetsed ideed sinu protsesside põhjal</p>
+                <p class="prompt-desc">Muutke tehisintellekt tõeliseks tööabiliseks – konkreetsed ideed teie protsesside põhjal</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block6"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 6"
+                     aria-label="Valige ja kopeerige prompt 6"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: Sa oled tehisintellekti rakendamise konsultant. Eesmärk: hinnata protsesse ja pakkuda konkreetseid viise nende parandamiseks ChatGPT või muude tehisintellekti tööriistadega.
@@ -1896,8 +395,8 @@ OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tun
                 </div>
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> sul on juba protsessikirjeldused (samm 5); tahad konkreetseid viise tehisintellekti kasutamiseks; tahad aega säästa.</p>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Kasutage, kui:</strong> teil on juba protsessikirjeldused (samm 5); soovite konkreetseid viise tehisintellekti kasutamiseks; soovite aega säästa.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -1910,14 +409,14 @@ OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tun
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt6')"
-                        aria-label="Kopeeri prompt 6 lõikelauale"
+                        aria-label="Kopeerige prompt 6 lõikelauale"
                         data-prompt-id="prompt6">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="6" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="6" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1938,44 +437,44 @@ OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tun
                      id="block7"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 7"
+                     aria-label="Valige ja kopeerige prompt 7"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: Sa oled promptide koostaja. Eesmärk: luua 10–12 lühikest igapäevaseks kasutamiseks mõeldud prompti selle rolli ja ettevõtte jaoks.
 
-INPUT: Roll [MY ROLE], ettevõte [COMPANY]. Loo promptid, mis aitavad: planeerimisel; probleemide lahendamisel; suhtluses; otsustamisel. Anna tabel: [PROMPT] | [MILLAL KASUTAN] | [MILLISE PROBLEEMI LAHENDAB].
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo promptid, mis aitavad: planeerimisel; probleemide lahendamisel; suhtluses; otsustamisel. Anna tabel: [KÜSITIS] | [MILLAL KASUTAN] | [MILLISE PROBLEEMI LAHENDAB].
 
-OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saad iga päev kasutada.</pre>
+OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saate iga päev kasutada.</pre>
                 </div>
                 <section class="before-use" id="before-use-7" aria-labelledby="before-use-title-7">
                     <h3 class="before-use-title" id="before-use-title-7">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> tahad isiklikke prompte; igapäevatööks ja kiirete otsuste jaoks; tahad [prompt | millal | probleem] tabelit.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> soovite isiklikke prompte; igapäevatööks ja kiirete otsuste jaoks; soovite tabelit veergudega <code>[KÜSITIS]</code> | <code>[MILLAL KASUTAN]</code> | <code>[MILLISE PROBLEEMI LAHENDAB]</code>.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc);</li>
-                        <li>[MY ROLE] → sinu ametinimetus (nt müügijuht).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
+                        <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
                     <div class="info-content">
                         <strong>Igapäevane areng</strong>
-                        <p>Saad isikliku promptide kogu – kasuta iga päev ilma lisamõtlemiseta.</p>
+                        <p>Saate isikliku promptide kogu – kasutage iga päev ilma lisamõtlemiseta.</p>
                     </div>
                 </div>
             </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt7')"
-                        aria-label="Kopeeri prompt 7 lõikelauale"
+                        aria-label="Kopeerige prompt 7 lõikelauale"
                         data-prompt-id="prompt7">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="7" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="7" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -1989,51 +488,51 @@ OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saad iga päev kasutada.
                     <span class="prompt-time">~3–5 min</span>
                 </div>
                 <h2 class="prompt-title">Kriitilise olukorra simulatsioon</h2>
-                <p class="prompt-desc">Valmistu surveks ja ebakindluseks ette</p>
+                <p class="prompt-desc">Valmistuge surveks ja ebakindluseks ette</p>
             </div>
             <div class="prompt-body">
                 <div class="code-block"
                      id="block8"
                      role="button"
                      tabindex="0"
-                     aria-label="Vali ja kopeeri prompt 8"
+                     aria-label="Valige ja kopeerige prompt 8"
                      onclick="selectText(this)"
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: Sa oled strateegilise planeerimise konsultant. Eesmärk: simuleerida kriitilisi olukordi ja tegevusplaani – valmistuda surveks ja ebakindluseks.
 
-INPUT: Ettevõte [COMPANY], roll [MY ROLE]. Kujuta ette kriitilist olukorda, mis mõjutab otse seda rolli. Anna: 2 realistlikku stsenaariumit; tegevusplaan esimeseks 14 päevaks; kuidas tehisintellekt saab aidata; peamised riskid ja edu kriteeriumid.
+INPUT: Ettevõte [ETTEVÕTE], roll [MINU ROLL]. Kujuta ette kriitilist olukorda, mis mõjutab otse seda rolli. Anna: 2 realistlikku stsenaariumit; tegevusplaan esimeseks 14 päevaks; kuidas tehisintellekt saab aidata; peamised riskid ja edu kriteeriumid.
 
-OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisintelligendiga ette kui päris olukorras.</pre>
+OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisintellektiga ette kui päris olukorras.</pre>
                 </div>
                 <section class="before-use" id="before-use-8" aria-labelledby="before-use-title-8">
                     <h3 class="before-use-title" id="before-use-title-8">Enne kasutamist</h3>
-                    <p><strong>Kasuta kui:</strong> tahad valmistuda kriisideks; planeerida reaktsiooni survele; treenida otsuseid tehisintelligendiga.</p>
-                    <p><strong>Enne kasutamist asenda:</strong></p>
+                    <p><strong>Kasutage, kui:</strong> soovite valmistuda kriisideks; planeerida reaktsiooni survele; treenida otsuseid tehisintellektiga.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
                     <ul>
-                        <li>[COMPANY] → sinu või kliendi ettevõte (nt Acme Inc);</li>
-                        <li>[MY ROLE] → sinu ametinimetus (nt müügijuht).</li>
+                        <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
+                        <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeeri allolev tekst ja kleebi ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
                     <div class="info-content">
                         <strong>Valmidus</strong>
-                        <p>Simulatsioonid aitavad õppida kriise juhtima enne, kui need juhtuvad. Parem harjutada tehisintelligendiga kui päris olukorras.</p>
+                        <p>Simulatsioonid aitavad õppida kriise juhtima enne, kui need juhtuvad. Parem harjutada tehisintellektiga kui päris olukorras.</p>
                     </div>
                 </div>
             </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt8')"
-                        aria-label="Kopeeri prompt 8 lõikelauale"
+                        aria-label="Kopeerige prompt 8 lõikelauale"
                         data-prompt-id="prompt8">
                     <i data-lucide="clipboard-copy" aria-hidden="true"></i>
-                    <span>Kopeeri prompt</span>
+                    <span>Kopeerige prompt</span>
                 </button>
                 <label class="prompt-done-wrap">
-                    <input type="checkbox" class="prompt-done" data-prompt-id="8" aria-label="Märgi see samm tehtuks">
-                    <span>Märgi tehtuks</span>
+                    <input type="checkbox" class="prompt-done" data-prompt-id="8" aria-label="Märkige see samm tehtuks">
+                    <span>Märkige tehtuks</span>
                 </label>
             </div>
         </article>
@@ -2041,7 +540,7 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
         <!-- KAS TOLIAU? (S2) -->
         <section class="next-steps" aria-labelledby="next-steps-title">
             <h2 id="next-steps-title">Mis edasi?</h2>
-            <p>Parim on minna järjekorras 1–8. Klõpsa lingil, et hüpata selle prompti juurde.</p>
+            <p>Parim on minna järjekorras 1–8. Klõpsake lingil, et hüpata selle prompti juurde.</p>
             <div class="next-steps-links">
                 <a href="#block1">1. Konteksti kontroll</a>
                 <a href="#block2">2. Organisatsiooni portree</a>
@@ -2057,16 +556,16 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
         <!-- FOOTER -->
         <!-- BENDRUOMENĖ -->
         <section class="community" id="community" aria-labelledby="community-title">
-            <h2 id="community-title">Tahad rohkem?<br>Liitu WhatsAppi grupiga.</h2>
+            <h2 id="community-title">Soovite rohkem?<br>Liituge WhatsAppi grupiga.</h2>
             <p>Ühised arutelud, nõuanded ja uudised promptide ja tehisintellekti kohta.</p>
             <a href="https://chat.whatsapp.com/It49fzTl1n90huRCoWWkwu?mode=gi_t" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="Ava Prompt Anatomy WhatsApp grupp uuel kaardil">Liitu WhatsAppi grupiga</a>
-            <a href="https://www.promptanatomy.app/" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Täielik Prompt Anatomy – interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy →</a>
+            <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Täielik Prompt Anatomy – interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy →</a>
         </section>
 
         <footer class="footer">
             <h3>Edu promptidega <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>Kui promptis on [COMPANY] või [MY ROLE] – asenda oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>
-            <p class="footer-product-link">See on <strong>Spin-off nr 1</strong> projektist „Prompt Anatomy“. Täielik interaktiivne kursus ja rohkem: <a href="https://www.promptanatomy.app/" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>
+            <p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>
+            <p class="footer-product-link">See on <strong>Spin-off nr 1</strong> projektist „Prompt Anatomy“. Täielik interaktiivne kursus ja rohkem: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Tehisintellektile optimeeritud</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>
@@ -2094,321 +593,6 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
         <span>Kopeeritud</span>
     </div>
 
-    <script>
-        (function() {
-            'use strict';
-
-            // ===== KONFIGŪRACIJA =====
-            const CONFIG = {
-                SELECTION_TIMEOUT: 2000,
-                TOAST_DURATION: 3000,
-                BUTTON_RESET_TIMEOUT: 2500,
-                ERROR_TIMEOUT: 3000,
-                DEBOUNCE_DELAY: 100
-            };
-
-            // ===== PAGALBINĖS FUNKCIJOS =====
-            let copyTimeout = null;
-            let isCopying = false;
-
-            /**
-             * Debounce funkcija - apsaugo nuo per dažnų iškvietimų
-             */
-            function debounce(func, delay) {
-                return function(...args) {
-                    clearTimeout(copyTimeout);
-                    copyTimeout = setTimeout(() => func.apply(this, args), delay);
-                };
-            }
-
-            /**
-             * Pasirinkti tekstą code-block elemente
-             */
-            function selectText(element) {
-                if (!element) return;
-
-                try {
-                    const pre = element.querySelector('pre');
-                    if (!pre) return;
-
-                    const range = document.createRange();
-                    range.selectNodeContents(pre);
-                    const selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                    
-                    element.classList.add('selected');
-                    
-                    setTimeout(() => {
-                        element.classList.remove('selected');
-                    }, CONFIG.SELECTION_TIMEOUT);
-                } catch (_) { /* fallback: vartotojas gali pažymėti ranka */ }
-            }
-
-            /**
-             * Klaviatūros navigacija code-block elementams
-             */
-            function handleCodeBlockKeydown(event, element) {
-                // Enter arba Space aktyvuoja pasirinkimą
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    selectText(element);
-                    
-                    // Automatiškai kopijuoti po pasirinkimo
-                    const promptId = element.querySelector('pre')?.id;
-                    if (promptId) {
-                        const button = element.closest('.prompt')?.querySelector('.btn');
-                        if (button) {
-                            setTimeout(() => {
-                                copyPrompt(button, promptId);
-                            }, 300);
-                        }
-                    }
-                }
-            }
-
-            /**
-             * Copy prompt to clipboard
-             */
-            function copyPrompt(button, promptId) {
-                if (isCopying) {
-                    return; // Apsauga nuo daugkartinio kopijavimo
-                }
-
-                if (!button || !promptId) {
-                    showError(button, 'Midagi läks valesti. Proovi uuesti kopeerida.');
-                    return;
-                }
-
-                const promptElement = document.getElementById(promptId);
-                if (!promptElement) {
-                    showError(button, 'Midagi läks valesti. Proovi uuesti kopeerida.');
-                    return;
-                }
-
-                const promptText = promptElement.textContent?.trim();
-                if (!promptText) {
-                    showError(button, 'Midagi läks valesti. Proovi uuesti kopeerida.');
-                    return;
-                }
-
-                isCopying = true;
-
-                // Bandyti naudoti modernų Clipboard API
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(promptText)
-                        .then(() => {
-                            showSuccess(button);
-                            isCopying = false;
-                        })
-                        .catch(() => {
-                            fallbackCopy(promptText, button);
-                        });
-                } else {
-                    // Fallback senesnėms naršyklėms
-                    fallbackCopy(promptText, button);
-                }
-            }
-
-            /**
-             * Fallback kopijavimo metodas (senesnėms naršyklėms)
-             */
-            function fallbackCopy(text, button) {
-                const textarea = document.getElementById('hiddenTextarea');
-                if (!textarea) {
-                    showError(button, 'Midagi läks valesti. Proovi uuesti. Vali tekst ja kasuta Ctrl+C (või Cmd+C).');
-                    isCopying = false;
-                    return;
-                }
-
-                try {
-                    textarea.value = text;
-                    textarea.style.position = 'fixed';
-                    textarea.style.left = '0';
-                    textarea.style.top = '0';
-                    textarea.style.opacity = '0';
-                    textarea.style.pointerEvents = 'none';
-                    
-                    document.body.appendChild(textarea);
-                    textarea.focus();
-                    textarea.select();
-                    textarea.setSelectionRange(0, text.length);
-                    
-                    const successful = document.execCommand('copy');
-                    
-                    // Išvalyti
-                    document.body.removeChild(textarea);
-                    textarea.style.position = 'absolute';
-                    textarea.style.left = '-9999px';
-                    textarea.style.pointerEvents = 'auto';
-                    
-                    if (successful) {
-                        showSuccess(button);
-                    } else {
-                        throw new Error('execCommand copy failed');
-                    }
-                } catch (_) {
-                    showError(button, 'Kopeerimine ei õnnestunud. Vali tekst ja kasuta Ctrl+C (või Cmd+C).');
-                } finally {
-                    isCopying = false;
-                }
-            }
-
-            /**
-             * Rodyti sėkmės pranešimą
-             */
-            function showSuccess(button) {
-                if (!button) return;
-
-                const original = button.innerHTML;
-                button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>Kopeeritud</span>';
-                if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
-                button.classList.add('success');
-                button.setAttribute('aria-label', 'Prompt edukalt kopeeritud');
-                showToast();
-                
-                setTimeout(() => {
-                    button.innerHTML = original;
-                    if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
-                    button.classList.remove('success');
-                    const promptId = button.getAttribute('data-prompt-id');
-                    if (promptId) {
-                        button.setAttribute('aria-label', `Kopeeri prompt ${promptId.replace('prompt', '')} lõikelauale`);
-                    }
-                }, CONFIG.BUTTON_RESET_TIMEOUT);
-            }
-
-            /**
-             * Rodyti klaidos pranešimą
-             */
-            function showError(button, message) {
-                if (!button) return;
-
-                const original = button.innerHTML;
-                const errorMessage = message || 'Midagi läks valesti. Proovi uuesti kopeerida.';
-                button.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><span>' + errorMessage + '</span>';
-                if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
-                button.setAttribute('aria-label', errorMessage);
-                
-                setTimeout(() => {
-                    button.innerHTML = original;
-                    if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
-                    const promptId = button.getAttribute('data-prompt-id');
-                    if (promptId) {
-                        button.setAttribute('aria-label', `Kopeeri prompt ${promptId.replace('prompt', '')} lõikelauale`);
-                    }
-                }, CONFIG.ERROR_TIMEOUT);
-            }
-
-            /**
-             * Rodyti toast pranešimą
-             */
-            function showToast() {
-                const toast = document.getElementById('toast');
-                if (!toast) return;
-
-                toast.classList.add('show');
-                toast.setAttribute('aria-live', 'polite');
-                
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, CONFIG.TOAST_DURATION);
-            }
-
-            // ===== GLOBAL FUNKCIJOS (prieinamos HTML) =====
-            window.selectText = debounce(selectText, CONFIG.DEBOUNCE_DELAY);
-            window.copyPrompt = debounce(copyPrompt, CONFIG.DEBOUNCE_DELAY);
-            window.handleCodeBlockKeydown = handleCodeBlockKeydown;
-
-            // ===== KLAVIATŪROS SHORTCUTS =====
-            document.addEventListener('keydown', function(event) {
-                // Ctrl/Cmd + C kopijuoja pasirinktą tekstą
-                if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
-                    const selection = window.getSelection();
-                    if (selection.toString().trim().length > 0) {
-                        // Tekstas jau pasirinktas, leisti naršyklei kopijuoti
-                        return;
-                    }
-                }
-
-                // Escape uždaro toast
-                if (event.key === 'Escape') {
-                    const toast = document.getElementById('toast');
-                    if (toast) {
-                        toast.classList.remove('show');
-                    }
-                }
-            });
-
-            // Kontaktų forma ir Google Sheets integracija šiame etape išjungta – minimali aplikacija, jokių duomenų nerinkime. Galima įjungti vėlesniuose etapuose (žr. INTEGRACIJA.md).
-
-            // ===== "PAŽYMĖJAU KAIP ATLIKAU" – localStorage (M2) =====
-            const PROMPT_DONE_KEY_PREFIX = 'di_prompt_done_';
-            function loadPromptDoneState() {
-                const checkboxes = document.querySelectorAll('.prompt-done');
-                checkboxes.forEach(function(cb) {
-                    const id = cb.getAttribute('data-prompt-id');
-                    if (id) {
-                        try {
-                            cb.checked = localStorage.getItem(PROMPT_DONE_KEY_PREFIX + id) === 'true';
-                        } catch (e) { /* ignore */ }
-                    }
-                });
-            }
-            function savePromptDoneState(promptId, checked) {
-                try {
-                    localStorage.setItem(PROMPT_DONE_KEY_PREFIX + promptId, checked ? 'true' : 'false');
-                } catch (e) { /* ignore */ }
-            }
-
-            function getPromptDoneCount() {
-                var count = 0;
-                try {
-                    for (var i = 1; i <= 8; i++) {
-                        if (localStorage.getItem(PROMPT_DONE_KEY_PREFIX + i) === 'true') count++;
-                    }
-                } catch (e) { /* ignore */ }
-                return count;
-            }
-
-            function updateProgressIndicator() {
-                var count = getPromptDoneCount();
-                var textEl = document.getElementById('progressText');
-                var fillEl = document.getElementById('progressBarFill');
-                var barEl = document.querySelector('.progress-bar[role="progressbar"]');
-                if (textEl) textEl.textContent = count === 8 ? 'Suurepärane – kasutasid kõiki 8 prompti.' : 'Oled kasutanud ' + count + '/8 prompti.';
-                if (fillEl) fillEl.style.width = (count / 8 * 100) + '%';
-                if (barEl) {
-                    barEl.setAttribute('aria-valuenow', count);
-                }
-            }
-
-            // ===== INICIALIZACIJA =====
-            document.addEventListener('DOMContentLoaded', function() {
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-                // Pridėti klaviatūros navigaciją visiems code-block elementams
-                const codeBlocks = document.querySelectorAll('.code-block');
-                codeBlocks.forEach(block => {
-                    if (!block.hasAttribute('tabindex')) {
-                        block.setAttribute('tabindex', '0');
-                    }
-                });
-
-                // M2: atkurti ir susieti "Pažymėjau kaip atlikau" checkbox būseną
-                loadPromptDoneState();
-                document.querySelectorAll('.prompt-done').forEach(function(cb) {
-                    cb.addEventListener('change', function() {
-                        const id = cb.getAttribute('data-prompt-id');
-                        if (id) savePromptDoneState(id, cb.checked);
-                        updateProgressIndicator();
-                    });
-                });
-
-                // S1: progreso indikatorius
-                updateProgressIndicator();
-
-            });
-        })();
-    </script>
+    <script src="../js/library.et.js" defer></script>
 </body>
 </html>

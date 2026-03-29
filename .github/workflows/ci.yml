@@ -6,20 +6,42 @@ on:
   pull_request:
     branches: [main, develop]
 
+permissions:
+  contents: read
+
 jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/dependency-review-action@da24556b548a50705dd671f47852072ea4c105d9 # v4.7.1
+
   lint-and-test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
 
       - name: Install dependencies
         run: npm install
+
+      - name: Verify ET/LV/LT library JS match generator (en source)
+        run: |
+          npm run generate:et-lv
+          git diff --exit-code -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js || {
+            echo "::error::Run npm run generate:et-lv locally and commit et/index.html, lv/index.html, js/library.et.js, js/library.lv.js, js/library.lt.js."
+            exit 1
+          }
 
       - name: Run tests (structure + lint)
         run: npm test
@@ -28,13 +50,7 @@ jobs:
         run: |
           npx serve -s . -l 3000 &
           npx wait-on -t 60000 http://127.0.0.1:3000/
-          npx pa11y http://127.0.0.1:3000/lt/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/en/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/lt/privatumas.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/en/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/et/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/lv/ --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/et/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
-          npx pa11y http://127.0.0.1:3000/lv/privacy.html --standard WCAG2AA --ignore "warning" --reporter cli -- --no-sandbox
+          node scripts/pa11y-pages.cjs
         env:
           CI: true
+          PA11Y_BASE: http://127.0.0.1:3000
