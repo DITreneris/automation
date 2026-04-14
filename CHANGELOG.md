@@ -6,6 +6,44 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ## [Unreleased]
 
+Kolonėlės (Prideta / Pakeista / …) pildomos iki kito semver release; paskutinis release – **[1.2.0]**.
+
+### Pakeista
+
+- UI/UX: kalbų jungikliuose (biblioteka + privatumas) vartotojui matomos tik **EN** ir **JA** (LT/ET/LV URL lieka, bet nerodomi switcher’iuose).
+- Root `/` redirect: numatytas nukreipimas į `/ja/`; jei `localStorage.lang` yra `lt|et|lv` – map’inama į `/en/`.
+- Generatorius: `npm run generate:et-lv` atnaujintas, kad ET/LV/JA puslapiuose nav nebeįrašytų LT/ET/LV kalbų į switcher.
+- Testai: struktūriniai testai pritaikyti EN+JA-only switcheriams (root manual links ir privacy lang-link lūkesčiai).
+- Bendruomenės CTA: **WhatsApp** nuoroda pakeista į **Telegram** kanalą `https://t.me/prompt_anatomy` visose bibliotekos `index.html` versijose (`en` / `et` / `lv` / `lt` / `ja`) ir atitinkamai atnaujinti matomi tekstai bei `aria-label`.
+- JA: `ja/index.html` viešas UI (hero, „prieš naudojant“, info dėžutės, next-steps, community, footer, `aria-label`) suvienodintas japonų kalba (kad `/ja/` nebekeltų „pusiau EN“ įspūdžio).
+- JA privatumas: `ja/privacy.html` – išorinių paslaugų paminėjimas atnaujintas nuo WhatsApp į Telegram (kartu su bendru CTA pakeitimu).
+- Dokumentacija: `STYLEGUIDE.md` ir `docs/MICROCOPY_AUDIT_EN.md` – bendruomenės CTA aprašymai suderinti su Telegram.
+
+---
+
+## [1.2.0] - 2026-04-14
+
+### Prideta
+
+- Japonų (JA, `ja`) pilotinė lokalizacija: `/ja/` (`ja/index.html`) ir `/ja/privacy.html`.
+- Generatorius papildytas `ja` išvestimis: `ja/index.html` ir `js/library.ja.js` (`npm run generate:et-lv`), nauji promptų tekstai `scripts/prompt-bodies-ja.cjs`.
+
+### Pakeista
+
+- Root redirect ir kalbų jungikliai: pridėta **日本語**, `localStorage.lang='ja'` ir `navigator.language` `ja*` nukreipimas.
+- `hreflang`: pridėtas `hreflang-ja` visuose puslapiuose; `js/hreflang.js` bazės kelio regex papildytas `ja`.
+- QA/CI vartai: struktūriniai testai papildyti `ja`, ESLint globalai papildyti `js/library.ja.js`, CI `git diff --exit-code` įtrauktas `ja/index.html` ir `js/library.ja.js`.
+- Dokumentacija: `docs/MULTILINGUAL_STRUCTURE.md` papildyta `ja` maršrutais ir `hreflang` taisyklėmis.
+- JA UX: išjungtas `tap-to-copy` ant `.code-block` (paritetas su EN/LT/ET/LV – click/tap tik pažymi tekstą; kopijavimas per mygtuką / `Ctrl+C` / `Cmd+C`).
+- JA mikrotekstas: progreso indikatorius `使用済み：X / 8` → `進捗：X / 8`.
+- LT privatumas: suvienodintas apatinis grįžimo linkas „← Grįžti į biblioteką“ (`lt/privatumas.html`).
+
+---
+
+## [1.1.0] - 2026-03-29
+
+Versija atitinka [package.json](package.json) `1.1.0` (minor: toolchain, daugiakalbystė, CI, turinio sinchronizacija nuo 1.0.0).
+
 ### Prideta
 
 - Lokali HTML validacija: `html-validate` (preset `document`, [`.htmlvalidate.json`](.htmlvalidate.json)), [scripts/lint-html.mjs](scripts/lint-html.mjs); pašalintas `html-validator-cli` (W3C API / 403 rizika).
@@ -74,10 +112,12 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 - Hreflang skriptas (lt/en index + privatumas/privacy): null patikros prieš `getElementById(...).href`, kad nebūtų klaidos, jei elemento nėra.
 - Hreflang bazės kelias: ankstesnis inline `pathname.replace(/\/(lt|en|et|lv)\/.*/, …)` neteisingas, kai po locale nėra papildomo `/` (pvz. `/repo/lt`); dabar centralizuotas skaičiavimas `js/hreflang.js`.
 - Hreflang `<link>`: pradinis `href=""` pakeistas į `href="#"` – HTML validatoriumi leidžiama, skriptas vėliau nustato tikrus URL.
-- package.json: „serve“ įtrauka sutvarkyta; lint:js naudoja `npx eslint` (veikia be globalaus eslint).
+- package.json: „serve“ įtrauka sutvarkyta; `lint:js` – `eslint .` (vietinis ESLint iš `devDependencies`, flat config).
 
 ### Pašalinta
 
+- CI: `dependency-review-action` job (žr. „Pakeista“ – reikalauja Dependency graph).
+- [.eslintrc.json](.eslintrc.json) – pakeistas flat [eslint.config.js](eslint.config.js) (ESLint 10).
 - Root `privatumas.html`: nenaudojamas (kanoniniai puslapiai – `lt/privatumas.html`, `en/privacy.html`). docs/DOCUMENTATION.md inventoriuje atnaujinta nuoroda į lt/privatumas.html ir en/privacy.html.
 
 ### Deprecated
