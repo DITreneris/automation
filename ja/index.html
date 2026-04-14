@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ja" data-hreflang-suite="library">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIに日々の作業の30〜50%を任せる – プロンプトアナトミー</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="alternate" hreflang="lt" href="#" id="hreflang-lt">
+    <link rel="alternate" hreflang="en" href="#" id="hreflang-en">
+    <link rel="alternate" hreflang="et" href="#" id="hreflang-et">
+    <link rel="alternate" hreflang="lv" href="#" id="hreflang-lv">
+    <link rel="alternate" hreflang="ja" href="#" id="hreflang-ja">
+    <link rel="alternate" hreflang="x-default" href="#" id="hreflang-default">
+    <script src="../js/hreflang.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>:root { --codeblock-copy-hint: '選択してコピー'; }</style>
+    <link rel="stylesheet" href="../css/library.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
+    <div class="container">
+        <main id="main-content">
+
+        <!-- HERO -->
+        <header class="header">
+            <div class="header-badges">
+                <a href="https://www.promptanatomy.app/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="プロンプトアナトミー（英語）— インタラクティブ講座（新しいタブで開く）">プロンプトアナトミー</a>
+                <span class="badge badge-spinoff" role="status" aria-label="プロンプトアナトミーのスピンオフ教材">スピンオフ No.1</span>
+                <nav class="lang-switcher" aria-label="言語">
+                    <ul class="lang-switcher-list">
+                        <li><a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">英語</a></li>
+                        <li><span class="lang-current" aria-current="page">日本語</span></li>
+                    </ul>
+                </nav>
+            </div>
+            <h1>AIに日々の作業の30〜50%を任せる</h1>
+            <p>定型テンプレート8本で、数分で結果が出る演習に沿って進められます。</p>
+            <p class="header-meta" role="status" aria-label="対象">対象：管理職、専門職、コンサルタント、フリーランス。</p>
+            <div class="header-cta">
+                <a href="#block1" class="cta-button" aria-label="無料で始める – 最初のプロンプトへ">無料で始める</a>
+                <a href="#community" class="cta-button-outline" aria-label="コミュニティに参加 – WhatsAppグループ">コミュニティに参加</a>
+            </div>
+        </header>
+
+        <!-- OUTCOMES -->
+        <section class="objectives" aria-labelledby="objectives-title">
+            <h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> 得られること</h2>
+            <p class="objectives-intro">30分でAI活用の基本ワークフローを作れます：</p>
+            <ul>
+                <li><i data-lucide="check" aria-hidden="true"></i> 週に3〜5時間の節約</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> ミスのリスクを最大6倍低減</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> 標準テンプレート8本</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> その場しのぎの指示ではなく、明確な自動化ロジック</li>
+            </ul>
+        </section>
+
+        <!-- INSTRUCTIONS (M4: laiko signalas) -->
+        <section class="instructions" aria-labelledby="instructions-title">
+            <h2 class="instructions-title" id="instructions-title">
+                <i data-lucide="book-open" aria-hidden="true"></i>
+                <span>このライブラリの使い方</span>
+                <span class="prompt-time" role="status" aria-label="目安時間：ステップあたり3〜5分">ステップあたり 約3〜5分</span>
+            </h2>
+            <ol>
+                <li>プロンプトを選んでクリックすると、テキストが選択されます</li>
+                <li><strong>「プロンプトをコピー」</strong>をクリック、または <code>Ctrl+C</code> / <code>Cmd+C</code></li>
+                <li>ChatGPT、Claude などのAIツールに貼り付けます</li>
+                <li>プロンプト内の <code>[COMPANY]</code> は自社またはクライアント企業名に、<code>[MY ROLE]</code> はあなたの役職に置き換えてください。AIの役割（例：「批判的なアナリスト」）は既に指定されているため変更不要です。</li>
+            </ol>
+        </section>
+
+        <!-- PROGRESS INDICATOR (S1) -->
+        <div class="progress-wrap" id="progressIndicator" aria-live="polite" aria-atomic="true">
+            <p id="progressText">使用済み：0 / 8</p>
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8" aria-label="進捗">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- PROMPT 1 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">1</div>
+                    <div class="category">基礎</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">AIコンテキスト診断</h2>
+                <p class="prompt-desc">AIが自社について何を知っていて、どこで誤りやすいかを洗い出す</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block" 
+                     id="block1" 
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト1のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt1">META: あなたは批判的なビジネスアナリストです。目的：AIが組織について実際に何を知っているのか、どこに確認が必要かを明らかにする。
+
+INPUT: 企業 [COMPANY]。公開情報と一般的な市場知識のみに基づき、あなた（AI）がこの企業をどう理解しているかを説明してください。構成：1) 確実に言えること 2) 推測していること 3) 情報が不足しており誤っている可能性がある点。最後に必ず「以下はユーザーによる確認が必要です。」と明記してください。
+
+OUTPUT: 結果：短く構造化された回答。AIがどこで間違えやすいか、次に進む前に何を確認すべきかが明確になる。</pre>
+                </div>
+                <section class="before-use" id="before-use-1" aria-labelledby="before-use-title-1">
+                    <h3 class="before-use-title" id="before-use-title-1">使う前に</h3>
+                    <p><strong>こんなとき：</strong>組織の分析を始める／AIが会社について何を前提にしているか確認したい／コンテキスト込みでAIを使い始めたい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます（アンケートではありません）。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>なぜ効くか</strong>
+                        <p>AIの「思い込み」や誤判断を減らし、前提のズレを早い段階で可視化できます。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt1')"
+                        aria-label="プロンプト1をクリップボードにコピー"
+                        data-prompt-id="prompt1">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="1" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 2 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">2</div>
+                    <div class="category">分析</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">組織ポートレート</h2>
+                <p class="prompt-desc">会社の輪郭（規模・事業・課題）を短く整理する</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block2"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト2のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt2">META: あなたは経験豊富なビジネスアナリストです。目的：組織のプロフィールとコンテキストを明確にする。
+
+INPUT: 企業 [COMPANY]。以下を分析・要約してください：概算規模（従業員数、売上）；主な事業領域；経営/組織モデル；この業界で典型的な課題。簡潔に、構造化して書くこと。推測している箇所は明示してください。
+
+OUTPUT: 結果：他のプロンプトでコンテキストとして使える「組織の肖像」。</pre>
+                </div>
+                <section class="before-use" id="before-use-2" aria-labelledby="before-use-title-2">
+                    <h3 class="before-use-title" id="before-use-title-2">使う前に</h3>
+                    <p><strong>こんなとき：</strong>会社のプロフィールを短時間で揃えたい／以降のプロンプト用の共通コンテキストを作りたい／顧客・パートナー企業を俯瞰したい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>つながり</strong>
+                        <p>ここで作った「組織の前提」が、以降のプロンプトの精度を底上げします。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt2')"
+                        aria-label="プロンプト2をクリップボードにコピー"
+                        data-prompt-id="prompt2">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="2" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 3 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">3</div>
+                    <div class="category">役割</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">組織の中での「私の役割」</h2>
+                <p class="prompt-desc">目的・責任・影響範囲を、短く実務的に言語化する</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block3"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト3のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt3">META: あなたは組織設計コンサルタントです。目的：ユーザーの組織内での役割（目的・責任・影響）を明確にする。
+
+INPUT: 役割 [MY ROLE]、企業 [COMPANY]。組織分析に基づいて、この役割を説明してください。含める：役割の主要目的；5〜7個の主要責任；意思決定レベル（オペレーション/戦術/戦略）；誰に報告し、日々誰と連携するか。理論は不要、短く具体的に。
+
+OUTPUT: 結果：明確な役割記述。次のステップの参照として使える。</pre>
+                </div>
+                <section class="before-use" id="before-use-3" aria-labelledby="before-use-title-3">
+                    <h3 class="before-use-title" id="before-use-title-3">使う前に</h3>
+                    <p><strong>こんなとき：</strong>自分の役割の定義を揃えたい／新しい会社・新しい職責で起点を作りたい／面談や合意形成のたたき台が欲しい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                        <li><code>[MY ROLE]</code> → あなたの役職・職能名（例：カスタマーサクセスマネージャー）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>アウトプット</strong>
+                        <p>次のステップ（職務記述・KPI、業務プロセス）にそのまま接続できる「役割の要約」が得られます。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt3')"
+                        aria-label="プロンプト3をクリップボードにコピー"
+                        data-prompt-id="prompt3">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="3" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 4 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">4</div>
+                    <div class="category">人事・文書</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">職務記述書 + KPI</h2>
+                <p class="prompt-desc">実務に直結する職務内容と、測れるKPIをセットで作る</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block4"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト4のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt4">META: あなたは経験豊富なマネージャーです。目的：実務的な職務記述書とKPIを作る。
+
+INPUT: 役割 [MY ROLE]、企業 [COMPANY]。職務記述書を作成してください。含める：主要業務；必要なスキル/コンピテンシー；測定可能なKPIを5〜7個；6か月後の「良い成果」の定義。人事向けの形式より、実際の仕事に焦点を当てる。
+
+OUTPUT: 結果：自己評価やオンボーディングに使える職務記述書。</pre>
+                </div>
+                <section class="before-use" id="before-use-4" aria-labelledby="before-use-title-4">
+                    <h3 class="before-use-title" id="before-use-title-4">使う前に</h3>
+                    <p><strong>こんなとき：</strong>職務記述を整えたい／評価・目標設定のたたき台が欲しい／オンボーディング資料を素早く作りたい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                        <li><code>[MY ROLE]</code> → あなたの役職・職能名（例：カスタマーサクセスマネージャー）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>活用の幅</strong>
+                        <p>自己点検のメモにも、チーム合意のたたき台にも、そのまま使える実務ドキュメントになります。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt4')"
+                        aria-label="プロンプト4をクリップボードにコピー"
+                        data-prompt-id="prompt4">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="4" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 5 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">5</div>
+                    <div class="category">プロセス</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">中核の業務プロセス</h2>
+                <p class="prompt-desc">時間と集中が向かう「本当に効く仕事」を5つに絞る（80/20）</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block5"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト5のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt5">META: あなたは業務プロセス分析者です。目的：最重要の業務プロセス5つ（パレート80/20）を特定し、時間とエネルギーの使いどころを可視化する。
+
+INPUT: 役割 [MY ROLE]、企業 [COMPANY]。この役割が実際に行っている最重要プロセスを5つ挙げてください。各プロセスについて：目的；主なステップ；関係者；詰まりやすいポイント。説明は20%、具体的な作業の列挙を80%。
+
+OUTPUT: 結果：プロセス一覧。次のステップ（6）で、AIのインパクトが大きい箇所を見つけるために使う。</pre>
+                </div>
+                <section class="before-use" id="before-use-5" aria-labelledby="before-use-title-5">
+                    <h3 class="before-use-title" id="before-use-title-5">使う前に</h3>
+                    <p><strong>こんなとき：</strong>忙しさの正体を整理したい／業務改善の優先順位を付けたい／次の「AI活用」に接続する前提を作りたい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                        <li><code>[MY ROLE]</code> → あなたの役職・職能名（例：カスタマーサクセスマネージャー）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>次への布石</strong>
+                        <p>プロセスが見えると、AIをどこに入れると最も効くかが一気に判断しやすくなります。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt5')"
+                        aria-label="プロンプト5をクリップボードにコピー"
+                        data-prompt-id="prompt5">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="5" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 6 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">6</div>
+                    <div class="category">AI活用</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">AIによる支援と最適化</h2>
+                <p class="prompt-desc">プロセスに沿って、現場で使えるAIアイデアを具体化する</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block6"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト6のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt6">META: あなたはAI導入コンサルタントです。目的：プロセスを評価し、ChatGPT等のAIツールで改善する具体案を提示する。
+
+INPUT: （すでに記述した）プロセスを評価し、8〜10個の改善アイデアを出してください。各アイデアについて：AIが何をするか；どのプロセス部分が楽になるか；実際の効果（時間/品質/コスト）；実装難易度（簡単/普通/難しい）。非エンジニアにも分かる言葉で。
+
+OUTPUT: 結果：週あたり数時間を節約できる可能性がある、8〜10個の具体アイデア。</pre>
+                </div>
+                <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
+                    <h3 class="before-use-title" id="before-use-title-6">使う前に</h3>
+                    <p><strong>こんなとき：</strong>ステップ5でプロセスが揃ったあと／AIを「どこに」「どう」入れるか具体案が欲しい／週の作業時間を削りたい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li>（プロンプト本文にプレースホルダが無い場合は不要）直前の出力を、このプロンプトの <code>INPUT</code> に貼り付けます。</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>実務インパクト</strong>
+                        <p>「週あたり何時間削れるか」が見える単位で、AIの使いどころを具体化します。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt6')"
+                        aria-label="プロンプト6をクリップボードにコピー"
+                        data-prompt-id="prompt6">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="6" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 7 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">7</div>
+                    <div class="category">ライブラリ</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">毎日使うプロンプト集</h2>
+                <p class="prompt-desc">日常業務の判断・コミュニケーションにそのまま使える短文プロンプトを作る</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block7"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト7のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt7">META: あなたはプロンプト作成者です。目的：この役割と企業のための「日常使い」短文プロンプトを10〜12個作る。
+
+INPUT: 役割 [MY ROLE]、企業 [COMPANY]。計画、問題解決、コミュニケーション、意思決定に役立つプロンプトを作ってください。表形式で提示： [PROMPT] | [WHEN I USE IT] | [PROBLEM IT SOLVES]。
+
+OUTPUT: 結果：個人用のプロンプト集（毎日使える表）。</pre>
+                </div>
+                <section class="before-use" id="before-use-7" aria-labelledby="before-use-title-7">
+                    <h3 class="before-use-title" id="before-use-title-7">使う前に</h3>
+                    <p><strong>こんなとき：</strong>毎回プロンプトを考えるのが面倒／迷ったらすぐ使える「自分専用の型」が欲しい／表形式で整理したい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                        <li><code>[MY ROLE]</code> → あなたの役職・職能名（例：カスタマーサクセスマネージャー）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>毎日の時短</strong>
+                        <p>「迷う→考える→書く」を短縮し、すぐ実行に移れるプロンプト表が手元に残ります。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt7')"
+                        aria-label="プロンプト7をクリップボードにコピー"
+                        data-prompt-id="prompt7">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="7" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- PROMPT 8 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">8</div>
+                    <div class="category">シミュレーション</div>
+                    <span class="prompt-time">約3〜5分</span>
+                </div>
+                <h2 class="prompt-title">危機シナリオのシミュレーション</h2>
+                <p class="prompt-desc">プレッシャーと不確実性に備え、先手で行動計画を作る</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block"
+                     id="block8"
+                     role="button"
+                     tabindex="0"
+                     aria-label="プロンプト8のテキストを選択してコピー"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt8">META: あなたは戦略計画コンサルタントです。目的：重要局面をシミュレーションし、行動計画を用意して、プレッシャーと不確実性に備える。
+
+INPUT: 企業 [COMPANY]、役割 [MY ROLE]。この役割に直接影響する「危機的状況」を想定してください。含める：現実的なシナリオを2つ；最初の14日間の行動計画；AIがどう支援できるか；主要リスクと成功基準。
+
+OUTPUT: 結果：シナリオと14日計画。本番より前にAIで練習して備えられる。</pre>
+                </div>
+                <section class="before-use" id="before-use-8" aria-labelledby="before-use-title-8">
+                    <h3 class="before-use-title" id="before-use-title-8">使う前に</h3>
+                    <p><strong>こんなとき：</strong>危機対応のたたき台が欲しい／プレッシャー下の意思決定を事前に練習したい／AIでシナリオ演習をしたい。</p>
+                    <p><strong>事前に置き換え：</strong></p>
+                    <ul>
+                        <li><code>[COMPANY]</code> → 自社またはクライアント企業名（例：株式会社サンプル）</li>
+                        <li><code>[MY ROLE]</code> → あなたの役職・職能名（例：カスタマーサクセスマネージャー）</li>
+                    </ul>
+                    <p><strong>やること：</strong>下のプロンプト本文をコピーして、ChatGPT や Claude などに貼り付けます。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="このプロンプトの補足情報">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>備えの力</strong>
+                        <p>本番前に「想定→対応→振り返り」を回すほど、判断の質と速度が安定します。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt8')"
+                        aria-label="プロンプト8をクリップボードにコピー"
+                        data-prompt-id="prompt8">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>プロンプトをコピー</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="8" aria-label="このステップを完了として記録">
+                    <span>完了にする</span>
+                </label>
+            </div>
+        </article>
+
+        <!-- NEXT STEPS -->
+        <section class="next-steps" aria-labelledby="next-steps-title">
+            <h2 id="next-steps-title">次に何をする？</h2>
+            <p>基本は 1 → 8 の順番がおすすめです。リンクを押すと該当プロンプトへ移動します。</p>
+            <div class="next-steps-links">
+                <a href="#block1">1. AIコンテキスト診断</a>
+                <a href="#block2">2. 組織ポートレート</a>
+                <a href="#block3">3. 私の役割</a>
+                <a href="#block4">4. 職務記述書 + KPI</a>
+                <a href="#block5">5. 中核プロセス</a>
+                <a href="#block6">6. AI支援と最適化</a>
+                <a href="#block7">7. 毎日のプロンプト集</a>
+                <a href="#block8">8. 危機シミュレーション</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <!-- COMMUNITY -->
+        <section class="community" id="community" aria-labelledby="community-title">
+            <h2 id="community-title">もっと深く学びたい？<br>WhatsAppグループに参加。</h2>
+            <p>プロンプトとAI活用のディスカッション、Tips、最新情報を共有します。</p>
+            <a href="https://chat.whatsapp.com/It49fzTl1n90huRCoWWkwu?mode=gi_t" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="プロンプトアナトミーのWhatsAppグループを新しいタブで開く">WhatsAppグループに参加</a>
+            <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="プロンプトアナトミー（英語）— インタラクティブ講座（新しいタブで開く）">プロンプトアナトミー →</a>
+        </section>
+
+        <footer class="footer">
+            <h3>プロンプト、うまくいきますように <i data-lucide="rocket" aria-hidden="true"></i></h3>
+            <p><code>[COMPANY]</code> や <code>[MY ROLE]</code> がある場合は、あなたの情報に置き換えてください。AIの役割（例：「批判的なアナリスト」）はプロンプト内で既に指定されているので変更不要です。</p>
+            <p class="footer-product-link">これは <strong>スピンオフ No.1</strong>（「プロンプトアナトミー」派生）です。本編のインタラクティブ講座はこちら：<a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">プロンプトアナトミー →</a></p>
+            <div class="tags" role="list">
+                <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI最適化</span>
+                <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> プロンプト8本</span>
+                <span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> すぐ着手</span>
+                <span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> 成果重視</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Tomas Staniulis. 研修教材。無断転載を禁じます。 <a href="privacy.html">プライバシー</a></p>
+            </div>
+        </footer>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <textarea class="hidden" id="hiddenTextarea" aria-label="コピー欄" aria-hidden="true"></textarea>
+    
+    <div class="toast" 
+         id="toast" 
+         role="status" 
+         aria-live="polite" 
+         aria-atomic="true"
+         aria-label="コピー通知">
+        <div class="toast-icon" aria-hidden="true"><i data-lucide="check"></i></div>
+        <span>コピーしました</span>
+    </div>
+
+    <script src="../js/library.ja.js" defer></script>
+</body>
+</html>
