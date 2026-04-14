@@ -9,6 +9,7 @@
     <link rel="alternate" hreflang="en" href="#" id="hreflang-en">
     <link rel="alternate" hreflang="et" href="#" id="hreflang-et">
     <link rel="alternate" hreflang="lv" href="#" id="hreflang-lv">
+    <link rel="alternate" hreflang="ja" href="#" id="hreflang-ja">
     <link rel="alternate" hreflang="x-default" href="#" id="hreflang-default">
     <script src="../js/hreflang.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +30,9 @@
                 <span class="badge badge-spinoff" role="status" aria-label="Prompt Anatomy spin-off projekts">Spin-off Nr. 1</span>
                 <nav class="lang-switcher" aria-label="Valoda">
                     <ul class="lang-switcher-list">
-                        <li><a href="../lt/" class="lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
                         <li><a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                        <li><a href="../et/" class="lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
                         <li><span class="lang-current" aria-current="page">Latviešu</span></li>
+                        <li><a href="../ja/" class="lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     </ul>
                 </nav>
             </div>
@@ -41,7 +41,7 @@
             <p class="header-meta" role="status" aria-label="Kam">Kam: vadītājiem, speciālistiem, konsultantiem, brīvmāksliniekiem.</p>
             <div class="header-cta">
                 <a href="#block1" class="cta-button" aria-label="Sākt bez maksas – pāriet pie pirmā prompta">Sākt bez maksas</a>
-                <a href="#community" class="cta-button-outline" aria-label="Pievienoties kopienai – WhatsApp grupa">Pievienoties kopienai</a>
+                <a href="#community" class="cta-button-outline" aria-label="Pievienoties kopienai – Telegram">Pievienoties kopienai</a>
             </div>
         </header>
 
@@ -75,7 +75,7 @@
         <!-- PROGRESS INDICATOR (S1) -->
         <div class="progress-wrap" id="progressIndicator" aria-live="polite" aria-atomic="true">
             <p id="progressText">Lietojāt 0 no 8 promptiem</p>
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8" aria-label="Progresss">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8" aria-label="Progress">
                 <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
             </div>
         </div>
@@ -556,9 +556,9 @@ OUTPUT: Rezultāts: scenāriji un 14 dienu plāns – labāk trenēties ar MI ie
         <!-- FOOTER -->
         <!-- BENDRUOMENĖ -->
         <section class="community" id="community" aria-labelledby="community-title">
-            <h2 id="community-title">Vēlaties vairāk?<br>Pievienojieties WhatsApp grupai.</h2>
+            <h2 id="community-title">Vēlaties vairāk?<br>Pievienojieties Telegram.</h2>
             <p>Kopīgas diskusijas, padomi un jaunumi par promptiem un MI.</p>
-            <a href="https://chat.whatsapp.com/It49fzTl1n90huRCoWWkwu?mode=gi_t" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="Atvērt Prompt Anatomy WhatsApp grupu jaunā cilnē">Pievienoties WhatsApp grupai</a>
+            <a href="https://t.me/prompt_anatomy" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="Atvērt Prompt Anatomy Telegram kanālu jaunā cilnē">Pievienoties Telegram</a>
             <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Pilnā Prompt Anatomy – interaktīvs kurss (atveras jaunā cilnē)">Prompt Anatomy →</a>
         </section>
 

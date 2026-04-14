@@ -102,8 +102,8 @@ const ET_PAIRS = [
     'aria-label="Alustage tasuta – minge esimese prompti juurde">Alustage tasuta</a>',
   ],
   [
-    'aria-label="Join the community – WhatsApp group">Join the community</a>',
-    'aria-label="Liituge kogukonnaga – WhatsApp grupp">Liituge kogukonnaga</a>',
+    'aria-label="Join the community – Telegram">Join the community</a>',
+    'aria-label="Liituge kogukonnaga – Telegramis">Liituge kogukonnaga</a>',
   ],
   [
     '<h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> What you get</h2>',
@@ -326,16 +326,16 @@ const ET_PAIRS = [
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Igapäevane kogu</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kriitilise olukorra simulatsioon</a>'],
   [
-    '<h2 id="community-title">Want more?<br>Join the WhatsApp group.</h2>',
-    '<h2 id="community-title">Soovite rohkem?<br>Liituge WhatsAppi grupiga.</h2>',
+    '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
+    '<h2 id="community-title">Soovite rohkem?<br>Liituge Telegramis.</h2>',
   ],
   [
     '<p>Shared discussions, tips and news about prompts and AI.</p>',
     '<p>Ühised arutelud, nõuanded ja uudised promptide ja tehisintellekti kohta.</p>',
   ],
   [
-    'aria-label="Open Prompt Anatomy WhatsApp group in new tab">Join WhatsApp group</a>',
-    'aria-label="Ava Prompt Anatomy WhatsApp grupp uuel kaardil">Liitu WhatsAppi grupiga</a>',
+    'aria-label="Open Prompt Anatomy Telegram channel in new tab">Join Telegram</a>',
+    'aria-label="Ava Prompt Anatomy Telegram uuel kaardil">Liitu Telegramiga</a>',
   ],
   [
     'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>',
@@ -436,8 +436,8 @@ const LV_PAIRS = [
     'aria-label="Sākt bez maksas – pāriet pie pirmā prompta">Sākt bez maksas</a>',
   ],
   [
-    'aria-label="Join the community – WhatsApp group">Join the community</a>',
-    'aria-label="Pievienoties kopienai – WhatsApp grupa">Pievienoties kopienai</a>',
+    'aria-label="Join the community – Telegram">Join the community</a>',
+    'aria-label="Pievienoties kopienai – Telegram">Pievienoties kopienai</a>',
   ],
   [
     '<h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> What you get</h2>',
@@ -648,16 +648,16 @@ const LV_PAIRS = [
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Ikdienas bibliotēka</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kritiskas situācijas simulācija</a>'],
   [
-    '<h2 id="community-title">Want more?<br>Join the WhatsApp group.</h2>',
-    '<h2 id="community-title">Vēlaties vairāk?<br>Pievienojieties WhatsApp grupai.</h2>',
+    '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
+    '<h2 id="community-title">Vēlaties vairāk?<br>Pievienojieties Telegram.</h2>',
   ],
   [
     '<p>Shared discussions, tips and news about prompts and AI.</p>',
     '<p>Kopīgas diskusijas, padomi un jaunumi par promptiem un MI.</p>',
   ],
   [
-    'aria-label="Open Prompt Anatomy WhatsApp group in new tab">Join WhatsApp group</a>',
-    'aria-label="Atvērt Prompt Anatomy WhatsApp grupu jaunā cilnē">Pievienoties WhatsApp grupai</a>',
+    'aria-label="Open Prompt Anatomy Telegram channel in new tab">Join Telegram</a>',
+    'aria-label="Atvērt Prompt Anatomy Telegram kanālu jaunā cilnē">Pievienoties Telegram</a>',
   ],
   [
     'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>',
