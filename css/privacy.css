@@ -10,6 +10,9 @@ body {
     color: var(--color-text-primary);
     line-height: var(--line-height-body);
     padding: var(--space-4);
+    padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
+    padding-bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
     max-width: 720px;
     margin: 0 auto;
 }

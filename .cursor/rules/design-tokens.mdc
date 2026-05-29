@@ -10,7 +10,7 @@ globs: css/**
 - Kanoninė dokumentacija: [docs/design_system.md](../../docs/design_system.md) (DS v2.0).
 - Naujame kode naudok **semantic** sluoksnį: `--color-action-primary-bg`, `--color-link`, `--color-focus-ring` ir kt.
 - Primitives: brand `--accent-gold` `#CFA73A`, `--accent-dark` `#0B1320`, `--brand-teal` `#008579`.
-- Deprecations: `--blue` → `--accent-dark`; `--tertiary` → `--brand-teal`.
+- Deprecations: `--blue` → `--accent-dark`; `--tertiary` → `--brand-teal`. Pašalinta: `--community-cta-green` (naudok `--brand-teal`).
 - JOKIŲ magic numbers komponentuose; hex tik `tokens.css`.
 - Validacija: `npm run validate:tokens`, `npm run lint:design-tokens`.
 - A11y: WCAG AA; po spalvų keitimo paleisk pa11y.

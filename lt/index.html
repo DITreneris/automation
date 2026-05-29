@@ -106,8 +106,7 @@
                 <span class="prompt-time" aria-label="Orientacinis laikas: 3–5 min per žingsnį">~3–5 min per žingsnį</span>
             </h2>
             <ol>
-                <li>Pasirink promptą ir spausk ant jo – tekstas pažymėsis</li>
-                <li>Spausk <strong>„Kopijuoti promptą“</strong> arba <code>Ctrl+C</code> / <code>Cmd+C</code></li>
+                <li>Pasirink promptą ir spausk <strong>„Kopijuoti promptą“</strong> po tekstu — viskas nukopijuojama vienu paspaudimu. Kompiuteryje gali ir pažymėti tekstą bei naudoti <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>
                 <li>Įklijuok į ChatGPT, Claude ar kitą DI įrankį</li>
                 <li>Jei prompte yra <code>[ĮMONĖ]</code> – pakeisk į savo arba kliento įmonę; jei yra <code>[MANO ROLĖ]</code> – pakeisk į savo pareigas. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia.</li>
             </ol>
@@ -660,8 +659,8 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
         </section>
 
         <section class="ecosystem" aria-labelledby="ecosystem-title">
-            <h2 id="ecosystem-title">Prompt Anatomy ekosistema</h2>
-            <p class="ecosystem-lead">Viena DI operacinė sistema mokymuisi, kasdieniam darbui ir sprendimams. Jūs esate kasdienės darbo bibliotekoje.</p>
+            <h2 id="ecosystem-title">Sveiki atvykę į Prompt Anatomy Hub</h2>
+            <p class="ecosystem-lead">Jūsų DI operacinė sistema strategijai, taktikai ir operacijoms. Esate Daily Workflow Library.</p>
             <figure class="ecosystem-figure">
                 <picture>
                     <source
@@ -676,7 +675,6 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                         loading="lazy"
                         decoding="async">
                 </picture>
-                <figcaption>Mažiau atsitiktinių promptų. Daugiau struktūruoto vykdymo.</figcaption>
             </figure>
         </section>
 
@@ -689,30 +687,33 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                 <span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Greitas startas</span>
                 <span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Rezultatai</span>
             </div>
-            <address class="footer-contact">
-                <strong>Prompt Anatomy</strong>
-                1311 Park St, Unit #654, Alameda, CA 94501, USA<br>
-                <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
-            </address>
-            <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Kalba">
-                <button type="button"
-                        class="lang-switcher-trigger"
-                        id="lang-switcher-trigger-footer"
-                        aria-expanded="false"
-                        aria-controls="lang-switcher-menu-footer">
-                    <span class="lang-switcher-trigger-text">Lietuvių</span>
-                    <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
-                </button>
-                <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
-                    <li><span class="lang-option lang-option--current" aria-current="page">Lietuvių</span></li>
-                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
-                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
-                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
-                </ul>
-            </nav>
+            <div class="footer-meta">
+                <address class="footer-contact">
+                    <strong>Prompt Anatomy</strong><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <span class="footer-contact-address">1311 Park St, Unit #654, Alameda, CA 94501, USA</span><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
+                </address>
+                <a href="privatumas.html" class="footer-meta-link">Privatumas</a>
+                <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Kalba">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-footer"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-footer">
+                        <span class="lang-switcher-trigger-text">Lietuvių</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                        <li><span class="lang-option lang-option--current" aria-current="page">Lietuvių</span></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                    </ul>
+                </nav>
+            </div>
             <div class="copyright">
-                <p>&copy; 2026 Tomas Staniulis. Mokymų medžiaga. Visos teisės saugomos. <a href="privatumas.html">Privatumas</a></p>
+                <p>&copy; 2026 Tomas Staniulis. Mokymų medžiaga. Visos teisės saugomos.</p>
             </div>
         </footer>
 

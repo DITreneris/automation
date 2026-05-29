@@ -42,10 +42,6 @@
     --purple: #6B5B95;
     --error: #E53E3E;
 
-    /* Community CTA – vienas brand green, be glow */
-    --community-cta-green: #0E7A33;
-    --community-cta-green-hover: #0B6B2D;
-
     /* ===== SEMANTIC (intent) – naudoti komponentuose ===== */
     --color-text-primary: var(--text);
     --color-text-secondary: var(--text-light);

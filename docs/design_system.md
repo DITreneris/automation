@@ -32,8 +32,7 @@ Kanoninis dizaino sistemos dokumentas. Spin-off biblioteka naudoja tą pačią b
 | Gold accent | `--accent-gold` | `#CFA73A` | Progresas, badge, focus ring |
 | Gold hover | `--accent-gold-hover` | `#E8B93C` | Hover būsenos |
 | Dark navy | `--accent-dark` | `#0B1320` | Hero, primary CTA, antraštės |
-| Bibliotekos teal | `--brand-teal` | `#008579` | Nav chip, footer nuorodos, kategorijos |
-| Community green | `--community-cta-green` | `#0E7A33` | „Join Telegram“ |
+| Bibliotekos teal | `--brand-teal` | `#008579` | Nav chip (outline), community CTA (filled), footer nuorodos, kategorijos |
 
 **WCAG:** Tekstas `--text` ant `--bg` ≥ 4.5:1. Ant `--accent-gold` – tamsus tekstas (`--text`). Ant `--accent-dark` ir `--brand-teal` – baltas (`--white`).
 
@@ -107,8 +106,6 @@ Naudok komponentuose ir `privacy.css`:
 | `--green-hover` | `#2F855A` |
 | `--purple` | `#6B5B95` |
 | `--error` | `#E53E3E` |
-| `--community-cta-green` | `#0E7A33` |
-| `--community-cta-green-hover` | `#0B6B2D` |
 
 ### 1.7 Elevation
 
@@ -178,8 +175,8 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 |-----------|-----------|--------|------|
 | Primary action | `.cta-button`, `.btn` | `--accent-dark` | Hero „Use first prompt“, „Copy prompt“ |
 | Hero secondary | `.header-brand a.badge` | Semi-transparent ant hero | Kursas → `COURSE_URL_EN` |
-| Nav chip | `.next-steps-links a` | `--brand-teal` | Vidinė navigacija 1–8 |
-| Community primary | `.community-cta-primary` | `--community-cta-green` | „Join Telegram“ |
+| Nav chip | `.next-steps-links a` | `--brand-teal` outline | Vidinė navigacija 1–8 |
+| Community primary | `.community-cta-primary` | `--brand-teal` filled | „Join Telegram“ |
 | Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `https://www.promptanatomy.app/en` |
 | Success | `.btn.success` | `--green` | Po kopijavimo |
 
@@ -191,8 +188,8 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 |-----------|---------|-------|-------|----------------|
 | `.cta-button` | `--cta-bg` + `--shadow-cta` | `--cta-hover` + `--shadow-cta-hover` | white ring | – |
 | `.btn` | `--accent-dark` | `--accent-dark-hover` | `--accent-gold` ring | `.success` → `--green` |
-| `.community-cta-primary` | `--community-cta-green` | `--community-cta-green-hover` | gold ring | – |
-| `.next-steps-links a` | `--brand-teal` outline | `--brand-teal-hover` | gold ring | – |
+| `.community-cta-primary` | `--brand-teal` filled | `--brand-teal-hover` | gold ring | – |
+| `.next-steps-links a` | `--brand-teal` outline | `--tertiary-light` bg, `--brand-teal-hover` border | gold ring | – |
 | `.header-brand a.badge` | `--surface-hero-badge` | `--surface-hero-badge-hover` | white ring | – |
 
 ### 2.3 Hero (`.header`)
@@ -205,11 +202,11 @@ Seka: header → `code-block` → `.prompt-footer` (Copy + Mark as done) → `be
 
 ### 2.5 What's next (`.next-steps`)
 
-Balta kortelė, `border: 3px solid var(--tertiary)`, H2 teal, chip'ai `--brand-teal`.
+Balta kortelė, `border: 3px solid var(--tertiary)`, H2 teal, chip'ai outline `--brand-teal`.
 
 ### 2.6 Community (`.community`)
 
-Gradient `--blue-light` → `--orange-light`; primary green CTA; antrinis navy outline.
+Gradient `--blue-light` → `--orange-light`; primary filled teal CTA; antrinis navy outline.
 
 ### 2.7 Ecosystem (`.ecosystem`)
 
@@ -217,7 +214,16 @@ Kaip `.next-steps`; WebP + PNG; `npm run generate:ecosystem`.
 
 ### 2.8 Footer (`.footer`)
 
-Balta kortelė, `--border`, produkto nuoroda `--brand-teal`.
+**Light card** (ne content module): `1px solid var(--border)`, `border-radius: var(--radius-lg)`, be `box-shadow`; padding `var(--space-6) var(--space-5)`.
+
+| Elementas | Rolė |
+|-----------|------|
+| `h3` | Closing žinutė (22px) |
+| `p` | Instrukcija (`max-width: 760px`) |
+| `.tag` | Trust chip (ne CTA) – pill, `--bg-subtle` |
+| `.footer-meta` | Contact + Privacy + kalbos dropdown vienoje eilutėje |
+| `.footer-meta-link`, `.footer-contact a` | `--color-link` (`--brand-teal`) |
+| `.copyright` | Tik © tekstas, `border-top: 1px` |
 
 ### 2.9 Privacy puslapiai
 
@@ -253,7 +259,7 @@ summary/header → code-block → prompt-footer (copy + done) → before-use →
 
 ### 3.3 CTAHierarchy
 
-Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal → community green → course secondary outline.
+Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline → community teal filled → course secondary outline.
 
 ---
 

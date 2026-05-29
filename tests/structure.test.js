@@ -402,6 +402,20 @@ function run() {
   else failed++;
   if (assert(libraryCss.includes('.community-cta-primary:focus-visible'), 'DS: .community-cta-primary focus-visible')) passed++;
   else failed++;
+  if (assert(!libraryCss.includes('community-cta-green'), 'DS: no deprecated community-cta-green in library.css')) passed++;
+  else failed++;
+  if (assert(
+    libraryCss.includes('.next-steps-links a') && libraryCss.includes('border: 2px solid var(--brand-teal)'),
+    'DS: next-steps nav chips use outline teal'
+  )) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.footer-meta'), 'DS: .footer-meta block')) passed++;
+  else failed++;
+  for (const lang of ALL_LANGS) {
+    const idx = readFile(path.join(__dirname, '..', lang, 'index.html'));
+    if (assert(idx && idx.includes('class="footer-meta"') && idx.includes('footer-meta-link'), `${lang}: footer-meta with privacy link`)) passed++;
+    else failed++;
+  }
   for (const lang of ALL_LANGS) {
     const idx = readFile(path.join(__dirname, '..', lang, 'index.html'));
     if (assert(idx && idx.includes('../css/library.css'), `${lang}: library.css link`)) passed++;

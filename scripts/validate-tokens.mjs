@@ -29,8 +29,6 @@ const JSON_COLOR_MAP = {
   '--green': ['color', 'feedback', 'green'],
   '--green-hover': ['color', 'feedback', 'greenHover'],
   '--error': ['color', 'feedback', 'error'],
-  '--community-cta-green': ['color', 'community', 'ctaGreen'],
-  '--community-cta-green-hover': ['color', 'community', 'ctaGreenHover'],
   '--blue-light': ['color', 'palette', 'blueLight'],
   '--orange': ['color', 'palette', 'orange'],
   '--orange-light': ['color', 'palette', 'orangeLight'],

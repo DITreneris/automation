@@ -106,8 +106,7 @@
                 <span class="prompt-time" aria-label="目安時間：ステップあたり3〜5分">ステップあたり 約3〜5分</span>
             </h2>
             <ol>
-                <li>プロンプトを選んでクリックすると、テキストが選択されます</li>
-                <li><strong>「プロンプトをコピー」</strong>をクリック、または <code>Ctrl+C</code> / <code>Cmd+C</code></li>
+                <li>プロンプトを選び、テキスト下の<strong>「プロンプトをコピー」</strong>をタップ — 一文でコピーできます。パソコンではテキストを選択して <code>Ctrl+C</code> / <code>Cmd+C</code> も使えます。</li>
                 <li>ChatGPT、Claude などのAIツールに貼り付けます</li>
                 <li>プロンプト内の <code>[COMPANY]</code> は自社またはクライアント企業名に、<code>[MY ROLE]</code> はあなたの役職に置き換えてください。AIの役割（例：「批判的なアナリスト」）は既に指定されているため変更不要です。</li>
             </ol>
@@ -664,8 +663,8 @@ OUTPUT: 結果：シナリオと14日計画。本番より前にAIで練習し�
         </section>
 
         <section class="ecosystem" aria-labelledby="ecosystem-title">
-            <h2 id="ecosystem-title">プロンプトアナトミー・エコシステム</h2>
-            <p class="ecosystem-lead">学習・日常業務・意思決定のためのAI OS。いまご覧のは Daily Workflow Library です。</p>
+            <h2 id="ecosystem-title">Prompt Anatomy Hubへようこそ</h2>
+            <p class="ecosystem-lead">戦略・戦術・オペレーションのためのAI OS。いまご覧のは Daily Workflow Library です。</p>
             <figure class="ecosystem-figure">
                 <picture>
                     <source
@@ -680,7 +679,6 @@ OUTPUT: 結果：シナリオと14日計画。本番より前にAIで練習し�
                         loading="lazy"
                         decoding="async">
                 </picture>
-                <figcaption>ランダムなプロンプトを減らし、構造化された実行を。</figcaption>
             </figure>
         </section>
 
@@ -693,30 +691,33 @@ OUTPUT: 結果：シナリオと14日計画。本番より前にAIで練習し�
                 <span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> すぐ着手</span>
                 <span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> 成果重視</span>
             </div>
-            <address class="footer-contact">
-                <strong>Prompt Anatomy</strong>
-                1311 Park St, Unit #654, Alameda, CA 94501, USA<br>
-                <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
-            </address>
-            <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="言語">
-                <button type="button"
-                        class="lang-switcher-trigger"
-                        id="lang-switcher-trigger-footer"
-                        aria-expanded="false"
-                        aria-controls="lang-switcher-menu-footer">
-                    <span class="lang-switcher-trigger-text">日本語</span>
-                    <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
-                </button>
-                <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
-                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
-                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
-                    <li><span class="lang-option lang-option--current" aria-current="page">日本語</span></li>
-                </ul>
-            </nav>
+            <div class="footer-meta">
+                <address class="footer-contact">
+                    <strong>Prompt Anatomy</strong><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <span class="footer-contact-address">1311 Park St, Unit #654, Alameda, CA 94501, USA</span><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
+                </address>
+                <a href="privacy.html" class="footer-meta-link">プライバシー</a>
+                <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="言語">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-footer"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-footer">
+                        <span class="lang-switcher-trigger-text">日本語</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page">日本語</span></li>
+                    </ul>
+                </nav>
+            </div>
             <div class="copyright">
-                <p>&copy; 2026 Tomas Staniulis. 研修教材。無断転載を禁じます。 <a href="privacy.html">プライバシー</a></p>
+                <p>&copy; 2026 Tomas Staniulis. 研修教材。無断転載を禁じます。</p>
             </div>
         </footer>
 

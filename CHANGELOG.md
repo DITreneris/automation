@@ -8,6 +8,14 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**.
 
+### Pakeista
+
+- **[UI] Mobile polish:** kalbų dropdown overlay (pašalintas `17.5rem` margin hack, `overflow: visible` atidarius); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.
+- **[Content] Instrukcijos (5 kalbos):** 4 žingsniai → 3; mobile-first — pirma **Copy prompt**, Ctrl/Cmd+C kaip desktop pastaba.
+- **[UI] DS žalios spalvos:** nav chip'ai (`.next-steps-links a`) – outline `--brand-teal`; community CTA (`.community-cta-primary`) – filled `--brand-teal`; pašalinti `--community-cta-green` tokenai (`tokens.css`, `tokens/tokens.json`).
+- **[Content] Ecosystem sekcija (5 kalbos):** H2 „Welcome to the Prompt Anatomy Hub“, lead apie strategiją/taktiką/operacijas; pašalintas `<figcaption>` (dublikatas paveikslėlyje).
+- **[UI] Footer micro-iteration:** light card (1px border, be shadow), mažesni `.tag` chip'ai, `.footer-meta` (contact · Privacy · kalba), copyright be Privacy linko; DS §2.8.
+
 ---
 
 ## [1.4.0] - 2026-05-29

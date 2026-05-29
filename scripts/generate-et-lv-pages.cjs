@@ -227,12 +227,8 @@ const ET_PAIRS = [
     'aria-label="Orienteeruv aeg: 3–5 min sammu kohta">~3–5 min sammu kohta</span>',
   ],
   [
-    '<li>Choose a prompt and click it – the text will be selected</li>',
-    '<li>Valige prompt ja klõpsake sellel – tekst märgistatakse</li>',
-  ],
-  [
-    '<li>Click <strong>“Copy prompt”</strong> or use <code>Ctrl+C</code> / <code>Cmd+C</code></li>',
-    '<li>Klõpsake <strong>„Kopeerige prompt“</strong> või kasutage <code>Ctrl+C</code> / <code>Cmd+C</code></li>',
+    '<li>Choose a prompt and tap <strong>“Copy prompt”</strong> below the text — everything is copied in one step. On a computer, you can also select the text and use <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>',
+    '<li>Valige prompt ja vajutage teksti all olevat <strong>„Kopeerige prompt“</strong> — kogu tekst kopeeritakse ühe klõpsuga. Arvutis saate ka teksti märgistada ja kasutada <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>',
   ],
   [
     '<li>Paste into ChatGPT, Claude or another AI tool</li>',
@@ -452,20 +448,16 @@ const ET_PAIRS = [
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Igapäevane kogu</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kriitilise olukorra simulatsioon</a>'],
   [
-    '<h2 id="ecosystem-title">Prompt Anatomy ecosystem</h2>',
-    '<h2 id="ecosystem-title">Prompt Anatomy ökosüsteem</h2>',
+    '<h2 id="ecosystem-title">Welcome to the Prompt Anatomy Hub</h2>',
+    '<h2 id="ecosystem-title">Tere tulemast Prompt Anatomy Hub\'i</h2>',
   ],
   [
-    '<p class="ecosystem-lead">One AI operating system for learning, daily work, and decisions. You are in the Daily Workflow Library.</p>',
-    '<p class="ecosystem-lead">Üks tehisintellekti operatsioonisüsteem õppimiseks, igapäevatööks ja otsusteks. Olete igapäevases töövoogude kogus.</p>',
+    '<p class="ecosystem-lead">Your AI operating system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Teie tehisintellekti operatsioonisüsteem strateegia, taktika ja operatsioonide jaoks. Olete Daily Workflow Library\'s.</p>',
   ],
   [
     'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',
     'alt="Skeem: promptanatomy.app keskel, ühendatud promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro ja promptanatomy.ceo"',
-  ],
-  [
-    '<figcaption>Less random prompting. More structured execution.</figcaption>',
-    '<figcaption>Vähem juhuslikke prompte. Rohkem struktureeritud teostust.</figcaption>',
   ],
   [
     '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
@@ -496,8 +488,12 @@ const ET_PAIRS = [
   ['<span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Quick start</span>', '<span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Kiire start</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Results</span>', '<span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Tulemused</span>'],
   [
-    '<p>&copy; 2026 Tomas Staniulis. Training material. All rights reserved. <a href="privacy.html">Privacy</a></p>',
-    '<p>&copy; 2026 Tomas Staniulis. Õppematerjal. Kõik õigused kaitstud. <a href="privacy.html">Privaatsus</a></p>',
+    '<a href="privacy.html" class="footer-meta-link">Privacy</a>',
+    '<a href="privacy.html" class="footer-meta-link">Privaatsus</a>',
+  ],
+  [
+    '<p>&copy; 2026 Tomas Staniulis. Training material. All rights reserved.</p>',
+    '<p>&copy; 2026 Tomas Staniulis. Õppematerjal. Kõik õigused kaitstud.</p>',
   ],
   ['aria-label="Copy text field"', 'aria-label="Kopeerimisväli"'],
   ['aria-label="Copy notification">', 'aria-label="Kopeerimisteade">'],
@@ -638,10 +634,9 @@ const LV_PAIRS = [
     'aria-label="Approx. time: 3–5 min per step">~3–5 min per step</span>',
     'aria-label="Orientējošais laiks: 3–5 min uz soli">~3–5 min uz soli</span>',
   ],
-  ['<li>Choose a prompt and click it – the text will be selected</li>', '<li>Izvēlieties promptu un noklikšķiniet – teksts tiks atlasīts</li>'],
   [
-    '<li>Click <strong>“Copy prompt”</strong> or use <code>Ctrl+C</code> / <code>Cmd+C</code></li>',
-    '<li>Nospiediet <strong>„Kopēt promptu“</strong> vai izmantojiet <code>Ctrl+C</code> / <code>Cmd+C</code></li>',
+    '<li>Choose a prompt and tap <strong>“Copy prompt”</strong> below the text — everything is copied in one step. On a computer, you can also select the text and use <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>',
+    '<li>Izvēlieties promptu un nospiediet <strong>„Kopēt promptu“</strong> zem teksta — viss teksts tiek nokopēts ar vienu klikšķi. Datorā varat arī atlasīt tekstu un izmantot <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>',
   ],
   ['<li>Paste into ChatGPT, Claude or another AI tool</li>', '<li>Ielīmējiet ChatGPT, Claude vai citā MI rīkā</li>'],
   [
@@ -855,20 +850,16 @@ const LV_PAIRS = [
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Ikdienas bibliotēka</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kritiskas situācijas simulācija</a>'],
   [
-    '<h2 id="ecosystem-title">Prompt Anatomy ecosystem</h2>',
-    '<h2 id="ecosystem-title">Prompt Anatomy ekosistēma</h2>',
+    '<h2 id="ecosystem-title">Welcome to the Prompt Anatomy Hub</h2>',
+    '<h2 id="ecosystem-title">Laipni lūdzam Prompt Anatomy Hub</h2>',
   ],
   [
-    '<p class="ecosystem-lead">One AI operating system for learning, daily work, and decisions. You are in the Daily Workflow Library.</p>',
-    '<p class="ecosystem-lead">Viena mākslīgā intelekta operētājsistēma mācībām, ikdienas darbam un lēmumiem. Jūs esat ikdienas darba plūsmu bibliotēkā.</p>',
+    '<p class="ecosystem-lead">Your AI operating system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Jūsu mākslīgā intelekta operētājsistēma stratēģijai, taktikai un operācijām. Jūs esat Daily Workflow Library.</p>',
   ],
   [
     'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',
     'alt="Shēma: promptanatomy.app centrā, savienots ar promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro un promptanatomy.ceo"',
-  ],
-  [
-    '<figcaption>Less random prompting. More structured execution.</figcaption>',
-    '<figcaption>Mazāk nejaušu promptu. Vairāk strukturētas izpildes.</figcaption>',
   ],
   [
     '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
@@ -899,8 +890,12 @@ const LV_PAIRS = [
   ['<span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Quick start</span>', '<span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Ātrs starts</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Results</span>', '<span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Rezultāti</span>'],
   [
-    '<p>&copy; 2026 Tomas Staniulis. Training material. All rights reserved. <a href="privacy.html">Privacy</a></p>',
-    '<p>&copy; 2026 Tomas Staniulis. Apmācību materiāls. Visas tiesības aizsargātas. <a href="privacy.html">Privātums</a></p>',
+    '<a href="privacy.html" class="footer-meta-link">Privacy</a>',
+    '<a href="privacy.html" class="footer-meta-link">Privātums</a>',
+  ],
+  [
+    '<p>&copy; 2026 Tomas Staniulis. Training material. All rights reserved.</p>',
+    '<p>&copy; 2026 Tomas Staniulis. Apmācību materiāls. Visas tiesības aizsargātas.</p>',
   ],
   ['aria-label="Copy text field"', 'aria-label="Kopēšanas lauks"'],
   ['aria-label="Copy notification">', 'aria-label="Kopēšanas paziņojums">'],
