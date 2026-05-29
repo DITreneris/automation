@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="base-path" content="">
     <title>Redirect – Prompt Anatomy</title>
+    <meta name="robots" content="noindex,follow">
     <script>
         (function() {
             var base = document.querySelector('meta[name="base-path"]');
@@ -16,20 +17,25 @@
             var lang = 'en';
             try {
                 var stored = localStorage.getItem('lang');
-                if (stored === 'lt' || stored === 'en' || stored === 'et' || stored === 'lv') lang = stored;
+                if (stored === 'lt' || stored === 'en' || stored === 'et' || stored === 'lv' || stored === 'ja') lang = stored;
                 else if (typeof navigator !== 'undefined' && navigator.language) {
                     var nav = navigator.language.toLowerCase();
                     if (nav.indexOf('lt') === 0) lang = 'lt';
                     else if (nav.indexOf('et') === 0 || nav.indexOf('ee') === 0) lang = 'et';
                     else if (nav.indexOf('lv') === 0) lang = 'lv';
+                    else if (nav.indexOf('ja') === 0) lang = 'ja';
                 }
             } catch (e) {}
             var path = (base ? base + '/' : '/') + lang + '/';
             window.location.replace(path);
         })();
     </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0B1320">
 </head>
 <body>
-    <p>Redirecting… <a href="lt/" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a> | <a href="en/" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a> | <a href="et/" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a> | <a href="lv/" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></p>
+    <p>Redirecting… <a href="lt/" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a> | <a href="en/" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a> | <a href="et/" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a> | <a href="lv/" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a> | <a href="ja/" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></p>
 </body>
 </html>

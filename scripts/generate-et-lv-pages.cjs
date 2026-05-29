@@ -48,32 +48,118 @@ function applyPairs(html, pairs) {
   return html;
 }
 
-const ET_NAV = `                <nav class="lang-switcher" aria-label="Keel">
-                    <ul class="lang-switcher-list">
-                        <li><a href="../lt/" class="lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                        <li><a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                        <li><span class="lang-current" aria-current="page">Eesti</span></li>
-                        <li><a href="../lv/" class="lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+const ET_NAV = `                <nav class="lang-switcher lang-switcher--dropdown" aria-label="Keel">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-hero"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-hero">
+                        <span class="lang-switcher-trigger-text">Eesti</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     </ul>
                 </nav>`;
 
-const LANG_NAV_RE = /<nav class="lang-switcher"[^>]*>[\s\S]*?<\/nav>/;
+const ET_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Keel">
+                <button type="button"
+                        class="lang-switcher-trigger"
+                        id="lang-switcher-trigger-footer"
+                        aria-expanded="false"
+                        aria-controls="lang-switcher-menu-footer">
+                    <span class="lang-switcher-trigger-text">Eesti</span>
+                    <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                </button>
+                <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                    <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
+                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                </ul>
+            </nav>`;
 
-const LV_NAV = `                <nav class="lang-switcher" aria-label="Valoda">
-                    <ul class="lang-switcher-list">
-                        <li><a href="../lt/" class="lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                        <li><a href="../en/" class="lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                        <li><a href="../et/" class="lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
-                        <li><span class="lang-current" aria-current="page">Latviešu</span></li>
+const LANG_NAV_RE =
+  /<nav class="lang-switcher lang-switcher--dropdown" aria-label="Language">[\s\S]*?<\/nav>/;
+const FOOTER_LANG_NAV_RE =
+  /<nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Language">[\s\S]*?<\/nav>/;
+
+const LV_NAV = `                <nav class="lang-switcher lang-switcher--dropdown" aria-label="Valoda">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-hero"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-hero">
+                        <span class="lang-switcher-trigger-text">Latviešu</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     </ul>
                 </nav>`;
+
+const LV_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Valoda">
+                <button type="button"
+                        class="lang-switcher-trigger"
+                        id="lang-switcher-trigger-footer"
+                        aria-expanded="false"
+                        aria-controls="lang-switcher-menu-footer">
+                    <span class="lang-switcher-trigger-text">Latviešu</span>
+                    <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                </button>
+                <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                    <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
+                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                </ul>
+            </nav>`;
 
 /** Longest / most specific first. (Nav is replaced via LANG_NAV_RE before applyPairs.) */
 const ET_PAIRS = [
   ['<html lang="en" data-hreflang-suite="library">', '<html lang="et" data-hreflang-suite="library">'],
   [
-    'Let AI do 30–50% of your daily tasks – Prompt Anatomy',
-    'Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia',
+    '<meta name="description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta name="description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+  ],
+  [
+    '<link rel="canonical" href="https://www.promptanatomy.info/en/">',
+    '<link rel="canonical" href="https://www.promptanatomy.info/et/">',
+  ],
+  [
+    '<meta property="og:url" content="https://www.promptanatomy.info/en/">',
+    '<meta property="og:url" content="https://www.promptanatomy.info/et/">',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#webpage"',
+    '"@id":"https://www.promptanatomy.info/et/#webpage"',
+  ],
+  [
+    '"url":"https://www.promptanatomy.info/en/"',
+    '"url":"https://www.promptanatomy.info/et/"',
+  ],
+  ['"inLanguage":"en"', '"inLanguage":"et"'],
+  [
+    '"name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy"',
+    '"name":"Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia"',
+  ],
+  [
+    '"description":"8 exercises with ready-made templates – results in minutes."',
+    '"description":"8 harjutust valmis mallidega – tulemused minutitega."',
+  ],
+  [
+    '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
+    '<title>Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia</title>',
   ],
   [
     "<style>:root { --codeblock-copy-hint: 'Select and copy'; }</style>",
@@ -350,8 +436,8 @@ const ET_PAIRS = [
     '<p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>',
   ],
   [
-    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
-    '<p class="footer-product-link">See on <strong>Spin-off nr 1</strong> projektist „Prompt Anatomy“. Täielik interaktiivne kursus ja rohkem: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
+    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
+    '<p class="footer-product-link">See on <strong>Spin-off nr 1</strong> projektist „Prompt Anatomy“. Täielik interaktiivne kursus ja rohkem: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Tehisintellektile optimeeritud</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],
@@ -406,8 +492,37 @@ const ET_JS_PAIRS = [
 const LV_PAIRS = [
   ['<html lang="en" data-hreflang-suite="library">', '<html lang="lv" data-hreflang-suite="library">'],
   [
-    'Let AI do 30–50% of your daily tasks – Prompt Anatomy',
-    'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy',
+    '<meta name="description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta name="description" content="8 vingrinājumi ar gataviem veidnēm – rezultāti dažu minūšu laikā.">',
+  ],
+  [
+    '<link rel="canonical" href="https://www.promptanatomy.info/en/">',
+    '<link rel="canonical" href="https://www.promptanatomy.info/lv/">',
+  ],
+  [
+    '<meta property="og:url" content="https://www.promptanatomy.info/en/">',
+    '<meta property="og:url" content="https://www.promptanatomy.info/lv/">',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#webpage"',
+    '"@id":"https://www.promptanatomy.info/lv/#webpage"',
+  ],
+  [
+    '"url":"https://www.promptanatomy.info/en/"',
+    '"url":"https://www.promptanatomy.info/lv/"',
+  ],
+  ['"inLanguage":"en"', '"inLanguage":"lv"'],
+  [
+    '"name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy"',
+    '"name":"Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy"',
+  ],
+  [
+    '"description":"8 exercises with ready-made templates – results in minutes."',
+    '"description":"8 vingrinājumi ar gataviem veidnēm – rezultāti dažu minūšu laikā."',
+  ],
+  [
+    '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
+    '<title>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy</title>',
   ],
   [
     "<style>:root { --codeblock-copy-hint: 'Select and copy'; }</style>",
@@ -672,8 +787,8 @@ const LV_PAIRS = [
     '<p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – mainīt nav jā.</p>',
   ],
   [
-    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
-    '<p class="footer-product-link">Šis ir <strong>Spin-off Nr. 1</strong> no „Prompt Anatomy“. Pilns interaktīvs kurss un vairāk: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
+    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
+    '<p class="footer-product-link">Šis ir <strong>Spin-off Nr. 1</strong> no „Prompt Anatomy“. Pilns interaktīvs kurss un vairāk: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> MI optimizēts</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],
@@ -772,11 +887,13 @@ const libEn = fs
 
 let etHtml = replacePromptBodies(en, ET_PROMPTS);
 etHtml = etHtml.replace(LANG_NAV_RE, ET_NAV.trim());
+etHtml = etHtml.replace(FOOTER_LANG_NAV_RE, ET_FOOTER_NAV.trim());
 etHtml = applyPairs(etHtml, ET_PAIRS);
 etHtml = etHtml.replaceAll('../js/library.js', '../js/library.et.js');
 
 let lvHtml = replacePromptBodies(en, LV_PROMPTS);
 lvHtml = lvHtml.replace(LANG_NAV_RE, LV_NAV.trim());
+lvHtml = lvHtml.replace(FOOTER_LANG_NAV_RE, LV_FOOTER_NAV.trim());
 lvHtml = applyPairs(lvHtml, LV_PAIRS);
 lvHtml = lvHtml.replaceAll('../js/library.js', '../js/library.lv.js');
 

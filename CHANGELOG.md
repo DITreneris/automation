@@ -6,18 +6,60 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ## [Unreleased]
 
-Kolonėlės (Prideta / Pakeista / …) pildomos iki kito semver release; paskutinis release – **[1.2.0]**.
+Kolonėlės (Prideta / Pakeista / …) pildomos iki kito semver release; paskutinis release – **[1.3.0]**.
+
+### Prideta
+
+- **[Orchestrator] Vercel:** [`vercel.json`](vercel.json) – `trailingSlash`, statinių assetų cache, `X-Content-Type-Options` / `Referrer-Policy`; [DEPLOYMENT.md](DEPLOYMENT.md) §1.
+- **[QA] SEO head (metadata only):** statiniai `hreflang` (`www.promptanatomy.info`), `canonical`, lokalizuoti `meta description` per locale; anglų `og:*` / `twitter:*` visose lokelėse; `og:image:alt` „Prompt Anatomy – AI Automation Library“; JSON-LD (`Organization`, `WebSite`, `WebPage`) bibliotekos puslapiuose; root [`index.html`](index.html) `noindex,follow`; išplėstas [`llms.txt`](llms.txt); [`sitemap.xml`](sitemap.xml) `<lastmod>2026-05-29</lastmod>`; [`scripts/seo-constants.cjs`](scripts/seo-constants.cjs); struktūriniai SEO assertai [`tests/structure.test.js`](tests/structure.test.js).
+- **[QA] OG paveikslėlis:** dizaino master [`01_og_image.png`](01_og_image.png) (AI Automation Library layout); production [`og-image.png`](og-image.png) 1200×630 per [`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs) (`npm run generate:og-image`).
+- **[UI] Compact kalbų dropdown bibliotekoje:** [js/lang-switcher.js](js/lang-switcher.js) – hero ir footer instance (`lang-switcher--dropdown`): toggle, `aria-expanded`, Escape, outside click; vienu metu atidarytas tik vienas meniu. Struktūriniai testai: `lang-switcher--dropdown`, `header-top`, `lang-link >= 8` (hero + footer).
+- **Sistemos higiena ir brand consistency** (suderinta su mother repo `DITreneris/promptanatomy`):
+  - Dizaino tokenų sluoksniai [css/library.css](css/library.css) `:root`: elevation (`--shadow-1/2/3`, `--shadow-accent-ring`), radius (`--radius-sm/md/lg/xl`), spacing (`--space-2..8`); pasikartojantys magic numbers pakeisti token nuorodomis.
+  - PWA: [site.webmanifest](site.webmanifest) (`theme_color #0B1320`) + favicon PNG rinkinys (16/32/180/192/512) generuojamas iš `favicon.svg` per [scripts/generate-favicons.mjs](scripts/generate-favicons.mjs) (`npm run generate:favicons`, `sharp`).
+  - SEO/discovery (pirmasis etapas): [robots.txt](robots.txt), [sitemap.xml](sitemap.xml) (su `hreflang` alternatyvomis), [llms.txt](llms.txt) – vėliau papildyta pilnu `<head>` ir OG (žr. `[Unreleased]` aukščiau).
+  - Scoped Cursor taisyklės: `.cursor/rules/{project-global,design-tokens,multilingual}.mdc`.
+  - `<head>` visuose puslapiuose: `theme-color`, `manifest`, `apple-touch-icon` (et/lv index per generatorių).
+  - Struktūriniai testai: PWA meta ir root asset egzistavimo patikros.
+- **Footer kontaktai** (visi 5 bibliotekos `index.html`): semantinis `<address class="footer-contact">` – Prompt Anatomy, 1311 Park St, Unit #654, Alameda, CA 94501, USA, `mailto:info@promptanatomy.app`; stiliai [css/library.css](css/library.css) `.footer-contact`. et/lv per `npm run generate:et-lv` iš `en/index.html`. Struktūriniai testai – QA Agent atsakomybė (žr. [AGENTS.md](AGENTS.md)).
 
 ### Pakeista
 
-- UI/UX: kalbų jungikliuose (biblioteka + privatumas) vartotojui matomos tik **EN** ir **JA** (LT/ET/LV URL lieka, bet nerodomi switcher’iuose).
-- Root `/` redirect: numatytas nukreipimas į `/ja/`; jei `localStorage.lang` yra `lt|et|lv` – map’inama į `/en/`.
-- Generatorius: `npm run generate:et-lv` atnaujintas, kad ET/LV/JA puslapiuose nav nebeįrašytų LT/ET/LV kalbų į switcher.
-- Testai: struktūriniai testai pritaikyti EN+JA-only switcheriams (root manual links ir privacy lang-link lūkesčiai).
-- Bendruomenės CTA: **WhatsApp** nuoroda pakeista į **Telegram** kanalą `https://t.me/prompt_anatomy` visose bibliotekos `index.html` versijose (`en` / `et` / `lv` / `lt` / `ja`) ir atitinkamai atnaujinti matomi tekstai bei `aria-label`.
-- JA: `ja/index.html` viešas UI (hero, „prieš naudojant“, info dėžutės, next-steps, community, footer, `aria-label`) suvienodintas japonų kalba (kad `/ja/` nebekeltų „pusiau EN“ įspūdžio).
-- JA privatumas: `ja/privacy.html` – išorinių paslaugų paminėjimas atnaujintas nuo WhatsApp į Telegram (kartu su bendru CTA pakeitimu).
-- Dokumentacija: `STYLEGUIDE.md` ir `docs/MICROCOPY_AUDIT_EN.md` – bendruomenės CTA aprašymai suderinti su Telegram.
+- **[QA] OG šaltinis:** pašalintas minimalus `og-image.svg`; kanoninis social preview – [`01_og_image.png`](01_og_image.png) → [`og-image.png`](og-image.png). Dokumentacija: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3.
+- **[UI] Kalbų perjungiklis (5 bibliotekos `index.html`):** 5 inline linkai hero `header-badges` eilutėje pakeisti compact dropdown – trigger dešinėje (`English ▾` ir kt.), meniu su gimtosiomis etiketėmis; antras instance footer'yje (`lang-switcher--footer`, meniu atsidaro į viršų). Layout: `.header-top` + `.header-brand` [css/library.css](css/library.css). ET/LV: [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs) (`ET_NAV`, `LV_NAV`, `FOOTER_LANG_NAV_RE`); LT/JA rankiniu. **Privatumo puslapiai** – legacy flat list (nekeista). Spec: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §2.
+- **Brand paletė** suvienodinta su pagrindiniu produktu: accent gold `#D9A441` → `#CFA73A` (+ `--accent-gold-hover #E8B93C`), dark navy `#3C485A` → `#0B1320`; hero gradientas ir CTA/shadow rgba perderinti pagal naują dark.
+- Production URL ir golden rule: **`https://www.promptanatomy.info/`** (biblioteka), **`https://www.promptanatomy.info/en`** (pagrindinis produktas); Vercel host `automation-seven-ochre.vercel.app`; apex `promptanatomy.info` → 307 į `www`. Pakeista badge, footer, community, generatorius, AGENTS, MULTILINGUAL, README, DEPLOYMENT.
+
+---
+
+## [1.3.0] - 2026-05-29
+
+Versija atitinka [package.json](package.json) `1.3.0`.
+
+### Prideta
+
+- [scripts/pa11y.config.cjs](scripts/pa11y.config.cjs) – bendra pa11y konfigūracija (Puppeteer `--no-sandbox`, CI suderinamumas su pa11y v9).
+- [scripts/prompt-bodies-ja.cjs](scripts/prompt-bodies-ja.cjs) – JA promptų META/INPUT/OUTPUT korpusas (rankiniam `ja/` palaikymui).
+- Struktūriniai testai: 5 kalbų `lang-switcher` (`data-lang` ir `lang-link >= 4`), root numatytas `en`.
+
+### Pakeista
+
+- **UX / routing:** anglų kalba (**EN**) – numatyta root redirect ir `x-default`; visuose bibliotekos ir privatumo puslapiuose penkiakalbis jungiklis (**Lietuvių | English | Eesti | Latviešu | 日本語**).
+- Root `/`: `localStorage` ir `navigator.language` palaiko `lt`, `en`, `et`, `lv`, `ja`; fallback `/en/`.
+- Generatorius: `ET_NAV` / `LV_NAV` atnaujinti su 5 kalbomis (įskaitant 日本語).
+- JA: progreso tekstas `進捗：X / 8`; 7-o prompto lentelės tokenai – `[プロンプト] | [使用場面] | [解決する課題]`.
+- Bendruomenės CTA: **Telegram** `https://t.me/prompt_anatomy` (visos bibliotekos versijos).
+- Testai / QA: `lint:html` – 11 failų (su `ja/`); pa11y – `/ja/`, `/ja/privacy.html`.
+- CI: `git diff --exit-code` tik ET/LV/LT generuojami failai (be rankinio JA).
+- Dokumentacija: EN-centrinis 5 kalbų modelis – [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md), [AGENTS.md](AGENTS.md), [README.md](README.md), [DEPLOYMENT.md](DEPLOYMENT.md), [docs/TESTAVIMAS.md](docs/TESTAVIMAS.md), [docs/memo_ee_lv.md](docs/memo_ee_lv.md).
+
+### Pataisyta
+
+- CI nebetikrina `ja/index.html` ir `js/library.ja.js` po `generate:et-lv` (JA ne generuojamas – rankinis palaikymas).
+
+### Pašalinta
+
+- Dubliuotas `japan/` medis (netyčinis kopijavimas, ne deploy dalis).
 
 ---
 
@@ -25,14 +67,13 @@ Kolonėlės (Prideta / Pakeista / …) pildomos iki kito semver release; paskuti
 
 ### Prideta
 
-- Japonų (JA, `ja`) pilotinė lokalizacija: `/ja/` (`ja/index.html`) ir `/ja/privacy.html`.
-- Generatorius papildytas `ja` išvestimis: `ja/index.html` ir `js/library.ja.js` (`npm run generate:et-lv`), nauji promptų tekstai `scripts/prompt-bodies-ja.cjs`.
+- Japonų (JA, `ja`) pilotinė lokalizacija: `/ja/` (`ja/index.html`) ir `/ja/privacy.html`; `js/library.ja.js` (rankiniu). Promptų šablonai – [scripts/prompt-bodies-ja.cjs](scripts/prompt-bodies-ja.cjs).
 
 ### Pakeista
 
 - Root redirect ir kalbų jungikliai: pridėta **日本語**, `localStorage.lang='ja'` ir `navigator.language` `ja*` nukreipimas.
 - `hreflang`: pridėtas `hreflang-ja` visuose puslapiuose; `js/hreflang.js` bazės kelio regex papildytas `ja`.
-- QA/CI vartai: struktūriniai testai papildyti `ja`, ESLint globalai papildyti `js/library.ja.js`, CI `git diff --exit-code` įtrauktas `ja/index.html` ir `js/library.ja.js`.
+- QA/CI vartai: struktūriniai testai papildyti `ja`, ESLint globalai papildyti `js/library.ja.js`.
 - Dokumentacija: `docs/MULTILINGUAL_STRUCTURE.md` papildyta `ja` maršrutais ir `hreflang` taisyklėmis.
 - JA UX: išjungtas `tap-to-copy` ant `.code-block` (paritetas su EN/LT/ET/LV – click/tap tik pažymi tekstą; kopijavimas per mygtuką / `Ctrl+C` / `Cmd+C`).
 - JA mikrotekstas: progreso indikatorius `使用済み：X / 8` → `進捗：X / 8`.

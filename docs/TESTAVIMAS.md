@@ -11,7 +11,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 
 | Laukas | Reikšmė |
 |--------|--------|
-| Production URL | https://DITreneris.github.io/automation/ |
+| Production URL | https://www.promptanatomy.info/ |
 | Naršyklė(ės) | Chrome, Firefox, Safari, Edge |
 | Mobilus | iOS Safari / Chrome Mobile (pasirinktinai) |
 
@@ -26,6 +26,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - [ ] **Kopijavimas:** Visi 8 promptai – pasirinkti → „Kopijuoti promptą“ → įklijuoti į DI (pvz. ChatGPT) – tekstas teisingas.
 - [ ] **Progresas:** „Pažymėjau kaip atlikau“ – varnelė įrašoma; perkrovus puslapį – progresas išsaugotas (localStorage).
 - [ ] **Skip link:** Tab iki „Praleisti į turinį“ – Enter – fokusas pereina į pagrindinį turinį.
+- [ ] **Kalbų jungiklis:** Visuose locale (`/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`) rodomos 5 kalbos; root `/` numatytai → `/en/`.
 - [ ] **Privatumas:** Nuoroda į privatumas.html veikia; privatumas.html atsidaro ir rodo turinį.
 
 ### Prieinamumas (a11y)

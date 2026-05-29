@@ -15,10 +15,12 @@ const paths = [
   '/en/',
   '/et/',
   '/lv/',
+  '/ja/',
   '/lt/privatumas.html',
   '/en/privacy.html',
   '/et/privacy.html',
   '/lv/privacy.html',
+  '/ja/privacy.html',
 ];
 
 const extraArgs = [
@@ -28,8 +30,8 @@ const extraArgs = [
   'warning',
   '--reporter',
   'cli',
-  '--',
-  '--no-sandbox',
+  '--config',
+  'scripts/pa11y.config.cjs',
 ];
 
 for (const p of paths) {

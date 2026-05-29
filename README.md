@@ -27,11 +27,11 @@
 
 ## Kaip naudoti
 
-1. Atidarykite svetainę naršyklėje. Root (`/`) nukreips į `/lt/`, `/en/`, `/et/` arba `/lv/` pagal išsaugotą kalbą (`localStorage`) arba naršyklės kalbą; kalbą galima keisti jungikliu (Lietuvių | English | Eesti | Latviešu) viršuje.
+1. Atidarykite svetainę naršyklėje. Root (`/`) numatytai nukreipia į **`/en/`** (centrinė kalba); taip pat į `/lt/`, `/et/`, `/lv/` arba `/ja/` pagal `localStorage.lang` arba naršyklės kalbą. Kalbą galima keisti penkiakalbiu jungikliu viršuje (**Lietuvių | English | Eesti | Latviešu | 日本語**).
 2. Pasirinkite promptą ir spauskite ant jo – tekstas automatiškai pažymėsis
 3. Spauskite mygtuką **"Kopijuoti promptą"** arba naudokite `Ctrl+C` / `Cmd+C`
 4. Įklijuokite į ChatGPT, Claude ar kitą DI įrankį
-5. Jei prompte yra vartotojo žymekliai – pakeiskite savo duomenimis: **LT** `[ĮMONĖ]` / `[MANO ROLĖ]`; **EN** `[COMPANY]` / `[MY ROLE]`; **ET** `[ETTEVÕTE]` / `[MINU ROLL]`; **LV** `[UZŅĒMUMS]` / `[MANA LOMA]`. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Lentelės stulpeliai 7-ame prompte taip pat lokalizuoti (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3b).
+5. Jei prompte yra vartotojo žymekliai – pakeiskite savo duomenimis: **LT** `[ĮMONĖ]` / `[MANO ROLĖ]`; **EN** / **JA** `[COMPANY]` / `[MY ROLE]`; **ET** `[ETTEVÕTE]` / `[MINU ROLL]`; **LV** `[UZŅĒMUMS]` / `[MANA LOMA]`. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Lentelės stulpeliai 7-ame prompte taip pat lokalizuoti (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3b).
 
 ## Technologijos
 
@@ -44,12 +44,12 @@
 
 ```
 .
-├── index.html          # Root: redirect į /lt/ | /en/ | /et/ | /lv/
+├── index.html          # Root: redirect į /lt/ | /en/ (default) | /et/ | /lv/ | /ja/
 ├── lt/
 │   ├── index.html      # Biblioteka (lietuvių)
 │   └── privatumas.html # Privatumo politika (LT)
 ├── en/
-│   ├── index.html      # Library (English)
+│   ├── index.html      # Library (English, kanonas)
 │   └── privacy.html    # Privacy policy (EN)
 ├── et/
 │   ├── index.html      # Raamatukogu (eesti)
@@ -57,6 +57,9 @@
 ├── lv/
 │   ├── index.html      # Bibliotēka (latviešu)
 │   └── privacy.html    # Privātums (LV)
+├── ja/
+│   ├── index.html      # ライブラリ (日本語)
+│   └── privacy.html    # プライバシー (JA)
 ├── css/
 │   └── library.css     # Bendri bibliotekos stiliai (visos kalbos)
 ├── js/
@@ -64,19 +67,22 @@
 │   ├── library.js      # Bibliotekos logika (EN šaltinis)
 │   ├── library.lt.js   # Ta pati logika LT
 │   ├── library.et.js   # Generuojama: npm run generate:et-lv
-│   └── library.lv.js   # Generuojama: npm run generate:et-lv
+│   ├── library.lv.js   # Generuojama: npm run generate:et-lv
+│   └── library.ja.js   # JA (rankiniu)
 ├── scripts/
 │   ├── generate-et-lv-pages.cjs   # ET/LV index + library.et.js / library.lv.js iš EN
-│   ├── lint-html.mjs              # html-validate (9 HTML failai)
+│   ├── lint-html.mjs              # html-validate (11 HTML failų)
 │   ├── pa11y-pages.cjs            # pa11y URL sąrašas (CI)
-│   └── prompt-bodies-et-lv.cjs    # META/INPUT/OUTPUT tekstai ET/LV
+│   ├── pa11y.config.cjs           # pa11y Puppeteer konfigūracija
+│   ├── prompt-bodies-et-lv.cjs    # META/INPUT/OUTPUT tekstai ET/LV
+│   └── prompt-bodies-ja.cjs       # JA promptų korpusas (šaltinis rankiniam JA)
 ├── README.md           # Dokumentacija
 ├── CHANGELOG.md        # Versijų istorija (Keep a Changelog)
 ├── package.json        # Dev: lint, testai, a11y
-├── DEPLOYMENT.md       # Deploy instrukcijos (GitHub Pages)
+├── DEPLOYMENT.md       # Deploy instrukcijos (Vercel + custom domain)
 ├── docs/
 │   ├── DOCUMENTATION.md           # Dokumentų inventorių ir atsakomybės (§1)
-│   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV
+│   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV/JA
 │   ├── BULLET_PROOF_PROMPTS.md    # Promptų META/INPUT/OUTPUT standartas
 │   ├── MICROCOPY_AUDIT_EN.md      # EN UI mikrotekstas
 │   ├── QA_STANDARTAS.md           # QA standartas (spinoff01)
@@ -94,13 +100,12 @@
 ## Privatumas
 
 - **Minimali aplikacija:** šiuo metu **nerinkime jokių asmens duomenų**. Visas naudojimas vyksta tik tavo įrenginyje (kopijavimas, „Pažymėjau kaip atlikau“ – localStorage).
-- **Privatumo politika:** LT [lt/privatumas.html](lt/privatumas.html), EN [en/privacy.html](en/privacy.html), ET [et/privacy.html](et/privacy.html), LV [lv/privacy.html](lv/privacy.html) – aprašymas, kad duomenų nerinkime; jei vėliau bus įjungta kontaktų forma, bus atnaujinta.
+- **Privatumo politika:** LT [lt/privatumas.html](lt/privatumas.html), EN [en/privacy.html](en/privacy.html), ET [et/privacy.html](et/privacy.html), LV [lv/privacy.html](lv/privacy.html), JA [ja/privacy.html](ja/privacy.html) – aprašymas, kad duomenų nerinkime; jei vėliau bus įjungta kontaktų forma, bus atnaujinta.
 
 ## Deployment ir gyvas testavimas
 
 - **Repozitorija:** [github.com/DITreneris/automation](https://github.com/DITreneris/automation)
-- **Deploy:** GitHub Pages per [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Instrukcijos: [DEPLOYMENT.md](DEPLOYMENT.md).
-- **Production URL:** `https://DITreneris.github.io/automation/`
+- **Deploy:** **Vercel** → production **`https://www.promptanatomy.info/`** (legacy GitHub Pages workflow – [DEPLOYMENT.md](DEPLOYMENT.md)).
 - **QA standartas:** [DITreneris/spinoff01](https://github.com/DITreneris/spinoff01). Projektas laikosi [docs/QA_STANDARTAS.md](docs/QA_STANDARTAS.md); po deploy – gyvas testavimas pagal [docs/TESTAVIMAS.md](docs/TESTAVIMAS.md).
 
 ## Reikalavimai

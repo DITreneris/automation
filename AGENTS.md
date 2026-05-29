@@ -1,9 +1,9 @@
 # Agentų Sistemos Modelis – Apžvalga
 
 **Projektas:** DI Promptų Biblioteka  
-**Versija:** 1.0  
+**Versija:** 1.1  
 **Dokumentacija ir agentų instrukcijos:** lietuvių kalba  
-**Vartotojo sąsaja (biblioteka / privatumas):** lt, en, et, lv
+**Vartotojo sąsaja (biblioteka / privatumas):** lt, en, et, lv, ja (centrinė kalba – **EN**)
 
 ---
 
@@ -22,7 +22,9 @@ ORCHESTRATOR AGENT (koordinacija)
 
 **Daugiakalbystė ir šaltinių hierarchija:** kanonas EN (`en/index.html`, `en/privacy.html`, `js/library.js`); LT rankiniu (`lt/`, `js/library.lt.js`); ET/LV po `npm run generate:et-lv`. Keliai, routing, `hreflang`, žymekliai – privaloma specifikacija: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md).
 
-**Golden rule – pagrindinė „Prompt Anatomy“ / „Promptų anatomija“ nuoroda:** visiems agentams ir žmonėms naudoti tik **`https://www.promptanatomy.app/en`** (anglų įėjimas į produktą). Nenaudoti `https://www.promptanatomy.app/` be `/en`, nebe `https://ditreneris.github.io/anatomija/`. Taikyti badge, community, footer, dokumentacijai ir naujiems PR.
+**Golden rule – pagrindinė „Prompt Anatomy“ / „Promptų anatomija“ nuoroda:** visiems agentams ir žmonėms naudoti tik **`https://www.promptanatomy.info/en`** (anglų įėjimas į produktą). Nenaudoti `https://www.promptanatomy.info/` be `/en`, nebe `https://www.promptanatomy.app/`, nebe `https://ditreneris.github.io/anatomija/`. Taikyti badge, community, footer, dokumentacijai ir naujiems PR.
+
+**Bibliotekos (Spin-off) production URL:** **`https://www.promptanatomy.info/`** (kanonas su `www`; apex `promptanatomy.info` → 307 į `www`). Vercel host: `https://automation-seven-ochre.vercel.app/`.
 
 ---
 
@@ -32,7 +34,7 @@ ORCHESTRATOR AGENT (koordinacija)
 - **Tikslas:** Kuria ir prižiūri teksto turinį (promptus, aprašymus)
 - **Įvestis:** Specifikacija, grįžtamasis ryšys, Curriculum rekomendacijos
 - **Išvestis:** Turinio redagavimai, nauji promptai
-- **Daugiakalbystė:** Nuoseklumas visose keturiose bibliotekos ir privatumo versijose pagal [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md). Pakeitus EN (`en/index.html`, `en/privacy.html`) – paleisti `npm run generate:et-lv`, atnaujinti LT (`lt/`, `lt/privatumas.html`) kur reikia; ET/LV privatumą patikslinti ranka, jei neįeina į generatorių. Juridinis LT/EN/ET/LV privatumo tekstas – žr. [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) inventorių.
+- **Daugiakalbystė:** Nuoseklumas visose penkiose bibliotekos ir privatumo versijose (LT, EN, ET, LV, JA) pagal [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md). Pakeitus EN (`en/index.html`, `en/privacy.html`) – paleisti `npm run generate:et-lv`, atnaujinti LT ir JA (`lt/`, `ja/`, `lt/privatumas.html`, `ja/privacy.html`) kur reikia; ET/LV privatumą patikslinti ranka, jei neįeina į generatorių. Juridinis LT/EN/ET/LV/JA privatumo tekstas – žr. [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) inventorių.
 
 ### Curriculum Agent
 - **Tikslas:** Nustato turinio struktūrą ir mokymosi logiką
@@ -51,7 +53,8 @@ ORCHESTRATOR AGENT (koordinacija)
 - **Įvestis:** Pakeitimų diff, MUST_TODO.md, test scenarijai
 - **Išvestis:** Klaidų ataskaitos, acceptance checklist
 - **Dokumentacija:** Prieš merge tikrina, ar pakeitimams atitinka dokumentacijos atnaujinimai (žr. [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)). Prieš release – ar CHANGELOG.md atnaujintas ir versija atitinka SemVer.
-- **Daugiakalbystė:** Prieš merge – `npm test`. Jei pakeitimai liečia EN šaltinį ar `js/library.js` – po `npm run generate:et-lv` repo neturi turėti necommitinto diff generuojamuose failuose (kaip CI). Spot-check: `/`, `/lt/`, `/en/`, `/et/`, `/lv/` ir atitinkami privatumo URL. A11y – CI arba lokaliai (žr. §6 žemiau).
+- **Footer kontaktai (kanonas):** QA Agent prižiūri ir tikrina bibliotekos puslapių `.footer-contact` bloką visose 5 kalbose: pavadinimas **Prompt Anatomy**, adresas **1311 Park St, Unit #654, Alameda, CA 94501, USA**, el. paštas **info@promptanatomy.app** (`mailto:`). Keitimas: atnaujinti `en/index.html`, `lt/index.html`, `ja/index.html` rankiniu; paleisti `npm run generate:et-lv` (et/lv); patikrinti [tests/structure.test.js](tests/structure.test.js) assertus; atnaujinti CHANGELOG `[Unreleased]`.
+- **Daugiakalbystė:** Prieš merge – `npm test`. Jei pakeitimai liečia EN šaltinį ar `js/library.js` – po `npm run generate:et-lv` repo neturi turėti necommitinto diff generuojamuose failuose (kaip CI). Spot-check: `/`, `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/` ir atitinkami privatumo URL. A11y – CI arba lokaliai (žr. §6 žemiau).
 
 ### Orchestrator Agent
 - **Tikslas:** Koordinuoja agentus, prioritizuoja užduotis
@@ -105,7 +108,7 @@ ORCHESTRATOR AGENT (koordinacija)
 | `npm install` | Įdiegti priklausomybes |
 | `npm test` | Struktūros testai + lint (HTML, JS) |
 | `npm run generate:et-lv` | Iš `en/index.html` ir [js/library.js](js/library.js) generuoja `et/`, `lv/` puslapius ir `library.et.js`, `library.lv.js`, `library.lt.js` ([scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)); prieš commit paleisti, jei keičiate šaltinį |
-| `npm run lint:html` | HTML validacija (9 puslapiai, lokaliai per `html-validate` / [scripts/lint-html.mjs](scripts/lint-html.mjs)) |
+| `npm run lint:html` | HTML validacija (11 puslapių, lokaliai per `html-validate` / [scripts/lint-html.mjs](scripts/lint-html.mjs)) |
 | `npm run lint:js` | ESLint (flat [eslint.config.js](eslint.config.js), visi tikslinami `.js`) |
 | CI (GitHub Actions) | Node **22**, lint, test, pa11y a11y – automatiškai push/PR |
 

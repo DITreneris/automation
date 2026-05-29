@@ -1,0 +1,16 @@
+---
+description: Dizaino tokenų taisyklės – css/library.css
+globs: css/**
+---
+
+# Dizaino tokenai (css/library.css)
+
+- Visos spalvos, šešėliai, radius ir tarpai – per `:root` custom properties. JOKIŲ magic numbers komponentuose.
+- Esami token sluoksniai:
+  - Spalvos: `--accent-gold` `#CFA73A`, `--accent-gold-hover` `#E8B93C`, `--accent-dark` `#0B1320`, `--tertiary` (teal), semantiniai `--green/--blue/--orange`.
+  - Elevation: `--shadow-1` / `--shadow-2` / `--shadow-3` / `--shadow-accent-ring`.
+  - Radius: `--radius-sm` (6px) / `--radius-md` (12px) / `--radius-lg` (16px) / `--radius-xl` (20px).
+  - Spacing: `--space-2..8`.
+- Naują šešėlį/radius/tarpą pridėk kaip token, tada naudok `var(--token)`. Nedubliuok artimų reikšmių – harmonizuok į esamą token.
+- Brand konvergencija su mother repo (promptanatomy): accent `#CFA73A`, dark `#0B1320`. Nekeisk be priežasties.
+- A11y: išlaikyk WCAG AA kontrastą; po spalvų keitimo paleisk pa11y.

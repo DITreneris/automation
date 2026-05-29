@@ -93,7 +93,7 @@
 | Secondary CTA | Prompt Anatomy → |
 | Footer H3 | Good luck with your prompts |
 | Footer reminder | If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. |
-| Product link | This is **Spin-off No. 1** from “Prompt Anatomy”. Full interactive course and more: canonical link [promptanatomy.app/en](https://www.promptanatomy.app/en) |
+| Product link | This is **Spin-off No. 1** from “Prompt Anatomy”. Full interactive course and more: canonical link [promptanatomy.info/en](https://www.promptanatomy.info/en) |
 | Tags | AI-optimized, 8 prompts, Quick start, Results |
 | Copyright | © 2026 Tomas Staniulis. Training material. All rights reserved. Privacy |
 

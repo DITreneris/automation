@@ -1,0 +1,32 @@
+# Prompt Anatomy – Prompt Library (Spin-off No. 1)
+
+> Free multilingual static library of 8 ready-made AI prompt templates for managers, specialists, consultants, and freelancers. Companion to the Prompt Anatomy interactive course.
+
+## Canonical site
+https://www.promptanatomy.info/
+
+## Sitemap
+https://www.promptanatomy.info/sitemap.xml
+
+## Library
+- English: https://www.promptanatomy.info/en/
+- Lietuvių: https://www.promptanatomy.info/lt/
+- Eesti: https://www.promptanatomy.info/et/
+- Latviešu: https://www.promptanatomy.info/lv/
+- 日本語: https://www.promptanatomy.info/ja/
+
+## Main product (interactive course)
+https://www.promptanatomy.info/en
+
+## Privacy
+- English: https://www.promptanatomy.info/en/privacy.html
+- Lietuvių: https://www.promptanatomy.info/lt/privatumas.html
+- Eesti: https://www.promptanatomy.info/et/privacy.html
+- Latviešu: https://www.promptanatomy.info/lv/privacy.html
+- 日本語: https://www.promptanatomy.info/ja/privacy.html
+
+## Organization
+Prompt Anatomy | 1311 Park St, Unit #654, Alameda, CA 94501, USA | info@promptanatomy.app
+
+## Note
+This site is the free prompt library spin-off. The full course application lives at the main product URL above.

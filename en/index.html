@@ -4,14 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>
+    <meta name="description" content="8 exercises with ready-made templates – results in minutes.">
+    <link rel="canonical" href="https://www.promptanatomy.info/en/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Prompt Anatomy">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="lt_LT">
+    <meta property="og:locale:alternate" content="et_EE">
+    <meta property="og:locale:alternate" content="lv_LV">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">
+    <meta property="og:description" content="8 exercises with ready-made templates – results in minutes. Free multilingual prompt library.">
+    <meta property="og:url" content="https://www.promptanatomy.info/en/">
+    <meta property="og:image" content="https://www.promptanatomy.info/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Prompt Anatomy – AI Automation Library">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">
+    <meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes. Free multilingual prompt library.">
+    <meta name="twitter:image" content="https://www.promptanatomy.info/og-image.png">
+    <meta name="twitter:image:alt" content="Prompt Anatomy – AI Automation Library">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="alternate" hreflang="lt" href="#" id="hreflang-lt">
-    <link rel="alternate" hreflang="en" href="#" id="hreflang-en">
-    <link rel="alternate" hreflang="et" href="#" id="hreflang-et">
-    <link rel="alternate" hreflang="lv" href="#" id="hreflang-lv">
-    <link rel="alternate" hreflang="ja" href="#" id="hreflang-ja">
-    <link rel="alternate" hreflang="x-default" href="#" id="hreflang-default">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0B1320">
+    <link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/" id="hreflang-lt">
+    <link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/" id="hreflang-en">
+    <link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/" id="hreflang-et">
+    <link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/" id="hreflang-lv">
+    <link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/" id="hreflang-ja">
+    <link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/" id="hreflang-default">
     <script src="../js/hreflang.js"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.promptanatomy.info/#organization","name":"Prompt Anatomy","url":"https://www.promptanatomy.info/","email":"info@promptanatomy.app","address":{"@type":"PostalAddress","streetAddress":"1311 Park St, Unit #654","addressLocality":"Alameda","addressRegion":"CA","postalCode":"94501","addressCountry":"US"}},{"@type":"WebSite","@id":"https://www.promptanatomy.info/#website","name":"Prompt Anatomy – Prompt Library","url":"https://www.promptanatomy.info/en/","publisher":{"@id":"https://www.promptanatomy.info/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://www.promptanatomy.info/en/#webpage","url":"https://www.promptanatomy.info/en/","name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy","description":"8 exercises with ready-made templates – results in minutes.","isPartOf":{"@id":"https://www.promptanatomy.info/#website"},"inLanguage":"en"}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -25,13 +50,26 @@
 
         <!-- HERO -->
         <header class="header">
-            <div class="header-badges">
-                <a href="https://www.promptanatomy.app/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>
-                <span class="badge badge-spinoff" role="status" aria-label="Prompt Anatomy spin-off project">Spin-off No. 1</span>
-                <nav class="lang-switcher" aria-label="Language">
-                    <ul class="lang-switcher-list">
-                        <li><span class="lang-current" aria-current="page">English</span></li>
-                        <li><a href="../ja/" class="lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+            <div class="header-top">
+                <div class="header-brand">
+                    <a href="https://www.promptanatomy.info/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>
+                    <span class="badge badge-spinoff" role="status" aria-label="Prompt Anatomy spin-off project">Spin-off No. 1</span>
+                </div>
+                <nav class="lang-switcher lang-switcher--dropdown" aria-label="Language">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-hero"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-hero">
+                        <span class="lang-switcher-trigger-text">English</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
+                        <li><span class="lang-option lang-option--current" aria-current="page">English</span></li>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     </ul>
                 </nav>
             </div>
@@ -558,19 +596,41 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
             <h2 id="community-title">Want more?<br>Join us on Telegram.</h2>
             <p>Shared discussions, tips and news about prompts and AI.</p>
             <a href="https://t.me/prompt_anatomy" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="Open Prompt Anatomy Telegram channel in new tab">Join Telegram</a>
-            <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>
+            <a href="https://www.promptanatomy.info/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>
         </section>
 
         <footer class="footer">
             <h3>Good luck with your prompts <i data-lucide="rocket" aria-hidden="true"></i></h3>
             <p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>
-            <p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.app/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>
+            <p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>
                 <span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> Quick start</span>
                 <span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> Results</span>
             </div>
+            <address class="footer-contact">
+                <strong>Prompt Anatomy</strong>
+                1311 Park St, Unit #654, Alameda, CA 94501, USA<br>
+                <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
+            </address>
+            <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="Language">
+                <button type="button"
+                        class="lang-switcher-trigger"
+                        id="lang-switcher-trigger-footer"
+                        aria-expanded="false"
+                        aria-controls="lang-switcher-menu-footer">
+                    <span class="lang-switcher-trigger-text">English</span>
+                    <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                </button>
+                <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                    <li><span class="lang-option lang-option--current" aria-current="page">English</span></li>
+                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                </ul>
+            </nav>
             <div class="copyright">
                 <p>&copy; 2026 Tomas Staniulis. Training material. All rights reserved. <a href="privacy.html">Privacy</a></p>
             </div>
@@ -592,6 +652,7 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
         <span>Copied</span>
     </div>
 
+    <script src="../js/lang-switcher.js" defer></script>
     <script src="../js/library.js" defer></script>
 </body>
 </html>

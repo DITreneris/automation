@@ -72,7 +72,7 @@ module.exports = [
     },
   },
   {
-    files: ['js/library.js', 'js/library.lt.js', 'js/library.et.js', 'js/library.lv.js'],
+    files: ['js/library.js', 'js/library.lt.js', 'js/library.et.js', 'js/library.lv.js', 'js/library.ja.js'],
     languageOptions: {
       globals: {
         lucide: 'readonly',

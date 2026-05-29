@@ -287,7 +287,7 @@
                 var textEl = document.getElementById('progressText');
                 var fillEl = document.getElementById('progressBarFill');
                 var barEl = document.querySelector('.progress-bar[role="progressbar"]');
-                if (textEl) textEl.textContent = count === 8 ? '素晴らしい — 8/8 を完了しました。' : '使用済み：' + count + ' / 8';
+                if (textEl) textEl.textContent = count === 8 ? '素晴らしい — 8/8 を完了しました。' : '進捗：' + count + ' / 8';
                 if (fillEl) fillEl.style.width = (count / 8 * 100) + '%';
                 if (barEl) {
                     barEl.setAttribute('aria-valuenow', count);

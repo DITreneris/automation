@@ -5,7 +5,7 @@ Statinė **daugiakalbė** (lt / en / et / lv) HTML biblioteka: root redirect į 
 
 **Agentams:** Rolės, workflow ir **daugiakalbystės vartai** – [AGENTS.md](AGENTS.md). Dokumentų valdymas ir atsakomybės – [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md). Pakeitimų istorija – [CHANGELOG.md](CHANGELOG.md).
 
-**Prompt Anatomy nuoroda (golden rule):** visur **`https://www.promptanatomy.app/en`** – ne domeno šaknis be `/en`, ne `ditreneris.github.io/anatomija`. Detaliau – [AGENTS.md](AGENTS.md) (1 skyrius).
+**Prompt Anatomy nuoroda (golden rule):** visur **`https://www.promptanatomy.info/en`** – ne domeno šaknis be `/en`, ne `ditreneris.github.io/anatomija`, ne `promptanatomy.app`. Detaliau – [AGENTS.md](AGENTS.md) (1 skyrius).
 
 ---
 

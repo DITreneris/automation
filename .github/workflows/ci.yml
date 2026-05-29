@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Verify ET/LV/LT library JS match generator (en source)
+      - name: Verify ET/LV/LT generated output match generator (en source)
         run: |
           npm run generate:et-lv
           git diff --exit-code -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js || {
@@ -39,7 +39,7 @@ jobs:
 
       - name: Accessibility check (pa11y)
         run: |
-          npx serve -s . -l 3000 &
+          npx serve . -l 3000 &
           npx wait-on -t 60000 http://127.0.0.1:3000/
           node scripts/pa11y-pages.cjs
         env:
