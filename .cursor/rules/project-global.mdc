@@ -6,9 +6,9 @@ alwaysApply: true
 # Projektas: DI Promptų Biblioteka (Prompt Anatomy spin-off)
 
 - **Stack:** Zero-build statinis – plain HTML + CSS + vanilla JS. JOKIO React/Vite/Tailwind/bundler. Nekeisk šio modelio.
-- **Struktūra:** Locale puslapiai `*/index.html` + `*/privacy.html` (lt naudoja `privatumas.html`); bendri stiliai `css/library.css`; turinys `js/library.*.js`.
-- **Kanonas:** EN šaltinis (`en/index.html`, `js/library.js`); LT rankiniu; ET/LV per `npm run generate:et-lv`. Detalės: docs/MULTILINGUAL_STRUCTURE.md.
-- **Brand:** accent gold `#CFA73A`, dark navy `#0B1320`, teal (bibliotekos mark) `#008579`. Pagrindinio produkto nuoroda visada `https://www.promptanatomy.info/en`.
+- **Struktūra:** Locale puslapiai `*/index.html` + `*/privacy.html` (lt naudoja `privatumas.html`); tokenai `css/tokens.css`, biblioteka `css/library.css`, privatumas `css/privacy.css`; turinys `js/library.*.js`.
+- **Kanonas:** EN šaltinis (`en/index.html`, `js/library.js`); LT rankiniu; ET/LV per `npm run generate:et-lv`. Detalės: [docs/MULTILINGUAL_STRUCTURE.md](../../docs/MULTILINGUAL_STRUCTURE.md). Dokumentų indeksas: [docs/DOCUMENTATION.md](../../docs/DOCUMENTATION.md).
+- **Brand:** accent gold `#CFA73A`, dark navy `#0B1320`, teal (bibliotekos mark) `#008579`. Interaktyvus kursas – `https://www.promptanatomy.app/en` (`COURSE_URL_EN`); biblioteka – `https://www.promptanatomy.info/`.
 - **Secrets:** Jokių API raktų ar slaptažodžių kode.
 
 ## Lean ir tokenai

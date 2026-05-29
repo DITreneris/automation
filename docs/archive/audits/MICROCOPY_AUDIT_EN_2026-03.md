@@ -22,8 +22,7 @@
 |----------|--------------|
 | Skip link | Skip to content |
 | Lang switcher (visible) | English / Lietuvių |
-| Badge (link) | Prompt Anatomy |
-| Badge (status) | Spin-off No. 1 |
+| Badge (link) | Prompt Anatomy → `https://www.promptanatomy.app/en` |
 
 ### 1.3 Hero
 
@@ -90,10 +89,9 @@
 | Community H2 | Want more? Join us on Telegram. |
 | Subline | Shared discussions, tips and news about prompts and AI. |
 | Primary CTA | Join Telegram |
-| Secondary CTA | Prompt Anatomy → |
+| Secondary CTA | Prompt Anatomy → (`https://www.promptanatomy.app/en`) |
 | Footer H3 | Good luck with your prompts |
 | Footer reminder | If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. |
-| Product link | This is **Spin-off No. 1** from “Prompt Anatomy”. Full interactive course and more: canonical link [promptanatomy.info/en](https://www.promptanatomy.info/en) |
 | Tags | AI-optimized, 8 prompts, Quick start, Results |
 | Copyright | © 2026 Tomas Staniulis. Training material. All rights reserved. Privacy |
 
@@ -181,7 +179,7 @@
 | Item | Note |
 |------|------|
 | **“DI Prompt Library”** (privacy, footer) vs **“Prompt Anatomy”** (badge, product link) | Decide: is the product “Prompt Anatomy” and this the “DI Prompt Library” spin-off, or one name for the app? Ensure privacy and footer use the chosen naming. |
-| **“Spin-off No. 1”** | Clear; keep as is if that’s the brand. |
+| **“Spin-off No. 1”** | Pašalinta iš hero/footer (2026-05); kursas – badge + community secondary → `promptanatomy.app/en`. |
 
 #### F. Privacy page
 

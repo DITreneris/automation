@@ -26,7 +26,7 @@ module.exports = [
       '**/*.min.js',
       'scripts/**/*.cjs',
       'tests/**/*.js',
-      'google-apps-script.js',
+      'docs/archive/integrations/google-apps-script.js',
     ],
     languageOptions: {
       ecmaVersion: 2022,
@@ -49,7 +49,7 @@ module.exports = [
     },
   },
   {
-    files: ['google-apps-script.js'],
+    files: ['docs/archive/integrations/google-apps-script.js'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'script',

@@ -68,7 +68,7 @@ Kontaktų rinkimo forma leidžia vartotojams palikti el. pašto adresą ir klaus
 ### 2 žingsnis: Sukurti Apps Script
 
 1. Google Sheets dokumente: **Extensions** → **Apps Script**
-2. Ištrinkite visą kodą ir įklijuokite kodą iš `google-apps-script.js` failo (arba žemiau esantį kodą):
+2. Ištrinkite visą kodą ir įklijuokite kodą iš [`docs/archive/integrations/google-apps-script.js`](google-apps-script.js) failo (arba žemiau esantį kodą):
 
 ```javascript
 function doPost(e) {

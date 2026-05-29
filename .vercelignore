@@ -1,0 +1,23 @@
+# Dev / CI / docs – not user-facing
+node_modules/
+.github/
+.cursor/
+.cursorrules
+tests/
+scripts/
+docs/
+tokens/
+
+# Documentation and planning
+*.md
+
+# Tooling / config
+package.json
+package-lock.json
+eslint.config.js
+.htmlvalidate.json
+.gitignore
+.gitattributes
+
+# Legacy integration (archived under docs/)
+google-apps-script.js

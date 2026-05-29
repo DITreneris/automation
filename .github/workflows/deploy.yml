@@ -1,13 +1,11 @@
-# GitHub Pages deploy – statinė DI Promptų Biblioteka
-# Prieš pirmą sėkmingą paleidimą: Settings → Pages → Build and deployment: GitHub Actions
-# (be to deploy job grąžina 404 „Failed to create deployment“ – žr. DEPLOYMENT.md)
+# GitHub Pages deploy – LEGACY / atsarginis (rankinis paleidimas)
+# Production: Vercel → https://www.promptanatomy.info/ (žr. DEPLOYMENT.md §1)
+# Prieš pirmą Pages paleidimą: Settings → Pages → Build and deployment: GitHub Actions
 # Nuoroda: https://github.com/DITreneris/spinoff01 (QA standartas)
 
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -28,7 +26,7 @@ jobs:
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: '22'
-      - run: npm install
+      - run: npm ci
       - name: Verify ET/LV/LT generated output committed
         run: |
           npm run generate:et-lv

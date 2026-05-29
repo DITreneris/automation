@@ -6,30 +6,57 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ## [Unreleased]
 
-Kolonėlės (Prideta / Pakeista / …) pildomos iki kito semver release; paskutinis release – **[1.3.0]**.
+Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**.
+
+---
+
+## [1.4.0] - 2026-05-29
+
+Versija atitinka [package.json](package.json) `1.4.0`.
 
 ### Prideta
 
-- **[Orchestrator] Vercel:** [`vercel.json`](vercel.json) – `trailingSlash`, statinių assetų cache, `X-Content-Type-Options` / `Referrer-Policy`; [DEPLOYMENT.md](DEPLOYMENT.md) §1.
-- **[Orchestrator] Vercel Web Analytics:** `/_vercel/insights/script.js` visuose 11 HTML puslapiuose (be privatumo teksto keitimo); įjungimas Vercel dashboard.
-- **[QA] SEO head (metadata only):** statiniai `hreflang` (`www.promptanatomy.info`), `canonical`, lokalizuoti `meta description` per locale; anglų `og:*` / `twitter:*` visose lokelėse; `og:image:alt` „Prompt Anatomy – AI Automation Library“; JSON-LD (`Organization`, `WebSite`, `WebPage`) bibliotekos puslapiuose; root [`index.html`](index.html) `noindex,follow`; išplėstas [`llms.txt`](llms.txt); [`sitemap.xml`](sitemap.xml) `<lastmod>2026-05-29</lastmod>`; [`scripts/seo-constants.cjs`](scripts/seo-constants.cjs); struktūriniai SEO assertai [`tests/structure.test.js`](tests/structure.test.js).
-- **[QA] OG paveikslėlis:** dizaino master [`01_og_image.png`](01_og_image.png) (AI Automation Library layout); production [`og-image.png`](og-image.png) 1200×630 per [`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs) (`npm run generate:og-image`).
-- **[UI] Compact kalbų dropdown bibliotekoje:** [js/lang-switcher.js](js/lang-switcher.js) – hero ir footer instance (`lang-switcher--dropdown`): toggle, `aria-expanded`, Escape, outside click; vienu metu atidarytas tik vienas meniu. Struktūriniai testai: `lang-switcher--dropdown`, `header-top`, `lang-link >= 8` (hero + footer).
-- **Sistemos higiena ir brand consistency** (suderinta su mother repo `DITreneris/promptanatomy`):
-  - Dizaino tokenų sluoksniai [css/library.css](css/library.css) `:root`: elevation (`--shadow-1/2/3`, `--shadow-accent-ring`), radius (`--radius-sm/md/lg/xl`), spacing (`--space-2..8`); pasikartojantys magic numbers pakeisti token nuorodomis.
-  - PWA: [site.webmanifest](site.webmanifest) (`theme_color #0B1320`) + favicon PNG rinkinys (16/32/180/192/512) generuojamas iš `favicon.svg` per [scripts/generate-favicons.mjs](scripts/generate-favicons.mjs) (`npm run generate:favicons`, `sharp`).
-  - SEO/discovery (pirmasis etapas): [robots.txt](robots.txt), [sitemap.xml](sitemap.xml) (su `hreflang` alternatyvomis), [llms.txt](llms.txt) – vėliau papildyta pilnu `<head>` ir OG (žr. `[Unreleased]` aukščiau).
-  - Scoped Cursor taisyklės: `.cursor/rules/{project-global,design-tokens,multilingual}.mdc`.
-  - `<head>` visuose puslapiuose: `theme-color`, `manifest`, `apple-touch-icon` (et/lv index per generatorių).
-  - Struktūriniai testai: PWA meta ir root asset egzistavimo patikros.
-- **Footer kontaktai** (visi 5 bibliotekos `index.html`): semantinis `<address class="footer-contact">` – Prompt Anatomy, 1311 Park St, Unit #654, Alameda, CA 94501, USA, `mailto:info@promptanatomy.app`; stiliai [css/library.css](css/library.css) `.footer-contact`. et/lv per `npm run generate:et-lv` iš `en/index.html`. Struktūriniai testai – QA Agent atsakomybė (žr. [AGENTS.md](AGENTS.md)).
+- **[Orchestrator] Pre-deploy:** [`.vercelignore`](.vercelignore) – Vercel nebedeployina `docs/`, `scripts/`, `tests/`, `*.md` ir kitų vidinių failų; struktūriniai assertai.
+- **[Orchestrator] CI:** `package-lock.json` commitintas; CI/deploy – `npm ci`.
+- **[UI] Lucide:** self-hosted [`assets/js/lucide.min.js`](assets/js/lucide.min.js) (v0.460.0) – nebėra unpkg CDN priklausomybės.
+- **[UI] 404:** [`404.html`](404.html) – branded not-found puslapis su nuoroda į `/en/`.
+- **[UI] Design System v2.0 (DS 2.0.0):** [`css/tokens.css`](css/tokens.css) – vienintelis `:root` SSOT; [`css/library.css`](css/library.css) importuoja tokens; [`css/privacy.css`](css/privacy.css) – bendras privatumo layout. Semantic sluoksnis (`--color-link`, `--color-action-primary-bg`, `--color-focus-ring` ir kt.); tipografijos, focus, motion, overlay ir breakpoint tokenai. [docs/design_system.md](docs/design_system.md) – 4 ramsčiai (Meta, Foundations, Components, Patterns, Governance); komponentų states ir 3 patterns. [`tokens/tokens.json`](tokens/tokens.json) – DTCG 2025.10 eksportas; [`llms.txt`](llms.txt) – agentų DS santrauka.
+- **[QA] DS validacija:** [`scripts/validate-tokens.mjs`](scripts/validate-tokens.mjs) (CSS ↔ docs ↔ JSON); [`scripts/lint-design-tokens.mjs`](scripts/lint-design-tokens.mjs) (draudžiami off-brand hex, privacy SSOT, hex tik `tokens.css`); `npm run validate:tokens`, `npm run lint:design-tokens` įtraukti į `npm test`. Struktūriniai assertai: privacy `tokens.css`/`privacy.css`, DS focus-visible, `tokens/tokens.json` assetai.
+- **[Orchestrator] Lean dokumentų sistema:** [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) – 3 lygių indeksas; pasenę auditai, roadmap, integracijos → [docs/archive/](docs/archive/); [MUST_TODO.md](MUST_TODO.md) ir [.cursorrules](.cursorrules) sutrumpinti; `.cursor/rules/docs-lean.mdc`.
+- **[Orchestrator] Vercel:** [`vercel.json`](vercel.json) – statinių assetų cache, `X-Content-Type-Options` / `Referrer-Policy`; 301 redirectai iš senų root ikonų/OG kelių į `assets/`; pašalintas `trailingSlash`; [DEPLOYMENT.md](DEPLOYMENT.md) §1.
+- **[Orchestrator] Vercel Web Analytics:** `/_vercel/insights/script.js` visuose 11 HTML puslapiuose.
+- **[QA] SEO head:** statiniai `hreflang`, `canonical`, lokalizuoti `meta description`; lokalizuoti `og:title` / `twitter:title` pagal puslapio `<title>`; per-locale `og:locale`; JSON-LD bibliotekos puslapiuose; root `noindex,follow`; [`llms.txt`](llms.txt), [`sitemap.xml`](sitemap.xml); [`scripts/seo-constants.cjs`](scripts/seo-constants.cjs); struktūriniai assertai.
+- **[QA] OG paveikslėlis:** master [`assets/img/og/01_og_image.png`](assets/img/og/01_og_image.png) → production [`assets/img/og/og-image.png`](assets/img/og/og-image.png) (`npm run generate:og-image`).
+- **[UI] Kalbų dropdown:** [js/lang-switcher.js](js/lang-switcher.js) – hero + footer (`lang-switcher--dropdown`).
+- **Sistemos higiena:** tokenų SSOT [`css/tokens.css`](css/tokens.css); PWA ([site.webmanifest](site.webmanifest), `npm run generate:favicons`); [robots.txt](robots.txt), [sitemap.xml](sitemap.xml); `.cursor/rules/{project-global,design-tokens,multilingual}.mdc`.
+- **Footer kontaktai** (5× `index.html`): `<address class="footer-contact">` – Prompt Anatomy, Alameda, `info@promptanatomy.app`.
+- **[UI] Design System v1.0:** pradinis [docs/design_system.md](docs/design_system.md); tokenai `--brand-teal`, `--bg-subtle`, `--green-hover`, `--error` (v2.0 – žr. aukščiau).
+- **`assets/` katalogas:** [assets/README.md](assets/README.md) – `img/icons/` (favicon, PWA), `img/og/` (social preview).
+- **[UI] Collapsible prompts 2–8:** native `<details>`/`<summary>`; prompt 1 visada atidarytas; [js/prompt-collapse.js](js/prompt-collapse.js) – `#blockN` deep-link; benefit-led antraštės (prompt-desc) 2–8 visose 5 kalbose; promptų 2–8 antraštės – `<h2 class="prompt-title">` (a11y outline).
+- **[UI] Ecosystem sekcija:** `.ecosystem` tarp `.community` ir `.footer` (5 kalbos); [`assets/img/ecosystem/`](assets/img/ecosystem/) – WebP + PNG (`npm run generate:ecosystem`); [css/library.css](css/library.css), [docs/design_system.md](docs/design_system.md) §5.5.
 
 ### Pakeista
 
-- **[QA] OG šaltinis:** pašalintas minimalus `og-image.svg`; kanoninis social preview – [`01_og_image.png`](01_og_image.png) → [`og-image.png`](og-image.png). Dokumentacija: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3.
-- **[UI] Kalbų perjungiklis (5 bibliotekos `index.html`):** 5 inline linkai hero `header-badges` eilutėje pakeisti compact dropdown – trigger dešinėje (`English ▾` ir kt.), meniu su gimtosiomis etiketėmis; antras instance footer'yje (`lang-switcher--footer`, meniu atsidaro į viršų). Layout: `.header-top` + `.header-brand` [css/library.css](css/library.css). ET/LV: [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs) (`ET_NAV`, `LV_NAV`, `FOOTER_LANG_NAV_RE`); LT/JA rankiniu. **Privatumo puslapiai** – legacy flat list (nekeista). Spec: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §2.
-- **Brand paletė** suvienodinta su pagrindiniu produktu: accent gold `#D9A441` → `#CFA73A` (+ `--accent-gold-hover #E8B93C`), dark navy `#3C485A` → `#0B1320`; hero gradientas ir CTA/shadow rgba perderinti pagal naują dark.
-- Production URL ir golden rule: **`https://www.promptanatomy.info/`** (biblioteka), **`https://www.promptanatomy.info/en`** (pagrindinis produktas); Vercel host `automation-seven-ochre.vercel.app`; apex `promptanatomy.info` → 307 į `www`. Pakeista badge, footer, community, generatorius, AGENTS, MULTILINGUAL, README, DEPLOYMENT.
+- **[Orchestrator] GitHub Pages:** [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) – tik `workflow_dispatch` (legacy atsarginis); production – Vercel.
+- **[QA] Clipboard:** [js/library.js](js/library.js) – `copyPrompt` be debounce (Safari user-activation); `selectText` lieka debounced.
+- **[UI] A11y:** pašalintas `role="status"` iš statinio hero meta ir instructions laiko žymės; palikta tik dinaminiams `#toast` / `#progressIndicator`.
+- **[UI] Privatumo puslapiai (5 kalbos):** pašalinti inline `<style>` su Chakra mėlyna (`#2B6CB0`); bendras [`css/privacy.css`](css/privacy.css) – navy back CTA, teal nuorodos, gold focus ring; [`en/privacy.html`](en/privacy.html), [`et/privacy.html`](et/privacy.html), [`lv/privacy.html`](lv/privacy.html), [`ja/privacy.html`](ja/privacy.html), [`lt/privatumas.html`](lt/privatumas.html).
+- **[UI] `library.css`:** `:root` išskirtas į [`css/tokens.css`](css/tokens.css); hero overlay, badge, CTA šešėliai ir `focus-visible` – per foundation tokenus (`--overlay-hero`, `--shadow-cta`, `--focus-ring-width` ir kt.).
+- **[UI] Hero CTA hierarchija:** vienas primary „Use first prompt“ (5 kalbos); kursas kaip secondary tik per badge → `COURSE_URL_EN`; Telegram pašalintas iš hero (lieka `.community` sekcijoje); struktūriniai assertai [tests/structure.test.js](tests/structure.test.js); [docs/design_system.md](docs/design_system.md) §4–§5.1.
+- **[UI] Journey fluency (Phase 1):** „Prieš naudojant“ / Before using – „below“ → „above“ (DOM: code-block viršuje); 7× `prompt-next-link` po Copy CTA (žingsniai 1–7) visose 5 kalbose; sėkmingas kopijavimas automatiškai pažymi „Mark as done“ ir atnaujina progresą ([js/library.js](js/library.js), [css/library.css](css/library.css)); struktūrinis assert 7 nuorodoms [tests/structure.test.js](tests/structure.test.js).
+- **[UI] Copy prompt CTA:** `.prompt-footer` (Copy + Mark as done) perkeltas į `prompt-body` iškart po `code-block`, prieš Before using / Readiness; visos 5 kalbos; [css/library.css](css/library.css) `.prompt-body > .prompt-footer`; 40 DOM order assertų [tests/structure.test.js](tests/structure.test.js); [docs/BULLET_PROOF_PROMPTS.md](docs/BULLET_PROOF_PROMPTS.md) §1, [docs/design_system.md](docs/design_system.md) §5.2.
+- **[UI] Assetai:** PNG ir `favicon.svg` iš root → `assets/img/icons/`, `assets/img/og/`; atnaujinti HTML (11), manifest, generatoriai, testai.
+- **[Orchestrator] Dokumentacija:** [AGENTS.md](AGENTS.md) §8 lean indeksas; README `docs/` ir `css/` medis; PR šablonas – DS checklist; [`.cursor/rules/design-tokens.mdc`](.cursor/rules/design-tokens.mdc) – DS v2.0, `tokens.css` SSOT.
+- **[QA] OG šaltinis:** pašalintas `og-image.svg`; kanoninis social preview – `assets/img/og/`.
+- **[UI] Kalbų perjungiklis:** 5 inline linkai → compact dropdown (hero + footer); ET/LV per generatorių; privatumas – flat list.
+- **Brand paletė:** accent `#CFA73A`, dark `#0B1320`; production URL `https://www.promptanatomy.info/`; kursas `https://www.promptanatomy.app/en` (`COURSE_URL_EN`).
+
+### Pašalinta
+
+- Root: `STYLEGUIDE.md` (kanonas – `docs/design_system.md` DS v2.0); PNG, `favicon.svg` (→ `assets/`).
+- Privatumo puslapiuose: dubliuoti inline `<style>` blokai (→ `tokens.css` + `privacy.css`).
+- `docs/` ir root: auditai, MVP roadmap, TODO, integracijos, memo → [docs/archive/](docs/archive/).
+- Root `google-apps-script.js` → [docs/archive/integrations/google-apps-script.js](docs/archive/integrations/google-apps-script.js).
 
 ---
 

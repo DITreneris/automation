@@ -33,10 +33,16 @@
 
 ## Susiję dokumentai
 
-<!-- Jei reikia atnaujinti README, INTEGRACIJA, AGENTS.md ir pan. – žr. docs/DOCUMENTATION.md -->
+<!-- Žr. docs/DOCUMENTATION.md – lean indeksas (Lygis A/B/C) -->
 
-- [ ] Dokumentacija (README, INTEGRACIJA ir kt.) atnaujinta pagal pakeitimus
+- [ ] Dokumentacija atnaujinta pagal [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) (jei reikia)
 - [ ] Jei release – CHANGELOG.md atnaujintas ir versija nurodyta (SemVer)
+
+## Design System (jei liečia UI/CSS)
+
+- [ ] Tokenai tik `css/tokens.css`; komponentai naudoja `var(--*)`
+- [ ] `docs/design_system.md` sinchronizuotas
+- [ ] Privacy puslapiai naudoja `tokens.css` + `privacy.css` (ne inline hex)
 
 ---
 

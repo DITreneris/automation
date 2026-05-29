@@ -3,7 +3,9 @@
 /** Production SEO constants – canonical domain and shared English OG copy. */
 
 const SITE_ORIGIN = 'https://www.promptanatomy.info';
-const OG_IMAGE_URL = `${SITE_ORIGIN}/og-image.png`;
+/** Main interactive course (not the prompt library on .info). */
+const COURSE_URL_EN = 'https://www.promptanatomy.app/en';
+const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/img/og/og-image.png`;
 const OG_IMAGE_ALT = 'Prompt Anatomy – AI Automation Library';
 
 const HREFLANG_LIBRARY = `    <link rel="alternate" hreflang="lt" href="${SITE_ORIGIN}/lt/" id="hreflang-lt">
@@ -29,42 +31,72 @@ const OG_PRIVACY_TITLE = 'Privacy policy – Prompt Anatomy';
 const OG_PRIVACY_DESCRIPTION =
   'Prompt Anatomy prompt library. We do not collect personal data; localStorage only for prompt progress on your device.';
 
-function ogLibraryBlock(pageUrl) {
+const OG_LOCALE = {
+  en: 'en_US',
+  lt: 'lt_LT',
+  et: 'et_EE',
+  lv: 'lv_LV',
+  ja: 'ja_JP',
+};
+
+const OG_LOCALE_ALTERNATES = {
+  en: ['lt_LT', 'et_EE', 'lv_LV', 'ja_JP'],
+  lt: ['en_US', 'et_EE', 'lv_LV', 'ja_JP'],
+  et: ['lt_LT', 'en_US', 'lv_LV', 'ja_JP'],
+  lv: ['lt_LT', 'en_US', 'et_EE', 'ja_JP'],
+  ja: ['lt_LT', 'en_US', 'et_EE', 'lv_LV'],
+};
+
+function ogLocaleAlternates(langCode) {
+  const codes = OG_LOCALE_ALTERNATES[langCode] || OG_LOCALE_ALTERNATES.en;
+  return codes
+    .map((code) => `    <meta property="og:locale:alternate" content="${code}">`)
+    .join('\n');
+}
+
+function ogLibraryBlock(pageUrl, langCode, title, description) {
+  const locale = OG_LOCALE[langCode] || OG_LOCALE.en;
+  const ogTitle = title || OG_LIBRARY_TITLE;
+  const ogDesc = description || OG_LIBRARY_DESCRIPTION;
   return `    <meta property="og:type" content="website">
     <meta property="og:site_name" content="Prompt Anatomy">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="lt_LT">
-    <meta property="og:locale:alternate" content="et_EE">
-    <meta property="og:locale:alternate" content="lv_LV">
-    <meta property="og:locale:alternate" content="ja_JP">
-    <meta property="og:title" content="${OG_LIBRARY_TITLE}">
-    <meta property="og:description" content="${OG_LIBRARY_DESCRIPTION}">
+    <meta property="og:locale" content="${locale}">
+${ogLocaleAlternates(langCode)}
+    <meta property="og:title" content="${ogTitle}">
+    <meta property="og:description" content="${ogDesc}">
     <meta property="og:url" content="${pageUrl}">
     <meta property="og:image" content="${OG_IMAGE_URL}">
+    <meta property="og:image:secure_url" content="${OG_IMAGE_URL}">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="${OG_IMAGE_ALT}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${OG_LIBRARY_TITLE}">
-    <meta name="twitter:description" content="${OG_LIBRARY_DESCRIPTION}">
+    <meta name="twitter:title" content="${ogTitle}">
+    <meta name="twitter:description" content="${ogDesc}">
     <meta name="twitter:image" content="${OG_IMAGE_URL}">
     <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}">`;
 }
 
-function ogPrivacyBlock(pageUrl) {
+function ogPrivacyBlock(pageUrl, langCode, title, description) {
+  const locale = OG_LOCALE[langCode] || OG_LOCALE.en;
+  const ogTitle = title || OG_PRIVACY_TITLE;
+  const ogDesc = description || OG_PRIVACY_DESCRIPTION;
   return `    <meta property="og:type" content="website">
     <meta property="og:site_name" content="Prompt Anatomy">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="${OG_PRIVACY_TITLE}">
-    <meta property="og:description" content="${OG_PRIVACY_DESCRIPTION}">
+    <meta property="og:locale" content="${locale}">
+    <meta property="og:title" content="${ogTitle}">
+    <meta property="og:description" content="${ogDesc}">
     <meta property="og:url" content="${pageUrl}">
     <meta property="og:image" content="${OG_IMAGE_URL}">
+    <meta property="og:image:secure_url" content="${OG_IMAGE_URL}">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="${OG_IMAGE_ALT}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${OG_PRIVACY_TITLE}">
-    <meta name="twitter:description" content="${OG_PRIVACY_DESCRIPTION}">
+    <meta name="twitter:title" content="${ogTitle}">
+    <meta name="twitter:description" content="${ogDesc}">
     <meta name="twitter:image" content="${OG_IMAGE_URL}">
     <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}">`;
 }
@@ -113,6 +145,7 @@ function jsonLdLibrary(localePath, langCode, pageTitle, pageDescription) {
 
 module.exports = {
   SITE_ORIGIN,
+  COURSE_URL_EN,
   OG_IMAGE_URL,
   OG_IMAGE_ALT,
   HREFLANG_LIBRARY,
@@ -121,6 +154,9 @@ module.exports = {
   OG_LIBRARY_DESCRIPTION,
   OG_PRIVACY_TITLE,
   OG_PRIVACY_DESCRIPTION,
+  OG_LOCALE,
+  OG_LOCALE_ALTERNATES,
+  ogLocaleAlternates,
   ogLibraryBlock,
   ogPrivacyBlock,
   jsonLdLibrary,

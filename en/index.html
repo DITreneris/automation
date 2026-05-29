@@ -14,19 +14,21 @@
     <meta property="og:locale:alternate" content="lv_LV">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">
-    <meta property="og:description" content="8 exercises with ready-made templates – results in minutes. Free multilingual prompt library.">
+    <meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">
     <meta property="og:url" content="https://www.promptanatomy.info/en/">
-    <meta property="og:image" content="https://www.promptanatomy.info/og-image.png">
+    <meta property="og:image" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
+    <meta property="og:image:secure_url" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Prompt Anatomy – AI Automation Library">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">
-    <meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes. Free multilingual prompt library.">
-    <meta name="twitter:image" content="https://www.promptanatomy.info/og-image.png">
+    <meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">
+    <meta name="twitter:image" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
     <meta name="twitter:image:alt" content="Prompt Anatomy – AI Automation Library">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0B1320">
     <link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/" id="hreflang-lt">
@@ -56,8 +58,7 @@
         <header class="header">
             <div class="header-top">
                 <div class="header-brand">
-                    <a href="https://www.promptanatomy.info/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>
-                    <span class="badge badge-spinoff" role="status" aria-label="Prompt Anatomy spin-off project">Spin-off No. 1</span>
+                    <a href="https://www.promptanatomy.app/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>
                 </div>
                 <nav class="lang-switcher lang-switcher--dropdown" aria-label="Language">
                     <button type="button"
@@ -79,10 +80,9 @@
             </div>
             <h1>Let AI do 30–50% of your daily tasks</h1>
             <p>8 exercises with ready-made templates – results in minutes.</p>
-            <p class="header-meta" role="status" aria-label="Who it’s for">Who it's for: Managers, specialists, consultants, freelancers.</p>
+            <p class="header-meta" aria-label="Who it’s for">Who it's for: Managers, specialists, consultants, freelancers.</p>
             <div class="header-cta">
-                <a href="#block1" class="cta-button" aria-label="Start for free – go to first prompt">Start for free</a>
-                <a href="#community" class="cta-button-outline" aria-label="Join the community – Telegram">Join the community</a>
+                <a href="#block1" class="cta-button" aria-label="Use first prompt – go to prompt 1">Use first prompt</a>
             </div>
         </header>
 
@@ -103,7 +103,7 @@
             <h2 class="instructions-title" id="instructions-title">
                 <i data-lucide="book-open" aria-hidden="true"></i>
                 <span>How to use this library</span>
-                <span class="prompt-time" role="status" aria-label="Approx. time: 3–5 min per step">~3–5 min per step</span>
+                <span class="prompt-time" aria-label="Approx. time: 3–5 min per step">~3–5 min per step</span>
             </h2>
             <ol>
                 <li>Choose a prompt and click it – the text will be selected</li>
@@ -146,23 +146,6 @@ INPUT: Company [COMPANY]. Based only on publicly available information and gener
 
 OUTPUT: Result: a short structured answer – you can clearly see where the AI might be wrong and what to clarify before going further.</pre>
                 </div>
-                <section class="before-use" id="before-use-1" aria-labelledby="before-use-title-1">
-                    <h3 class="before-use-title" id="before-use-title-1">Before using</h3>
-                    <p><strong>Use when:</strong> you start analyzing an organization; you want to check what the AI knows about the company; you’re preparing to use AI with context.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> This is not a questionnaire. Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Why it matters</strong>
-                        <p>Reduces AI “hallucinations” and wrong decisions – you see clearly what the AI actually knows about your context.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt1')"
@@ -176,20 +159,44 @@ OUTPUT: Result: a short structured answer – you can clearly see where the AI m
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block2" class="prompt-next-link">Next: Organization Portrait →</a>
+                </p>
+                <section class="before-use" id="before-use-1" aria-labelledby="before-use-title-1">
+                    <h3 class="before-use-title" id="before-use-title-1">Before using</h3>
+                    <p><strong>Use when:</strong> you start analyzing an organization; you want to check what the AI knows about the company; you’re preparing to use AI with context.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Why it matters</strong>
+                        <p>Reduces AI “hallucinations” and wrong decisions – you see clearly what the AI actually knows about your context.</p>
+                    </div>
+                </div>
+            </div>
         </article>
 
         <!-- PROMPT 2 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">2</div>
-                    <div class="category">Analysis</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">Organization Portrait</h2>
-                <p class="prompt-desc">Build a clear profile and context of your organization</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="2">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">2</div>
+                            <div class="category">Analysis</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>
+                        <p class="prompt-desc">Open for the prompt — get a structured company profile in ~5 min</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block2"
                      role="button"
@@ -203,23 +210,6 @@ INPUT: Company [COMPANY]. Analyze and describe: approximate size (employees, rev
 
 OUTPUT: Result: an organization portrait you can use as context for other prompts.</pre>
                 </div>
-                <section class="before-use" id="before-use-2" aria-labelledby="before-use-title-2">
-                    <h3 class="before-use-title" id="before-use-title-2">Before using</h3>
-                    <p><strong>Use when:</strong> you want a clear organization profile; you’re preparing context for other prompts; you’re analyzing a client or partner.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Application</strong>
-                        <p>This prompt creates organization context that will be used in all other prompts.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt2')"
@@ -233,20 +223,45 @@ OUTPUT: Result: an organization portrait you can use as context for other prompt
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block3" class="prompt-next-link">Next: My Role in the Organization →</a>
+                </p>
+                <section class="before-use" id="before-use-2" aria-labelledby="before-use-title-2">
+                    <h3 class="before-use-title" id="before-use-title-2">Before using</h3>
+                    <p><strong>Use when:</strong> you want a clear organization profile; you’re preparing context for other prompts; you’re analyzing a client or partner.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Application</strong>
+                        <p>This prompt creates organization context that will be used in all other prompts.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 3 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">3</div>
-                    <div class="category">Role</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">My Role in the Organization</h2>
-                <p class="prompt-desc">Clearly define your role’s purpose, responsibilities and impact</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="3">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">3</div>
+                            <div class="category">Role</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-3">My Role in the Organization</h2>
+                        <p class="prompt-desc">Clarify your role’s purpose and impact before AI fills the gaps</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block3"
                      role="button"
@@ -260,24 +275,6 @@ INPUT: Role [MY ROLE], company [COMPANY]. Based on the organization analysis, de
 
 OUTPUT: Result: a clear role description – use as a reference for the next steps.</pre>
                 </div>
-                <section class="before-use" id="before-use-3" aria-labelledby="before-use-title-3">
-                    <h3 class="before-use-title" id="before-use-title-3">Before using</h3>
-                    <p><strong>Use when:</strong> you want to clarify your role; you’re starting with a new company; you need a reference for your position.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
-                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Result</strong>
-                        <p>You get a clear role description – use it as a reference for the next steps.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt3')"
@@ -291,20 +288,46 @@ OUTPUT: Result: a clear role description – use as a reference for the next ste
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block4" class="prompt-next-link">Next: Job Description + KPI →</a>
+                </p>
+                <section class="before-use" id="before-use-3" aria-labelledby="before-use-title-3">
+                    <h3 class="before-use-title" id="before-use-title-3">Before using</h3>
+                    <p><strong>Use when:</strong> you want to clarify your role; you’re starting with a new company; you need a reference for your position.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
+                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Result</strong>
+                        <p>You get a clear role description – use it as a reference for the next steps.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 4 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">4</div>
-                    <div class="category">Document</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">Job Description + KPI</h2>
-                <p class="prompt-desc">Create a practical job description with KPIs</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="4">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">4</div>
+                            <div class="category">Document</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-4">Job Description + KPI</h2>
+                        <p class="prompt-desc">Open → practical job description with measurable KPIs you can use</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block4"
                      role="button"
@@ -318,24 +341,6 @@ INPUT: Role [MY ROLE], company [COMPANY]. Create a job description. Include: cor
 
 OUTPUT: Result: a job description suitable for self-assessment or onboarding a new hire.</pre>
                 </div>
-                <section class="before-use" id="before-use-4" aria-labelledby="before-use-title-4">
-                    <h3 class="before-use-title" id="before-use-title-4">Before using</h3>
-                    <p><strong>Use when:</strong> you need a job description; you’re preparing for review or onboarding; you want measurable KPIs.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
-                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Practical value</strong>
-                        <p>This document can be used for self-assessment or onboarding new employees.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt4')"
@@ -349,20 +354,46 @@ OUTPUT: Result: a job description suitable for self-assessment or onboarding a n
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block5" class="prompt-next-link">Next: Core Work Processes →</a>
+                </p>
+                <section class="before-use" id="before-use-4" aria-labelledby="before-use-title-4">
+                    <h3 class="before-use-title" id="before-use-title-4">Before using</h3>
+                    <p><strong>Use when:</strong> you need a job description; you’re preparing for review or onboarding; you want measurable KPIs.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
+                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Practical value</strong>
+                        <p>This document can be used for self-assessment or onboarding new employees.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 5 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">5</div>
-                    <div class="category">Processes</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">Core Work Processes</h2>
-                <p class="prompt-desc">Identify where time and energy go (Pareto 80/20)</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="5">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">5</div>
+                            <div class="category">Processes</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-5">Core Work Processes</h2>
+                        <p class="prompt-desc">See where 80% of your time goes — input for the AI optimization step</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block5"
                      role="button"
@@ -376,24 +407,6 @@ INPUT: Role [MY ROLE], company [COMPANY]. Describe the 5 most important processe
 
 OUTPUT: Result: a list of processes so you can see where AI will have the biggest impact (step 6).</pre>
                 </div>
-                <section class="before-use" id="before-use-5" aria-labelledby="before-use-title-5">
-                    <h3 class="before-use-title" id="before-use-title-5">Before using</h3>
-                    <p><strong>Use when:</strong> you want to see where time goes; optimize your workday; prepare for AI integration.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
-                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Optimization</strong>
-                        <p>Once you understand the processes, you can see where AI will have the biggest impact.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt5')"
@@ -407,20 +420,46 @@ OUTPUT: Result: a list of processes so you can see where AI will have the bigges
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block6" class="prompt-next-link">Next: AI Help and Optimization →</a>
+                </p>
+                <section class="before-use" id="before-use-5" aria-labelledby="before-use-title-5">
+                    <h3 class="before-use-title" id="before-use-title-5">Before using</h3>
+                    <p><strong>Use when:</strong> you want to see where time goes; optimize your workday; prepare for AI integration.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
+                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Optimization</strong>
+                        <p>Once you understand the processes, you can see where AI will have the biggest impact.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 6 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">6</div>
-                    <div class="category">AI Integration</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">AI Help and Optimization</h2>
-                <p class="prompt-desc">Turn AI into a real work assistant – concrete ideas based on your processes</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="6">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">6</div>
+                            <div class="category">AI Integration</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-6">AI Help and Optimization</h2>
+                        <p class="prompt-desc">Turn your process map into concrete AI shortcuts that save hours</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block6"
                      role="button"
@@ -434,19 +473,6 @@ INPUT: Assess the (already described) processes and give 8–10 ideas. For each:
 
 OUTPUT: Result: 8–10 concrete ideas where AI can save hours per week.</pre>
                 </div>
-                <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
-                    <h3 class="before-use-title" id="before-use-title-6">Before using</h3>
-                    <p><strong>Use when:</strong> you already have process descriptions (step 5); you want concrete ways to use AI; you want to save time.</p>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Real impact</strong>
-                        <p>This prompt helps identify specific places where AI can save hours per week.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt6')"
@@ -460,20 +486,41 @@ OUTPUT: Result: 8–10 concrete ideas where AI can save hours per week.</pre>
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block7" class="prompt-next-link">Next: Daily Prompt Library →</a>
+                </p>
+                <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
+                    <h3 class="before-use-title" id="before-use-title-6">Before using</h3>
+                    <p><strong>Use when:</strong> you already have process descriptions (step 5); you want concrete ways to use AI; you want to save time.</p>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Real impact</strong>
+                        <p>This prompt helps identify specific places where AI can save hours per week.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 7 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">7</div>
-                    <div class="category">Library</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">Daily Prompt Library</h2>
-                <p class="prompt-desc">Ready-made prompts for daily work and challenges</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="7">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">7</div>
+                            <div class="category">Library</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-7">Daily Prompt Library</h2>
+                        <p class="prompt-desc">Open → a personal table of prompts for everyday work</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block7"
                      role="button"
@@ -487,24 +534,6 @@ INPUT: Role [MY ROLE], company [COMPANY]. Create prompts that help with: plannin
 
 OUTPUT: Result: a personal prompt collection – a table you can use every day.</pre>
                 </div>
-                <section class="before-use" id="before-use-7" aria-labelledby="before-use-title-7">
-                    <h3 class="before-use-title" id="before-use-title-7">Before using</h3>
-                    <p><strong>Use when:</strong> you want personal prompts; for daily work and quick decisions; you want a [prompt | when | problem] table.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
-                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Daily improvement</strong>
-                        <p>You get a personal prompt collection – use it every day without extra thinking.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt7')"
@@ -518,20 +547,46 @@ OUTPUT: Result: a personal prompt collection – a table you can use every day.<
                     <span>Mark as done</span>
                 </label>
             </div>
+                <p class="prompt-next">
+                    <a href="#block8" class="prompt-next-link">Next: Critical Situation Simulation →</a>
+                </p>
+                <section class="before-use" id="before-use-7" aria-labelledby="before-use-title-7">
+                    <h3 class="before-use-title" id="before-use-title-7">Before using</h3>
+                    <p><strong>Use when:</strong> you want personal prompts; for daily work and quick decisions; you want a [prompt | when | problem] table.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
+                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Daily improvement</strong>
+                        <p>You get a personal prompt collection – use it every day without extra thinking.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- PROMPT 8 -->
-        <article class="prompt">
-            <div class="prompt-header">
-                <div class="prompt-meta">
-                    <div class="number">8</div>
-                    <div class="category">Simulation</div>
-                    <span class="prompt-time">~3–5 min</span>
-                </div>
-                <h2 class="prompt-title">Critical Situation Simulation</h2>
-                <p class="prompt-desc">Prepare for pressure and uncertainty in advance</p>
-            </div>
-            <div class="prompt-body">
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="8">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">8</div>
+                            <div class="category">Simulation</div>
+                            <span class="prompt-time">~3–5 min</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-8">Critical Situation Simulation</h2>
+                        <p class="prompt-desc">Rehearse high-pressure decisions with AI before they happen</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
                 <div class="code-block"
                      id="block8"
                      role="button"
@@ -545,24 +600,6 @@ INPUT: Company [COMPANY], role [MY ROLE]. Imagine a critical situation that dire
 
 OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in advance than in a real situation.</pre>
                 </div>
-                <section class="before-use" id="before-use-8" aria-labelledby="before-use-title-8">
-                    <h3 class="before-use-title" id="before-use-title-8">Before using</h3>
-                    <p><strong>Use when:</strong> you want to prepare for crises; plan a response to pressure; train decisions with AI.</p>
-                    <p><strong>Replace before using:</strong></p>
-                    <ul>
-                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
-                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
-                    </ul>
-                    <p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>
-                </section>
-                <div class="info-box" role="note" aria-label="Information about this prompt">
-                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
-                    <div class="info-content">
-                        <strong>Readiness</strong>
-                        <p>Simulations help you learn to manage crises before they happen. Better to practice with AI than in a real situation.</p>
-                    </div>
-                </div>
-            </div>
             <div class="prompt-footer">
                 <button class="btn" 
                         onclick="copyPrompt(this, 'prompt8')"
@@ -576,6 +613,25 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
                     <span>Mark as done</span>
                 </label>
             </div>
+                <section class="before-use" id="before-use-8" aria-labelledby="before-use-title-8">
+                    <h3 class="before-use-title" id="before-use-title-8">Before using</h3>
+                    <p><strong>Use when:</strong> you want to prepare for crises; plan a response to pressure; train decisions with AI.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[COMPANY] → your or your client’s company (e.g. Acme Inc);</li>
+                        <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                </section>
+                <div class="info-box" role="note" aria-label="Information about this prompt">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>Readiness</strong>
+                        <p>Simulations help you learn to manage crises before they happen. Better to practice with AI than in a real situation.</p>
+                    </div>
+                </div>
+                </div>
+            </details>
         </article>
 
         <!-- KAS TOLIAU? (S2) -->
@@ -600,13 +656,33 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
             <h2 id="community-title">Want more?<br>Join us on Telegram.</h2>
             <p>Shared discussions, tips and news about prompts and AI.</p>
             <a href="https://t.me/prompt_anatomy" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="Open Prompt Anatomy Telegram channel in new tab">Join Telegram</a>
-            <a href="https://www.promptanatomy.info/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>
+            <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy →</a>
+        </section>
+
+        <section class="ecosystem" aria-labelledby="ecosystem-title">
+            <h2 id="ecosystem-title">Prompt Anatomy ecosystem</h2>
+            <p class="ecosystem-lead">One AI operating system for learning, daily work, and decisions. You are in the Daily Workflow Library.</p>
+            <figure class="ecosystem-figure">
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="/assets/img/ecosystem/ecosystem-800.webp 800w, /assets/img/ecosystem/ecosystem-1200.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 960px">
+                    <img
+                        src="/assets/img/ecosystem/ecosystem-1200.png"
+                        alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"
+                        width="1200"
+                        height="675"
+                        loading="lazy"
+                        decoding="async">
+                </picture>
+                <figcaption>Less random prompting. More structured execution.</figcaption>
+            </figure>
         </section>
 
         <footer class="footer">
             <h3>Good luck with your prompts <i data-lucide="rocket" aria-hidden="true"></i></h3>
             <p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>
-            <p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>
@@ -643,7 +719,7 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
         </main>
     </div>
 
-    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <script defer src="/assets/js/lucide.min.js"></script>
     <textarea class="hidden" id="hiddenTextarea" aria-label="Copy text field" aria-hidden="true"></textarea>
     
     <div class="toast" 
@@ -657,6 +733,7 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
     </div>
 
     <script src="../js/lang-switcher.js" defer></script>
+    <script src="../js/prompt-collapse.js" defer></script>
     <script src="../js/library.js" defer></script>
 </body>
 </html>

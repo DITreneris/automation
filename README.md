@@ -61,9 +61,17 @@
 │   ├── index.html      # ライブラリ (日本語)
 │   └── privacy.html    # プライバシー (JA)
 ├── css/
-│   └── library.css     # Bendri bibliotekos stiliai (visos kalbos)
+│   ├── tokens.css      # Design tokens SSOT (DS v2.0)
+│   ├── library.css     # Bibliotekos komponentai (@import tokens)
+│   └── privacy.css     # Privatumo puslapių layout
+├── tokens/
+│   └── tokens.json     # DTCG 2025.10 eksportas (validate: npm run validate:tokens)
+├── assets/
+│   └── img/            # icons/ (favicon, PWA) + og/ (social preview)
 ├── js/
 │   ├── hreflang.js     # Absoliučios hreflang nuorodos (library / privacy)
+│   ├── lang-switcher.js # Kalbų dropdown (hero + footer)
+│   ├── prompt-collapse.js # #blockN deep-link atidaro collapsible promptus
 │   ├── library.js      # Bibliotekos logika (EN šaltinis)
 │   ├── library.lt.js   # Ta pati logika LT
 │   ├── library.et.js   # Generuojama: npm run generate:et-lv
@@ -81,12 +89,13 @@
 ├── package.json        # Dev: lint, testai, a11y
 ├── DEPLOYMENT.md       # Deploy instrukcijos (Vercel + custom domain)
 ├── docs/
-│   ├── DOCUMENTATION.md           # Dokumentų inventorių ir atsakomybės (§1)
+│   ├── DOCUMENTATION.md           # Lean dokumentų indeksas (3 lygiai)
 │   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV/JA
+│   ├── design_system.md           # Design System v2.0 (tokenai, komponentai, patterns)
 │   ├── BULLET_PROOF_PROMPTS.md    # Promptų META/INPUT/OUTPUT standartas
-│   ├── MICROCOPY_AUDIT_EN.md      # EN UI mikrotekstas
 │   ├── QA_STANDARTAS.md           # QA standartas (spinoff01)
-│   └── TESTAVIMAS.md              # Gyvo testavimo žurnalas
+│   ├── TESTAVIMAS.md              # Gyvo testavimo žurnalas
+│   └── archive/                   # Auditas, senas roadmap, integracijos (vėliau)
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yml
@@ -95,7 +104,7 @@
 └── .gitignore
 ```
 
-**Pilnas dokumentų inventorių** (visi `.md`, HTML politikos failai, CI ir kt.) ir atsakomybės: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) §1.
+**Pilnas dokumentų indeksas:** [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md).
 
 ## Privatumas
 

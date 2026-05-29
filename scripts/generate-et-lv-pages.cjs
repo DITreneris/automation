@@ -141,6 +141,26 @@ const ET_PAIRS = [
     '<meta property="og:url" content="https://www.promptanatomy.info/et/">',
   ],
   [
+    '<meta property="og:locale" content="en_US">',
+    '<meta property="og:locale" content="et_EE">',
+  ],
+  [
+    '<meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
+    '<meta property="og:title" content="Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia">',
+  ],
+  [
+    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta property="og:description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+  ],
+  [
+    '<meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
+    '<meta name="twitter:title" content="Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia">',
+  ],
+  [
+    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta name="twitter:description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+  ],
+  [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
     '"@id":"https://www.promptanatomy.info/et/#webpage"',
   ],
@@ -173,10 +193,6 @@ const ET_PAIRS = [
     'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>',
     'aria-label="Täielik Prompt Anatomy – interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy</a>',
   ],
-  [
-    'aria-label="Prompt Anatomy spin-off project">Spin-off No. 1</span>',
-    'aria-label="Prompt Anatomy spin-off projekt">Spin-off nr 1</span>',
-  ],
   ['<h1>Let AI do 30–50% of your daily tasks</h1>', '<h1>Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest</h1>'],
   ['<p>8 exercises with ready-made templates – results in minutes.</p>', '<p>8 harjutust valmis mallidega – tulemused minutitega.</p>'],
   [
@@ -184,12 +200,8 @@ const ET_PAIRS = [
     'aria-label="Kellele">Kellele: juhtidele, spetsialistidele, konsultantidele, vabakutselistele.</p>',
   ],
   [
-    'aria-label="Start for free – go to first prompt">Start for free</a>',
-    'aria-label="Alustage tasuta – minge esimese prompti juurde">Alustage tasuta</a>',
-  ],
-  [
-    'aria-label="Join the community – Telegram">Join the community</a>',
-    'aria-label="Liituge kogukonnaga – Telegramis">Liituge kogukonnaga</a>',
+    'aria-label="Use first prompt – go to prompt 1">Use first prompt</a>',
+    'aria-label="Kasutage esimest prompti – minge prompti 1 juurde">Kasutage esimest prompti</a>',
   ],
   [
     '<h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> What you get</h2>',
@@ -253,12 +265,12 @@ const ET_PAIRS = [
     '<li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc).</li>',
   ],
   [
-    '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text below and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Mida teha:</strong> See ei ole küsimustik. Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
+    '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>',
+    '<p><strong>Mida teha:</strong> See ei ole küsimustik. Kopeerige üleolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
   ],
   [
-    '<p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Mida teha:</strong> Kopeerige allolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
+    '<p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>',
+    '<p><strong>Mida teha:</strong> Kopeerige üleolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
   ],
   ['aria-label="Information about this prompt">', 'aria-label="Teave selle prompti kohta">'],
   ['<strong>Why it matters</strong>', '<strong>Miks see loeb</strong>'],
@@ -271,8 +283,8 @@ const ET_PAIRS = [
   ['aria-label="Mark this step as done"', 'aria-label="Märkige see samm tehtuks"'],
   ['<span>Mark as done</span>', '<span>Märkige tehtuks</span>'],
   ['<div class="category">Analysis</div>', '<div class="category">Analüüs</div>'],
-  ['<h2 class="prompt-title">Organization Portrait</h2>', '<h2 class="prompt-title">Organisatsiooni portree</h2>'],
-  ['<p class="prompt-desc">Build a clear profile and context of your organization</p>', '<p class="prompt-desc">Ehitage selge profiil ja kontekst teie organisatsioonist</p>'],
+  ['<h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>', '<h2 class="prompt-title" id="prompt-title-2">Organisatsiooni portree</h2>'],
+  ['<p class="prompt-desc">Open for the prompt — get a structured company profile in ~5 min</p>', '<p class="prompt-desc">Avage prompt — saate struktureeritud ettevõtte profiili ~5 minutiga</p>'],
   ['aria-label="Select and copy prompt 2"', 'aria-label="Valige ja kopeerige prompt 2"'],
   ['<h3 class="before-use-title" id="before-use-title-2">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-2">Enne kasutamist</h3>'],
   [
@@ -287,10 +299,10 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 2 to clipboard"', 'aria-label="Kopeerige prompt 2 lõikelauale"'],
   ['aria-label="Select and copy prompt 3"', 'aria-label="Valige ja kopeerige prompt 3"'],
   ['<div class="category">Role</div>', '<div class="category">Roll</div>'],
-  ['<h2 class="prompt-title">My Role in the Organization</h2>', '<h2 class="prompt-title">Minu roll organisatsioonis</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-3">My Role in the Organization</h2>', '<h2 class="prompt-title" id="prompt-title-3">Minu roll organisatsioonis</h2>'],
   [
-    `<p class="prompt-desc">Clearly define your role's purpose, responsibilities and impact</p>`,
-    '<p class="prompt-desc">Määratlege selgelt teie rolli eesmärk, vastutus ja mõju</p>',
+    `<p class="prompt-desc">Clarify your role's purpose and impact before AI fills the gaps</p>`,
+    '<p class="prompt-desc">Selgitage oma rolli eesmärk ja mõju, enne kui tehisintellekt lüngad täidab</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-3">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-3">Enne kasutamist</h3>'],
   [
@@ -313,8 +325,8 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 3 to clipboard"', 'aria-label="Kopeerige prompt 3 lõikelauale"'],
   ['aria-label="Select and copy prompt 4"', 'aria-label="Valige ja kopeerige prompt 4"'],
   ['<div class="category">Document</div>', '<div class="category">Dokument</div>'],
-  ['<h2 class="prompt-title">Job Description + KPI</h2>', '<h2 class="prompt-title">Ametijuhend + KPI</h2>'],
-  ['<p class="prompt-desc">Create a practical job description with KPIs</p>', '<p class="prompt-desc">Looge praktiline ametijuhend koos KPI-dega</p>'],
+  ['<h2 class="prompt-title" id="prompt-title-4">Job Description + KPI</h2>', '<h2 class="prompt-title" id="prompt-title-4">Ametijuhend + KPI</h2>'],
+  ['<p class="prompt-desc">Open → practical job description with measurable KPIs you can use</p>', '<p class="prompt-desc">Avage → praktiline ametijuhend mõõdetavate KPI-dega, mida saate kasutada</p>'],
   ['<h3 class="before-use-title" id="before-use-title-4">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-4">Enne kasutamist</h3>'],
   [
     `<p><strong>Use when:</strong> you need a job description; you're preparing for review or onboarding; you want measurable KPIs.</p>`,
@@ -328,10 +340,10 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 4 to clipboard"', 'aria-label="Kopeerige prompt 4 lõikelauale"'],
   ['aria-label="Select and copy prompt 5"', 'aria-label="Valige ja kopeerige prompt 5"'],
   ['<div class="category">Processes</div>', '<div class="category">Protsessid</div>'],
-  ['<h2 class="prompt-title">Core Work Processes</h2>', '<h2 class="prompt-title">Põhitööprotsessid</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-5">Core Work Processes</h2>', '<h2 class="prompt-title" id="prompt-title-5">Põhitööprotsessid</h2>'],
   [
-    '<p class="prompt-desc">Identify where time and energy go (Pareto 80/20)</p>',
-    '<p class="prompt-desc">Tuvastage, kuhu läheb aeg ja energia (Pareto 80/20)</p>',
+    '<p class="prompt-desc">See where 80% of your time goes — input for the AI optimization step</p>',
+    '<p class="prompt-desc">Vaadake, kuhu läheb 80% ajast — sisend tehisintellekti optimeerimise sammule</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-5">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-5">Enne kasutamist</h3>'],
   [
@@ -346,10 +358,10 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 5 to clipboard"', 'aria-label="Kopeerige prompt 5 lõikelauale"'],
   ['aria-label="Select and copy prompt 6"', 'aria-label="Valige ja kopeerige prompt 6"'],
   ['<div class="category">AI Integration</div>', '<div class="category">Tehisintellekt</div>'],
-  ['<h2 class="prompt-title">AI Help and Optimization</h2>', '<h2 class="prompt-title">Tehisintellekti abi ja optimeerimine</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-6">AI Help and Optimization</h2>', '<h2 class="prompt-title" id="prompt-title-6">Tehisintellekti abi ja optimeerimine</h2>'],
   [
-    '<p class="prompt-desc">Turn AI into a real work assistant – concrete ideas based on your processes</p>',
-    '<p class="prompt-desc">Muutke tehisintellekt tõeliseks tööabiliseks – konkreetsed ideed teie protsesside põhjal</p>',
+    '<p class="prompt-desc">Turn your process map into concrete AI shortcuts that save hours</p>',
+    '<p class="prompt-desc">Muutke oma protsessikaart konkreetseteks tehisintellekti otseteedeks, mis säästavad tunde</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-6">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-6">Enne kasutamist</h3>'],
   [
@@ -364,10 +376,10 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 6 to clipboard"', 'aria-label="Kopeerige prompt 6 lõikelauale"'],
   ['aria-label="Select and copy prompt 7"', 'aria-label="Valige ja kopeerige prompt 7"'],
   ['<div class="category">Library</div>', '<div class="category">Kogu</div>'],
-  ['<h2 class="prompt-title">Daily Prompt Library</h2>', '<h2 class="prompt-title">Igapäevane promptide kogu</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-7">Daily Prompt Library</h2>', '<h2 class="prompt-title" id="prompt-title-7">Igapäevane promptide kogu</h2>'],
   [
-    '<p class="prompt-desc">Ready-made prompts for daily work and challenges</p>',
-    '<p class="prompt-desc">Valmis promptid igapäevatööks ja väljakutseteks</p>',
+    '<p class="prompt-desc">Open → a personal table of prompts for everyday work</p>',
+    '<p class="prompt-desc">Avage → isiklik promptide tabel igapäevatööks</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-7">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-7">Enne kasutamist</h3>'],
   [
@@ -382,10 +394,10 @@ const ET_PAIRS = [
   ['aria-label="Copy prompt 7 to clipboard"', 'aria-label="Kopeerige prompt 7 lõikelauale"'],
   ['aria-label="Select and copy prompt 8"', 'aria-label="Valige ja kopeerige prompt 8"'],
   ['<div class="category">Simulation</div>', '<div class="category">Simulatsioon</div>'],
-  ['<h2 class="prompt-title">Critical Situation Simulation</h2>', '<h2 class="prompt-title">Kriitilise olukorra simulatsioon</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-8">Critical Situation Simulation</h2>', '<h2 class="prompt-title" id="prompt-title-8">Kriitilise olukorra simulatsioon</h2>'],
   [
-    '<p class="prompt-desc">Prepare for pressure and uncertainty in advance</p>',
-    '<p class="prompt-desc">Valmistuge surveks ja ebakindluseks ette</p>',
+    '<p class="prompt-desc">Rehearse high-pressure decisions with AI before they happen</p>',
+    '<p class="prompt-desc">Harjutage surve all otsuseid tehisintellektiga enne, kui need juhtuvad</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-8">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-8">Enne kasutamist</h3>'],
   [
@@ -398,6 +410,34 @@ const ET_PAIRS = [
     '<p>Simulatsioonid aitavad õppida kriise juhtima enne, kui need juhtuvad. Parem harjutada tehisintellektiga kui päris olukorras.</p>',
   ],
   ['aria-label="Copy prompt 8 to clipboard"', 'aria-label="Kopeerige prompt 8 lõikelauale"'],
+  [
+    '<a href="#block2" class="prompt-next-link">Next: Organization Portrait →</a>',
+    '<a href="#block2" class="prompt-next-link">Järgmine: Organisatsiooni portree →</a>',
+  ],
+  [
+    '<a href="#block3" class="prompt-next-link">Next: My Role in the Organization →</a>',
+    '<a href="#block3" class="prompt-next-link">Järgmine: Minu roll organisatsioonis →</a>',
+  ],
+  [
+    '<a href="#block4" class="prompt-next-link">Next: Job Description + KPI →</a>',
+    '<a href="#block4" class="prompt-next-link">Järgmine: Ametijuhend + KPI →</a>',
+  ],
+  [
+    '<a href="#block5" class="prompt-next-link">Next: Core Work Processes →</a>',
+    '<a href="#block5" class="prompt-next-link">Järgmine: Põhitööprotsessid →</a>',
+  ],
+  [
+    '<a href="#block6" class="prompt-next-link">Next: AI Help and Optimization →</a>',
+    '<a href="#block6" class="prompt-next-link">Järgmine: Tehisintellekti abi ja optimeerimine →</a>',
+  ],
+  [
+    '<a href="#block7" class="prompt-next-link">Next: Daily Prompt Library →</a>',
+    '<a href="#block7" class="prompt-next-link">Järgmine: Igapäevane promptide kogu →</a>',
+  ],
+  [
+    '<a href="#block8" class="prompt-next-link">Next: Critical Situation Simulation →</a>',
+    '<a href="#block8" class="prompt-next-link">Järgmine: Kriitilise olukorra simulatsioon →</a>',
+  ],
   [`<h2 id="next-steps-title">What's next?</h2>`, '<h2 id="next-steps-title">Mis edasi?</h2>'],
   [
     '<p>Best to go in order from 1 to 8. Click a link to jump to that prompt.</p>',
@@ -411,6 +451,22 @@ const ET_PAIRS = [
   ['<a href="#block6">6. AI optimization</a>', '<a href="#block6">6. Tehisintellekti optimeerimine</a>'],
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Igapäevane kogu</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kriitilise olukorra simulatsioon</a>'],
+  [
+    '<h2 id="ecosystem-title">Prompt Anatomy ecosystem</h2>',
+    '<h2 id="ecosystem-title">Prompt Anatomy ökosüsteem</h2>',
+  ],
+  [
+    '<p class="ecosystem-lead">One AI operating system for learning, daily work, and decisions. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Üks tehisintellekti operatsioonisüsteem õppimiseks, igapäevatööks ja otsusteks. Olete igapäevases töövoogude kogus.</p>',
+  ],
+  [
+    'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',
+    'alt="Skeem: promptanatomy.app keskel, ühendatud promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro ja promptanatomy.ceo"',
+  ],
+  [
+    '<figcaption>Less random prompting. More structured execution.</figcaption>',
+    '<figcaption>Vähem juhuslikke prompte. Rohkem struktureeritud teostust.</figcaption>',
+  ],
   [
     '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
     '<h2 id="community-title">Soovite rohkem?<br>Liituge Telegramis.</h2>',
@@ -434,10 +490,6 @@ const ET_PAIRS = [
   [
     '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>',
     '<p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>',
-  ],
-  [
-    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
-    '<p class="footer-product-link">See on <strong>Spin-off nr 1</strong> projektist „Prompt Anatomy“. Täielik interaktiivne kursus ja rohkem: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Tehisintellektile optimeeritud</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],
@@ -504,6 +556,26 @@ const LV_PAIRS = [
     '<meta property="og:url" content="https://www.promptanatomy.info/lv/">',
   ],
   [
+    '<meta property="og:locale" content="en_US">',
+    '<meta property="og:locale" content="lv_LV">',
+  ],
+  [
+    '<meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
+    '<meta property="og:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy">',
+  ],
+  [
+    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta property="og:description" content="8 vingrinājumi ar gataviem veidnēm – rezultāti dažu minūšu laikā.">',
+  ],
+  [
+    '<meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
+    '<meta name="twitter:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy">',
+  ],
+  [
+    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">',
+    '<meta name="twitter:description" content="8 vingrinājumi ar gataviem veidnēm – rezultāti dažu minūšu laikā.">',
+  ],
+  [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
     '"@id":"https://www.promptanatomy.info/lv/#webpage"',
   ],
@@ -536,10 +608,6 @@ const LV_PAIRS = [
     'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>',
     'aria-label="Pilnā Prompt Anatomy – interaktīvs kurss (atveras jaunā cilnē)">Prompt Anatomy</a>',
   ],
-  [
-    'aria-label="Prompt Anatomy spin-off project">Spin-off No. 1</span>',
-    'aria-label="Prompt Anatomy spin-off projekts">Spin-off Nr. 1</span>',
-  ],
   ['<h1>Let AI do 30–50% of your daily tasks</h1>', '<h1>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem</h1>'],
   ['<p>8 exercises with ready-made templates – results in minutes.</p>', '<p>8 vingrinājumi ar gataviem veidnēm – rezultāti dažu minūšu laikā.</p>'],
   [
@@ -547,12 +615,8 @@ const LV_PAIRS = [
     'aria-label="Kam">Kam: vadītājiem, speciālistiem, konsultantiem, brīvmāksliniekiem.</p>',
   ],
   [
-    'aria-label="Start for free – go to first prompt">Start for free</a>',
-    'aria-label="Sākt bez maksas – pāriet pie pirmā prompta">Sākt bez maksas</a>',
-  ],
-  [
-    'aria-label="Join the community – Telegram">Join the community</a>',
-    'aria-label="Pievienoties kopienai – Telegram">Pievienoties kopienai</a>',
+    'aria-label="Use first prompt – go to prompt 1">Use first prompt</a>',
+    'aria-label="Izmantojiet pirmo promptu – uz promptu 1">Izmantojiet pirmo promptu</a>',
   ],
   [
     '<h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> What you get</h2>',
@@ -604,12 +668,12 @@ const LV_PAIRS = [
     '<li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc).</li>',
   ],
   [
-    '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text below and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Ko darīt:</strong> Tas nav jautājumu saraksts. Kopējiet zemāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
+    '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>',
+    '<p><strong>Ko darīt:</strong> Tas nav jautājumu saraksts. Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
   ],
   [
-    '<p><strong>What to do:</strong> Copy the text below and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Ko darīt:</strong> Kopējiet zemāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
+    '<p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>',
+    '<p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
   ],
   ['aria-label="Information about this prompt">', 'aria-label="Informācija par šo promptu">'],
   ['<strong>Why it matters</strong>', '<strong>Kāpēc tas svarīgi</strong>'],
@@ -622,8 +686,8 @@ const LV_PAIRS = [
   ['aria-label="Mark this step as done"', 'aria-label="Atzīmēt šo soli kā izdarītu"'],
   ['<span>Mark as done</span>', '<span>Atzīmēt kā izdarītu</span>'],
   ['<div class="category">Analysis</div>', '<div class="category">Analīze</div>'],
-  ['<h2 class="prompt-title">Organization Portrait</h2>', '<h2 class="prompt-title">Organizācijas portrets</h2>'],
-  ['<p class="prompt-desc">Build a clear profile and context of your organization</p>', '<p class="prompt-desc">Izveidojiet skaidru profilu un kontekstu par savu organizāciju</p>'],
+  ['<h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>', '<h2 class="prompt-title" id="prompt-title-2">Organizācijas portrets</h2>'],
+  ['<p class="prompt-desc">Open for the prompt — get a structured company profile in ~5 min</p>', '<p class="prompt-desc">Atveriet promptu — iegūstiet strukturētu uzņēmuma profilu ~5 minūtēs</p>'],
   ['aria-label="Select and copy prompt 2"', 'aria-label="Atlasīt un kopēt promptu 2"'],
   ['<h3 class="before-use-title" id="before-use-title-2">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-2">Pirms lietošanas</h3>'],
   [
@@ -638,10 +702,10 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 2 to clipboard"', 'aria-label="Kopēt promptu 2 starpliktuvē"'],
   ['aria-label="Select and copy prompt 3"', 'aria-label="Atlasīt un kopēt promptu 3"'],
   ['<div class="category">Role</div>', '<div class="category">Loma</div>'],
-  ['<h2 class="prompt-title">My Role in the Organization</h2>', '<h2 class="prompt-title">Mana loma organizācijā</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-3">My Role in the Organization</h2>', '<h2 class="prompt-title" id="prompt-title-3">Mana loma organizācijā</h2>'],
   [
-    `<p class="prompt-desc">Clearly define your role's purpose, responsibilities and impact</p>`,
-    '<p class="prompt-desc">Skaidri definējiet savas lomas mērķi, pienākumus un ietekmi</p>',
+    `<p class="prompt-desc">Clarify your role's purpose and impact before AI fills the gaps</p>`,
+    '<p class="prompt-desc">Precizējiet savas lomas mērķi un ietekmi, pirms MI aizpilda nepilnības</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-3">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-3">Pirms lietošanas</h3>'],
   [
@@ -664,8 +728,8 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 3 to clipboard"', 'aria-label="Kopēt promptu 3 starpliktuvē"'],
   ['aria-label="Select and copy prompt 4"', 'aria-label="Atlasīt un kopēt promptu 4"'],
   ['<div class="category">Document</div>', '<div class="category">Dokuments</div>'],
-  ['<h2 class="prompt-title">Job Description + KPI</h2>', '<h2 class="prompt-title">Amata apraksts + KPI</h2>'],
-  ['<p class="prompt-desc">Create a practical job description with KPIs</p>', '<p class="prompt-desc">Izveidojiet praktisku amata aprakstu ar KPI</p>'],
+  ['<h2 class="prompt-title" id="prompt-title-4">Job Description + KPI</h2>', '<h2 class="prompt-title" id="prompt-title-4">Amata apraksts + KPI</h2>'],
+  ['<p class="prompt-desc">Open → practical job description with measurable KPIs you can use</p>', '<p class="prompt-desc">Atveriet → praktisku amata aprakstu ar izmērāmiem KPI, ko varat izmantot</p>'],
   ['<h3 class="before-use-title" id="before-use-title-4">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-4">Pirms lietošanas</h3>'],
   [
     `<p><strong>Use when:</strong> you need a job description; you're preparing for review or onboarding; you want measurable KPIs.</p>`,
@@ -679,10 +743,10 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 4 to clipboard"', 'aria-label="Kopēt promptu 4 starpliktuvē"'],
   ['aria-label="Select and copy prompt 5"', 'aria-label="Atlasīt un kopēt promptu 5"'],
   ['<div class="category">Processes</div>', '<div class="category">Procesi</div>'],
-  ['<h2 class="prompt-title">Core Work Processes</h2>', '<h2 class="prompt-title">Galvenie darba procesi</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-5">Core Work Processes</h2>', '<h2 class="prompt-title" id="prompt-title-5">Galvenie darba procesi</h2>'],
   [
-    '<p class="prompt-desc">Identify where time and energy go (Pareto 80/20)</p>',
-    '<p class="prompt-desc">Identificējiet, kur tiek tērēts laiks un enerģija (Pareto 80/20)</p>',
+    '<p class="prompt-desc">See where 80% of your time goes — input for the AI optimization step</p>',
+    '<p class="prompt-desc">Redziet, kur iet 80% laika — ievade MI optimizācijas solim</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-5">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-5">Pirms lietošanas</h3>'],
   [
@@ -697,10 +761,10 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 5 to clipboard"', 'aria-label="Kopēt promptu 5 starpliktuvē"'],
   ['aria-label="Select and copy prompt 6"', 'aria-label="Atlasīt un kopēt promptu 6"'],
   ['<div class="category">AI Integration</div>', '<div class="category">MI integrācija</div>'],
-  ['<h2 class="prompt-title">AI Help and Optimization</h2>', '<h2 class="prompt-title">MI palīdzība un optimizācija</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-6">AI Help and Optimization</h2>', '<h2 class="prompt-title" id="prompt-title-6">MI palīdzība un optimizācija</h2>'],
   [
-    '<p class="prompt-desc">Turn AI into a real work assistant – concrete ideas based on your processes</p>',
-    '<p class="prompt-desc">Pārvērsiet MI par īstu darba asistentu – konkrētas idejas balstītas uz jūsu procesiem</p>',
+    '<p class="prompt-desc">Turn your process map into concrete AI shortcuts that save hours</p>',
+    '<p class="prompt-desc">Pārvērtiet procesu karti konkrētos MI saīsinājumos, kas ietaupa stundas</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-6">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-6">Pirms lietošanas</h3>'],
   [
@@ -715,10 +779,10 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 6 to clipboard"', 'aria-label="Kopēt promptu 6 starpliktuvē"'],
   ['aria-label="Select and copy prompt 7"', 'aria-label="Atlasīt un kopēt promptu 7"'],
   ['<div class="category">Library</div>', '<div class="category">Bibliotēka</div>'],
-  ['<h2 class="prompt-title">Daily Prompt Library</h2>', '<h2 class="prompt-title">Ikdienas promptu bibliotēka</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-7">Daily Prompt Library</h2>', '<h2 class="prompt-title" id="prompt-title-7">Ikdienas promptu bibliotēka</h2>'],
   [
-    '<p class="prompt-desc">Ready-made prompts for daily work and challenges</p>',
-    '<p class="prompt-desc">Gatavi prompti ikdienas darbam un izaicinājumiem</p>',
+    '<p class="prompt-desc">Open → a personal table of prompts for everyday work</p>',
+    '<p class="prompt-desc">Atveriet → personīgu promptu tabulu ikdienas darbam</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-7">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-7">Pirms lietošanas</h3>'],
   [
@@ -733,10 +797,10 @@ const LV_PAIRS = [
   ['aria-label="Copy prompt 7 to clipboard"', 'aria-label="Kopēt promptu 7 starpliktuvē"'],
   ['aria-label="Select and copy prompt 8"', 'aria-label="Atlasīt un kopēt promptu 8"'],
   ['<div class="category">Simulation</div>', '<div class="category">Simulācija</div>'],
-  ['<h2 class="prompt-title">Critical Situation Simulation</h2>', '<h2 class="prompt-title">Kritiskas situācijas simulācija</h2>'],
+  ['<h2 class="prompt-title" id="prompt-title-8">Critical Situation Simulation</h2>', '<h2 class="prompt-title" id="prompt-title-8">Kritiskas situācijas simulācija</h2>'],
   [
-    '<p class="prompt-desc">Prepare for pressure and uncertainty in advance</p>',
-    '<p class="prompt-desc">Sagatavojieties spiedienam un nenoteiktībai iepriekš</p>',
+    '<p class="prompt-desc">Rehearse high-pressure decisions with AI before they happen</p>',
+    '<p class="prompt-desc">Iecildiniet spiediena lēmumus ar MI, pirms tie notiek</p>',
   ],
   ['<h3 class="before-use-title" id="before-use-title-8">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-8">Pirms lietošanas</h3>'],
   [
@@ -749,6 +813,34 @@ const LV_PAIRS = [
     '<p>Simulācijas palīdz mācīties pārvaldīt krīses pirms tās notiek. Labāk trenēties ar MI nekā reālā situācijā.</p>',
   ],
   ['aria-label="Copy prompt 8 to clipboard"', 'aria-label="Kopēt promptu 8 starpliktuvē"'],
+  [
+    '<a href="#block2" class="prompt-next-link">Next: Organization Portrait →</a>',
+    '<a href="#block2" class="prompt-next-link">Tālāk: Organizācijas portrets →</a>',
+  ],
+  [
+    '<a href="#block3" class="prompt-next-link">Next: My Role in the Organization →</a>',
+    '<a href="#block3" class="prompt-next-link">Tālāk: Mana loma organizācijā →</a>',
+  ],
+  [
+    '<a href="#block4" class="prompt-next-link">Next: Job Description + KPI →</a>',
+    '<a href="#block4" class="prompt-next-link">Tālāk: Amata apraksts + KPI →</a>',
+  ],
+  [
+    '<a href="#block5" class="prompt-next-link">Next: Core Work Processes →</a>',
+    '<a href="#block5" class="prompt-next-link">Tālāk: Galvenie darba procesi →</a>',
+  ],
+  [
+    '<a href="#block6" class="prompt-next-link">Next: AI Help and Optimization →</a>',
+    '<a href="#block6" class="prompt-next-link">Tālāk: MI palīdzība un optimizācija →</a>',
+  ],
+  [
+    '<a href="#block7" class="prompt-next-link">Next: Daily Prompt Library →</a>',
+    '<a href="#block7" class="prompt-next-link">Tālāk: Ikdienas promptu bibliotēka →</a>',
+  ],
+  [
+    '<a href="#block8" class="prompt-next-link">Next: Critical Situation Simulation →</a>',
+    '<a href="#block8" class="prompt-next-link">Tālāk: Kritiskas situācijas simulācija →</a>',
+  ],
   [`<h2 id="next-steps-title">What's next?</h2>`, '<h2 id="next-steps-title">Kas tālāk?</h2>'],
   [
     '<p>Best to go in order from 1 to 8. Click a link to jump to that prompt.</p>',
@@ -762,6 +854,22 @@ const LV_PAIRS = [
   ['<a href="#block6">6. AI optimization</a>', '<a href="#block6">6. MI optimizācija</a>'],
   ['<a href="#block7">7. Daily library</a>', '<a href="#block7">7. Ikdienas bibliotēka</a>'],
   ['<a href="#block8">8. Critical situation simulation</a>', '<a href="#block8">8. Kritiskas situācijas simulācija</a>'],
+  [
+    '<h2 id="ecosystem-title">Prompt Anatomy ecosystem</h2>',
+    '<h2 id="ecosystem-title">Prompt Anatomy ekosistēma</h2>',
+  ],
+  [
+    '<p class="ecosystem-lead">One AI operating system for learning, daily work, and decisions. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Viena mākslīgā intelekta operētājsistēma mācībām, ikdienas darbam un lēmumiem. Jūs esat ikdienas darba plūsmu bibliotēkā.</p>',
+  ],
+  [
+    'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',
+    'alt="Shēma: promptanatomy.app centrā, savienots ar promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro un promptanatomy.ceo"',
+  ],
+  [
+    '<figcaption>Less random prompting. More structured execution.</figcaption>',
+    '<figcaption>Mazāk nejaušu promptu. Vairāk strukturētas izpildes.</figcaption>',
+  ],
   [
     '<h2 id="community-title">Want more?<br>Join us on Telegram.</h2>',
     '<h2 id="community-title">Vēlaties vairāk?<br>Pievienojieties Telegram.</h2>',
@@ -785,10 +893,6 @@ const LV_PAIRS = [
   [
     '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>',
     '<p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – mainīt nav jā.</p>',
-  ],
-  [
-    '<p class="footer-product-link">This is <strong>Spin-off No. 1</strong> from “Prompt Anatomy”. Full interactive course and more: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
-    '<p class="footer-product-link">Šis ir <strong>Spin-off Nr. 1</strong> no „Prompt Anatomy“. Pilns interaktīvs kurss un vairāk: <a href="https://www.promptanatomy.info/en" target="_blank" rel="noopener noreferrer">Prompt Anatomy →</a></p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> MI optimizēts</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],

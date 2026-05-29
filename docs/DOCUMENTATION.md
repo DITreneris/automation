@@ -1,68 +1,67 @@
-# Dokumentų valdymas
+# Dokumentų indeksas
 
-**Tikslas:** Dokumentų atnaujinimo, versijavimo ir archyvavimo tvarka. Taisyklės: [.cursorrules](../.cursorrules), [AGENTS.md](../AGENTS.md).
-
----
-
-## 1. Dokumentų inventorius ir atsakomybės
-
-| Dokumentas | Paskirtis | Atsakingas agentas / tipas | Kada atnaujinti |
-|------------|-----------|----------------------------|------------------|
-| README.md | Apžvalga, naudojimas, struktūra | Content / Orchestrator | Naujos funkcijos, deployment, struktūros pakeitimai |
-| AGENTS.md | Agentų rolės, workflow (įskaitant daugiakalbystės vartus §3), commit prefiksai | Orchestrator | Workflow / rolės / daugiakalbystės vartų pakeitimai |
-| .cursorrules | Saugumas, kokybė, dokumentacijos taisyklės | QA + Orchestrator | Taisyklų pakeitimai, nauji reikalavimai |
-| CHANGELOG.md | Versijų pakeitimų istorija | Kiekvienas (pagal pakeitimą) | Kiekvienas release ir reikšmingi pakeitimai |
-| MUST_TODO.md | MVP kritinės užduotys | Orchestrator / Curriculum | Užduočių atnaujinimas, nauji P0 |
-| TODO.md | Prioritetizuotas backlog (P1–P3), ne P0 | Orchestrator / QA | Po auditų, UX/a11y pagerinimai |
-| MVP_ROADMAP.md | Roadmap, tikslai | Curriculum / Orchestrator | Etapų pasikeitimas, prioritetai |
-| INTEGRACIJA.md | Google Sheets, formos | Content / QA | Integracijos žingsniai, konfigūracija |
-| VARIANTU_PALYGINIMAS.md | Integracijos variantų palyginimas (nuoroda iš INTEGRACIJA) | Content / Orchestrator | Nauji variantai arba pasikeitus rekomendacijai |
-| feedback-schema.md | Feedback Store schema | Orchestrator | Schema pakeitimai |
-| lt/privatumas.html; en, et, lv/privacy.html | Privatumo politika (LT/EN/ET/LV) | Content (juridinė peržiūra atskirai) | Duomenų rinkimo pakeitimai, GDPR |
-| .github/PULL_REQUEST_TEMPLATE.md | PR šablonas | Orchestrator / QA | Checklist pakeitimai |
-| .github/workflows/ci.yml | CI | QA / Orchestrator | Nauji testai, lint, a11y |
-| .github/workflows/deploy.yml | GitHub Pages deploy | QA / Orchestrator | Deploy žingsniai, environment |
-| DEPLOYMENT.md | Deploy instrukcijos, troubleshooting | QA / Orchestrator | Platforma, URL, post-deploy |
-| docs/QA_STANDARTAS.md | QA standartas (nuoroda spinoff01) | QA | Kriterijai, komandos, spinoff01 |
-| docs/TESTAVIMAS.md | Gyvo testavimo scenarijai ir žurnalas | QA | Po deploy testavimas, rezultatai |
-| KODO_BAZES_ANALIZE.md | Kodų bazės / architektūros auditas (snapshot) | QA / Orchestrator | Po didelių struktūrų ar stacko pokyčių; neprivaloma prie kiekvieno mažo PR |
-| docs/BULLET_PROOF_PROMPTS.md | Promptų kokybės standartas (bullet-proof, META/INPUT/OUTPUT) | Content / QA | Atnaujinti po turinio/struktūros pakeitimų |
-| docs/MICROCOPY_AUDIT_EN.md | EN UI mikroteksto inventorius ir rekomendacijos; sinchronas su MULTILINGUAL §4 | Content / UI | Po EN UI / mikroteksto keitimų |
-| docs/MULTILINGUAL_STRUCTURE.md | Path atitikmenys ir routing LT/EN/ET/LV | Curriculum | Pakeitimai į puslapių struktūrą ar kalbas; operacinė seka su Content/UI/QA – [AGENTS.md](../AGENTS.md) §3 |
-| STYLEGUIDE.md | UI / dizaino gairės (spalvos, komponentai) | UI | Dizaino sistemos ar matomų komponentų pakeitimai |
+**Tikslas:** Vienas lean šaltinis – kas aktyvu, kas archyve, kas atsakingas. Taisyklės agentams: [AGENTS.md](../AGENTS.md). Cursor: [.cursorrules](../.cursorrules) + [.cursor/rules/](../.cursor/rules/).
 
 ---
 
-## 2. Kada ką atnaujinti
+## 1. Aktyvūs dokumentai (3 lygiai)
 
-- **Kodas keičiamas** → atnaujinti susijusią dokumentaciją (README, INTEGRACIJA ir pan.). Žr. [.cursorrules](../.cursorrules) skyrių „Dokumentacijos valdymas“.
-- **Release** → būtina atnaujinti CHANGELOG: sekciją `[Unreleased]` perkelti į naują versiją `## [X.Y.Z] - YYYY-MM-DD`. Versijavimas – [Semantic Versioning](https://semver.org/).
-- **PR:** prieš merge patikrinti, ar „Susiję dokumentai“ (PR šablone) atnaujinti; jei release – ar CHANGELOG ir versija nurodyta.
-- **PR – dokumentacijos Definition of Done:** jei PR liečia sritis, kuriai šiame faile **§1** lentelėje yra atitinkamas dokumentas, atnaujinkite tą dokumentą tame pačiame PR arba PR apraše trumpai paaiškinkite, kodėl atnaujinimas neaktualus. **Pilnas Markdown dokumentų sąrašas ir atsakomybės** – tik §1 (vengti dubliavimo su README ir agentų taisyklėmis).
+### Lygis A – kasdien (agentai ir PR)
+
+| Dokumentas | Paskirtis | Kada atnaujinti |
+|------------|-----------|------------------|
+| [AGENTS.md](../AGENTS.md) | Rolės, workflow, daugiakalbystės vartai, komandos | Workflow / locale / release taisyklės |
+| [docs/MULTILINGUAL_STRUCTURE.md](MULTILINGUAL_STRUCTURE.md) | Keliai, routing, `hreflang`, žymekliai, sinchronizacija | EN šaltinis, generatorius, nauja kalba |
+| [CHANGELOG.md](../CHANGELOG.md) | Versijų istorija (Keep a Changelog, SemVer) | Kiekvienas release ir reikšmingi pakeitimai |
+| [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) | PR checklist | Merge vartų pakeitimai |
+
+### Lygis B – standartai (turinys, UI, QA)
+
+| Dokumentas | Paskirtis | Kada atnaujinti |
+|------------|-----------|------------------|
+| [docs/design_system.md](design_system.md) | Spalvos, tokenai, komponentai, patterns (DS v2.0) | `css/tokens.css` ar matomi UI komponentai |
+| [docs/BULLET_PROOF_PROMPTS.md](BULLET_PROOF_PROMPTS.md) | META / INPUT / OUTPUT promptų standartas | Promptų struktūra ar kopijavimo logika |
+| [docs/QA_STANDARTAS.md](QA_STANDARTAS.md) | QA kriterijai (nuoroda į spinoff01) | CI / merge / release vartai |
+| [docs/TESTAVIMAS.md](TESTAVIMAS.md) | Gyvo testavimo scenarijai po deploy | Nauji URL, locale ar user flow |
+| [.cursorrules](../.cursorrules) | Saugumas, kokybė, merge checklist | Projektinės taisyklės |
+| [.cursor/rules/](../.cursor/rules/) | Scoped Cursor taisyklės (stack, tokenai, locale) | Atitinkama sritis |
+
+### Lygis C – apžvalga ir planavimas
+
+| Dokumentas | Paskirtis | Kada atnaujinti |
+|------------|-----------|------------------|
+| [README.md](../README.md) | Naudojimas, struktūra, deploy nuorodos | Naujos funkcijos ar keliai |
+| [DEPLOYMENT.md](../DEPLOYMENT.md) | Vercel, post-deploy | Platforma, URL, troubleshooting |
+| [MUST_TODO.md](../MUST_TODO.md) | Aktyvūs P0 / atidėti darbai | Prioritetų pasikeitimas |
+| [feedback-schema.md](../feedback-schema.md) | Feedback Store schema | Metrikų / feedback modelis |
+
+**HTML (juridinis / produktas):** `lt/privatumas.html`; `en|et|lv|ja/privacy.html` – Content; sinchronas pagal MULTILINGUAL.
 
 ---
 
-## 3. CHANGELOG ir release taisyklė
+## 2. Kas nebe aktyvu (archyvas)
 
-- **Formatas:** [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) – sekcijos: Prideta, Pakeista, Taisyta, Pašalinta, Deprecated, Saugumas. Datos – **YYYY-MM-DD** (ISO 8601).
-- **Release** = Git tag (pvz. `v1.0.0`) + CHANGELOG atnaujinimas (`[Unreleased]` → `[X.Y.Z] - data`).
-- Prieš release QA Agent tikrina: ar CHANGELOG atnaujintas ir ar versija atitinka pakeitimus (SemVer).
+Visa medžiaga: [docs/archive/README.md](archive/README.md).
 
----
+- Auditas ir memo (įgyvendinta arba perkelta į MULTILINGUAL / CHANGELOG)
+- MVP roadmap 2026-02 (pasenęs timeline)
+- Integracijos (forma išjungta; vėlesniems etapams)
 
-## 4. Archyvavimo politika
-
-- **Versijavimas:** Dokumentai versijuojami per **Git** (istorija = audit trail).
-- **Archyvas:** Pasirinktinai naudojamas `docs/archive/`. Ten kopijuoti tik tada, kai dokumentas **radikaliai** keičiamas ar pervadinamas (pvz. `MUST_TODO_2026-Q1.md`), o dabartinis failas lieka pagrindinis. Root dokumentai (README, AGENTS, CHANGELOG) paprastai lieka vieni.
-- **Retention:** Automatinio dokumentų trynimo nenaudoti; archyve laikyti pagal poreikį (auditas, istorija).
+**EN mikrotekstas:** kanonas – `en/index.html` + `js/library.js`; sinchronizacija – MULTILINGUAL §4, ne atskiras audit failas.
 
 ---
 
-## 5. QA checklist – dokumentacija
+## 3. Kada ką atnaujinti
 
-Prieš merge / release:
+- **Kodas** → susijęs Lygis A/B dokumentas tame pačiame PR (arba PR apraše – kodėl ne).
+- **Release** → `CHANGELOG.md`: `[Unreleased]` → `## [X.Y.Z] - YYYY-MM-DD`.
+- **EN šaltinis** → `npm run generate:et-lv`; LT/JA rankiniu; `npm test`.
 
-- [ ] Ar pakeitimams atitinka dokumentacijos atnaujinimai (pagal lentelę skyriuje 1)?
-- [ ] Jei release – ar CHANGELOG.md atnaujintas ir versija nurodyta (SemVer)?
+---
 
-Žr. [AGENTS.md](../AGENTS.md) QA Agent aprašymui, [docs/QA_STANDARTAS.md](QA_STANDARTAS.md) (nuoroda į [DITreneris/spinoff01](https://github.com/DITreneris/spinoff01)), [docs/TESTAVIMAS.md](TESTAVIMAS.md) gyvam testavimui.
+## 4. QA checklist – dokumentacija
+
+- [ ] Pakeitimams atitinka Lygis A/B atnaujinimai?
+- [ ] Release – CHANGELOG ir SemVer?
+
+Žr. [AGENTS.md](../AGENTS.md) §6–7, [docs/QA_STANDARTAS.md](QA_STANDARTAS.md).

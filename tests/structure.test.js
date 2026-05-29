@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { COURSE_URL_EN } = require('../scripts/seo-constants.cjs');
 
 const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja'];
 
@@ -116,6 +117,48 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes('1311 Park St') && html.includes('Alameda, CA 94501'), `${lang}: footer-contact address`)) passed++;
   else failed++;
+  if (assert(html.includes(`href="${COURSE_URL_EN}"`) && html.includes('class="badge"'), `${lang}: badge links to course`)) passed++;
+  else failed++;
+  if (assert(!html.includes('cta-button-outline'), `${lang}: no hero outline CTA`)) passed++;
+  else failed++;
+  const heroCtaCount = (html.match(/class="cta-button"/g) || []).length;
+  if (assert(heroCtaCount === 1, `${lang}: exactly one hero primary CTA`)) passed++;
+  else failed++;
+  if (assert(html.includes(`href="${COURSE_URL_EN}"`) && html.includes('community-cta-secondary'), `${lang}: community secondary links to course`)) passed++;
+  else failed++;
+  if (assert(html.includes('class="ecosystem"') && html.includes('ecosystem-figure') && html.includes('/assets/img/ecosystem/ecosystem-1200'), `${lang}: ecosystem section`)) passed++;
+  else failed++;
+  const communityIdx = html.indexOf('class="community"');
+  const ecosystemIdx = html.indexOf('class="ecosystem"');
+  const pageFooterIdx = html.indexOf('<footer class="footer">');
+  if (assert(communityIdx > -1 && ecosystemIdx > communityIdx && pageFooterIdx > ecosystemIdx, `${lang}: community → ecosystem → footer order`)) passed++;
+  else failed++;
+  if (assert(!html.includes('footer-product-link'), `${lang}: no footer-product-link`)) passed++;
+  else failed++;
+  if (assert(!html.includes('badge-spinoff'), `${lang}: no badge-spinoff`)) passed++;
+  else failed++;
+  for (let i = 1; i <= 8; i++) {
+    const blockIdx = html.indexOf(`id="block${i}"`);
+    const footerIdx = html.indexOf('class="prompt-footer"', blockIdx);
+    const beforeIdx = html.indexOf(`id="before-use-${i}"`, blockIdx);
+    if (assert(blockIdx > -1 && footerIdx > blockIdx && beforeIdx > footerIdx, `${lang}: prompt ${i} CTA before before-use`)) passed++;
+    else failed++;
+  }
+  const nextLinkCount = (html.match(/class="[^"]*\bprompt-next-link\b[^"]*"/g) || []).length;
+  if (assert(nextLinkCount === 7, `${lang}: prompt-next-link count === 7`)) passed++;
+  else failed++;
+  const collapsibleCount = (html.match(/class="[^"]*\bprompt-details\b[^"]*"/g) || []).length;
+  if (assert(collapsibleCount === 7, `${lang}: prompt-details count === 7`)) passed++;
+  else failed++;
+  const prompt1OpenIdx = html.indexOf('<!-- PROMPT 1 -->');
+  const prompt2Idx = html.indexOf('<!-- PROMPT 2 -->');
+  const prompt1Slice = prompt2Idx > prompt1OpenIdx ? html.slice(prompt1OpenIdx, prompt2Idx) : '';
+  if (assert(prompt1Slice && !prompt1Slice.includes('prompt-details'), `${lang}: prompt 1 not collapsible`)) passed++;
+  else failed++;
+  if (assert(html.includes('prompt-collapse.js'), `${lang}: prompt-collapse.js script`)) passed++;
+  else failed++;
+  if (assert(html.includes('/assets/js/lucide.min.js') && !html.includes('unpkg.com/lucide'), `${lang}: self-hosted lucide`)) passed++;
+  else failed++;
   return { passed, failed };
 }
 
@@ -146,13 +189,13 @@ function checkSeoHead(html, label, isLibrary) {
   else failed++;
   if (assert(html.includes('Prompt Anatomy – AI Automation Library'), `${label}: og:image:alt`)) passed++;
   else failed++;
-  if (
-    assert(
-      html.includes('property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy"') ||
-        html.includes('property="og:title" content="Privacy policy – Prompt Anatomy"'),
-      `${label}: og:title EN`
-    )
-  ) passed++;
+  const titleMatch = html.match(/<title>([^<]*)<\/title>/);
+  const ogTitleMatch = html.match(/property="og:title" content="([^"]*)"/);
+  if (assert(titleMatch && ogTitleMatch && titleMatch[1] === ogTitleMatch[1], `${label}: og:title matches title`)) passed++;
+  else failed++;
+  const descMatch = html.match(/name="description" content="([^"]*)"/);
+  const ogDescMatch = html.match(/property="og:description" content="([^"]*)"/);
+  if (assert(descMatch && ogDescMatch && descMatch[1] === ogDescMatch[1], `${label}: og:description matches meta description`)) passed++;
   else failed++;
   if (isLibrary && assert(html.includes('application/ld+json') && html.includes('Organization'), `${label}: JSON-LD Organization`)) passed++;
   else if (!isLibrary) passed++;
@@ -184,6 +227,15 @@ function checkPrivacyI18n(html, label, currentLang) {
   if (assert(html.includes('rel="manifest"'), `${label} privacy: manifest link`)) passed++;
   else failed++;
   if (assert(html.includes('rel="apple-touch-icon"'), `${label} privacy: apple-touch-icon`)) passed++;
+  else failed++;
+  if (assert(html.includes('href="../css/tokens.css"'), `${label} privacy: tokens.css link`)) passed++;
+  else failed++;
+  if (assert(html.includes('href="../css/privacy.css"'), `${label} privacy: privacy.css link`)) passed++;
+  else failed++;
+  const bannedChakraBlue = '#' + '2B6CB0';
+  if (assert(!html.includes(bannedChakraBlue) && !html.toLowerCase().includes(bannedChakraBlue.toLowerCase()), `${label} privacy: no banned off-brand blue`)) passed++;
+  else failed++;
+  if (assert(!/<style[^>]*>[\s\S]*?#[0-9a-f]{3,8}/i.test(html), `${label} privacy: no inline style hex`)) passed++;
   else failed++;
   const sw = checkLangSwitcher(html, `${label} privacy`, currentLang);
   passed += sw.passed;
@@ -337,21 +389,49 @@ function run() {
   passed += prLtSeo.passed + prEnSeo.passed + prEtSeo.passed + prLvSeo.passed + prJaSeo.passed;
   failed += prLtSeo.failed + prEnSeo.failed + prEtSeo.failed + prLvSeo.failed + prJaSeo.failed;
 
-  // --- PWA / SEO assets (repo šaknyje) ---
+  // --- Design System 2.0 ---
+  const tokensCss = readFile(path.join(__dirname, '..', 'css', 'tokens.css')) || '';
+  const libraryCss = readFile(path.join(__dirname, '..', 'css', 'library.css')) || '';
+  if (assert(tokensCss.includes('--color-action-primary-bg'), 'DS: semantic token --color-action-primary-bg')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes("@import url('tokens.css')"), 'DS: library.css imports tokens.css')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.cta-button:focus-visible'), 'DS: .cta-button focus-visible')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.btn:focus-visible'), 'DS: .btn focus-visible')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.community-cta-primary:focus-visible'), 'DS: .community-cta-primary focus-visible')) passed++;
+  else failed++;
+  for (const lang of ALL_LANGS) {
+    const idx = readFile(path.join(__dirname, '..', lang, 'index.html'));
+    if (assert(idx && idx.includes('../css/library.css'), `${lang}: library.css link`)) passed++;
+    else failed++;
+  }
+
+  // --- PWA / SEO assets ---
   const assetRoot = path.join(__dirname, '..');
   const assetFiles = [
+    'css/tokens.css',
+    'css/privacy.css',
+    'tokens/tokens.json',
     'vercel.json',
     'site.webmanifest',
     'robots.txt',
     'sitemap.xml',
-    'favicon.svg',
-    'favicon-16x16.png',
-    'favicon-32x32.png',
-    'apple-touch-icon.png',
-    'android-chrome-192x192.png',
-    'android-chrome-512x512.png',
-    '01_og_image.png',
-    'og-image.png',
+    'assets/img/icons/favicon.svg',
+    'assets/img/icons/favicon-16x16.png',
+    'assets/img/icons/favicon-32x32.png',
+    'assets/img/icons/apple-touch-icon.png',
+    'assets/img/icons/android-chrome-192x192.png',
+    'assets/img/icons/android-chrome-512x512.png',
+    'assets/img/og/01_og_image.png',
+    'assets/img/og/og-image.png',
+    'assets/img/ecosystem/ecosystem2.png',
+    'assets/img/ecosystem/ecosystem-800.webp',
+    'assets/img/ecosystem/ecosystem-1200.webp',
+    'assets/img/ecosystem/ecosystem-1200.png',
+    'assets/js/lucide.min.js',
+    '404.html',
   ];
   for (const f of assetFiles) {
     if (assert(fs.existsSync(path.join(assetRoot, f)), `Asset egzistuoja: ${f}`)) passed++;
@@ -367,6 +447,18 @@ function run() {
   else failed++;
   const robots = readFile(path.join(assetRoot, 'robots.txt'));
   if (assert(robots && robots.includes('Sitemap:') && robots.includes('sitemap.xml'), 'robots.txt: Sitemap nuoroda')) passed++;
+  else failed++;
+
+  // --- Vercel deploy surface ---
+  const vercelIgnore = readFile(path.join(assetRoot, '.vercelignore'));
+  if (assert(vercelIgnore && vercelIgnore.length > 0, '.vercelignore egzistuoja')) passed++;
+  else failed++;
+  for (const pattern of ['docs/', 'tests/', 'scripts/', '*.md', 'google-apps-script.js']) {
+    if (assert(vercelIgnore && vercelIgnore.includes(pattern), `.vercelignore: ${pattern}`)) passed++;
+    else failed++;
+  }
+  const notFound = readFile(path.join(assetRoot, '404.html'));
+  if (assert(notFound && notFound.includes('href="/en/"'), '404.html: link to /en/')) passed++;
   else failed++;
 
   console.log('\n---');

@@ -1,9 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": true,
+  "redirects": [
+    { "source": "/og-image.png", "destination": "/assets/img/og/og-image.png", "permanent": true },
+    { "source": "/01_og_image.png", "destination": "/assets/img/og/01_og_image.png", "permanent": true },
+    { "source": "/favicon.svg", "destination": "/assets/img/icons/favicon.svg", "permanent": true },
+    { "source": "/favicon-16x16.png", "destination": "/assets/img/icons/favicon-16x16.png", "permanent": true },
+    { "source": "/favicon-32x32.png", "destination": "/assets/img/icons/favicon-32x32.png", "permanent": true },
+    { "source": "/apple-touch-icon.png", "destination": "/assets/img/icons/apple-touch-icon.png", "permanent": true },
+    { "source": "/android-chrome-192x192.png", "destination": "/assets/img/icons/android-chrome-192x192.png", "permanent": true },
+    { "source": "/android-chrome-512x512.png", "destination": "/assets/img/icons/android-chrome-512x512.png", "permanent": true }
+  ],
   "headers": [
     {
-      "source": "/(.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2?))",
+      "source": "/assets/img/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

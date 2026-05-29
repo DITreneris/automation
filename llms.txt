@@ -16,7 +16,7 @@ https://www.promptanatomy.info/sitemap.xml
 - 日本語: https://www.promptanatomy.info/ja/
 
 ## Main product (interactive course)
-https://www.promptanatomy.info/en
+https://www.promptanatomy.app/en
 
 ## Privacy
 - English: https://www.promptanatomy.info/en/privacy.html
@@ -30,3 +30,12 @@ Prompt Anatomy | 1311 Park St, Unit #654, Alameda, CA 94501, USA | info@promptan
 
 ## Note
 This site is the free prompt library spin-off. The full course application lives at the main product URL above.
+
+## Design System (v2.0)
+- SSOT: `css/tokens.css` | Docs: `docs/design_system.md`
+- Brand colors: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
+- Components: `css/library.css` (imports tokens) | Privacy: `css/privacy.css`
+- Rules: no inline hex colors; use semantic tokens (`--color-link`, `--color-action-primary-bg`, `--color-focus-ring`)
+- Patterns: LibraryPage layout (hero → prompts → community → footer); CTA hierarchy (navy primary → badge → teal chips → green community)
+- Validation: `npm run validate:tokens`, `npm run lint:design-tokens`
+- Machine-readable export: `tokens/tokens.json` (W3C DTCG 2025.10)

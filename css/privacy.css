@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    background: var(--color-surface-page);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-body);
+    padding: var(--space-4);
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p,
+ul {
+    margin-bottom: 0.75rem;
+}
+
+ul {
+    margin-left: 1.5rem;
+}
+
+a {
+    color: var(--color-link);
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 10px 20px;
+    background: var(--color-action-primary-bg);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-weight-semibold);
+    min-height: 44px;
+    min-width: 44px;
+    line-height: 24px;
+}
+
+.back:hover {
+    background: var(--color-action-primary-hover);
+}
+
+.back:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+.lang-switcher {
+    margin-bottom: 1rem;
+    font-size: 15px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.lang-switcher-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+}
+
+.lang-switcher .lang-current {
+    opacity: 0.95;
+}
+
+.lang-switcher .lang-link {
+    color: var(--color-link);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.lang-switcher .lang-link:hover,
+.lang-switcher .lang-link:focus-visible {
+    background: var(--color-surface-subtle);
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}

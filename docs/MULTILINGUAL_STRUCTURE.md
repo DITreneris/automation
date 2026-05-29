@@ -3,9 +3,9 @@
 **Atsakingas:** Curriculum Agent  
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.
 
-**Pagrindinio produkto nuoroda (Prompt Anatomy / Promptų anatomija):** visur naudoti **`https://www.promptanatomy.info/en`** (ne `https://www.promptanatomy.info/` be kelio, ne senasis `promptanatomy.app`, ne GitHub Pages `ditreneris.github.io/anatomija`). Tas pats badge, footer, community ir dokumentacijoje – žr. [AGENTS.md](../AGENTS.md) (golden rule).
+**Interaktyvus kursas (Prompt Anatomy / Promptų anatomija):** badge ir community secondary – **`https://www.promptanatomy.app/en`** (`COURSE_URL_EN` – [scripts/seo-constants.cjs](../scripts/seo-constants.cjs)). **Ne** `promptanatomy.info/en` – tai bibliotekos EN puslapis, ne kursas.
 
-**Bibliotekos (Spin-off) production:** **`https://www.promptanatomy.info/`** (`www`; apex `promptanatomy.info` → 307). Vercel: `https://automation-seven-ochre.vercel.app/`.
+**Bibliotekos (Spin-off) production:** **`https://www.promptanatomy.info/`** (`www`; locale `/lt/`, `/en/`, …; apex `promptanatomy.info` → 307). Vercel: `https://automation-seven-ochre.vercel.app/`.
 
 ---
 
@@ -58,7 +58,7 @@ ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy
 - Kiekvienas puslapis: `hreflang` `lt`, `en`, `et`, `lv`, `ja` ir `x-default` (`<link rel="alternate" … id="hreflang-lt">` … `id="hreflang-default">`) su **absoliučiais** `https://www.promptanatomy.info/…` URL (ne `href="#"`).
 - **`x-default`:** anglų versija (`/en/` arba `/en/privacy.html`).
 - **`rel="canonical"`** ir **`meta name="description"`** – lokalizuoti per puslapį; kanoninis domenas `www.promptanatomy.info`.
-- **Open Graph / Twitter:** vienas paveikslėlis [`og-image.png`](../og-image.png) (dizaino šaltinis [`01_og_image.png`](../01_og_image.png), generavimas `npm run generate:og-image` → 1200×630); **OG/Twitter title ir description – anglų kalba visose lokelėse**; `og:image:alt` – „Prompt Anatomy – AI Automation Library“; `og:url` atitinka locale canonical.
+- **Open Graph / Twitter:** vienas paveikslėlis [`assets/img/og/og-image.png`](../assets/img/og/og-image.png) (dizaino šaltinis [`01_og_image.png`](../assets/img/og/01_og_image.png), generavimas `npm run generate:og-image` → 1200×630); **OG/Twitter title ir description – anglų kalba visose lokelėse**; `og:image:alt` – „Prompt Anatomy – AI Automation Library“; `og:url` atitinka locale canonical.
 - **JSON-LD:** bibliotekos `index.html` – `Organization` + `WebSite` + `WebPage` (`inLanguage` pagal puslapį).
 - **Root [`index.html`](../index.html):** `meta robots noindex,follow` (redirect stub).
 - **Discovery:** [`robots.txt`](../robots.txt), [`sitemap.xml`](../sitemap.xml), [`llms.txt`](../llms.txt). Konstantos: [`scripts/seo-constants.cjs`](../scripts/seo-constants.cjs).
@@ -94,7 +94,7 @@ Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `
 
 - **PR:** [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) – checkbox „Daugiakalbystė (kai liečia EN)“.
 - **Pagrindinės vietos:** hero, instrukcijos, progress, mygtukai, JS pranešimai, code-block `::before`, footer, privatumas.
-- **Nuoroda:** EN mikrotekstas – [docs/MICROCOPY_AUDIT_EN.md](MICROCOPY_AUDIT_EN.md).
+- **EN kanonas:** `en/index.html`, `js/library.js` – keičiant mikrotekstą, sinchronizuokite LT rankiniu ir paleiskite `npm run generate:et-lv`. Istorinis auditas – [docs/archive/audits/MICROCOPY_AUDIT_EN_2026-03.md](archive/audits/MICROCOPY_AUDIT_EN_2026-03.md).
 
 ---
 

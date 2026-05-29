@@ -171,6 +171,17 @@
             function showSuccess(button) {
                 if (!button) return;
 
+                const promptIdAttr = button.getAttribute('data-prompt-id');
+                if (promptIdAttr) {
+                    const num = promptIdAttr.replace('prompt', '');
+                    const checkbox = document.querySelector('.prompt-done[data-prompt-id="' + num + '"]');
+                    if (checkbox && !checkbox.checked) {
+                        checkbox.checked = true;
+                        savePromptDoneState(num, true);
+                        updateProgressIndicator();
+                    }
+                }
+
                 const original = button.innerHTML;
                 button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>コピーしました</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
@@ -251,7 +262,7 @@
                 }
             });
 
-            // Kontaktų forma ir Google Sheets integracija šiame etape išjungta – minimali aplikacija, jokių duomenų nerinkime. Galima įjungti vėlesniuose etapuose (žr. INTEGRACIJA.md).
+            // Kontaktų forma išjungta – vėlesniems etapams (žr. docs/archive/integrations/)
 
             // ===== "PAŽYMĖJAU KAIP ATLIKAU" – localStorage (M2) =====
             const PROMPT_DONE_KEY_PREFIX = 'di_prompt_done_';

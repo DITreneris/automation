@@ -20,11 +20,11 @@ ORCHESTRATOR AGENT (koordinacija)
             └── GitHub / Version Control
 ```
 
-**Daugiakalbystė ir šaltinių hierarchija:** kanonas EN (`en/index.html`, `en/privacy.html`, `js/library.js`); LT rankiniu (`lt/`, `js/library.lt.js`); ET/LV po `npm run generate:et-lv`. Keliai, routing, `hreflang`, žymekliai – privaloma specifikacija: [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md).
+**Daugiakalbystė ir šaltinių hierarchija:** kanonas EN (`en/index.html`, `en/privacy.html`, `js/library.js`); LT rankiniu (`lt/`, `js/library.lt.js`); ET/LV po `npm run generate:et-lv`. Keliai, routing, `hreflang`, žymekliai – [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md). Dokumentų indeksas – [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md).
 
-**Golden rule – pagrindinė „Prompt Anatomy“ / „Promptų anatomija“ nuoroda:** visiems agentams ir žmonėms naudoti tik **`https://www.promptanatomy.info/en`** (anglų įėjimas į produktą). Nenaudoti `https://www.promptanatomy.info/` be `/en`, nebe `https://www.promptanatomy.app/`, nebe `https://ditreneris.github.io/anatomija/`. Taikyti badge, community, footer, dokumentacijai ir naujiems PR.
+**Golden rule – interaktyvus kursas (Prompt Anatomy / Promptų anatomija):** badge ir community secondary – **`https://www.promptanatomy.app/en`**. Konstanta: [scripts/seo-constants.cjs](scripts/seo-constants.cjs) `COURSE_URL_EN`. Nenaudoti `promptanatomy.info/en` kursui (ten bibliotekos EN locale). Nebe `ditreneris.github.io/anatomija`.
 
-**Bibliotekos (Spin-off) production URL:** **`https://www.promptanatomy.info/`** (kanonas su `www`; apex `promptanatomy.info` → 307 į `www`). Vercel host: `https://automation-seven-ochre.vercel.app/`.
+**Bibliotekos (Spin-off) production URL:** **`https://www.promptanatomy.info/`** (locale keliai `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`; kanonas su `www`). Vercel host: `https://automation-seven-ochre.vercel.app/`.
 
 ---
 
@@ -38,7 +38,7 @@ ORCHESTRATOR AGENT (koordinacija)
 
 ### Curriculum Agent
 - **Tikslas:** Nustato turinio struktūrą ir mokymosi logiką
-- **Įvestis:** Tikslai, auditorija, MVP_ROADMAP.md
+- **Įvestis:** Tikslai, auditorija, [MUST_TODO.md](MUST_TODO.md)
 - **Išvestis:** Promptų seka, priklausomybių modelis
 - **Daugiakalbystė:** Struktūros ir promptų sekos pakeitimai turi turėti atitikmenis visoms lokelėms ir §3b žymekliams ([docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md)). Jei keičiasi keliai, routing ar tokenų lentelė – atnaujinti tą patį dokumentą.
 
@@ -118,7 +118,7 @@ Prieš PR įsitikinti, kad `npm test` praeina. A11y tikrinimas – per CI arba l
 
 ## 7. Release seka
 
-1. Orchestrator → Curriculum: release scope (MUST_TODO, roadmap).
+1. Orchestrator → Curriculum: release scope ([MUST_TODO.md](MUST_TODO.md)).
 2. Orchestrator → Content / UI/UX: reikiai (jei yra).
 3. Orchestrator → QA: release validacija.
 4. QA: `npm test`, CHANGELOG atnaujintas (SemVer), rankinis QA (naršyklės, mobilus, kopijavimas, a11y).
@@ -128,17 +128,16 @@ Prieš PR įsitikinti, kad `npm test` praeina. A11y tikrinimas – per CI arba l
 
 ## 8. Susiję dokumentai
 
-- [.cursorrules](.cursorrules) – projekto taisyklės (saugumas, kokybė, dokumentacija)
-- [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) – daugiakalbystė (keliai, routing, `hreflang`, žymekliai, sinchronizacija); workflow žingsnis §3 (daugiakalbystės vartai)
-- [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) – dokumentų valdymas, atsakomybės, archyvavimas
-- [docs/QA_STANDARTAS.md](docs/QA_STANDARTAS.md) – QA standartas (nuoroda į [DITreneris/spinoff01](https://github.com/DITreneris/spinoff01))
-- [docs/TESTAVIMAS.md](docs/TESTAVIMAS.md) – gyvo testavimo scenarijai ir žurnalas
-- [DEPLOYMENT.md](DEPLOYMENT.md) – deploy (GitHub Pages), post-deploy testavimas
-- [CHANGELOG.md](CHANGELOG.md) – versijų pakeitimų istorija (Keep a Changelog)
-- [MUST_TODO.md](MUST_TODO.md) – MVP kritinės užduotys
-- [MVP_ROADMAP.md](MVP_ROADMAP.md) – roadmap
-- [feedback-schema.md](feedback-schema.md) – Feedback Store schema
+**Aktyvūs (lean indeksas):** [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)
+
+| Lygis | Dokumentai |
+|-------|------------|
+| Kasdien | [.cursorrules](.cursorrules), [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md), [CHANGELOG.md](CHANGELOG.md) |
+| Standartai | [docs/design_system.md](docs/design_system.md), [docs/BULLET_PROOF_PROMPTS.md](docs/BULLET_PROOF_PROMPTS.md), [docs/QA_STANDARTAS.md](docs/QA_STANDARTAS.md), [docs/TESTAVIMAS.md](docs/TESTAVIMAS.md), `.cursor/rules/` |
+| Planavimas | [MUST_TODO.md](MUST_TODO.md), [DEPLOYMENT.md](DEPLOYMENT.md), [feedback-schema.md](feedback-schema.md) |
+
+**Archyvas (auditai, senas roadmap, integracijos):** [docs/archive/README.md](docs/archive/README.md)
 
 ---
 
-**Paskutinis atnaujinimas:** 2026-03-29
+**Paskutinis atnaujinimas:** 2026-05-29
