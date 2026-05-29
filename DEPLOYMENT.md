@@ -20,6 +20,7 @@ Locale keliai: `/`, `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/` ir atitinkami privatu
 
 - Repozitorija prijungta prie **Vercel**; `main` push deployina automatiškai.
 - Statinis deploy be build žingsnio; [`vercel.json`](vercel.json) – `trailingSlash: true` (kanoniniai `/lt/`, `/en/` ir kt.), cache ant assetų, baziniai saugumo headeriai.
+- **Web Analytics:** visuose HTML puslapiuose – `/_vercel/insights/script.js` (veikia tik Vercel hoste). Įjungti Vercel dashboard → projektas **automation** → **Analytics** → **Web Analytics**.
 - Custom domain: **www.promptanatomy.info** (Production); apex **promptanatomy.info** nukreipia į `www`.
 - Prieš merge: `npm test` (kaip CI).
 

@@ -86,6 +86,8 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes('../js/hreflang.js'), `${lang}: hreflang.js`)) passed++;
   else failed++;
+  if (assert(html.includes('/_vercel/insights/script.js'), `${lang}: Vercel Web Analytics`)) passed++;
+  else failed++;
   if (assert(html.includes('lang-switcher--dropdown'), `${lang}: lang-switcher--dropdown`)) passed++;
   else failed++;
   if (assert(html.includes('lang-switcher-menu'), `${lang}: lang-switcher-menu`)) passed++;
@@ -170,6 +172,8 @@ function checkPrivacyI18n(html, label, currentLang) {
   else failed++;
   if (assert(html.includes('../js/hreflang.js'), `${label} privacy: hreflang.js`)) passed++;
   else failed++;
+  if (assert(html.includes('/_vercel/insights/script.js'), `${label} privacy: Vercel Web Analytics`)) passed++;
+  else failed++;
   if (assert(html.includes('lang-switcher-list'), `${label} privacy: lang-switcher-list`)) passed++;
   else failed++;
   const linkCount = (html.match(/class="[^"]*\blang-link\b[^"]*"/g) || []).length;
@@ -207,6 +211,8 @@ function run() {
   if (assert(rootHtml && rootHtml.includes('name="theme-color"') && rootHtml.includes('rel="manifest"'), 'Root index: theme-color + manifest')) passed++;
   else failed++;
   if (assert(rootHtml && rootHtml.includes('name="robots"') && rootHtml.includes('noindex'), 'Root index: robots noindex')) passed++;
+  else failed++;
+  if (assert(rootHtml && rootHtml.includes('/_vercel/insights/script.js'), 'Root index: Vercel Web Analytics')) passed++;
   else failed++;
 
   // --- LT library ---
