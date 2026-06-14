@@ -38,7 +38,11 @@ ul {
 }
 
 a {
-    color: var(--color-link);
+    color: var(--brand-teal-dark);
+}
+
+a:hover {
+    color: var(--brand-teal-hover);
 }
 
 .back {
@@ -85,7 +89,7 @@ a {
 }
 
 .lang-switcher .lang-link {
-    color: var(--color-link);
+    color: var(--brand-teal-dark);
     text-decoration: none;
     padding: 10px 14px;
     border-radius: var(--radius-sm);

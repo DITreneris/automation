@@ -16,6 +16,7 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**
 - **[Orchestrator] Cursor skills:** `.cursor/skills/` — locale-sync, release-changelog, design-token-guard, test-debug.
 - **[Orchestrator] Lessons:** [lessons/LESSONS.md](lessons/LESSONS.md), [lessons/audit-patterns.md](lessons/audit-patterns.md); 5 seed rules.
 - **[Orchestrator] GitHub workflow v1.0:** issue templates, CODEOWNERS, README agent entry points.
+- **[QA] Privacy a11y:** [css/privacy.css](css/privacy.css) – nuorodos `--brand-teal-dark` (WCAG AA ≥4.5:1 ant `--color-surface-page`).
 
 ### Pakeista
 
