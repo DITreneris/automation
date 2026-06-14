@@ -15,7 +15,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 | Naršyklė(ės) | Chrome, Firefox, Safari, Edge |
 | Mobilus | iOS Safari / Chrome Mobile (pasirinktinai) |
 
-**Automatiniai testai lokaliai / CI:** `npm test` – struktūriniai testai ([tests/structure.test.js](../tests/structure.test.js)), HTML lint (`node scripts/lint-html.mjs`, preset `html-validate:document`, be išorinio W3C API), ESLint. Prieš PR: `npm test`.
+**Automatiniai testai lokaliai / CI:** žr. [CONTRIBUTING.md](../CONTRIBUTING.md) §Reproduce CI locally. Trumpai: `npm test`. Prieš PR: pilnas CI parity (generate diff + pa11y su `PA11Y_BASE`).
 
 ---
 

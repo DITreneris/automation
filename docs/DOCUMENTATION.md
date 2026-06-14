@@ -10,7 +10,7 @@
 
 | Dokumentas | Paskirtis | Kada atnaujinti |
 |------------|-----------|------------------|
-| [AGENTS.md](../AGENTS.md) | Rolės, workflow, daugiakalbystės vartai, komandos | Workflow / locale / release taisyklės |
+| [AGENTS.md](../AGENTS.md) | EN operational SSOT: commands, file map, boundaries | Workflow / locale / release taisyklės |
 | [docs/MULTILINGUAL_STRUCTURE.md](MULTILINGUAL_STRUCTURE.md) | Keliai, routing, `hreflang`, žymekliai, sinchronizacija | EN šaltinis, generatorius, nauja kalba |
 | [CHANGELOG.md](../CHANGELOG.md) | Versijų istorija (Keep a Changelog, SemVer) | Kiekvienas release ir reikšmingi pakeitimai |
 | [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) | PR checklist | Merge vartų pakeitimai |
@@ -23,7 +23,8 @@
 | [docs/BULLET_PROOF_PROMPTS.md](BULLET_PROOF_PROMPTS.md) | META / INPUT / OUTPUT promptų standartas | Promptų struktūra ar kopijavimo logika |
 | [docs/QA_STANDARTAS.md](QA_STANDARTAS.md) | QA kriterijai (nuoroda į spinoff01) | CI / merge / release vartai |
 | [docs/TESTAVIMAS.md](TESTAVIMAS.md) | Gyvo testavimo scenarijai po deploy | Nauji URL, locale ar user flow |
-| [.cursorrules](../.cursorrules) | Saugumas, kokybė, merge checklist | Projektinės taisyklės |
+| [lessons/LESSONS.md](../lessons/LESSONS.md) | Operacinės taisyklės (CI, locale) | Kartojamos klaidos |
+| [.cursorrules](../.cursorrules) | LT UI tonas, saugumo santrauka | Projektinės taisyklės |
 | [.cursor/rules/](../.cursor/rules/) | Scoped Cursor taisyklės (stack, tokenai, locale) | Atitinkama sritis |
 
 ### Lygis C – apžvalga ir planavimas
@@ -31,6 +32,9 @@
 | Dokumentas | Paskirtis | Kada atnaujinti |
 |------------|-----------|------------------|
 | [README.md](../README.md) | Naudojimas, struktūra, deploy nuorodos | Naujos funkcijos ar keliai |
+| [LICENSE](../LICENSE) | CC BY 4.0 | Licencijos pasikeitimas |
+| [SECURITY.md](../SECURITY.md) | Saugumo pranešimai, scope | Nauji duomenų rinkimo kanalai |
+| [CONTRIBUTING.md](../CONTRIBUTING.md) | PR, locale vartai, komandos | Merge / CI taisyklės |
 | [DEPLOYMENT.md](../DEPLOYMENT.md) | Vercel, post-deploy | Platforma, URL, troubleshooting |
 | [MUST_TODO.md](../MUST_TODO.md) | Aktyvūs P0 / atidėti darbai | Prioritetų pasikeitimas |
 | [feedback-schema.md](../feedback-schema.md) | Feedback Store schema | Metrikų / feedback modelis |
@@ -64,4 +68,4 @@ Visa medžiaga: [docs/archive/README.md](archive/README.md).
 - [ ] Pakeitimams atitinka Lygis A/B atnaujinimai?
 - [ ] Release – CHANGELOG ir SemVer?
 
-Žr. [AGENTS.md](../AGENTS.md) §6–7, [docs/QA_STANDARTAS.md](QA_STANDARTAS.md).
+Žr. [AGENTS.md](../AGENTS.md) Commands, [CONTRIBUTING.md](../CONTRIBUTING.md), [docs/QA_STANDARTAS.md](QA_STANDARTAS.md).

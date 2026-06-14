@@ -3,6 +3,7 @@
   "version": "1.4.0",
   "private": true,
   "description": "DI Promptų Biblioteka – statinė HTML platforma",
+  "license": "CC-BY-4.0",
   "scripts": {
     "test": "node tests/structure.test.js && npm run validate:tokens && npm run lint:design-tokens && npm run lint:html && npm run lint:js",
     "test:structure": "node tests/structure.test.js",

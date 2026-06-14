@@ -26,6 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify locale library index files exist
+        run: |
+          for f in lt/index.html en/index.html et/index.html lv/index.html ja/index.html; do
+            test -f "$f" || { echo "::error::Missing $f"; exit 1; }
+          done
+
       - name: Verify ET/LV/LT generated output match generator (en source)
         run: |
           npm run generate:et-lv

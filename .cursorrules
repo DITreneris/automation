@@ -1,60 +1,28 @@
 # Cursor Rules – DI Promptų Biblioteka
 
-## Apžvalga
+**Operational SSOT for agents:** [AGENTS.md](AGENTS.md) (commands, file map, boundaries).
 
-Statinė **5 kalbų** (lt / en / et / lv / ja) HTML biblioteka. Zero-build: HTML + [css/library.css](css/library.css) + vanilla JS.
+| Topic | Where |
+|-------|--------|
+| Doc index | [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) |
+| Locales | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
+| Scoped rules | [.cursor/rules/](.cursor/rules/) |
+| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
 
-| Kas | Kur |
-|-----|-----|
-| Agentai, workflow, komandos | [AGENTS.md](AGENTS.md) |
-| Dokumentų indeksas | [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) |
-| Daugiakalbystė | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
-| Stack / lean taisyklės | [.cursor/rules/project-global.mdc](.cursor/rules/project-global.mdc) |
-| Design tokenai | [.cursor/rules/design-tokens.mdc](.cursor/rules/design-tokens.mdc) |
-| Locale vartai | [.cursor/rules/multilingual.mdc](.cursor/rules/multilingual.mdc) |
+**Golden rule:** course → `https://www.promptanatomy.app/en`; library → `https://www.promptanatomy.info/`.
 
-**Golden rule:** kursas → `https://www.promptanatomy.app/en`; biblioteka → `https://www.promptanatomy.info/`.
+## LT UI (human-facing copy)
 
-**LT UI:** kreipinys **Tu**; lakoniškai, motyvuojančiai, be patetikos.
+Kreipinys **Tu**; lakoniškai, motyvuojančiai, be patetikos.
 
----
+## Security (summary)
 
-## Saugumas
+- No API keys, passwords, or real Google Script URLs in Git
+- `textContent` for user data; `.env` in `.gitignore`
+- Contact form disabled — see [docs/archive/integrations/](docs/archive/integrations/) before enabling
 
-- ❌ Jokių API raktų, slaptažodžių, realių Google Script URL į Git
-- ✅ Validuok vartotojo įvestį; `textContent` vietoj `innerHTML` su user data
-- ✅ Jautrūs duomenys – `.env` (`.gitignore`); production be `console.log`
-- ⚠️ Kontaktų forma išjungta; jei įjungiama – placeholder URL, GDPR, [docs/archive/integrations/](docs/archive/integrations/)
+## Before merge
 
----
+See [CONTRIBUTING.md](CONTRIBUTING.md): `npm test`, EN → `generate:et-lv` if needed, CHANGELOG on release.
 
-## Kokybė
-
-- Semantinis HTML, WCAG AA, `prefers-reduced-motion`
-- `'use strict'` JS; try-catch asinchroninėms operacijoms
-- Prieš merge: **`npm test`** (struktūra + html-validate + eslint)
-- Release: [CHANGELOG.md](CHANGELOG.md) (SemVer)
-
----
-
-## Daugiakalbystės vartai (PR)
-
-- Keičiant `en/index.html`, `en/privacy.html` arba `js/library.js` → **`npm run generate:et-lv`**
-- LT (`lt/`, `js/library.lt.js`) ir JA (`ja/`, `js/library.ja.js`) – rankiniu
-- Po generatoriaus – **nėra** necommitinto diff `et/`, `lv/`, `library.{et,lv,lt}.js`
-
----
-
-## Merge checklist
-
-- [ ] Nėra hardcoded jautrių duomenų
-- [ ] Dokumentacija atnaujinta pagal [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) (jei reikia)
-- [ ] `npm test` praeina
-- [ ] EN pakeitimai → `generate:et-lv` atliktas ir commitintas
-- [ ] Release → CHANGELOG atnaujintas
-
-**Commit prefiksai:** `[Content]` `[Curriculum]` `[UI]` `[QA]` `[Orchestrator]` – žr. [AGENTS.md](AGENTS.md).
-
----
-
-**Atnaujinta:** 2026-05-29
+**Atnaujinta:** 2026-06-14

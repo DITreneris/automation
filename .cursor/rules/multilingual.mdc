@@ -1,12 +1,13 @@
 ---
-description: Daugiakalbystės vartai – locale puslapiai ir turinio JS
+description: Locale gates – EN canonical, ET/LV generated
 globs: ["*/index.html", "*/privacy.html", "js/library*.js"]
 ---
 
-# Daugiakalbystė (5 locale: lt, en, et, lv, ja; kanonas EN)
+# Locales (lt, en, et, lv, ja)
 
-- **Šaltinis:** `en/index.html` ir `js/library.js`. Keisdamas juos – paleisk `npm run generate:et-lv` (kuria `et/index.html`, `lv/index.html`, `js/library.{et,lv,lt}.js`).
-- **Rankiniu (NEgeneruojami):** `lt/index.html`, `ja/index.html` ir VISI privacy puslapiai (`*/privacy.html`, lt = `privatumas.html`). Pakeitimus daryk visiems atitikmenims.
-- **`<head>` sinchronija:** favicon/manifest/theme-color/hreflang turi sutapti visuose puslapiuose. Index et/lv – per generatorių (redaguok `en/index.html`); kitus – rankiniu.
-- **hreflang:** kiekvienas puslapis turi `data-hreflang-suite` + `js/hreflang.js`; nauji URL → atnaujink `sitemap.xml`.
-- **CI vartai:** po šaltinio keitimo repo neturi turėti necommitinto diff generuojamuose failuose.
+- **Canonical:** `en/index.html`, `js/library.js` → then `npm run generate:et-lv`
+- **Manual:** `lt/`, `ja/`, all privacy pages (`lt/privatumas.html`, `*/privacy.html`)
+- **Do not** hand-edit `et/` or `lv/` for EN parity — use the generator
+- CI: no uncommitted diff in `et/index.html`, `lv/index.html`, `js/library.{et,lv,lt}.js`
+
+Details: [docs/MULTILINGUAL_STRUCTURE.md](../../docs/MULTILINGUAL_STRUCTURE.md)

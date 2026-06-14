@@ -1,5 +1,29 @@
 # DI Promptų Biblioteka – Verslo Mokymų Platforma
 
+[![CI](https://github.com/DITreneris/automation/actions/workflows/ci.yml/badge.svg)](https://github.com/DITreneris/automation/actions/workflows/ci.yml)
+
+## Quick start (English)
+
+Static 5-locale prompt library for managers and analysts. **Production:** https://www.promptanatomy.info/
+
+```bash
+npm install
+npm test
+npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
+```
+
+| Resource | Link |
+|----------|------|
+| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Security | [SECURITY.md](SECURITY.md) |
+| License (CC BY 4.0) | [LICENSE](LICENSE) |
+| Agent rules | [AGENTS.md](AGENTS.md) |
+| Lessons | [lessons/LESSONS.md](lessons/LESSONS.md) |
+
+**For AI agents:** start with [AGENTS.md](AGENTS.md) and [llms.txt](llms.txt).
+
+---
+
 📚 **8 promptai organizacijos analizei ir optimizavimui su dirbtinio intelekto pagalba**
 
 ## Apie projektą
@@ -85,6 +109,11 @@
 │   ├── prompt-bodies-et-lv.cjs    # META/INPUT/OUTPUT tekstai ET/LV
 │   └── prompt-bodies-ja.cjs       # JA promptų korpusas (šaltinis rankiniam JA)
 ├── README.md           # Dokumentacija
+├── LICENSE             # CC BY 4.0
+├── CONTRIBUTING.md     # PR ir locale vartai
+├── SECURITY.md         # Saugumo pranešimai
+├── AGENTS.md           # Agentų operational SSOT (EN)
+├── lessons/            # Operacinės taisyklės
 ├── CHANGELOG.md        # Versijų istorija (Keep a Changelog)
 ├── package.json        # Dev: lint, testai, a11y
 ├── DEPLOYMENT.md       # Deploy instrukcijos (Vercel + custom domain)
@@ -128,7 +157,7 @@ Dabartinė versija minimali – kontaktų formos nėra. Jei vėliau reikės rink
 
 ## Licencija
 
-Šis projektas yra atviro kodo ir gali būti naudojamas laisvai.
+Šis projektas platinamas pagal [Creative Commons Attribution 4.0](LICENSE) (CC BY 4.0) licenciją. Galite dalintis ir adaptuoti su tinkama nuoroda į Prompt Anatomy.
 
 ## Autorius
 

@@ -8,6 +8,15 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**.
 
+### Prideta
+
+- **[Orchestrator] Repo hygiene:** [LICENSE](LICENSE) (CC BY 4.0), [SECURITY.md](SECURITY.md), [CONTRIBUTING.md](CONTRIBUTING.md); README EN quick start ir CI badge; `package.json` `license: CC-BY-4.0`.
+- **[Orchestrator] CI docs:** CONTRIBUTING CI parity; TESTAVIMAS cross-link; CI locale `index.html` presence check.
+- **[Orchestrator] Lean AGENTS.md:** English operational SSOT; slim `.cursorrules`; deduped `.cursor/rules/*.mdc`.
+- **[Orchestrator] Cursor skills:** `.cursor/skills/` — locale-sync, release-changelog, design-token-guard, test-debug.
+- **[Orchestrator] Lessons:** [lessons/LESSONS.md](lessons/LESSONS.md), [lessons/audit-patterns.md](lessons/audit-patterns.md); 5 seed rules.
+- **[Orchestrator] GitHub workflow v1.0:** issue templates, CODEOWNERS, README agent entry points.
+
 ### Pakeista
 
 - **[UI] Mobile polish:** kalbų dropdown (hero žemyn, footer į viršų); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.

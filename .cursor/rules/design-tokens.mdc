@@ -1,16 +1,12 @@
 ---
-description: Dizaino tokenų taisyklės – css/tokens.css
+description: Design tokens SSOT
 globs: css/**
 ---
 
-# Dizaino tokenai (css/tokens.css)
+# Tokens
 
-- SSOT: [`css/tokens.css`](../../css/tokens.css) – visos spalvos, šešėliai, radius, tarpai, tipografija, focus, motion.
-- `library.css` importuoja tokens; `privacy.css` naudoja semantic tokenus.
-- Kanoninė dokumentacija: [docs/design_system.md](../../docs/design_system.md) (DS v2.0).
-- Naujame kode naudok **semantic** sluoksnį: `--color-action-primary-bg`, `--color-link`, `--color-focus-ring` ir kt.
-- Primitives: brand `--accent-gold` `#CFA73A`, `--accent-dark` `#0B1320`, `--brand-teal` `#008579`.
-- Deprecations: `--blue` → `--accent-dark`; `--tertiary` → `--brand-teal`. Pašalinta: `--community-cta-green` (naudok `--brand-teal`).
-- JOKIŲ magic numbers komponentuose; hex tik `tokens.css`.
-- Validacija: `npm run validate:tokens`, `npm run lint:design-tokens`.
-- A11y: WCAG AA; po spalvų keitimo paleisk pa11y.
+- SSOT: [css/tokens.css](../../css/tokens.css)
+- Semantic layer: `--color-link`, `--color-action-primary-bg`, `--color-focus-ring`
+- Brand: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
+- Validate: `npm run validate:tokens` && `npm run lint:design-tokens`
+- Docs: [docs/design_system.md](../../docs/design_system.md)

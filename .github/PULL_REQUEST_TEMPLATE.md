@@ -22,7 +22,7 @@
 <!-- Kaip patikrinote, kad pakeitimai veikia -->
 
 - [ ] Lokaliai paleistas ir patikrintas
-- [ ] Lint/test komandos praeina
+- [ ] Lint/test komandos praeina (`npm test` — žr. [AGENTS.md](AGENTS.md) Commands)
 - [ ] Naršyklėse patikrinta (Chrome / Firefox / Safari / Edge)
 - [ ] Mobile responsive patikrintas
 
@@ -37,6 +37,7 @@
 
 - [ ] Dokumentacija atnaujinta pagal [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) (jei reikia)
 - [ ] Jei release – CHANGELOG.md atnaujintas ir versija nurodyta (SemVer)
+- [ ] Jei kartojama CI/locale klaida – bullet į [lessons/LESSONS.md](lessons/LESSONS.md) (žr. governance ten)
 
 ## Design System (jei liečia UI/CSS)
 

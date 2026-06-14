@@ -1,0 +1,75 @@
+name: Bug report
+description: Report a bug on the prompt library site
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Production: https://www.promptanatomy.info/
+        Security issues: see [SECURITY.md](https://github.com/DITreneris/automation/blob/main/SECURITY.md) — do not post vulnerabilities here.
+
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Locale
+      options:
+        - lt
+        - en
+        - et
+        - lv
+        - ja
+        - root /
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: https://www.promptanatomy.info/en/
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: 1. Open ... 2. Click ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshots
+      description: Paste or attach screenshots if helpful
+    validations:
+      required: false

@@ -1,0 +1,57 @@
+name: Content request
+description: Suggest prompt or copy changes
+title: "[Content]: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Content changes to EN source require `npm run generate:et-lv` and manual LT/JA sync.
+        See [CONTRIBUTING.md](https://github.com/DITreneris/automation/blob/main/CONTRIBUTING.md).
+
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Primary locale
+      options:
+        - en (canonical)
+        - lt
+        - et
+        - lv
+        - ja
+        - all locales
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prompt
+    attributes:
+      label: Prompt number (if applicable)
+      options:
+        - Not prompt-specific
+        - Prompt 1
+        - Prompt 2
+        - Prompt 3
+        - Prompt 4
+        - Prompt 5
+        - Prompt 6
+        - Prompt 7
+        - Prompt 8
+        - Hero / instructions / footer
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Current text (if any) and suggested replacement
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Why this helps users
+    validations:
+      required: false

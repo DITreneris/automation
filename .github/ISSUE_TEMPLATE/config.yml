@@ -1,0 +1,5 @@
+blank_issues: false
+contact_links:
+  - name: Security report
+    url: https://github.com/DITreneris/automation/blob/main/SECURITY.md
+    about: Report security issues privately — do not open a public issue

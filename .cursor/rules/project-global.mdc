@@ -1,22 +1,12 @@
 ---
-description: Bendri projekto standartai – stack, struktūra, lean, saugumas
+description: Stack and agent entry point
 alwaysApply: true
 ---
 
-# Projektas: DI Promptų Biblioteka (Prompt Anatomy spin-off)
+# Stack
 
-- **Stack:** Zero-build statinis – plain HTML + CSS + vanilla JS. JOKIO React/Vite/Tailwind/bundler. Nekeisk šio modelio.
-- **Struktūra:** Locale puslapiai `*/index.html` + `*/privacy.html` (lt naudoja `privatumas.html`); tokenai `css/tokens.css`, biblioteka `css/library.css`, privatumas `css/privacy.css`; turinys `js/library.*.js`.
-- **Kanonas:** EN šaltinis (`en/index.html`, `js/library.js`); LT rankiniu; ET/LV per `npm run generate:et-lv`. Detalės: [docs/MULTILINGUAL_STRUCTURE.md](../../docs/MULTILINGUAL_STRUCTURE.md). Dokumentų indeksas: [docs/DOCUMENTATION.md](../../docs/DOCUMENTATION.md).
-- **Brand:** accent gold `#CFA73A`, dark navy `#0B1320`, teal (bibliotekos mark) `#008579`. Interaktyvus kursas – `https://www.promptanatomy.app/en` (`COURSE_URL_EN`); biblioteka – `https://www.promptanatomy.info/`.
-- **Secrets:** Jokių API raktų ar slaptažodžių kode.
+Zero-build static site: HTML + CSS + vanilla JS. **No** React/Vite/Tailwind/bundlers.
 
-## Lean ir tokenai
-- Prieš implementaciją apmąstyk: ar reikia naujos funkcijos, ar pakanka esamos? Nekurk „ateičiai".
-- Atsakymuose būk trumpas; cituok (failas:eilutė), nekopijuok didelių blokų.
+Read [AGENTS.md](../../AGENTS.md) for commands, file map, and merge gates.
 
-## Commit prefiksai
-`[Content]` `[Curriculum]` `[UI]` `[QA]` `[Orchestrator]`
-
-## Prieš merge
-`npm test` (struktūra + html-validate + eslint) turi praeiti; jei keitei EN šaltinį – `npm run generate:et-lv` be necommitinto diff.
+Secrets: never commit API keys or `.env` contents.

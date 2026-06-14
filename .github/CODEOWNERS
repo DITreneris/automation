@@ -1,0 +1,7 @@
+# Default owner for review routing
+* @DITreneris
+
+# Canonical EN source and CI
+/en/ @DITreneris
+/js/library.js @DITreneris
+/.github/ @DITreneris

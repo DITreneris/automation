@@ -1,11 +1,11 @@
 ---
-description: Dokumentų sistema – lean indeksas, archyvas
+description: Lean documentation index
 globs: ["**/*.md", ".cursorrules", "AGENTS.md"]
 ---
 
-# Dokumentacija (lean)
+# Documentation
 
-- **Vienas indeksas:** [docs/DOCUMENTATION.md](../../docs/DOCUMENTATION.md) – Lygis A (kasdien) / B (standartai) / C (planavimas).
-- **Nekurk** naujų auditų ar roadmap failų root'e – naudok CHANGELOG `[Unreleased]` arba [MUST_TODO.md](../../MUST_TODO.md).
-- **Archyvas:** [docs/archive/](../../docs/archive/) – istoriniai auditai; neredaguok, nekopijuok atgal į root.
-- **Agentai:** workflow – [AGENTS.md](../../AGENTS.md); ne dubliuok ilgų taisyklių [.cursorrules](../../.cursorrules).
+- Index: [docs/DOCUMENTATION.md](../../docs/DOCUMENTATION.md)
+- Operational lessons: [lessons/LESSONS.md](../../lessons/LESSONS.md)
+- No new root audit/roadmap files — use CHANGELOG `[Unreleased]` or [MUST_TODO.md](../../MUST_TODO.md)
+- Archive (read-only history): [docs/archive/](../../docs/archive/)
