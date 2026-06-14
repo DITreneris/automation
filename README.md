@@ -119,7 +119,7 @@
 
 ## Reikalavimai
 
-- **Naudojimui:** Nėra priklausomybių – tiesiog atidarykite HTML failą naršyklėje
+- **Naudojimui:** Nėra priklausomybių – kalbų perjungimui reikia HTTP serverio (ne `file://`); lokaliai: `npx serve . -l 3000` → `http://localhost:3000/en/` (**be** `-s` vėliavos)
 - **Development/CI:** `npm install` ir `npm run lint:html`, `npm run lint:js` (žr. package.json)
 
 ## Kontaktų rinkimas (vėlesniems etapams)

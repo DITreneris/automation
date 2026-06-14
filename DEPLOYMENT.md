@@ -62,6 +62,7 @@ PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs
 |----------|------------|
 | **CI workflow failed** | Dažniausiai `pa11y` arba `npm test`. Lokaliai: `npm test`, tada `npx serve . -l 3000` ir `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs`. |
 | Neteisingas locale kelias | Root deploy – base path `''`. Svetainė turi `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`; root redirect numatytai į `/en/`. |
+| Kalbų jungiklis neveikia lokaliai | Nenaudok `serve -s` (SPA režimas). Teisingai: `npx serve . -l 3000`; hard refresh po CSS/JS pakeitimų. |
 | Apex neveikia | Tikrinti Vercel DNS: `promptanatomy.info` → 307 į `www.promptanatomy.info`. |
 | Vercel rodo seną versiją | Patikrinti deploy log; hard refresh; custom domain priskirtas Production, ne Preview. |
 

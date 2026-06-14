@@ -49,6 +49,10 @@
       toggleMenu(nav);
     });
 
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('.lang-link')) e.stopPropagation();
+    });
+
     trigger.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
         if (e.key !== 'ArrowDown') e.preventDefault();
@@ -74,7 +78,8 @@
     }
   });
 
-  document.addEventListener('click', function () {
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.lang-switcher--dropdown')) return;
     closeAll(null);
   });
 

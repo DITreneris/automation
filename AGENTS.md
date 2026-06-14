@@ -112,7 +112,7 @@ ORCHESTRATOR AGENT (koordinacija)
 | `npm run lint:js` | ESLint (flat [eslint.config.js](eslint.config.js), visi tikslinami `.js`) |
 | CI (GitHub Actions) | Node **22**, lint, test, pa11y a11y – automatiškai push/PR |
 
-Prieš PR įsitikinti, kad `npm test` praeina. A11y tikrinimas – per CI arba lokaliai: `npx serve -s . -l 3000`, `npx wait-on http://127.0.0.1:3000/` ir `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs` (įskaitant root `/`).
+Prieš PR įsitikinti, kad `npm test` praeina. A11y tikrinimas – per CI arba lokaliai: `npx serve . -l 3000` (**be** `-s`), `npx wait-on http://127.0.0.1:3000/` ir `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs` (įskaitant root `/`).
 
 ---
 

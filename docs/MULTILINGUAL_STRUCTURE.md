@@ -42,8 +42,10 @@ ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy
 - Hero viršuje: `<div class="header-top">` su `<div class="header-brand">` (badge'ai) ir `<nav class="lang-switcher lang-switcher--dropdown">` dešinėje.
 - Trigger: `<button class="lang-switcher-trigger" aria-expanded="false" aria-controls="…">` rodo dabartinę kalbą; meniu `<ul class="lang-switcher-menu" hidden>`.
 - Dabartinė kalba meniu: `<span class="lang-option lang-option--current" aria-current="page">`; kitos – `<a class="lang-option lang-link" data-lang="…" href="…" onclick="…localStorage.setItem('lang',…)">`.
-- Footer: antras instance `<nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer">` (meniu atsidaro į viršų).
-- Elgsena: [js/lang-switcher.js](../js/lang-switcher.js) (toggle, Escape, outside click).
+- Footer: antras instance `<nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer">` (meniu atsidaro **į viršų**); hero – **žemyn**.
+- Elgsena: [js/lang-switcher.js](../js/lang-switcher.js) (toggle, Escape, outside click – neuždaro paspaudus dropdown viduje).
+- CSS ([css/library.css](../css/library.css)): `.header-top { z-index: 10 }` virš H1; meniu `z-index: 100`; `.header` lieka `overflow: hidden` (nenaudoti `overflow: visible` ant hero – dubliuojasi antraštė).
+- Lokaliai: `npx serve . -l 3000` (**be** `-s` – SPA režimas luzta santykinius locale kelius).
 - Etiketės gimąja kalba: **Lietuvių**, **English**, **Eesti**, **Latviešu**, **日本語** (be vėliavų).
 
 **Privatumas** – legacy flat list (nekeičiamas šiame etape):

@@ -10,7 +10,9 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**
 
 ### Pakeista
 
-- **[UI] Mobile polish:** kalbų dropdown overlay (pašalintas `17.5rem` margin hack, `overflow: visible` atidarius); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.
+- **[UI] Mobile polish:** kalbų dropdown (hero žemyn, footer į viršų); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.
+- **[UI] Kalbų dropdown fix:** [js/lang-switcher.js](js/lang-switcher.js) – outside click neuždaro paspaudus meniu viduje; [css/library.css](css/library.css) – `.header-top` stacking (`z-index: 10`) virš H1, meniu `z-index: 100` (be hero teksto dubliavimo ir be `overflow: visible` ant `.header`).
+- **[Orchestrator] Lokalus preview:** README, AGENTS, QA – `npx serve . -l 3000` (**be** `-s`; SPA režimas luzta locale keliais).
 - **[Content] Instrukcijos (5 kalbos):** 4 žingsniai → 3; mobile-first — pirma **Copy prompt**, Ctrl/Cmd+C kaip desktop pastaba.
 - **[UI] DS žalios spalvos:** nav chip'ai (`.next-steps-links a`) – outline `--brand-teal`; community CTA (`.community-cta-primary`) – filled `--brand-teal`; pašalinti `--community-cta-green` tokenai (`tokens.css`, `tokens/tokens.json`).
 - **[Content] Ecosystem sekcija (5 kalbos):** H2 „Welcome to the Prompt Anatomy Hub“, lead apie strategiją/taktiką/operacijas; pašalintas `<figcaption>` (dublikatas paveikslėlyje).
