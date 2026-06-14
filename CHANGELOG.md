@@ -12,6 +12,7 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**
 
 - **[UI] Mobile polish:** kalbų dropdown (hero žemyn, footer į viršų); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.
 - **[UI] Kalbų dropdown fix:** [js/lang-switcher.js](js/lang-switcher.js) – outside click neuždaro paspaudus meniu viduje; [css/library.css](css/library.css) – `.header-top` stacking (`z-index: 10`) virš H1, meniu `z-index: 100` (be hero teksto dubliavimo ir be `overflow: visible` ant `.header`).
+- **[QA] LT collapsible prompt titles:** [lt/index.html](lt/index.html) – tušti `prompt-title-2`…`8` `<h2>` (Pa11y H42.2); struktūrinis assert visoms 5 kalboms [tests/structure.test.js](tests/structure.test.js).
 - **[Orchestrator] Lokalus preview:** README, AGENTS, QA – `npx serve . -l 3000` (**be** `-s`; SPA režimas luzta locale keliais).
 - **[Content] Instrukcijos (5 kalbos):** 4 žingsniai → 3; mobile-first — pirma **Copy prompt**, Ctrl/Cmd+C kaip desktop pastaba.
 - **[UI] DS žalios spalvos:** nav chip'ai (`.next-steps-links a`) – outline `--brand-teal`; community CTA (`.community-cta-primary`) – filled `--brand-teal`; pašalinti `--community-cta-green` tokenai (`tokens.css`, `tokens/tokens.json`).

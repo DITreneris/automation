@@ -150,6 +150,12 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   const collapsibleCount = (html.match(/class="[^"]*\bprompt-details\b[^"]*"/g) || []).length;
   if (assert(collapsibleCount === 7, `${lang}: prompt-details count === 7`)) passed++;
   else failed++;
+  for (let n = 2; n <= 8; n++) {
+    const titleRe = new RegExp(`<h2 class="prompt-title" id="prompt-title-${n}"[^>]*>([^<]+)</h2>`);
+    const titleMatch = html.match(titleRe);
+    if (assert(titleMatch && titleMatch[1].trim().length > 0, `${lang}: prompt-title-${n} has text`)) passed++;
+    else failed++;
+  }
   const prompt1OpenIdx = html.indexOf('<!-- PROMPT 1 -->');
   const prompt2Idx = html.indexOf('<!-- PROMPT 2 -->');
   const prompt1Slice = prompt2Idx > prompt1OpenIdx ? html.slice(prompt1OpenIdx, prompt2Idx) : '';
