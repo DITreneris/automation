@@ -88,6 +88,11 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(htmlPlusScript.includes('copyPrompt') && htmlPlusScript.includes('selectText'), `${lang}: Copy functions`)) passed++;
   else failed++;
+  if (assert(
+    !html.includes('prompt-takeaway') && !html.includes('id="prompt7-takeaway"'),
+    `${lang}: no prompt 7 takeaway`
+  )) passed++;
+  else failed++;
   if (assert(htmlPlusScript.includes('localStorage') && htmlPlusScript.includes('di_prompt_done_'), `${lang}: localStorage`)) passed++;
   else failed++;
   if (assert(html.includes('hiddenTextarea'), `${lang}: Fallback textarea`)) passed++;

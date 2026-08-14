@@ -14,7 +14,7 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.5.0]**
 
 ### Pakeista
 
-- (tuščia)
+- **[UI] Prompt 7:** nuimtas unreleased takeaway (`textarea` + „Copy table“). Kortelė vėl kaip 1–6 ir 8; rinkinys lieka modelio lentelė.
 
 ---
 

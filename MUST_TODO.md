@@ -87,7 +87,6 @@ Hero H1 fluid, lead/meta/CTA/H2 ant tokenų, skalės spragos uždarytos, testai 
 
 ### Should
 
-- [ ] **Prompt 7 takeaway** – žmogus išeina su naudojamu kasdieniu rinkiniu (kopijuoti lentelę / vienas veiksmas), be paskyros. Gilinti aštuonis, ne pridėti 9-tą.
 - [ ] **Ecosystem nuorodos** – diagrama ne dekoracija: `.cloud` / `.space` / `.blog` (ir kt.) kaip tikros nuorodos. H2 lieka Daily Workflow Library, ne Hub.
 - [ ] **ET/LV privatumo politika** – juridinė peržiūra (redaktoriaus kalba – 2026-08-14).
 
@@ -99,6 +98,7 @@ Hero H1 fluid, lead/meta/CTA/H2 ant tokenų, skalės spragos uždarytos, testai 
 
 ### Won't (šitas ciklas)
 
+- Prompt 7 paste-well / takeaway UI (rinkinys = ChatGPT lentelė, ne ketvirtas blokas)
 - 9-as promptas, katalogas, rolės, antroji kelionė
 - Kontaktų forma / Google Sheets / CAPTCHA
 - Naujas stackas (React/Vite/bundleris)

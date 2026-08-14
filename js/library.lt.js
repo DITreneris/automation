@@ -71,6 +71,37 @@
             }
 
             /**
+             * Tekstas kopijavimui: textarea/input.value, kitaip textContent.
+             */
+            function getCopyText(element) {
+                if (!element) return '';
+                if (typeof element.value === 'string') {
+                    return element.value.trim();
+                }
+                return element.textContent ? element.textContent.trim() : '';
+            }
+
+            /**
+             * Clipboard API arba fallback.
+             */
+            function writeClipboard(text, button) {
+                isCopying = true;
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => {
+                            showSuccess(button);
+                            isCopying = false;
+                        })
+                        .catch(() => {
+                            fallbackCopy(text, button);
+                        });
+                } else {
+                    fallbackCopy(text, button);
+                }
+            }
+
+            /**
              * Copy prompt to clipboard
              */
             function copyPrompt(button, promptId) {
@@ -89,28 +120,13 @@
                     return;
                 }
 
-                const promptText = promptElement.textContent?.trim();
+                const promptText = getCopyText(promptElement);
                 if (!promptText) {
                     showError(button, 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.');
                     return;
                 }
 
-                isCopying = true;
-
-                // Bandyti naudoti modernų Clipboard API
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(promptText)
-                        .then(() => {
-                            showSuccess(button);
-                            isCopying = false;
-                        })
-                        .catch(() => {
-                            fallbackCopy(promptText, button);
-                        });
-                } else {
-                    // Fallback senesnėms naršyklėms
-                    fallbackCopy(promptText, button);
-                }
+                writeClipboard(promptText, button);
             }
 
             /**
@@ -183,6 +199,7 @@
                 }
 
                 const original = button.innerHTML;
+                const originalAria = button.getAttribute('aria-label');
                 button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>Nukopijuota</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
                 button.classList.add('success');
@@ -196,6 +213,8 @@
                     const promptId = button.getAttribute('data-prompt-id');
                     if (promptId) {
                         button.setAttribute('aria-label', `Kopijuoti promptą ${promptId.replace('prompt', '')} į mainų atmintinę`);
+                    } else if (originalAria) {
+                        button.setAttribute('aria-label', originalAria);
                     }
                 }, CONFIG.BUTTON_RESET_TIMEOUT);
             }
@@ -207,6 +226,7 @@
                 if (!button) return;
 
                 const original = button.innerHTML;
+                const originalAria = button.getAttribute('aria-label');
                 const errorMessage = message || 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.';
                 button.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><span>' + errorMessage + '</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
@@ -218,6 +238,8 @@
                     const promptId = button.getAttribute('data-prompt-id');
                     if (promptId) {
                         button.setAttribute('aria-label', `Kopijuoti promptą ${promptId.replace('prompt', '')} į mainų atmintinę`);
+                    } else if (originalAria) {
+                        button.setAttribute('aria-label', originalAria);
                     }
                 }, CONFIG.ERROR_TIMEOUT);
             }
