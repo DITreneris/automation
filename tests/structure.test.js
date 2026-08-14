@@ -7,7 +7,16 @@
 
 const fs = require('fs');
 const path = require('path');
-const { COURSE_URL_EN } = require('../scripts/seo-constants.cjs');
+const { COURSE_URL_EN, COURSE_RITUAL_URL, HUB_ENTITY_URL } = require('../scripts/seo-constants.cjs');
+const HUB_ENTITY_HREF = HUB_ENTITY_URL.replace(/&/g, '&amp;');
+const COURSE_RITUAL_HREF = COURSE_RITUAL_URL.replace(/&/g, '&amp;');
+const FOOTER_ENTITY_COPY = {
+  en: 'Part of Prompt Anatomy · Training &amp; checkout',
+  lt: 'Promptų Anatomijos ekosistema · Mokymai ir checkout',
+  et: 'Prompt Anatomy ökosüsteem · Koolitus ja kassa',
+  lv: 'Prompt Anatomy ekosistēma · Apmācība un norēķins',
+  ja: 'Prompt Anatomyの一部 · 研修とチェックアウト',
+};
 
 const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja'];
 
@@ -126,14 +135,42 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes(`href="${COURSE_URL_EN}"`) && html.includes('community-cta-secondary'), `${lang}: community secondary links to course`)) passed++;
   else failed++;
+  if (assert(html.includes('id="ritual-complete"'), `${lang}: ritual-complete`)) passed++;
+  else failed++;
+  if (assert(html.includes(`href="${COURSE_RITUAL_HREF}"`) && html.includes('utm_medium=ritual_complete'), `${lang}: ritual-complete course UTM`)) passed++;
+  else failed++;
+  const block8Idx = html.indexOf('id="block8"');
+  const ritualIdx = html.indexOf('id="ritual-complete"');
+  const nextStepsIdx = html.indexOf('class="next-steps"');
+  const communityIdx = html.indexOf('class="community"');
+  if (assert(
+    block8Idx > -1 && ritualIdx > block8Idx && nextStepsIdx > ritualIdx && communityIdx > nextStepsIdx,
+    `${lang}: block8 → ritual-complete → next-steps → community`
+  )) passed++;
+  else failed++;
+  const communitySlice = communityIdx > -1 && html.indexOf('class="ecosystem"') > communityIdx
+    ? html.slice(communityIdx, html.indexOf('class="ecosystem"'))
+    : '';
+  if (assert(
+    communitySlice.includes(`href="${COURSE_URL_EN}"`) && !communitySlice.includes('ritual_complete'),
+    `${lang}: community secondary is COURSE_URL_EN without ritual UTM`
+  )) passed++;
+  else failed++;
+  if (assert(!html.includes('Welcome to the Prompt Anatomy Hub'), `${lang}: ecosystem is not Hub`)) passed++;
+  else failed++;
   if (assert(html.includes('class="ecosystem"') && html.includes('ecosystem-figure') && html.includes('/assets/img/ecosystem/ecosystem-1200'), `${lang}: ecosystem section`)) passed++;
   else failed++;
-  const communityIdx = html.indexOf('class="community"');
   const ecosystemIdx = html.indexOf('class="ecosystem"');
   const pageFooterIdx = html.indexOf('<footer class="footer">');
   if (assert(communityIdx > -1 && ecosystemIdx > communityIdx && pageFooterIdx > ecosystemIdx, `${lang}: community → ecosystem → footer order`)) passed++;
   else failed++;
   if (assert(!html.includes('footer-product-link'), `${lang}: no footer-product-link`)) passed++;
+  else failed++;
+  if (assert(html.includes('class="footer-entity"'), `${lang}: footer-entity`)) passed++;
+  else failed++;
+  if (assert(html.includes(FOOTER_ENTITY_COPY[lang.toLowerCase()]), `${lang}: footer-entity copy`)) passed++;
+  else failed++;
+  if (assert(html.includes(`href="${HUB_ENTITY_HREF}"`), `${lang}: footer-entity hub URL`)) passed++;
   else failed++;
   if (assert(!html.includes('badge-spinoff'), `${lang}: no badge-spinoff`)) passed++;
   else failed++;
@@ -145,7 +182,7 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
     else failed++;
   }
   const nextLinkCount = (html.match(/class="[^"]*\bprompt-next-link\b[^"]*"/g) || []).length;
-  if (assert(nextLinkCount === 7, `${lang}: prompt-next-link count === 7`)) passed++;
+  if (assert(nextLinkCount === 8, `${lang}: prompt-next-link count === 8`)) passed++;
   else failed++;
   const collapsibleCount = (html.match(/class="[^"]*\bprompt-details\b[^"]*"/g) || []).length;
   if (assert(collapsibleCount === 7, `${lang}: prompt-details count === 7`)) passed++;
@@ -416,6 +453,10 @@ function run() {
   )) passed++;
   else failed++;
   if (assert(libraryCss.includes('.footer-meta'), 'DS: .footer-meta block')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.footer-entity'), 'DS: .footer-entity block')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.ritual-complete'), 'DS: .ritual-complete block')) passed++;
   else failed++;
   for (const lang of ALL_LANGS) {
     const idx = readFile(path.join(__dirname, '..', lang, 'index.html'));

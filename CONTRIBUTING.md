@@ -33,7 +33,7 @@ Production site: https://www.promptanatomy.info/
 |--------|----------------|
 | EN | Edit `en/` and `js/library.js` directly |
 | ET, LV | Run `npm run generate:et-lv` after EN changes; commit generated files |
-| LT | Manual: `lt/index.html`, `js/library.lt.js`, `lt/privatumas.html` |
+| LT | Manual HTML: `lt/index.html`, `lt/privatumas.html`. JS: `LT_JS_PAIRS` then `generate:et-lv` (do not hand-edit `js/library.lt.js`) |
 | JA | Manual: `ja/index.html`, `js/library.ja.js`, `ja/privacy.html` |
 
 After changing EN source (`en/index.html`, `en/privacy.html`, or `js/library.js`):

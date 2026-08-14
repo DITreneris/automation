@@ -79,19 +79,19 @@
                 }
 
                 if (!button || !promptId) {
-                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
+                    showError(button, 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.');
                     return;
                 }
 
                 const promptElement = document.getElementById(promptId);
                 if (!promptElement) {
-                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
+                    showError(button, 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.');
                     return;
                 }
 
                 const promptText = promptElement.textContent?.trim();
                 if (!promptText) {
-                    showError(button, 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.');
+                    showError(button, 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.');
                     return;
                 }
 
@@ -119,7 +119,7 @@
             function fallbackCopy(text, button) {
                 const textarea = document.getElementById('hiddenTextarea');
                 if (!textarea) {
-                    showError(button, 'Kažkas nepavyko. Bandykite dar kartą. Pažymėkite tekstą ir naudokite Ctrl+C (arba Cmd+C).');
+                    showError(button, 'Kažkas nepavyko. Bandyk dar kartą. Pažymėk tekstą ir naudok Ctrl+C (arba Cmd+C).');
                     isCopying = false;
                     return;
                 }
@@ -148,7 +148,7 @@
                         throw new Error('execCommand copy nepavyko');
                     }
                 } catch (_) {
-                    showError(button, 'Kopijavimas nepavyko. Pažymėkite tekstą ir naudokite Ctrl+C (arba Cmd+C).');
+                    showError(button, 'Kopijavimas nepavyko. Pažymėk tekstą ir naudok Ctrl+C (arba Cmd+C).');
                 } finally {
                     isCopying = false;
                     textarea.style.position = 'absolute';
@@ -207,7 +207,7 @@
                 if (!button) return;
 
                 const original = button.innerHTML;
-                const errorMessage = message || 'Kažkas nepavyko. Bandykite kopijuoti dar kartą.';
+                const errorMessage = message || 'Kažkas nepavyko. Bandyk kopijuoti dar kartą.';
                 button.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><span>' + errorMessage + '</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
                 button.setAttribute('aria-label', errorMessage);

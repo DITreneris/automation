@@ -5,6 +5,13 @@
 const SITE_ORIGIN = 'https://www.promptanatomy.info';
 /** Main interactive course (not the prompt library on .info). */
 const COURSE_URL_EN = 'https://www.promptanatomy.app/en';
+/** Hub home (entity + training/checkout). Not the course entry. */
+const HUB_URL = 'https://www.promptanatomy.app/';
+const HUB_ENTITY_URL =
+  'https://www.promptanatomy.app/?utm_source=info&utm_medium=entity_footer&utm_campaign=ecosystem';
+/** Earned handoff after the 8-step ritual. Not the entity footer. */
+const COURSE_RITUAL_URL =
+  'https://www.promptanatomy.app/en?utm_source=info&utm_medium=ritual_complete&utm_campaign=ecosystem';
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/img/og/og-image.png`;
 const OG_IMAGE_ALT = 'Prompt Anatomy – AI Automation Library';
 
@@ -25,7 +32,7 @@ const HREFLANG_PRIVACY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
 const OG_LIBRARY_TITLE =
   'Let AI do 30–50% of your daily tasks – Prompt Anatomy';
 const OG_LIBRARY_DESCRIPTION =
-  '8 exercises with ready-made templates – results in minutes. Free multilingual prompt library.';
+  '8 exercises with ready-made templates – results in minutes.';
 
 const OG_PRIVACY_TITLE = 'Privacy policy – Prompt Anatomy';
 const OG_PRIVACY_DESCRIPTION =
@@ -146,6 +153,9 @@ function jsonLdLibrary(localePath, langCode, pageTitle, pageDescription) {
 module.exports = {
   SITE_ORIGIN,
   COURSE_URL_EN,
+  COURSE_RITUAL_URL,
+  HUB_URL,
+  HUB_ENTITY_URL,
   OG_IMAGE_URL,
   OG_IMAGE_ALT,
   HREFLANG_LIBRARY,

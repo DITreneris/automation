@@ -72,6 +72,9 @@
     --radius-xl: 20px;
 
     /* ===== SPACING ===== */
+    --space-0: 4px;
+    --space-1: 8px;
+    --space-1_5: 12px;
     --space-2: 16px;
     --space-3: 20px;
     --space-4: 24px;
@@ -83,9 +86,16 @@
     /* ===== TYPOGRAPHY ===== */
     --font-family-sans: 'Inter', -apple-system, sans-serif;
     --font-family-mono: 'JetBrains Mono', monospace;
-    --font-size-body: 18px;
-    --font-size-body-sm: 16px;
-    --font-size-hero: 52px;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-meta: 0.9375rem;
+    --font-size-body-sm: 1rem;
+    --font-size-body: 1.125rem;
+    --font-size-button: 1.0625rem;
+    --font-size-lead: 1.25rem;
+    --font-size-h2: 1.375rem;
+    --font-size-h2-lg: 1.5rem;
+    --font-size-hero: clamp(1.75rem, 2vw + 1.5rem, 3.25rem);
     --line-height-body: 1.6;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;

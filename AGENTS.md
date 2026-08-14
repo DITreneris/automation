@@ -8,14 +8,16 @@ Operational SSOT for AI coding agents. Human onboarding: [README.md](README.md).
 
 ## Mission
 
-Free static **5-locale** prompt library (lt / en / et / lv / ja).
+Free static **5-locale** 8-prompt Daily Workflow Library (lt / en / et / lv / ja).
 
-| Product | URL |
-|---------|-----|
-| **Library (this repo)** | https://www.promptanatomy.info/ |
-| **Interactive course** | https://www.promptanatomy.app/en (`COURSE_URL_EN` in [scripts/seo-constants.cjs](scripts/seo-constants.cjs)) |
+| Product | URL | Constant |
+|---------|-----|----------|
+| **Library (this repo)** | https://www.promptanatomy.info/ | `SITE_ORIGIN` |
+| **Interactive course** | https://www.promptanatomy.app/en | `COURSE_URL_EN` (badge, community) |
+| **Hub (entity / checkout)** | https://www.promptanatomy.app/ + UTM | `HUB_ENTITY_URL` (`.footer-entity` only) |
+| **Handoff after prompt 8** | `COURSE_URL_EN` + `utm_medium=ritual_complete` | `COURSE_RITUAL_URL` (`#ritual-complete` only) |
 
-Never link the course to `promptanatomy.info/en` — that is the library EN page.
+Never link the course to `promptanatomy.info/en` — that is the library EN page. Do not call this site the Hub. Do not point `.footer-entity` at the course.
 
 ---
 
@@ -24,7 +26,7 @@ Never link the course to `promptanatomy.info/en` — that is the library EN page
 - **Zero-build:** plain HTML + [css/library.css](css/library.css) + vanilla JS. No React, Vite, Tailwind, or bundlers.
 - **EN is canonical:** [en/index.html](en/index.html), [en/privacy.html](en/privacy.html), [js/library.js](js/library.js).
 - After EN source changes: `npm run generate:et-lv` and commit generated files (ET/LV pages + `library.{et,lv,lt}.js`).
-- **LT** ([lt/](lt/), [js/library.lt.js](js/library.lt.js)) and **JA** ([ja/](ja/), [js/library.ja.js](js/library.ja.js)): update manually.
+- **LT HTML** ([lt/](lt/)) and **JA** ([ja/](ja/), [js/library.ja.js](js/library.ja.js)): update manually. **LT JS** is generated (`LT_JS_PAIRS` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)) — do not hand-edit `js/library.lt.js`.
 - **`npm test` must pass** before merge.
 - **No secrets** in Git (API keys, `.env`, real Google Script URLs).
 - **Local preview:** `npx serve . -l 3000` — **never** use `-s` (breaks locale paths).
@@ -39,15 +41,15 @@ Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md).
 |------|------------|
 | EN UI / copy | [en/index.html](en/index.html) |
 | EN JS (copy, toast, progress) | [js/library.js](js/library.js) |
-| LT copy / UI | [lt/index.html](lt/index.html), [js/library.lt.js](js/library.lt.js) |
+| LT copy / UI | [lt/index.html](lt/index.html); JS via `LT_JS_PAIRS` then `generate:et-lv` |
 | JA copy / UI | [ja/index.html](ja/index.html), [js/library.ja.js](js/library.ja.js) |
-| ET / LV library pages | Generated — change EN, then `npm run generate:et-lv` |
+| ET / LV library pages | Generated — EN and/or pair `to` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs), then `npm run generate:et-lv` |
 | Shared styles | [css/tokens.css](css/tokens.css) (SSOT), [css/library.css](css/library.css) |
 | Privacy layout | [css/privacy.css](css/privacy.css) |
-| SEO / course URL | [scripts/seo-constants.cjs](scripts/seo-constants.cjs) |
+| SEO / course / hub / ritual URLs | [scripts/seo-constants.cjs](scripts/seo-constants.cjs) |
 | Locale paths / hreflang | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
 | Structure tests | [tests/structure.test.js](tests/structure.test.js) |
-| Repo skills | [.cursor/skills/](.cursor/skills/) |
+| Repo skills | [.cursor/skills/](.cursor/skills/) (hero-copy before any H1/OG change) |
 
 ---
 
@@ -108,15 +110,17 @@ Report issues: [SECURITY.md](SECURITY.md).
 
 ## Edit freely
 
-`css/`, `en/`, `lt/`, `ja/`, `js/` (except hand-editing ET/LV when EN unchanged), `tests/`, `scripts/`, `assets/`, `lessons/`
+`css/`, `en/`, `lt/` (HTML/privacy), `ja/`, `js/library.js`, `js/library.ja.js`, `tests/`, `scripts/`, `assets/`, `lessons/`
 
 ## Edit carefully
 
-`et/`, `lv/` (prefer generator), [tokens/tokens.json](tokens/tokens.json), [vercel.json](vercel.json), [.github/workflows/](.github/workflows/)
+`et/`, `lv/` (prefer generator), `js/library.{et,lv,lt}.js` (generated), [tokens/tokens.json](tokens/tokens.json), [vercel.json](vercel.json), [.github/workflows/](.github/workflows/)
 
 ## Never
 
 - Point course/badge links to `promptanatomy.info/en`
+- Call this site the Hub, or point `.footer-entity` at `COURSE_URL_EN` / `COURSE_RITUAL_URL`
+- Put a diagnostic or “what AI knows about your org” on the library H1 — prize only; never put “ritual” in customer-facing front-page copy; see [.cursor/skills/hero-copy/SKILL.md](.cursor/skills/hero-copy/SKILL.md)
 - Use `serve -s` for local preview
 - Leave uncommitted generator diff after EN edits
 - Commit secrets or real integration URLs
@@ -148,4 +152,4 @@ Full workflow history: [docs/archive/](docs/archive/).
 
 ---
 
-**Last updated:** 2026-06-14
+**Last updated:** 2026-08-14

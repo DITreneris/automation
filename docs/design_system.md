@@ -1,13 +1,13 @@
-# Design System v2.0 – DI Promptų Biblioteka (Spin-off)
+# Design System v2.0 – DI Promptų Biblioteka
 
-**DS versija:** 2.0.0  
-**Data:** 2026-05-29  
-**Produkto versija:** 1.3.0  
+**DS versija:** 2.0.1  
+**Data:** 2026-08-14  
+**Produkto versija:** 1.5.0  
 **Šaltinis tiesos (SSOT):** [`css/tokens.css`](../css/tokens.css)  
 **Komponentai:** [`css/library.css`](../css/library.css) (importuoja tokens), [`css/privacy.css`](../css/privacy.css)  
 **Mašininis eksportas:** [`tokens/tokens.json`](../tokens/tokens.json) (DTCG 2025.10)
 
-Kanoninis dizaino sistemos dokumentas. Spin-off biblioteka naudoja tą pačią brand šeimą kaip [Prompt Anatomy](https://www.promptanatomy.info/en): gold, dark navy, bibliotekos teal.
+Kanoninis dizaino sistemos dokumentas. Biblioteka naudoja tą pačią brand šeimą kaip [Prompt Anatomy](https://www.promptanatomy.app/en): gold, dark navy, bibliotekos teal.
 
 ---
 
@@ -15,8 +15,8 @@ Kanoninis dizaino sistemos dokumentas. Spin-off biblioteka naudoja tą pačią b
 
 | Laukas | Reikšmė |
 |--------|---------|
-| DS versija | 2.0.0 (nepriklausoma nuo produkto SemVer) |
-| Produkto versija | 1.3.0 |
+| DS versija | 2.0.1 (nepriklausoma nuo produkto SemVer) |
+| Produkto versija | 1.5.0 |
 | SSOT | `css/tokens.css` |
 | Validacija | `npm run validate:tokens`, `npm run lint:design-tokens` |
 | A11y | pa11y WCAG2AA – [`scripts/pa11y-pages.cjs`](../scripts/pa11y-pages.cjs) |
@@ -126,6 +126,9 @@ Naudok komponentuose ir `privacy.css`:
 | `--radius-md` | `12px` |
 | `--radius-lg` | `16px` |
 | `--radius-xl` | `20px` |
+| `--space-0` | `4px` |
+| `--space-1` | `8px` |
+| `--space-1_5` | `12px` |
 | `--space-2` … `--space-8` | `16px` … `48px` |
 
 ### 1.9 Tipografija
@@ -134,12 +137,19 @@ Naudok komponentuose ir `privacy.css`:
 |------------------|---------|
 | `--font-family-sans` | `'Inter', -apple-system, sans-serif` |
 | `--font-family-mono` | `'JetBrains Mono', monospace` |
-| `--font-size-body` | `18px` |
-| `--font-size-body-sm` | `16px` |
-| `--font-size-hero` | `52px` |
+| `--font-size-xs` | `0.75rem` (12) |
+| `--font-size-sm` | `0.875rem` (14) |
+| `--font-size-meta` | `0.9375rem` (15) |
+| `--font-size-body-sm` | `1rem` (16) |
+| `--font-size-body` | `1.125rem` (18) |
+| `--font-size-button` | `1.0625rem` (17) |
+| `--font-size-lead` | `1.25rem` (20) |
+| `--font-size-h2` | `1.375rem` (22) |
+| `--font-size-h2-lg` | `1.5rem` (24) |
+| `--font-size-hero` | `clamp(1.75rem, 2vw + 1.5rem, 3.25rem)` |
 | `--line-height-body` | `1.6` |
-| H2 (sekcijos) | 22–32px / 800 |
-| Meta / badge | 13–15px / 600–700 |
+| H2 (sekcijos) | `--font-size-h2` / 800 |
+| Meta / badge | `--font-size-meta` / `--font-size-sm` |
 
 ### 1.10 Focus, motion, overlays
 
@@ -177,7 +187,7 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 | Hero secondary | `.header-brand a.badge` | Semi-transparent ant hero | Kursas → `COURSE_URL_EN` |
 | Nav chip | `.next-steps-links a` | `--brand-teal` outline | Vidinė navigacija 1–8 |
 | Community primary | `.community-cta-primary` | `--brand-teal` filled | „Join Telegram“ |
-| Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `https://www.promptanatomy.app/en` |
+| Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `COURSE_URL_EN` (community) arba `COURSE_RITUAL_URL` (`#ritual-complete`) |
 | Success | `.btn.success` | `--green` | Po kopijavimo |
 
 **Focus:** dažniausiai `var(--focus-ring-width) solid var(--accent-gold)`; hero `.cta-button` – baltas ringas (`var(--white)`).
@@ -200,9 +210,13 @@ Tamsus gradientas (`--hero-gradient-*`), overlay `--overlay-hero`, badge (kursas
 
 Seka: header → `code-block` → `.prompt-footer` (Copy + Mark as done) → `before-use` → `info-box`.
 
-### 2.5 What's next (`.next-steps`)
+### 2.5 Jump to a step (`.next-steps`)
 
-Balta kortelė, `border: 3px solid var(--tertiary)`, H2 teal, chip'ai outline `--brand-teal`.
+Balta kortelė, `border: 3px solid var(--tertiary)`, H2 teal, chip'ai outline `--brand-teal`. Tik šuolis į 1–8, ne finish.
+
+### 2.5b Ritual complete (`.ritual-complete`)
+
+Ta pati kortelė kaip `.next-steps`. Po prompto 8, prieš `.next-steps`. CTA – `.community-cta-secondary` → `COURSE_RITUAL_URL` (ne hero, ne entity footer).
 
 ### 2.6 Community (`.community`)
 
@@ -222,7 +236,8 @@ Kaip `.next-steps`; WebP + PNG; `npm run generate:ecosystem`.
 | `p` | Instrukcija (`max-width: 760px`) |
 | `.tag` | Trust chip (ne CTA) – pill, `--bg-subtle` |
 | `.footer-meta` | Contact + Privacy + kalbos dropdown vienoje eilutėje |
-| `.footer-meta-link`, `.footer-contact a` | `--color-link` (`--brand-teal`) |
+| `.footer-entity` | Entity + hub home (`HUB_ENTITY_URL`); ne CTA, ne `COURSE_URL_EN` |
+| `.footer-meta-link`, `.footer-contact a`, `.footer-entity a` | `--color-link` (`--brand-teal`) |
 | `.copyright` | Tik © tekstas, `border-top: 1px` |
 
 ### 2.9 Privacy puslapiai
@@ -241,12 +256,14 @@ Kaip `.next-steps`; WebP + PNG; `npm run generate:ecosystem`.
 
 ```
 skip-link → header (badge + lang + 1 CTA) → progress → instructions →
-prompts 1–8 → next-steps → community → ecosystem → footer
+prompts 1–8 → ritual-complete → next-steps → community → ecosystem → footer
 ```
 
-- Vienas hero primary CTA
-- Kursas tik per badge → `COURSE_URL_EN`
+- Vienas hero primary CTA („Use first prompt“)
+- Kursas: badge + community → `COURSE_URL_EN`; earned handoff → `COURSE_RITUAL_URL`
+- Entity footer → `HUB_ENTITY_URL` (ne kursas)
 - Telegram tik `.community` sekcijoje
+- Šis puslapis nėra Hub
 
 ### 3.2 PromptCard
 
@@ -259,7 +276,7 @@ summary/header → code-block → prompt-footer (copy + done) → before-use →
 
 ### 3.3 CTAHierarchy
 
-Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline → community teal filled → course secondary outline.
+Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline → community teal filled → course secondary outline (community + ritual-complete).
 
 ---
 
@@ -298,9 +315,10 @@ Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline �
 
 | Versija | Data | Pakeitimai |
 |---------|------|------------|
+| DS 2.0.1 | 2026-08-14 | Spacing `0`/`1`/`1_5`; type scale `rem` + fluid hero `clamp`; H1/lead/CTA/H2 ant tokenų |
 | DS 2.0 | 2026-05-29 | `tokens.css` SSOT; `privacy.css`; semantic layer; governance; patterns; DTCG export; CI validation |
 | DS 1.0 | 2026-05-29 | Pradinis dokumentas; `--brand-teal`; STYLEGUIDE perkeltas čia |
 
 ---
 
-**Paskutinis atnaujinimas:** 2026-05-29
+**Paskutinis atnaujinimas:** 2026-08-14

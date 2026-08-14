@@ -186,7 +186,7 @@
                 button.innerHTML = '<i data-lucide="check" aria-hidden="true"></i><span>Kopeeritud</span>';
                 if (typeof lucide !== 'undefined') lucide.createIcons({ root: button });
                 button.classList.add('success');
-                button.setAttribute('aria-label', 'Prompt edukalt kopeeritud');
+                button.setAttribute('aria-label', 'Prompt on kopeeritud');
                 showToast();
                 
                 setTimeout(() => {
@@ -298,7 +298,7 @@
                 var textEl = document.getElementById('progressText');
                 var fillEl = document.getElementById('progressBarFill');
                 var barEl = document.querySelector('.progress-bar[role="progressbar"]');
-                if (textEl) textEl.textContent = count === 8 ? 'Suurepärane – olete kasutanud kõiki kaheksat prompti.' : 'Olete kasutanud ' + count + '/8 prompti.';
+                if (textEl) textEl.textContent = count === 8 ? 'Suurepärane – olete kasutanud kõiki 8 prompti.' : 'Olete kasutanud ' + count + '/8 prompti.';
                 if (fillEl) fillEl.style.width = (count / 8 * 100) + '%';
                 if (barEl) {
                     barEl.setAttribute('aria-valuenow', count);

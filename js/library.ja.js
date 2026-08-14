@@ -148,7 +148,7 @@
                         throw new Error('execCommand copy failed');
                     }
                 } catch (_) {
-                    showError(button, 'コピーできませんでした。テキストを選択して Ctrl+C（または Cmd+C）を使用してください。');
+                    showError(button, 'コピーできませんでした。テキストを選択して Ctrl+C（または Cmd+C）でコピーしてください。');
                 } finally {
                     isCopying = false;
                     textarea.style.position = 'absolute';
@@ -298,7 +298,7 @@
                 var textEl = document.getElementById('progressText');
                 var fillEl = document.getElementById('progressBarFill');
                 var barEl = document.querySelector('.progress-bar[role="progressbar"]');
-                if (textEl) textEl.textContent = count === 8 ? '素晴らしい — 8/8 を完了しました。' : '進捗：' + count + ' / 8';
+                if (textEl) textEl.textContent = count === 8 ? '8本すべて完了しました。' : '進捗：' + count + ' / 8';
                 if (fillEl) fillEl.style.width = (count / 8 * 100) + '%';
                 if (barEl) {
                     barEl.setAttribute('aria-valuenow', count);

@@ -298,7 +298,7 @@
                 var textEl = document.getElementById('progressText');
                 var fillEl = document.getElementById('progressBarFill');
                 var barEl = document.querySelector('.progress-bar[role="progressbar"]');
-                if (textEl) textEl.textContent = count === 8 ? 'Lieliski – izmantojāt visus 8.' : 'Lietojāt ' + count + ' no 8 promptiem.';
+                if (textEl) textEl.textContent = count === 8 ? 'Lieliski – esat izmantojuši visus 8.' : 'Esat izmantojuši ' + count + ' no 8 promptiem.';
                 if (fillEl) fillEl.style.width = (count / 8 * 100) + '%';
                 if (barEl) {
                     barEl.setAttribute('aria-valuenow', count);

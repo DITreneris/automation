@@ -3,9 +3,17 @@
 **Atsakingas:** Curriculum Agent  
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.
 
-**Interaktyvus kursas (Prompt Anatomy / Promptų anatomija):** badge ir community secondary – **`https://www.promptanatomy.app/en`** (`COURSE_URL_EN` – [scripts/seo-constants.cjs](../scripts/seo-constants.cjs)). **Ne** `promptanatomy.info/en` – tai bibliotekos EN puslapis, ne kursas.
+**Trys `.app` URL** ([scripts/seo-constants.cjs](../scripts/seo-constants.cjs)):
 
-**Bibliotekos (Spin-off) production:** **`https://www.promptanatomy.info/`** (`www`; locale `/lt/`, `/en/`, …; apex `promptanatomy.info` → 307). Vercel: `https://automation-seven-ochre.vercel.app/`.
+| Constant | Kur | URL |
+|----------|-----|-----|
+| `COURSE_URL_EN` | Badge, community secondary | `https://www.promptanatomy.app/en` |
+| `HUB_ENTITY_URL` | `.footer-entity` only | hub root + `utm_medium=entity_footer` |
+| `COURSE_RITUAL_URL` | `#ritual-complete` only | course `/en` + `utm_medium=ritual_complete` |
+
+**Ne** `promptanatomy.info/en` – tai bibliotekos EN puslapis, ne kursas. Šis domenas nėra Hub.
+
+**Bibliotekos production:** **`https://www.promptanatomy.info/`** (`www`; locale `/lt/`, `/en/`, …; apex `promptanatomy.info` → 307). Vercel: `https://automation-seven-ochre.vercel.app/`.
 
 ---
 
@@ -92,7 +100,7 @@ Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `
 - **ET / LV:** regeneruoti iš EN naudojant `npm run generate:et-lv` ([scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs); žr. `scripts/prompt-bodies-et-lv.cjs` promptų tekstams) ir rankiniu būdu patikrinti / atnaujinti `et/privacy.html`, `lv/privacy.html`, jei privatumo tekstas keičiasi ne per generatorių.
 - **JA:** `ja/index.html`, `ja/privacy.html`, `js/library.ja.js` – rankiniu (generatorius JA negeneruoja).
 
-**Bendri ištekliai (biblioteka):** [css/library.css](../css/library.css) – vienas stilių failas visoms kalboms; lokalizuotas code-block užrašas – trumpas inline `<style>:root { --codeblock-copy-hint: '…' }</style>` prieš `link` į `library.css`. **JavaScript:** kanonas – [js/library.js](../js/library.js) (EN); LT – [js/library.lt.js](../js/library.lt.js) (sinchronizuoti ranka su LT); ET/LV – [js/library.et.js](../js/library.et.js) ir [js/library.lv.js](../js/library.lv.js) generuojami tuo pačiu `generate:et-lv` (poros `ET_JS_PAIRS` / `LV_JS_PAIRS` faile generatoriaus). CI tikrina, kad po `generate:et-lv` nebūtų `git diff` šiuose failuose.
+**Bendri ištekliai (biblioteka):** [css/library.css](../css/library.css) – vienas stilių failas visoms kalboms; lokalizuotas code-block užrašas – trumpas inline `<style>:root { --codeblock-copy-hint: '…' }</style>` prieš `link` į `library.css`. **JavaScript:** kanonas – [js/library.js](../js/library.js) (EN). `library.lt.js`, `library.et.js`, `library.lv.js` generuojami tuo pačiu `generate:et-lv` (`LT_JS_PAIRS` / `ET_JS_PAIRS` / `LV_JS_PAIRS` [scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs)). Rankiniu būdu šių JS failų neliesti. CI tikrina, kad po `generate:et-lv` nebūtų `git diff` šiuose failuose.
 
 - **PR:** [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) – checkbox „Daugiakalbystė (kai liečia EN)“.
 - **Pagrindinės vietos:** hero, instrukcijos, progress, mygtukai, JS pranešimai, code-block `::before`, footer, privatumas.

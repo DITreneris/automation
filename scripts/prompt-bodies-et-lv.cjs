@@ -12,15 +12,15 @@ OUTPUT: Tulemus: lühike struktureeritud vastus – näete selgelt, kus tehisint
 
 INPUT: Ettevõte [ETTEVÕTE]. Analüüsi ja kirjelda: umbkaudne suurus (töötajad, käive); peamised tegevusvaldkonnad; juhtimine/organisatsioonimudel; tüüpilised väljakutsed selles sektoris. Hoia vastus lühike ja struktureeritud. Märgi, kus teed eeldusi.
 
-OUTPUT: Tulemus: organisatsiooni portree, mida saab kasutada teiste promptide kontekstina.`,
+OUTPUT: Tulemus: organisatsiooni portree, mida saate kasutada teiste promptide kontekstina.`,
 
   prompt3: `META: Sa oled organisatsioonidisaini konsultant. Eesmärk: kirjeldada kasutaja rolli organisatsioonis – eesmärk, vastutus ja mõju.
 
 INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Organisatsiooni analüüsi põhjal kirjelda seda rolli. Kaasa: rolli peamine eesmärk; 5–7 põhikohustust; otsustamise tase (operatiivne / taktikaline / strateegiline); kellele antakse aru ja kellega töötatakse igapäevaselt. Kirjuta lühidalt, ilma teooriata.
 
-OUTPUT: Tulemus: selge rollikirjeldus – kasuta järgmiste sammude jaoks.`,
+OUTPUT: Tulemus: selge rollikirjeldus – kasutage järgmiste sammude jaoks.`,
 
-  prompt4: `META: Sa oled kogenud juht. Eesmärk: luua praktiline ametijuhendi kirjeldus koos KPI-dega.
+  prompt4: `META: Sa oled kogenud juht. Eesmärk: luua praktiline ametijuhend koos KPI-dega.
 
 INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo ametijuhend. Kaasa: põhikohustused; nõutavad pädevused; 5–7 mõõdetavat KPI-d; milline on "hea tulemus" 6 kuu pärast. Keskendu tegelikule tööle, mitte HR paberimajandusele.
 
@@ -34,11 +34,11 @@ OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõ
 
   prompt6: `META: Sa oled tehisintellekti rakendamise konsultant. Eesmärk: hinnata protsesse ja pakkuda konkreetseid viise nende parandamiseks ChatGPT või muude tehisintellekti tööriistadega.
 
-INPUT: Hinda (juba kirjeldatud) protsesse ja anna 8–10 ideed. Igaühe jaoks: mida tehisintellekt teeb; millist protsessi osa see kergendab; tegelik kasu (aeg / kvaliteet / maksumus); rakendamise raskus (lihtne / keskmine / raske). Kirjuta mittetehnilisele kasutajale.
+INPUT: Hinda (juba kirjeldatud) protsesse ja anna 8–10 ideed. Igaühe jaoks: mida tehisintellekt teeb; millist protsessi osa see kergendab; tegelik kasu (aeg / kvaliteet / kulu); rakendamise raskus (lihtne / keskmine / raske). Kirjuta mittetehnilisele kasutajale.
 
 OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tunde säästa.`,
 
-  prompt7: `META: Sa oled promptide koostaja. Eesmärk: luua 10–12 lühikest igapäevaseks kasutamiseks mõeldud prompti selle rolli ja ettevõtte jaoks.
+  prompt7: `META: Sa oled promptide koostaja. Eesmärk: luua 10–12 lühikest igapäevast prompti selle rolli ja ettevõtte jaoks.
 
 INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo promptid, mis aitavad: planeerimisel; probleemide lahendamisel; suhtluses; otsustamisel. Anna tabel: [KÜSITIS] | [MILLAL KASUTAN] | [MILLISE PROBLEEMI LAHENDAB].
 
@@ -54,9 +54,9 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
 exports.LV_PROMPTS = {
   prompt1: `META: Tu esi kritisks biznesa analītiķis. Mērķis: noskaidrot, ko mākslīgais intelekts patiesi zina par organizāciju un kur nepieciešama precizēšana.
 
-INPUT: Uzņēmums [UZŅĒMUMS]. Tikai pamatojoties uz publiski pieejamu informāciju un vispārējām tirgus zināšanām, apraksti, kā TU saproti šo uzņēmumu. Struktūra: 1) Ko zini ar pārliecību 2) Kādas pieņēmumus izdari 3) Kur trūkst informācijas un vari kļūdīties. Beigās skaidri atzīmē: "Šīs vietas prasa precizējumu no lietotāja."
+INPUT: Uzņēmums [UZŅĒMUMS]. Tikai pamatojoties uz publiski pieejamu informāciju un vispārējām tirgus zināšanām, apraksti, kā TU saproti šo uzņēmumu. Struktūra: 1) Ko zini ar pārliecību 2) Kādus pieņēmumus izdari 3) Kur trūkst informācijas un vari kļūdīties. Beigās skaidri atzīmē: "Šie punkti prasa precizējumu no lietotāja."
 
-OUTPUT: Rezultāts: īss strukturēts atbildes fragments – skaidri redzams, kur MI var kļūdīties un ko precizēt pirms turpināt.`,
+OUTPUT: Rezultāts: īsa strukturēta atbilde – skaidri redzams, kur MI var kļūdīties un ko precizēt pirms turpināt.`,
 
   prompt2: `META: Tu esi pieredzējis biznesa analītiķis. Mērķis: izveidot skaidru organizācijas profilu un kontekstu.
 
@@ -66,15 +66,15 @@ OUTPUT: Rezultāts: organizācijas portrets, ko izmantot kā kontekstu citiem pr
 
   prompt3: `META: Tu esi organizācijas dizaina konsultants. Mērķis: aprakstīt lietotāja lomu organizācijā – mērķi, pienākumus un ietekmi.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Pamatojoties uz organizācijas analīzi, apraksti šo lomu. Iekļauj: galvenais lomas mērķis; 5–7 pamatpienākumi; lēmumu līmenis (operacionāls / taktisks / stratēģisks); kam atskaitās un ar ko ikdienā sadarbojas. Raksti īsi, bez teorijas.
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Pamatojoties uz organizācijas analīzi, apraksti šo lomu. Iekļauj: galvenais lomas mērķis; 5–7 pamatpienākumi; lēmumu līmenis (operatīvs / taktisks / stratēģisks); kam atskaitās un ar ko ikdienā sadarbojas. Raksti īsi, bez teorijas.
 
-OUTPUT: Rezultāts: skaidrs lomas apraksts – izmanto kā atsauce nākamajiem soļiem.`,
+OUTPUT: Rezultāts: skaidrs lomas apraksts – izmantojiet kā atsauci nākamajiem soļiem.`,
 
   prompt4: `META: Tu esi pieredzējis vadītājs. Mērķis: izveidot praktisku amata aprakstu ar KPI.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Izveido amata aprakstu. Iekļauj: pamatpienākumus; nepieciešamās kompetences; 5–7 mērāmus KPI; kā izskatās "labs sniegums" pēc 6 mēnešiem. Fokuss uz reālo darbu, ne HR birokrātiju.
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Izveido amata aprakstu. Iekļauj: pamatpienākumus; nepieciešamās kompetences; 5–7 izmērāmus KPI; kā izskatās "labs sniegums" pēc 6 mēnešiem. Fokuss uz reālo darbu, ne HR birokrātiju.
 
-OUTPUT: Rezultāts: amata apraksts pašnovērtējai vai jauna darbinieka vervēšanai.`,
+OUTPUT: Rezultāts: amata apraksts pašnovērtējumam vai jauna darbinieka ievadīšanai.`,
 
   prompt5: `META: Tu esi biznesa procesu analītiķis. Mērķis: identificēt 5 svarīgākos darba procesus (Pareto 80/20) – kur tiek tērēts laiks un enerģija.
 

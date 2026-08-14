@@ -1,6 +1,6 @@
-# Prompt Anatomy – Prompt Library (Spin-off No. 1)
+# Prompt Anatomy – Daily Workflow Library
 
-> Free multilingual static library of 8 ready-made AI prompt templates for managers, specialists, consultants, and freelancers. Companion to the Prompt Anatomy interactive course.
+> Free 8 copy-paste prompts in five locales. Companion to the Prompt Anatomy interactive course — not a lesser copy of it.
 
 ## Canonical site
 https://www.promptanatomy.info/
@@ -18,6 +18,9 @@ https://www.promptanatomy.info/sitemap.xml
 ## Main product (interactive course)
 https://www.promptanatomy.app/en
 
+## Hub (training and checkout)
+https://www.promptanatomy.app/
+
 ## Privacy
 - English: https://www.promptanatomy.info/en/privacy.html
 - Lietuvių: https://www.promptanatomy.info/lt/privatumas.html
@@ -29,13 +32,13 @@ https://www.promptanatomy.app/en
 Prompt Anatomy | 1311 Park St, Unit #654, Alameda, CA 94501, USA | info@promptanatomy.app
 
 ## Note
-This site is the free prompt library spin-off. The full course application lives at the main product URL above.
+This site is the Daily Workflow Library: 8 prompts, no account. Not the Hub. The full course application lives at the main product URL above.
 
-## Design System (v2.0)
+## Design System (v2.0.1)
 - SSOT: `css/tokens.css` | Docs: `docs/design_system.md`
 - Brand colors: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
 - Components: `css/library.css` (imports tokens) | Privacy: `css/privacy.css`
 - Rules: no inline hex colors; use semantic tokens (`--color-link`, `--color-action-primary-bg`, `--color-focus-ring`)
-- Patterns: LibraryPage layout (hero → prompts → community → footer); CTA hierarchy (navy primary → badge → teal chips → green community)
+- Patterns: LibraryPage layout (hero → prompts → ritual-complete → next-steps → community → footer); CTA hierarchy (navy primary → badge → teal chips → community teal → earned course outline)
 - Validation: `npm run validate:tokens`, `npm run lint:design-tokens`
 - Machine-readable export: `tokens/tokens.json` (W3C DTCG 2025.10)

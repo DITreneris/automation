@@ -6,20 +6,37 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ## [Unreleased]
 
-Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**.
+Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.5.0]**.
 
 ### Prideta
 
+- (tuščia)
+
+### Pakeista
+
+- (tuščia)
+
+---
+
+## [1.5.0] - 2026-08-14
+
+### Prideta
+
+- **[UI] Ritual complete:** `#ritual-complete` po prompto 8 (5 kalbos); `COURSE_RITUAL_URL` (`utm_medium=ritual_complete`); prompt-8 `prompt-next-link` → `#ritual-complete`. Badge ir community lieka `COURSE_URL_EN`; entity footer lieka `HUB_ENTITY_URL`.
+- **[UI] Entity footer (QW1b):** `.footer-entity` 5 bibliotekos locale – EN/LT kanoninis copy, ET/LV/JA ta pati prasmė; nuoroda `HUB_ENTITY_URL` (`utm_source=info`, `utm_medium=entity_footer`, `utm_campaign=ecosystem`). Badge ir community lieka `COURSE_URL_EN`.
 - **[Orchestrator] Repo hygiene:** [LICENSE](LICENSE) (CC BY 4.0), [SECURITY.md](SECURITY.md), [CONTRIBUTING.md](CONTRIBUTING.md); README EN quick start ir CI badge; `package.json` `license: CC-BY-4.0`.
 - **[Orchestrator] CI docs:** CONTRIBUTING CI parity; TESTAVIMAS cross-link; CI locale `index.html` presence check.
 - **[Orchestrator] Lean AGENTS.md:** English operational SSOT; slim `.cursorrules`; deduped `.cursor/rules/*.mdc`.
-- **[Orchestrator] Cursor skills:** `.cursor/skills/` — locale-sync, release-changelog, design-token-guard, test-debug.
+- **[Orchestrator] Cursor skills:** `.cursor/skills/` — locale-sync (LT/ET/LV JS tik per poras; `library.lt.js` generuojamas), release-changelog, design-token-guard, test-debug, hero-copy (H1 = prize; 5 kanoniniai lead).
 - **[Orchestrator] Lessons:** [lessons/LESSONS.md](lessons/LESSONS.md), [lessons/audit-patterns.md](lessons/audit-patterns.md); 5 seed rules.
 - **[Orchestrator] GitHub workflow v1.0:** issue templates, CODEOWNERS, README agent entry points.
 - **[QA] Privacy a11y:** [css/privacy.css](css/privacy.css) – nuorodos `--brand-teal-dark` (WCAG AA ≥4.5:1 ant `--color-surface-page`).
 
 ### Pakeista
 
+- **[UI] DS 2.0.1 token ROI:** `--space-0/1/1_5`; type scale `rem` + `--font-size-hero` `clamp`; hero H1/lead/meta, `.cta-button`, sekcijų H2 ant tokenų; `color-scheme: light`. Copy neliestas.
+- **[Content] 5-locale language pass:** rašyba, skyryba, gramatika ir registras (LT Tu; ET Teie; LV Jūs; JA です/ます) UI, 8 promptuose ir privatume. Hero H1/lead neliesti. ET/LV/LT JS per generatoriaus poras; JA lead sutrauktas iki EN prasmės. 2 ratas: EN `your company or your client's`, Oxford kablelis, en dash; JA privacy be „外部サービス“; ET footer `kassa`; LV footer `norēķins`. `FOOTER_ENTITY_COPY` testai atnaujinti.
+- **[Content] Identity (D) + copy restore:** ecosystem H2 nebėra Hub („Daily Workflow Library“); `.next-steps` – „Jump to a step“; H1 / OG – prizinė eilutė „Let AI do 30–50% of your daily tasks“; lead / meta – „8 exercises with ready-made templates – results in minutes.“ (5 kalbos). Front page be žodžio „ritual“ (ID/UTM `#ritual-complete` lieka).
 - **[UI] Mobile polish:** kalbų dropdown (hero žemyn, footer į viršų); hover transform/scale tik `@media (hover: hover)`; community CTA full-width ≤480px; toast `safe-area-inset`; instrukcijų `<code>` wrap; footer contact stack ant mobile; privacy `safe-area` padding.
 - **[UI] Kalbų dropdown fix:** [js/lang-switcher.js](js/lang-switcher.js) – outside click neuždaro paspaudus meniu viduje; [css/library.css](css/library.css) – `.header-top` stacking (`z-index: 10`) virš H1, meniu `z-index: 100` (be hero teksto dubliavimo ir be `overflow: visible` ant `.header`).
 - **[QA] LT collapsible prompt titles:** [lt/index.html](lt/index.html) – tušti `prompt-title-2`…`8` `<h2>` (Pa11y H42.2); struktūrinis assert visoms 5 kalboms [tests/structure.test.js](tests/structure.test.js).
@@ -28,6 +45,7 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.4.0]**
 - **[UI] DS žalios spalvos:** nav chip'ai (`.next-steps-links a`) – outline `--brand-teal`; community CTA (`.community-cta-primary`) – filled `--brand-teal`; pašalinti `--community-cta-green` tokenai (`tokens.css`, `tokens/tokens.json`).
 - **[Content] Ecosystem sekcija (5 kalbos):** H2 „Welcome to the Prompt Anatomy Hub“, lead apie strategiją/taktiką/operacijas; pašalintas `<figcaption>` (dublikatas paveikslėlyje).
 - **[UI] Footer micro-iteration:** light card (1px border, be shadow), mažesni `.tag` chip'ai, `.footer-meta` (contact · Privacy · kalba), copyright be Privacy linko; DS §2.8.
+- **[Orchestrator] Docs be „ritual“:** README, `llms.txt`, AGENTS misija – 8 promptai / Daily Workflow Library; ID/UTM `#ritual-complete` lieka.
 
 ---
 

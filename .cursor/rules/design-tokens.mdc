@@ -7,6 +7,7 @@ globs: css/**
 
 - SSOT: [css/tokens.css](../../css/tokens.css)
 - Semantic layer: `--color-link`, `--color-action-primary-bg`, `--color-focus-ring`
+- Type: `--font-size-hero` (clamp), `--font-size-h2`, `--font-size-button`; space includes `--space-0` / `--space-1` / `--space-1_5`
 - Brand: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
 - Validate: `npm run validate:tokens` && `npm run lint:design-tokens`
 - Docs: [docs/design_system.md](../../docs/design_system.md)

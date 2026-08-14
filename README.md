@@ -1,10 +1,10 @@
-# DI Promptų Biblioteka – Verslo Mokymų Platforma
+# DI Promptų Biblioteka – 8 promptai kasdieniam darbui
 
 [![CI](https://github.com/DITreneris/automation/actions/workflows/ci.yml/badge.svg)](https://github.com/DITreneris/automation/actions/workflows/ci.yml)
 
 ## Quick start (English)
 
-Static 5-locale prompt library for managers and analysts. **Production:** https://www.promptanatomy.info/
+Static 5-locale 8-prompt library. Companion to the course at promptanatomy.app — not a training platform. **Production:** https://www.promptanatomy.info/
 
 ```bash
 npm install
@@ -28,7 +28,7 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 
 ## Apie projektą
 
-Šis projektas yra interaktyvi HTML platforma, skirta verslo analitikams ir vadovams, kurie nori efektyviai naudoti dirbtinį intelektą (DI) savo organizacijos analizei ir optimizavimui.
+Šis projektas yra 8 promptai: nukopijuoji, išeini su kasdieniu rinkiniu, be paskyros. Daily Workflow Library verslo analitikams ir vadovams. Interaktyvus kursas gyvena [promptanatomy.app](https://www.promptanatomy.app/en), ne čia.
 
 ### Funkcijos
 
