@@ -17,13 +17,14 @@
             var lang = 'en';
             try {
                 var stored = localStorage.getItem('lang');
-                if (stored === 'lt' || stored === 'en' || stored === 'et' || stored === 'lv' || stored === 'ja') lang = stored;
+                if (stored === 'lt' || stored === 'en' || stored === 'et' || stored === 'lv' || stored === 'ja' || stored === 'zh') lang = stored;
                 else if (typeof navigator !== 'undefined' && navigator.language) {
                     var nav = navigator.language.toLowerCase();
                     if (nav.indexOf('lt') === 0) lang = 'lt';
                     else if (nav.indexOf('et') === 0 || nav.indexOf('ee') === 0) lang = 'et';
                     else if (nav.indexOf('lv') === 0) lang = 'lv';
                     else if (nav.indexOf('ja') === 0) lang = 'ja';
+                    else if (nav.indexOf('zh') === 0) lang = 'zh';
                 }
             } catch (e) {}
             var path = (base ? base + '/' : '/') + lang + '/';
@@ -40,6 +41,6 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <p>Redirecting… <a href="lt/" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a> | <a href="en/" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a> | <a href="et/" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a> | <a href="lv/" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a> | <a href="ja/" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></p>
+    <p>Redirecting… <a href="lt/" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a> | <a href="en/" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a> | <a href="et/" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a> | <a href="lv/" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a> | <a href="ja/" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a> | <a href="zh/" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></p>
 </body>
 </html>

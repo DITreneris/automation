@@ -8,7 +8,7 @@
   if (!suite) return;
 
   var pathname = location.pathname;
-  var base = pathname.replace(/\/(lt|en|et|lv|ja)(\/.*|$)/i, '');
+  var base = pathname.replace(/\/(lt|en|et|lv|ja|zh)(\/.*|$)/i, '');
   var origin = location.origin;
   var prefix = origin + base;
 
@@ -23,6 +23,7 @@
     set('hreflang-et', prefix + '/et/');
     set('hreflang-lv', prefix + '/lv/');
     set('hreflang-ja', prefix + '/ja/');
+    set('hreflang-zh', prefix + '/zh/');
     set('hreflang-default', prefix + '/en/');
   } else if (suite === 'privacy') {
     set('hreflang-lt', prefix + '/lt/privatumas.html');
@@ -30,6 +31,7 @@
     set('hreflang-et', prefix + '/et/privacy.html');
     set('hreflang-lv', prefix + '/lv/privacy.html');
     set('hreflang-ja', prefix + '/ja/privacy.html');
+    set('hreflang-zh', prefix + '/zh/privacy.html');
     set('hreflang-default', prefix + '/en/privacy.html');
   }
 })();

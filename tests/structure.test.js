@@ -1,5 +1,5 @@
 /**
- * Struktūriniai testai – LT / EN / ET / LV / JA puslapiai
+ * Struktūriniai testai – LT / EN / ET / LV / JA / ZH puslapiai
  * Tikrina, kad visų kalbų index.html ir privatumo puslapiuose yra būtini elementai.
  * Paleisti: node tests/structure.test.js (arba npm test)
  */
@@ -16,9 +16,10 @@ const FOOTER_ENTITY_COPY = {
   et: 'Prompt Anatomy ökosüsteem · Koolitus ja kassa',
   lv: 'Prompt Anatomy ekosistēma · Apmācība un norēķins',
   ja: 'Prompt Anatomyの一部 · 研修とチェックアウト',
+  zh: 'Prompt Anatomy 的一部分 · 培训与结账',
 };
 
-const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja'];
+const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja', 'zh'];
 
 const ROOT_INDEX = path.join(__dirname, '..', 'index.html');
 const LT_INDEX = path.join(__dirname, '..', 'lt', 'index.html');
@@ -31,11 +32,14 @@ const LV_INDEX = path.join(__dirname, '..', 'lv', 'index.html');
 const LV_PRIVACY = path.join(__dirname, '..', 'lv', 'privacy.html');
 const JA_INDEX = path.join(__dirname, '..', 'ja', 'index.html');
 const JA_PRIVACY = path.join(__dirname, '..', 'ja', 'privacy.html');
+const ZH_INDEX = path.join(__dirname, '..', 'zh', 'index.html');
+const ZH_PRIVACY = path.join(__dirname, '..', 'zh', 'privacy.html');
 const JS_LIBRARY = path.join(__dirname, '..', 'js', 'library.js');
 const JS_LIBRARY_LT = path.join(__dirname, '..', 'js', 'library.lt.js');
 const JS_LIBRARY_ET = path.join(__dirname, '..', 'js', 'library.et.js');
 const JS_LIBRARY_LV = path.join(__dirname, '..', 'js', 'library.lv.js');
 const JS_LIBRARY_JA = path.join(__dirname, '..', 'js', 'library.ja.js');
+const JS_LIBRARY_ZH = path.join(__dirname, '..', 'js', 'library.zh.js');
 
 function readFile(filePath) {
   try {
@@ -254,7 +258,7 @@ function checkSeoHead(html, label, isLibrary) {
 function checkPrivacyI18n(html, label, currentLang) {
   let passed = 0;
   let failed = 0;
-  const ids = ['hreflang-lt', 'hreflang-en', 'hreflang-et', 'hreflang-lv', 'hreflang-ja', 'hreflang-default'];
+  const ids = ['hreflang-lt', 'hreflang-en', 'hreflang-et', 'hreflang-lv', 'hreflang-ja', 'hreflang-zh', 'hreflang-default'];
   for (const id of ids) {
     if (assert(html.includes(`id="${id}"`), `${label} privacy: ${id}`)) passed++;
     else failed++;
@@ -268,7 +272,7 @@ function checkPrivacyI18n(html, label, currentLang) {
   if (assert(html.includes('lang-switcher-list'), `${label} privacy: lang-switcher-list`)) passed++;
   else failed++;
   const linkCount = (html.match(/class="[^"]*\blang-link\b[^"]*"/g) || []).length;
-  if (assert(linkCount >= 4, `${label} privacy: lang-link >= 4`)) passed++;
+  if (assert(linkCount >= 5, `${label} privacy: lang-link >= 5`)) passed++;
   else failed++;
   if (assert(html.includes('name="theme-color"') && html.includes('#0B1320'), `${label} privacy: theme-color #0B1320`)) passed++;
   else failed++;
@@ -326,7 +330,7 @@ function run() {
   failed += ltRes.failed;
   if (assert(ltHtml.includes('lang="lt"'), 'LT: html lang="lt"')) passed++;
   else failed++;
-  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 8);
+  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 10);
   passed += ltSw.passed;
   failed += ltSw.failed;
   const ltSeo = checkSeoHead(ltHtml, 'LT', true);
@@ -344,7 +348,7 @@ function run() {
   failed += enRes.failed;
   if (assert(enHtml.includes('lang="en"'), 'EN: html lang="en"')) passed++;
   else failed++;
-  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 8);
+  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 10);
   passed += enSw.passed;
   failed += enSw.failed;
   const enSeo = checkSeoHead(enHtml, 'EN', true);
@@ -362,7 +366,7 @@ function run() {
   failed += etRes.failed;
   if (assert(etHtml.includes('lang="et"'), 'ET: html lang="et"')) passed++;
   else failed++;
-  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 8);
+  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 10);
   passed += etSw.passed;
   failed += etSw.failed;
   const etSeo = checkSeoHead(etHtml, 'ET', true);
@@ -380,7 +384,7 @@ function run() {
   failed += lvRes.failed;
   if (assert(lvHtml.includes('lang="lv"'), 'LV: html lang="lv"')) passed++;
   else failed++;
-  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 8);
+  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 10);
   passed += lvSw.passed;
   failed += lvSw.failed;
   const lvSeo = checkSeoHead(lvHtml, 'LV', true);
@@ -398,12 +402,30 @@ function run() {
   failed += jaRes.failed;
   if (assert(jaHtml.includes('lang="ja"'), 'JA: html lang="ja"')) passed++;
   else failed++;
-  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 8);
+  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 10);
   passed += jaSw.passed;
   failed += jaSw.failed;
   const jaSeo = checkSeoHead(jaHtml, 'JA', true);
   passed += jaSeo.passed;
   failed += jaSeo.failed;
+
+  // --- ZH library ---
+  const zhHtml = readFile(ZH_INDEX);
+  if (!zhHtml) {
+    console.error('❌ zh/index.html nerastas');
+    process.exit(1);
+  }
+  const zhRes = checkLibraryPage(zhHtml, 'ZH', '复制提示词', '跳到正文', 'privacy.html', JS_LIBRARY_ZH);
+  passed += zhRes.passed;
+  failed += zhRes.failed;
+  if (assert(zhHtml.includes('lang="zh-Hans"'), 'ZH: html lang="zh-Hans"')) passed++;
+  else failed++;
+  const zhSw = checkLangSwitcher(zhHtml, 'ZH', 'zh', 10);
+  passed += zhSw.passed;
+  failed += zhSw.failed;
+  const zhSeo = checkSeoHead(zhHtml, 'ZH', true);
+  passed += zhSeo.passed;
+  failed += zhSeo.failed;
 
   // --- Privacy pages exist ---
   if (assert(readFile(LT_PRIVATUMAS) !== null && readFile(LT_PRIVATUMAS).length > 0, 'lt/privatumas.html egzistuoja')) passed++;
@@ -416,26 +438,31 @@ function run() {
   else failed++;
   if (assert(readFile(JA_PRIVACY) !== null && readFile(JA_PRIVACY).length > 0, 'ja/privacy.html egzistuoja')) passed++;
   else failed++;
+  if (assert(readFile(ZH_PRIVACY) !== null && readFile(ZH_PRIVACY).length > 0, 'zh/privacy.html egzistuoja')) passed++;
+  else failed++;
 
   const ltPriv = readFile(LT_PRIVATUMAS);
   const enPriv = readFile(EN_PRIVACY);
   const etPriv = readFile(ET_PRIVACY);
   const lvPriv = readFile(LV_PRIVACY);
   const jaPriv = readFile(JA_PRIVACY);
+  const zhPriv = readFile(ZH_PRIVACY);
   const prLt = checkPrivacyI18n(ltPriv || '', 'LT', 'lt');
   const prEn = checkPrivacyI18n(enPriv || '', 'EN', 'en');
   const prEt = checkPrivacyI18n(etPriv || '', 'ET', 'et');
   const prLv = checkPrivacyI18n(lvPriv || '', 'LV', 'lv');
   const prJa = checkPrivacyI18n(jaPriv || '', 'JA', 'ja');
-  passed += prLt.passed + prEn.passed + prEt.passed + prLv.passed + prJa.passed;
-  failed += prLt.failed + prEn.failed + prEt.failed + prLv.failed + prJa.failed;
+  const prZh = checkPrivacyI18n(zhPriv || '', 'ZH', 'zh');
+  passed += prLt.passed + prEn.passed + prEt.passed + prLv.passed + prJa.passed + prZh.passed;
+  failed += prLt.failed + prEn.failed + prEt.failed + prLv.failed + prJa.failed + prZh.failed;
   const prLtSeo = checkSeoHead(ltPriv || '', 'LT privacy', false);
   const prEnSeo = checkSeoHead(enPriv || '', 'EN privacy', false);
   const prEtSeo = checkSeoHead(etPriv || '', 'ET privacy', false);
   const prLvSeo = checkSeoHead(lvPriv || '', 'LV privacy', false);
   const prJaSeo = checkSeoHead(jaPriv || '', 'JA privacy', false);
-  passed += prLtSeo.passed + prEnSeo.passed + prEtSeo.passed + prLvSeo.passed + prJaSeo.passed;
-  failed += prLtSeo.failed + prEnSeo.failed + prEtSeo.failed + prLvSeo.failed + prJaSeo.failed;
+  const prZhSeo = checkSeoHead(zhPriv || '', 'ZH privacy', false);
+  passed += prLtSeo.passed + prEnSeo.passed + prEtSeo.passed + prLvSeo.passed + prJaSeo.passed + prZhSeo.passed;
+  failed += prLtSeo.failed + prEnSeo.failed + prEtSeo.failed + prLvSeo.failed + prJaSeo.failed + prZhSeo.failed;
 
   // --- Design System 2.0 ---
   const tokensCss = readFile(path.join(__dirname, '..', 'css', 'tokens.css')) || '';
@@ -509,7 +536,7 @@ function run() {
   const sitemap = readFile(path.join(assetRoot, 'sitemap.xml'));
   if (assert(sitemap && sitemap.includes('hreflang="x-default"') && sitemap.includes('/en/'), 'sitemap: hreflang alternates')) passed++;
   else failed++;
-  if (assert(sitemap && sitemap.includes('<lastmod>2026-05-29</lastmod>'), 'sitemap: lastmod')) passed++;
+  if (assert(sitemap && sitemap.includes('<lastmod>2026-08-15</lastmod>'), 'sitemap: lastmod')) passed++;
   else failed++;
   const robots = readFile(path.join(assetRoot, 'robots.txt'));
   if (assert(robots && robots.includes('Sitemap:') && robots.includes('sitemap.xml'), 'robots.txt: Sitemap nuoroda')) passed++;

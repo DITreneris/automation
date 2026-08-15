@@ -22,7 +22,8 @@ Short rules for agents and contributors. **Not** historical audits — see [docs
 | 2026-06-14 | Library vs course confused | Library: `https://www.promptanatomy.info/` — not the course app | [AGENTS.md](../AGENTS.md) |
 | 2026-06-14 | ET/LV out of sync with EN | Edit EN → `npm run generate:et-lv`; do not hand-fix `et/index.html` for parity | [docs/MULTILINGUAL_STRUCTURE.md](../docs/MULTILINGUAL_STRUCTURE.md) |
 | 2026-08-14 | `library.lt.js` hand-edited | LT JS is generated from `LT_JS_PAIRS` in [scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs). Same for `library.{et,lv}.js`. | [locale-sync](../.cursor/skills/locale-sync/SKILL.md) |
-| 2026-08-14 | Locale register mix / calque | UI: LT Tu, ET Teie, LV Jūs, JA です/ます. Prompt META speaks to the model (`Sa oled` / `Tu esi`). Lead = EN meaning only; JA must not add “proceed along”. | [hero-copy](../.cursor/skills/hero-copy/SKILL.md) |
+| 2026-08-14 | Locale register mix / calque | UI: LT Tu, ET Teie, LV Jūs, JA です/ます, ZH 你. Prompt META speaks to the model (`Sa oled` / `Tu esi` / `你是`). Lead = EN meaning only; JA must not add “proceed along”. | [hero-copy](../.cursor/skills/hero-copy/SKILL.md) |
+| 2026-08-15 | ZH codes | ZH is manual like JA (`zh/`, `js/library.zh.js`). `hreflang` / `html lang` = `zh-Hans`, not `zh`. Folder and `data-lang` stay `zh`. | [docs/MULTILINGUAL_STRUCTURE.md](../docs/MULTILINGUAL_STRUCTURE.md) |
 | 2026-08-14 | Footer-entity CI after wording | `.footer-entity` text is `FOOTER_ENTITY_COPY` per locale in [tests/structure.test.js](../tests/structure.test.js) | structure.test.js |
 | 2026-06-14 | Footer contact CI fail | Kanon: `info@promptanatomy.app`, `1311 Park St`, Alameda CA 94501 | [tests/structure.test.js](../tests/structure.test.js) |
 

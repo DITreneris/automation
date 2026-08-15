@@ -14,7 +14,7 @@
 | Apex (redirect) | `https://promptanatomy.info/` → **307** → `www` |
 | Vercel host | `https://automation-seven-ochre.vercel.app/` |
 
-Locale keliai: `/`, `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/` ir atitinkami privatumo puslapiai.
+Locale keliai: `/`, `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`, `/zh/` ir atitinkami privatumo puslapiai.
 
 ### Deploy
 
@@ -61,7 +61,7 @@ PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs
 | Problema | Sprendimas |
 |----------|------------|
 | **CI workflow failed** | Dažniausiai `pa11y` arba `npm test`. Lokaliai: `npm test`, tada `npx serve . -l 3000` ir `PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs`. |
-| Neteisingas locale kelias | Root deploy – base path `''`. Svetainė turi `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`; root redirect numatytai į `/en/`. |
+| Neteisingas locale kelias | Root deploy – base path `''`. Svetainė turi `/lt/`, `/en/`, `/et/`, `/lv/`, `/ja/`, `/zh/`; root redirect numatytai į `/en/`. |
 | Kalbų jungiklis neveikia lokaliai | Nenaudok `serve -s` (SPA režimas). Teisingai: `npx serve . -l 3000`; hard refresh po CSS/JS pakeitimų. |
 | Apex neveikia | Tikrinti Vercel DNS: `promptanatomy.info` → 307 į `www.promptanatomy.info`. |
 | Vercel rodo seną versiją | Patikrinti deploy log; hard refresh; custom domain priskirtas Production, ne Preview. |

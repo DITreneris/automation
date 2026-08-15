@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-hreflang-suite="library">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让 AI 完成你日常工作的 30%–50% – Prompt Anatomy</title>
+    <meta name="description" content="8 个带现成模板的练习，几分钟就能出结果。">
+    <link rel="canonical" href="https://www.promptanatomy.info/zh/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Prompt Anatomy">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="lt_LT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="et_EE">
+    <meta property="og:locale:alternate" content="lv_LV">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:title" content="让 AI 完成你日常工作的 30%–50% – Prompt Anatomy">
+    <meta property="og:description" content="8 个带现成模板的练习，几分钟就能出结果。">
+    <meta property="og:url" content="https://www.promptanatomy.info/zh/">
+    <meta property="og:image" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
+    <meta property="og:image:secure_url" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Prompt Anatomy – AI Automation Library">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="让 AI 完成你日常工作的 30%–50% – Prompt Anatomy">
+    <meta name="twitter:description" content="8 个带现成模板的练习，几分钟就能出结果。">
+    <meta name="twitter:image" content="https://www.promptanatomy.info/assets/img/og/og-image.png">
+    <meta name="twitter:image:alt" content="Prompt Anatomy – AI Automation Library">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0B1320">
+    <link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/" id="hreflang-lt">
+    <link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/" id="hreflang-en">
+    <link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/" id="hreflang-et">
+    <link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/" id="hreflang-lv">
+    <link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/" id="hreflang-ja">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/" id="hreflang-zh">
+    <link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/" id="hreflang-default">
+    <script src="../js/hreflang.js"></script>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.promptanatomy.info/#organization","name":"Prompt Anatomy","url":"https://www.promptanatomy.info/","email":"info@promptanatomy.app","address":{"@type":"PostalAddress","streetAddress":"1311 Park St, Unit #654","addressLocality":"Alameda","addressRegion":"CA","postalCode":"94501","addressCountry":"US"}},{"@type":"WebSite","@id":"https://www.promptanatomy.info/#website","name":"Prompt Anatomy – Prompt Library","url":"https://www.promptanatomy.info/zh/","publisher":{"@id":"https://www.promptanatomy.info/#organization"},"inLanguage":"zh-Hans"},{"@type":"WebPage","@id":"https://www.promptanatomy.info/zh/#webpage","url":"https://www.promptanatomy.info/zh/","name":"让 AI 完成你日常工作的 30%–50% – Prompt Anatomy","description":"8 个带现成模板的练习，几分钟就能出结果。","isPartOf":{"@id":"https://www.promptanatomy.info/#website"},"inLanguage":"zh-Hans"}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>:root { --codeblock-copy-hint: '选中并复制'; }</style>
+    <link rel="stylesheet" href="../css/library.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳到正文</a>
+    <div class="container">
+        <main id="main-content">
+
+        <!-- HERO -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <a href="https://www.promptanatomy.app/en" class="badge" target="_blank" rel="noopener noreferrer" aria-label="完整 Prompt Anatomy — 英语互动课程（在新标签页打开）">Prompt Anatomy</a>
+                </div>
+                <nav class="lang-switcher lang-switcher--dropdown" aria-label="语言">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-hero"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-hero">
+                        <span class="lang-switcher-trigger-text">简体中文</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page">简体中文</span></li>
+                    </ul>
+                </nav>
+            </div>
+            <h1>让 AI 完成你日常工作的 30%–50%</h1>
+            <p>8 个带现成模板的练习，几分钟就能出结果。</p>
+            <p class="header-meta" aria-label="适合谁">适合：管理者、专业人士、顾问、自由职业者。</p>
+            <div class="header-cta">
+                <a href="#block1" class="cta-button" aria-label="使用第一条提示词 – 前往提示词 1">使用第一条提示词</a>
+            </div>
+        </header>
+
+        <!-- OUTCOMES -->
+        <section class="objectives" aria-labelledby="objectives-title">
+            <h2 id="objectives-title"><i data-lucide="target" aria-hidden="true"></i> 你将得到</h2>
+            <p class="objectives-intro">30 分钟后，你会有一套基本的 AI 工作流：</p>
+            <ul>
+                <li><i data-lucide="check" aria-hidden="true"></i> 每周节省 3–5 小时</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> 错误风险最多可降至原来的 1/6</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> 8 个标准模板</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> 清晰的自动化逻辑，而不是零散的提示词</li>
+            </ul>
+        </section>
+
+        <!-- INSTRUCTIONS -->
+        <section class="instructions" aria-labelledby="instructions-title">
+            <h2 class="instructions-title" id="instructions-title">
+                <i data-lucide="book-open" aria-hidden="true"></i>
+                <span>如何使用这个资料库</span>
+                <span class="prompt-time" aria-label="大约时间：每步 3–5 分钟">每步约 3–5 分钟</span>
+            </h2>
+            <ol>
+                <li>选一条提示词，点文本下方的<strong>「复制提示词」</strong>——一次就能全部复制。在电脑上也可以选中文本，再按 <code>Ctrl+C</code> / <code>Cmd+C</code>。</li>
+                <li>粘贴到 ChatGPT、Claude 或其他 AI 工具。</li>
+                <li>如果提示词里有 <code>[公司]</code>，换成你或客户的公司名；如果有 <code>[我的角色]</code>，换成你的职位。AI 的角色（例如“批判性分析师”）已经写在提示词里——不用改。</li>
+            </ol>
+        </section>
+
+        <!-- PROGRESS INDICATOR -->
+        <div class="progress-wrap" id="progressIndicator" aria-live="polite" aria-atomic="true">
+            <p id="progressText">已完成 0 / 8 条提示词。</p>
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8" aria-label="进度">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- PROMPT 1 -->
+        <article class="prompt">
+            <div class="prompt-header">
+                <div class="prompt-meta">
+                    <div class="number">1</div>
+                    <div class="category">基础</div>
+                    <span class="prompt-time">约 3–5 分钟</span>
+                </div>
+                <h2 class="prompt-title">AI 上下文检查</h2>
+                <p class="prompt-desc">看看 ChatGPT 对你的组织知道什么，以及它可能错在哪里</p>
+            </div>
+            <div class="prompt-body">
+                <div class="code-block" 
+                     id="block1" 
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 1"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt1">META: 你是一名批判性的商业分析师。目标：根据公开信息，写明你对这家组织已经知道什么，以及哪些地方必须向用户澄清。
+
+INPUT: 公司 [公司]。请仅根据公开信息和一般市场知识，描述你如何理解这家公司。请按此结构写：1）你有把握的事实；2）你做了哪些假设；3）信息不足、可能出错的地方。结尾必须明确标出：“以下各点需要用户澄清。”
+
+OUTPUT: 结果：一份简短、结构化的回答——能看出你可能错在哪里，以及继续之前该澄清什么。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt1')"
+                        aria-label="将提示词 1 复制到剪贴板"
+                        data-prompt-id="prompt1">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="1" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block2" class="prompt-next-link">下一步：组织画像 →</a>
+                </p>
+                <section class="before-use" id="before-use-1" aria-labelledby="before-use-title-1">
+                    <h3 class="before-use-title" id="before-use-title-1">使用前</h3>
+                    <p><strong>什么时候用：</strong>你开始分析一个组织；想检查 AI 对公司知道什么；准备带着上下文使用 AI。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>这不是问卷。复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>为什么重要</strong>
+                        <p>减少 AI“幻觉”和错误决策——你能看见 AI 对你的上下文真正知道什么。</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- PROMPT 2 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="2">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">2</div>
+                            <div class="category">分析</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-2">组织画像</h2>
+                        <p class="prompt-desc">展开后可见全文，约 5 分钟得到结构化公司画像</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block2"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 2"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt2">META: 你是一名经验丰富的商业分析师。目标：写出清晰的组织画像和上下文。
+
+INPUT: 公司 [公司]。请分析并描述：大致规模（人数、营收）；主要业务领域；管理/组织模式；该行业的典型挑战。请写短、有结构。凡是假设，必须标出。
+
+OUTPUT: 结果：一份组织画像，可作为其他提示词的上下文。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt2')"
+                        aria-label="将提示词 2 复制到剪贴板"
+                        data-prompt-id="prompt2">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="2" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block3" class="prompt-next-link">下一步：我在组织中的角色 →</a>
+                </p>
+                <section class="before-use" id="before-use-2" aria-labelledby="before-use-title-2">
+                    <h3 class="before-use-title" id="before-use-title-2">使用前</h3>
+                    <p><strong>什么时候用：</strong>你想要清晰的组织画像；在为其他提示词准备上下文；在分析客户或合作方。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>用途</strong>
+                        <p>这条提示词为后续所有提示词建立组织上下文。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 3 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="3">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">3</div>
+                            <div class="category">角色</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-3">我在组织中的角色</h2>
+                        <p class="prompt-desc">先澄清角色的目的和影响，再让 AI 补缺口</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block3"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 3"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt3">META: 你是一名组织设计顾问。目标：描述这个角色在组织中的目的、职责和影响。
+
+INPUT: 角色 [我的角色]，公司 [公司]。请根据上文的组织画像描述这个角色（若无，请先根据 [公司] 推断并标出假设）。请包括：角色的主要目的；5–7 项核心职责；决策层级（运营 / 战术 / 战略）；向谁汇报、日常和谁协作。请写短，不要理论。
+
+OUTPUT: 结果：一份清晰的角色描述——供后续步骤对照。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt3')"
+                        aria-label="将提示词 3 复制到剪贴板"
+                        data-prompt-id="prompt3">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="3" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block4" class="prompt-next-link">下一步：职位说明 + KPI →</a>
+                </p>
+                <section class="before-use" id="before-use-3" aria-labelledby="before-use-title-3">
+                    <h3 class="before-use-title" id="before-use-title-3">使用前</h3>
+                    <p><strong>什么时候用：</strong>你想澄清自己的角色；刚进入新公司；需要一份职位对照。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
+                        <li>[我的角色] → 你的职位（例如销售经理）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>结果</strong>
+                        <p>你会得到一份清晰的角色描述——供后续步骤对照。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 4 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="4">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">4</div>
+                            <div class="category">文档</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-4">职位说明 + KPI</h2>
+                        <p class="prompt-desc">展开后可见全文——带可衡量 KPI 的实用职位说明</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block4"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 4"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt4">META: 你是一名经验丰富的管理者。目标：写出实用的职位说明和 KPI。
+
+INPUT: 角色 [我的角色]，公司 [公司]。请撰写职位说明。请包括：核心职责；所需能力；5–7 个可衡量的 KPI；6 个月后“表现良好”是什么样。请聚焦真实工作，而不是人事套话。
+
+OUTPUT: 结果：一份可用于自我评估或新人入职的职位说明。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt4')"
+                        aria-label="将提示词 4 复制到剪贴板"
+                        data-prompt-id="prompt4">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="4" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block5" class="prompt-next-link">下一步：核心工作流程 →</a>
+                </p>
+                <section class="before-use" id="before-use-4" aria-labelledby="before-use-title-4">
+                    <h3 class="before-use-title" id="before-use-title-4">使用前</h3>
+                    <p><strong>什么时候用：</strong>你需要职位说明；在准备评估或入职；想要可衡量的 KPI。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
+                        <li>[我的角色] → 你的职位（例如销售经理）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>实用价值</strong>
+                        <p>这份文档可用于自我评估或新人入职。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 5 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="5">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">5</div>
+                            <div class="category">流程</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-5">核心工作流程</h2>
+                        <p class="prompt-desc">看清 80% 的时间花在哪里——作为 AI 优化那一步的输入</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block5"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 5"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt5">META: 你是一名业务流程分析师。目标：找出最重要的 5 个工作流程（帕累托 80/20）——时间和精力花在哪里。
+
+INPUT: 角色 [我的角色]，公司 [公司]。请列出这个角色实际执行的 5 个最重要流程。每个流程请写明：目的；主要步骤；相关角色；通常卡在哪里。说明约占 20%，具体动作列出来约占 80%。
+
+OUTPUT: 结果：一份流程清单，用来看出 AI 影响最大的地方（第 6 步）。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt5')"
+                        aria-label="将提示词 5 复制到剪贴板"
+                        data-prompt-id="prompt5">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="5" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block6" class="prompt-next-link">下一步：AI 协助与优化 →</a>
+                </p>
+                <section class="before-use" id="before-use-5" aria-labelledby="before-use-title-5">
+                    <h3 class="before-use-title" id="before-use-title-5">使用前</h3>
+                    <p><strong>什么时候用：</strong>你想看清时间花在哪里；优化工作日；为用上 AI 做准备。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
+                        <li>[我的角色] → 你的职位（例如销售经理）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>优化</strong>
+                        <p>一旦看清流程，就能看出 AI 影响最大的地方。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 6 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="6">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">6</div>
+                            <div class="category">AI 应用</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-6">AI 协助与优化</h2>
+                        <p class="prompt-desc">把流程地图变成能省下几小时的具体 AI 捷径</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block6"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 6"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt6">META: 你是一名 AI 落地顾问。目标：评估这些流程，并给出用 ChatGPT 或其他 AI 工具改进它们的具体办法。
+
+INPUT: 请评估这段对话里已有的流程，或用户贴在下方的流程描述，给出 8–10 个想法。每个想法请写明：AI 做什么；能简化流程的哪一步；实际收益（时间 / 质量 / 成本）；实施难度（容易 / 中等 / 难）。请用非技术用户能看懂的话写。
+
+OUTPUT: 结果：8–10 个具体想法，每个都写清时间 / 质量 / 成本收益，以及实施难度。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt6')"
+                        aria-label="将提示词 6 复制到剪贴板"
+                        data-prompt-id="prompt6">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="6" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block7" class="prompt-next-link">下一步：日常提示词库 →</a>
+                </p>
+                <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
+                    <h3 class="before-use-title" id="before-use-title-6">使用前</h3>
+                    <p><strong>什么时候用：</strong>你已经有流程描述（第 5 步）；想要具体的 AI 用法；想节省时间。</p>
+                    <p><strong>操作：</strong>先完成第 5 步，或把第 5 步的流程描述贴在这段提示词后面。然后复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>实际影响</strong>
+                        <p>这条提示词帮你找出 AI 每周能省下几小时的具体位置。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 7 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="7">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">7</div>
+                            <div class="category">资料库</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-7">日常提示词库</h2>
+                        <p class="prompt-desc">展开后可见全文——一张日常工作用的个人提示词表</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block7"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 7"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt7">META: 你是一名提示词工程师。目标：为这个具体角色和公司写出 10–12 条可日常使用的短提示词。
+
+INPUT: 角色 [我的角色]，公司 [公司]。请写出帮助以下方面的提示词：规划；解决问题；沟通；决策。请用表格给出：[提示词] | [使用场景] | [解决的问题]。
+
+OUTPUT: 结果：一套个人提示词——一张每天能用的表。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt7')"
+                        aria-label="将提示词 7 复制到剪贴板"
+                        data-prompt-id="prompt7">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="7" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#block8" class="prompt-next-link">下一步：关键情境模拟 →</a>
+                </p>
+                <section class="before-use" id="before-use-7" aria-labelledby="before-use-title-7">
+                    <h3 class="before-use-title" id="before-use-title-7">使用前</h3>
+                    <p><strong>什么时候用：</strong>你想要日常工作和快速决策的个人提示词；想要一张 [提示词] | [使用场景] | [解决的问题] 表。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
+                        <li>[我的角色] → 你的职位（例如销售经理）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>日常改进</strong>
+                        <p>你会得到一套个人提示词——每天直接用，不用再想。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- PROMPT 8 -->
+        <article class="prompt prompt--collapsible">
+            <details class="prompt-details" data-prompt="8">
+                <summary class="prompt-header">
+                    <div class="prompt-header-inner">
+                        <div class="prompt-meta">
+                            <div class="number">8</div>
+                            <div class="category">模拟</div>
+                            <span class="prompt-time">约 3–5 分钟</span>
+                        </div>
+                        <h2 class="prompt-title" id="prompt-title-8">关键情境模拟</h2>
+                        <p class="prompt-desc">在高压决策发生前，先和 AI 演练一遍</p>
+                    </div>
+                    <span class="prompt-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="prompt-body">
+                <div class="code-block"
+                     id="block8"
+                     role="button"
+                     tabindex="0"
+                     aria-label="选中并复制提示词 8"
+                     onclick="selectText(this)"
+                     onkeydown="handleCodeBlockKeydown(event, this)">
+                    <pre class="code-text" id="prompt8">META: 你是一名战略规划顾问。目标：模拟关键情境并给出行动计划——为压力和不确定性做准备。
+
+INPUT: 公司 [公司]，角色 [我的角色]。请设想一个直接影响这个角色的关键情境。请给出：2 个现实场景；前 14 天的行动计划；AI 能如何帮忙；主要风险和成功标准。
+
+OUTPUT: 结果：场景和 14 天计划——最好先和 AI 演练，而不是等到真发生。</pre>
+                </div>
+            <div class="prompt-footer">
+                <button class="btn" 
+                        onclick="copyPrompt(this, 'prompt8')"
+                        aria-label="将提示词 8 复制到剪贴板"
+                        data-prompt-id="prompt8">
+                    <i data-lucide="clipboard-copy" aria-hidden="true"></i>
+                    <span>复制提示词</span>
+                </button>
+                <label class="prompt-done-wrap">
+                    <input type="checkbox" class="prompt-done" data-prompt-id="8" aria-label="将此步标记为完成">
+                    <span>标记完成</span>
+                </label>
+            </div>
+                <p class="prompt-next">
+                    <a href="#ritual-complete" class="prompt-next-link">做完了？看下一步 →</a>
+                </p>
+                <section class="before-use" id="before-use-8" aria-labelledby="before-use-title-8">
+                    <h3 class="before-use-title" id="before-use-title-8">使用前</h3>
+                    <p><strong>什么时候用：</strong>你想为危机做准备；规划高压下的应对；用 AI 训练决策。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
+                        <li>[我的角色] → 你的职位（例如销售经理）。</li>
+                    </ul>
+                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                </section>
+                <div class="info-box" role="note" aria-label="关于这条提示词">
+                    <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+                    <div class="info-content">
+                        <strong>准备度</strong>
+                        <p>模拟帮你在危机发生前学会应对。最好先和 AI 练习，而不是等到真发生。</p>
+                    </div>
+                </div>
+                </div>
+            </details>
+        </article>
+
+        <section class="ritual-complete" id="ritual-complete" aria-labelledby="ritual-complete-title">
+            <h2 id="ritual-complete-title">你完成了 8 条提示词</h2>
+            <p>你现在有了上下文、角色画像、流程，以及一套个人日常提示词。</p>
+            <a href="https://www.promptanatomy.app/en?utm_source=info&amp;utm_medium=ritual_complete&amp;utm_campaign=ecosystem"
+               class="community-cta-secondary"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="学习完整体系 – 英语互动课程（在新标签页打开）">学习完整体系 →</a>
+        </section>
+
+        <!-- NEXT STEPS -->
+        <section class="next-steps" aria-labelledby="next-steps-title">
+            <h2 id="next-steps-title">跳到某一步</h2>
+            <p>最好按 1 到 8 的顺序。</p>
+            <div class="next-steps-links">
+                <a href="#block1">1. AI 上下文检查</a>
+                <a href="#block2">2. 组织画像</a>
+                <a href="#block3">3. 我在组织中的角色</a>
+                <a href="#block4">4. 职位说明 + KPI</a>
+                <a href="#block5">5. 核心工作流程</a>
+                <a href="#block6">6. AI 协助与优化</a>
+                <a href="#block7">7. 日常提示词库</a>
+                <a href="#block8">8. 关键情境模拟</a>
+            </div>
+        </section>
+
+        <!-- COMMUNITY -->
+        <section class="community" id="community" aria-labelledby="community-title">
+            <h2 id="community-title">想继续深入？<br>加入 Telegram。</h2>
+            <p>一起讨论提示词和 AI 的用法、技巧和动态。</p>
+            <a href="https://t.me/prompt_anatomy" class="community-cta-primary" target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 Prompt Anatomy Telegram 频道">加入 Telegram</a>
+            <a href="https://www.promptanatomy.app/en" class="community-cta-secondary" target="_blank" rel="noopener noreferrer" aria-label="完整 Prompt Anatomy — 英语互动课程（在新标签页打开）">Prompt Anatomy →</a>
+        </section>
+
+        <section class="ecosystem" aria-labelledby="ecosystem-title">
+            <h2 id="ecosystem-title">Daily Workflow Library</h2>
+            <p class="ecosystem-lead">从战略、战术到日常执行，用 AI 串起来。你现在用的是 Daily Workflow Library。</p>
+            <figure class="ecosystem-figure">
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="/assets/img/ecosystem/ecosystem-800.webp 800w, /assets/img/ecosystem/ecosystem-1200.webp 1200w"
+                        sizes="(max-width: 768px) 100vw, 960px">
+                    <img
+                        src="/assets/img/ecosystem/ecosystem-1200.png"
+                        alt="示意图：promptanatomy.app 位于中心，连接到 promptanatomy.cloud、promptanatomy.info、promptanatomy.space、promptanatomy.help、promptanatomy.blog、promptanatomy.pro 和 promptanatomy.ceo"
+                        width="1200"
+                        height="675"
+                        loading="lazy"
+                        decoding="async">
+                </picture>
+            </figure>
+        </section>
+
+        <footer class="footer">
+            <h3>祝你用好这些提示词 <i data-lucide="rocket" aria-hidden="true"></i></h3>
+            <p>如果提示词里有 [公司] 或 [我的角色]，换成你的信息。AI 的角色（例如“批判性分析师”）已经写好——不用改。</p>
+            <div class="tags" role="list">
+                <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI 优化</span>
+                <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 条提示词</span>
+                <span class="tag" role="listitem"><i data-lucide="zap" aria-hidden="true"></i> 快速开始</span>
+                <span class="tag" role="listitem"><i data-lucide="target" aria-hidden="true"></i> 看结果</span>
+            </div>
+            <div class="footer-meta">
+                <address class="footer-contact">
+                    <strong>Prompt Anatomy</strong><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <span class="footer-contact-address">1311 Park St, Unit #654, Alameda, CA 94501, USA</span><span class="footer-meta-sep" aria-hidden="true"> · </span>
+                    <a href="mailto:info@promptanatomy.app">info@promptanatomy.app</a>
+                </address>
+                <a href="privacy.html" class="footer-meta-link">隐私</a>
+                <nav class="lang-switcher lang-switcher--dropdown lang-switcher--footer" aria-label="语言">
+                    <button type="button"
+                            class="lang-switcher-trigger"
+                            id="lang-switcher-trigger-footer"
+                            aria-expanded="false"
+                            aria-controls="lang-switcher-menu-footer">
+                        <span class="lang-switcher-trigger-text">简体中文</span>
+                        <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page">简体中文</span></li>
+                    </ul>
+                </nav>
+            </div>
+            <p class="footer-entity">
+              Prompt Anatomy 的一部分 · 培训与结账 →
+              <a href="https://www.promptanatomy.app/?utm_source=info&amp;utm_medium=entity_footer&amp;utm_campaign=ecosystem"
+                 target="_blank" rel="noopener noreferrer">promptanatomy.app</a>
+            </p>
+            <div class="copyright">
+                <p>&copy; 2026 Tomas Staniulis. 培训材料。保留所有权利。</p>
+            </div>
+        </footer>
+
+        </main>
+    </div>
+
+    <script defer src="/assets/js/lucide.min.js"></script>
+    <textarea class="hidden" id="hiddenTextarea" aria-label="复制文本框" aria-hidden="true"></textarea>
+    
+    <div class="toast" 
+         id="toast" 
+         role="status" 
+         aria-live="polite" 
+         aria-atomic="true"
+         aria-label="复制通知">
+        <div class="toast-icon" aria-hidden="true"><i data-lucide="check"></i></div>
+        <span>已复制</span>
+    </div>
+
+    <script src="../js/lang-switcher.js" defer></script>
+    <script src="../js/prompt-collapse.js" defer></script>
+    <script src="../js/library.zh.js" defer></script>
+</body>
+</html>

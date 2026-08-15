@@ -26,7 +26,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - [ ] **Kopijavimas:** Visi 8 promptai – pasirinkti → „Kopijuoti promptą“ → įklijuoti į DI (pvz. ChatGPT) – tekstas teisingas.
 - [ ] **Progresas:** „Pažymėjau kaip atlikau“ – varnelė įrašoma; perkrovus puslapį – progresas išsaugotas (localStorage).
 - [ ] **Skip link:** Tab iki „Praleisti į turinį“ – Enter – fokusas pereina į pagrindinį turinį.
-- [ ] **Kalbų jungiklis:** Hero + footer dropdown – 5 kalbos, be H1 dubliavimo; pasirinkus – teisingas locale URL ir turinys; root `/` numatytai → `/en/`. Lokaliai – `npx serve . -l 3000` (be `-s`).
+- [ ] **Kalbų jungiklis:** Hero + footer dropdown – 6 kalbos, be H1 dubliavimo; pasirinkus – teisingas locale URL ir turinys; root `/` numatytai → `/en/`. Lokaliai – `npx serve . -l 3000` (be `-s`).
 - [ ] **Privatumas:** Nuoroda į privatumas.html veikia; privatumas.html atsidaro ir rodo turinį.
 
 ### Prieinamumas (a11y)

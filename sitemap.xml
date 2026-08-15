@@ -3,102 +3,134 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.promptanatomy.info/en/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/lt/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/et/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/lv/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/ja/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
+  </url>
+  <url>
+    <loc>https://www.promptanatomy.info/zh/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/en/privacy.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/lt/privatumas.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/et/privacy.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/lv/privacy.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
   </url>
   <url>
     <loc>https://www.promptanatomy.info/ja/privacy.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.promptanatomy.info/zh/privacy.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://www.promptanatomy.info/lt/privatumas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.promptanatomy.info/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.promptanatomy.info/et/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://www.promptanatomy.info/lv/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.promptanatomy.info/ja/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.promptanatomy.info/zh/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.promptanatomy.info/en/privacy.html"/>
   </url>
 </urlset>

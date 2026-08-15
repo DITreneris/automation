@@ -22,6 +22,8 @@ const FILES = [
   'lv/privacy.html',
   'ja/index.html',
   'ja/privacy.html',
+  'zh/index.html',
+  'zh/privacy.html',
 ];
 
 const config = JSON.parse(readFileSync(join(root, '.htmlvalidate.json'), 'utf8'));

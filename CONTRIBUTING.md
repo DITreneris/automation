@@ -24,7 +24,7 @@ Production site: https://www.promptanatomy.info/
 ## Project model
 
 - **Zero-build static site:** HTML + CSS + vanilla JavaScript. No React, Vite, or bundlers.
-- **Five locales:** `lt`, `en`, `et`, `lv`, `ja`.
+- **Six locales:** `lt`, `en`, `et`, `lv`, `ja`, `zh` (`html lang` / `hreflang` = `zh-Hans`).
 - **English is canonical** for structure and shared JS: `en/index.html`, `en/privacy.html`, `js/library.js`.
 
 ## Multilingual workflow
@@ -35,6 +35,7 @@ Production site: https://www.promptanatomy.info/
 | ET, LV | Run `npm run generate:et-lv` after EN changes; commit generated files |
 | LT | Manual HTML: `lt/index.html`, `lt/privatumas.html`. JS: `LT_JS_PAIRS` then `generate:et-lv` (do not hand-edit `js/library.lt.js`) |
 | JA | Manual: `ja/index.html`, `js/library.ja.js`, `ja/privacy.html` |
+| ZH | Manual: `zh/index.html`, `js/library.zh.js`, `zh/privacy.html` |
 
 After changing EN source (`en/index.html`, `en/privacy.html`, or `js/library.js`):
 

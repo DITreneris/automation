@@ -16,11 +16,13 @@ const paths = [
   '/et/',
   '/lv/',
   '/ja/',
+  '/zh/',
   '/lt/privatumas.html',
   '/en/privacy.html',
   '/et/privacy.html',
   '/lv/privacy.html',
   '/ja/privacy.html',
+  '/zh/privacy.html',
 ];
 
 const extraArgs = [

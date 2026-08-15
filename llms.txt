@@ -1,6 +1,6 @@
 # Prompt Anatomy – Daily Workflow Library
 
-> Free 8 copy-paste prompts in five locales. Companion to the Prompt Anatomy interactive course — not a lesser copy of it.
+> Free 8 copy-paste prompts in six locales. Companion to the Prompt Anatomy interactive course — not a lesser copy of it.
 
 ## Canonical site
 https://www.promptanatomy.info/
@@ -14,6 +14,7 @@ https://www.promptanatomy.info/sitemap.xml
 - Eesti: https://www.promptanatomy.info/et/
 - Latviešu: https://www.promptanatomy.info/lv/
 - 日本語: https://www.promptanatomy.info/ja/
+- 简体中文: https://www.promptanatomy.info/zh/
 
 ## Main product (interactive course)
 https://www.promptanatomy.app/en
@@ -27,6 +28,7 @@ https://www.promptanatomy.app/
 - Eesti: https://www.promptanatomy.info/et/privacy.html
 - Latviešu: https://www.promptanatomy.info/lv/privacy.html
 - 日本語: https://www.promptanatomy.info/ja/privacy.html
+- 简体中文: https://www.promptanatomy.info/zh/privacy.html
 
 ## Organization
 Prompt Anatomy | 1311 Park St, Unit #654, Alameda, CA 94501, USA | info@promptanatomy.app

@@ -1,7 +1,7 @@
 # MUST TODO – aktyvūs prioritetai
 
-**Atnaujinta:** 2026-08-14  
-**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (5 kalbos, **v1.5.0**).
+**Atnaujinta:** 2026-08-15  
+**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (6 kalbos, **v1.5.0**; ZH Unreleased).
 
 > Kontaktų forma ir Google Sheets – **Won't** šitam ciklui ([docs/archive/integrations/](docs/archive/integrations/)).
 
@@ -13,7 +13,7 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 
 - [ ] `npm test` praeina
 - [ ] Jei keista EN (`en/index.html`, `en/privacy.html`, `js/library.js`) – `npm run generate:et-lv`, be necommitinto diff
-- [ ] Footer `.footer-contact` kanonas visose 5 kalbose (žr. [AGENTS.md](AGENTS.md) QA)
+- [ ] Footer `.footer-contact` kanonas visose 6 kalbose (žr. [AGENTS.md](AGENTS.md) QA)
 
 ---
 

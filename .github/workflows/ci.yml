@@ -28,7 +28,7 @@ jobs:
 
       - name: Verify locale library index files exist
         run: |
-          for f in lt/index.html en/index.html et/index.html lv/index.html ja/index.html; do
+          for f in lt/index.html en/index.html et/index.html lv/index.html ja/index.html zh/index.html; do
             test -f "$f" || { echo "::error::Missing $f"; exit 1; }
           done
 

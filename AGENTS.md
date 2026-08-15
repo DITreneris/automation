@@ -8,7 +8,7 @@ Operational SSOT for AI coding agents. Human onboarding: [README.md](README.md).
 
 ## Mission
 
-Free static **5-locale** 8-prompt Daily Workflow Library (lt / en / et / lv / ja).
+Free static **6-locale** 8-prompt Daily Workflow Library (lt / en / et / lv / ja / zh).
 
 | Product | URL | Constant |
 |---------|-----|----------|
@@ -26,7 +26,7 @@ Never link the course to `promptanatomy.info/en` — that is the library EN page
 - **Zero-build:** plain HTML + [css/library.css](css/library.css) + vanilla JS. No React, Vite, Tailwind, or bundlers.
 - **EN is canonical:** [en/index.html](en/index.html), [en/privacy.html](en/privacy.html), [js/library.js](js/library.js).
 - After EN source changes: `npm run generate:et-lv` and commit generated files (ET/LV pages + `library.{et,lv,lt}.js`).
-- **LT HTML** ([lt/](lt/)) and **JA** ([ja/](ja/), [js/library.ja.js](js/library.ja.js)): update manually. **LT JS** is generated (`LT_JS_PAIRS` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)) — do not hand-edit `js/library.lt.js`.
+- **LT HTML** ([lt/](lt/)), **JA** ([ja/](ja/), [js/library.ja.js](js/library.ja.js)), and **ZH** ([zh/](zh/), [js/library.zh.js](js/library.zh.js)): update manually. **LT JS** is generated (`LT_JS_PAIRS` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)) — do not hand-edit `js/library.lt.js`.
 - **`npm test` must pass** before merge.
 - **No secrets** in Git (API keys, `.env`, real Google Script URLs).
 - **Local preview:** `npx serve . -l 3000` — **never** use `-s` (breaks locale paths).
@@ -43,6 +43,7 @@ Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md).
 | EN JS (copy, toast, progress) | [js/library.js](js/library.js) |
 | LT copy / UI | [lt/index.html](lt/index.html); JS via `LT_JS_PAIRS` then `generate:et-lv` |
 | JA copy / UI | [ja/index.html](ja/index.html), [js/library.ja.js](js/library.ja.js) |
+| ZH copy / UI | [zh/index.html](zh/index.html), [js/library.zh.js](js/library.zh.js) |
 | ET / LV library pages | Generated — EN and/or pair `to` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs), then `npm run generate:et-lv` |
 | Shared styles | [css/tokens.css](css/tokens.css) (SSOT), [css/library.css](css/library.css) |
 | Privacy layout | [css/privacy.css](css/privacy.css) |
@@ -110,7 +111,7 @@ Report issues: [SECURITY.md](SECURITY.md).
 
 ## Edit freely
 
-`css/`, `en/`, `lt/` (HTML/privacy), `ja/`, `js/library.js`, `js/library.ja.js`, `tests/`, `scripts/`, `assets/`, `lessons/`
+`css/`, `en/`, `lt/` (HTML/privacy), `ja/`, `zh/`, `js/library.js`, `js/library.ja.js`, `js/library.zh.js`, `tests/`, `scripts/`, `assets/`, `lessons/`
 
 ## Edit carefully
 
@@ -142,7 +143,7 @@ Report issues: [SECURITY.md](SECURITY.md).
 
 | Role | Focus |
 |------|--------|
-| Content | Prompts, microcopy, 5-locale parity |
+| Content | Prompts, microcopy, 6-locale parity |
 | Curriculum | Structure, prompt sequence, MULTILINGUAL |
 | UI/UX | CSS, a11y, responsive |
 | QA | Tests, CHANGELOG, footer-contact kanon |
@@ -152,4 +153,4 @@ Full workflow history: [docs/archive/](docs/archive/).
 
 ---
 
-**Last updated:** 2026-08-14
+**Last updated:** 2026-08-15

@@ -20,6 +20,7 @@ const HREFLANG_LIBRARY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
     <link rel="alternate" hreflang="et" href="${SITE_ORIGIN}/et/" id="hreflang-et">
     <link rel="alternate" hreflang="lv" href="${SITE_ORIGIN}/lv/" id="hreflang-lv">
     <link rel="alternate" hreflang="ja" href="${SITE_ORIGIN}/ja/" id="hreflang-ja">
+    <link rel="alternate" hreflang="zh-Hans" href="${SITE_ORIGIN}/zh/" id="hreflang-zh">
     <link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/en/" id="hreflang-default">`;
 
 const HREFLANG_PRIVACY = `    <link rel="alternate" hreflang="lt" href="${SITE_ORIGIN}/lt/privatumas.html" id="hreflang-lt">
@@ -27,6 +28,7 @@ const HREFLANG_PRIVACY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
     <link rel="alternate" hreflang="et" href="${SITE_ORIGIN}/et/privacy.html" id="hreflang-et">
     <link rel="alternate" hreflang="lv" href="${SITE_ORIGIN}/lv/privacy.html" id="hreflang-lv">
     <link rel="alternate" hreflang="ja" href="${SITE_ORIGIN}/ja/privacy.html" id="hreflang-ja">
+    <link rel="alternate" hreflang="zh-Hans" href="${SITE_ORIGIN}/zh/privacy.html" id="hreflang-zh">
     <link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/en/privacy.html" id="hreflang-default">`;
 
 const OG_LIBRARY_TITLE =
@@ -44,14 +46,16 @@ const OG_LOCALE = {
   et: 'et_EE',
   lv: 'lv_LV',
   ja: 'ja_JP',
+  zh: 'zh_CN',
 };
 
 const OG_LOCALE_ALTERNATES = {
-  en: ['lt_LT', 'et_EE', 'lv_LV', 'ja_JP'],
-  lt: ['en_US', 'et_EE', 'lv_LV', 'ja_JP'],
-  et: ['lt_LT', 'en_US', 'lv_LV', 'ja_JP'],
-  lv: ['lt_LT', 'en_US', 'et_EE', 'ja_JP'],
-  ja: ['lt_LT', 'en_US', 'et_EE', 'lv_LV'],
+  en: ['lt_LT', 'et_EE', 'lv_LV', 'ja_JP', 'zh_CN'],
+  lt: ['en_US', 'et_EE', 'lv_LV', 'ja_JP', 'zh_CN'],
+  et: ['lt_LT', 'en_US', 'lv_LV', 'ja_JP', 'zh_CN'],
+  lv: ['lt_LT', 'en_US', 'et_EE', 'ja_JP', 'zh_CN'],
+  ja: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'zh_CN'],
+  zh: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'ja_JP'],
 };
 
 function ogLocaleAlternates(langCode) {

@@ -63,6 +63,7 @@ const ET_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                         <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
                         <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
                         <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
                 </nav>`;
 
@@ -81,6 +82,7 @@ const ET_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                     <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
                     <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
                     <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
             </nav>`;
 
@@ -104,6 +106,7 @@ const LV_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                         <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
                         <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
                         <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
                 </nav>`;
 
@@ -122,6 +125,7 @@ const LV_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                     <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
                     <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
                     <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
             </nav>`;
 

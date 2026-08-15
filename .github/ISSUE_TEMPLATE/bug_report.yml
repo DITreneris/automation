@@ -19,6 +19,7 @@ body:
         - et
         - lv
         - ja
+        - zh
         - root /
     validations:
       required: true

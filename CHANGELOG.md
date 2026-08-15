@@ -10,10 +10,11 @@ Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.5.0]**
 
 ### Prideta
 
-- (tuščia)
+- **[Content] Simplified Chinese locale:** `/zh/` (`zh/index.html`, `zh/privacy.html`), `js/library.zh.js` (rankiniu, kaip JA), `scripts/prompt-bodies-zh.cjs`. `html lang` / `hreflang` = `zh-Hans`; switcher **简体中文**; `localStorage` / `data-lang` = `zh`; visi `zh*` naršyklės → `/zh/`. CJK font stack `html[lang^="zh"]`. Traditional / OpenCC – ne šiame cikle.
 
 ### Pakeista
 
+- **[Content] ZH chrome + prompt polish:** gramatika ir registras (你 / META `你是一名`；before-use `什么时候用` / `先替换` / `操作`)；8 kūnai nebe EN kalkė (P6 paste-hook, P5 80/20 kaip JA). Privatumas ištikimas EN, be PIPL/ICP.
 - **[UI] Prompt 7:** nuimtas unreleased takeaway (`textarea` + „Copy table“). Kortelė vėl kaip 1–6 ir 8; rinkinys lieka modelio lentelė.
 
 ---

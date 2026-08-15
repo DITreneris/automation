@@ -4,7 +4,7 @@
 
 ## Quick start (English)
 
-Static 5-locale 8-prompt library. Companion to the course at promptanatomy.app — not a training platform. **Production:** https://www.promptanatomy.info/
+Static 6-locale 8-prompt library. Companion to the course at promptanatomy.app — not a training platform. **Production:** https://www.promptanatomy.info/
 
 ```bash
 npm install
@@ -51,11 +51,11 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 
 ## Kaip naudoti
 
-1. Atidarykite svetainę naršyklėje. Root (`/`) numatytai nukreipia į **`/en/`** (centrinė kalba); taip pat į `/lt/`, `/et/`, `/lv/` arba `/ja/` pagal `localStorage.lang` arba naršyklės kalbą. Kalbą galima keisti penkiakalbiu jungikliu viršuje (**Lietuvių | English | Eesti | Latviešu | 日本語**).
+1. Atidarykite svetainę naršyklėje. Root (`/`) numatytai nukreipia į **`/en/`** (centrinė kalba); taip pat į `/lt/`, `/et/`, `/lv/`, `/ja/` arba `/zh/` pagal `localStorage.lang` arba naršyklės kalbą. Kalbą galima keisti šešiakalbiu jungikliu viršuje (**Lietuvių | English | Eesti | Latviešu | 日本語 | 简体中文**).
 2. Pasirinkite promptą ir spauskite ant jo – tekstas automatiškai pažymėsis
 3. Spauskite mygtuką **"Kopijuoti promptą"** arba naudokite `Ctrl+C` / `Cmd+C`
 4. Įklijuokite į ChatGPT, Claude ar kitą DI įrankį
-5. Jei prompte yra vartotojo žymekliai – pakeiskite savo duomenimis: **LT** `[ĮMONĖ]` / `[MANO ROLĖ]`; **EN** / **JA** `[COMPANY]` / `[MY ROLE]`; **ET** `[ETTEVÕTE]` / `[MINU ROLL]`; **LV** `[UZŅĒMUMS]` / `[MANA LOMA]`. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Lentelės stulpeliai 7-ame prompte taip pat lokalizuoti (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3b).
+5. Jei prompte yra vartotojo žymekliai – pakeiskite savo duomenimis: **LT** `[ĮMONĖ]` / `[MANO ROLĖ]`; **EN** / **JA** `[COMPANY]` / `[MY ROLE]`; **ET** `[ETTEVÕTE]` / `[MINU ROLL]`; **LV** `[UZŅĒMUMS]` / `[MANA LOMA]`; **ZH** `[公司]` / `[我的角色]`. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Lentelės stulpeliai 7-ame prompte taip pat lokalizuoti (žr. [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §3b).
 
 ## Technologijos
 
@@ -68,7 +68,7 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 
 ```
 .
-├── index.html          # Root: redirect į /lt/ | /en/ (default) | /et/ | /lv/ | /ja/
+├── index.html          # Root: redirect į /lt/ | /en/ (default) | /et/ | /lv/ | /ja/ | /zh/
 ├── lt/
 │   ├── index.html      # Biblioteka (lietuvių)
 │   └── privatumas.html # Privatumo politika (LT)
@@ -84,6 +84,9 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 ├── ja/
 │   ├── index.html      # ライブラリ (日本語)
 │   └── privacy.html    # プライバシー (JA)
+├── zh/
+│   ├── index.html      # 资料库 (简体中文)
+│   └── privacy.html    # 隐私政策 (ZH)
 ├── css/
 │   ├── tokens.css      # Design tokens SSOT (DS v2.0)
 │   ├── library.css     # Bibliotekos komponentai (@import tokens)
@@ -100,14 +103,16 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 │   ├── library.lt.js   # Ta pati logika LT
 │   ├── library.et.js   # Generuojama: npm run generate:et-lv
 │   ├── library.lv.js   # Generuojama: npm run generate:et-lv
-│   └── library.ja.js   # JA (rankiniu)
+│   ├── library.ja.js   # JA (rankiniu)
+│   └── library.zh.js   # ZH (rankiniu)
 ├── scripts/
 │   ├── generate-et-lv-pages.cjs   # ET/LV index + library.et.js / library.lv.js iš EN
-│   ├── lint-html.mjs              # html-validate (11 HTML failų)
+│   ├── lint-html.mjs              # html-validate (13 HTML failų)
 │   ├── pa11y-pages.cjs            # pa11y URL sąrašas (CI)
 │   ├── pa11y.config.cjs           # pa11y Puppeteer konfigūracija
 │   ├── prompt-bodies-et-lv.cjs    # META/INPUT/OUTPUT tekstai ET/LV
-│   └── prompt-bodies-ja.cjs       # JA promptų korpusas (šaltinis rankiniam JA)
+│   ├── prompt-bodies-ja.cjs       # JA promptų korpusas (šaltinis rankiniam JA)
+│   └── prompt-bodies-zh.cjs       # ZH promptų korpusas (šaltinis rankiniam ZH)
 ├── README.md           # Dokumentacija
 ├── LICENSE             # CC BY 4.0
 ├── CONTRIBUTING.md     # PR ir locale vartai
@@ -119,7 +124,7 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 ├── DEPLOYMENT.md       # Deploy instrukcijos (Vercel + custom domain)
 ├── docs/
 │   ├── DOCUMENTATION.md           # Lean dokumentų indeksas (3 lygiai)
-│   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV/JA
+│   ├── MULTILINGUAL_STRUCTURE.md  # Path atitikmenys LT/EN/ET/LV/JA/ZH
 │   ├── design_system.md           # Design System v2.0 (tokenai, komponentai, patterns)
 │   ├── BULLET_PROOF_PROMPTS.md    # Promptų META/INPUT/OUTPUT standartas
 │   ├── QA_STANDARTAS.md           # QA standartas (spinoff01)
@@ -138,7 +143,7 @@ npx serve . -l 3000   # no -s flag; open http://localhost:3000/en/
 ## Privatumas
 
 - **Minimali aplikacija:** šiuo metu **nerinkime jokių asmens duomenų**. Visas naudojimas vyksta tik tavo įrenginyje (kopijavimas, „Pažymėjau kaip atlikau“ – localStorage).
-- **Privatumo politika:** LT [lt/privatumas.html](lt/privatumas.html), EN [en/privacy.html](en/privacy.html), ET [et/privacy.html](et/privacy.html), LV [lv/privacy.html](lv/privacy.html), JA [ja/privacy.html](ja/privacy.html) – aprašymas, kad duomenų nerinkime; jei vėliau bus įjungta kontaktų forma, bus atnaujinta.
+- **Privatumo politika:** LT [lt/privatumas.html](lt/privatumas.html), EN [en/privacy.html](en/privacy.html), ET [et/privacy.html](et/privacy.html), LV [lv/privacy.html](lv/privacy.html), JA [ja/privacy.html](ja/privacy.html), ZH [zh/privacy.html](zh/privacy.html) – aprašymas, kad duomenų nerinkime; jei vėliau bus įjungta kontaktų forma, bus atnaujinta.
 
 ## Deployment ir gyvas testavimas
 
