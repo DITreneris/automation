@@ -10,6 +10,10 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Pakeista
 
+### Taisyta
+
+- **[QA] Locale nudge contrast:** `.locale-nudge-link` uses `--brand-teal-dark` on `--white` (WCAG AA ≥4.5:1; was teal on page surface at 4.27:1).
+
 ---
 
 ## [1.6.0] - 2026-08-15

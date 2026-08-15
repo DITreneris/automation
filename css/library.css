@@ -175,7 +175,7 @@ html {
             justify-content: center;
             gap: var(--space-2);
             padding: var(--space-1_5) var(--space-3);
-            background: var(--color-surface-page);
+            background: var(--white);
             color: var(--color-text-primary);
             border-bottom: 1px solid var(--color-border-default);
             font-size: var(--font-size-body);
@@ -183,7 +183,7 @@ html {
             z-index: 20;
         }
         .locale-nudge-link {
-            color: var(--color-link);
+            color: var(--brand-teal-dark);
             font-weight: var(--font-weight-semibold);
             min-height: 44px;
             display: inline-flex;
@@ -191,7 +191,7 @@ html {
         }
         .locale-nudge-link:hover,
         .locale-nudge-link:focus-visible {
-            color: var(--color-link-hover);
+            color: var(--brand-teal-hover);
         }
         .locale-nudge-link:focus-visible {
             outline: 2px solid var(--color-focus-ring);
