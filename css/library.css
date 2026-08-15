@@ -163,6 +163,64 @@ html {
             outline: 2px solid white;
             outline-offset: var(--focus-ring-offset);
         }
+        .lang-switcher-icon {
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            color: currentColor;
+        }
+        .locale-nudge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-1_5) var(--space-3);
+            background: var(--color-surface-page);
+            color: var(--color-text-primary);
+            border-bottom: 1px solid var(--color-border-default);
+            font-size: var(--font-size-body);
+            position: relative;
+            z-index: 20;
+        }
+        .locale-nudge-link {
+            color: var(--color-link);
+            font-weight: var(--font-weight-semibold);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .locale-nudge-link:hover,
+        .locale-nudge-link:focus-visible {
+            color: var(--color-link-hover);
+        }
+        .locale-nudge-link:focus-visible {
+            outline: 2px solid var(--color-focus-ring);
+            outline-offset: var(--focus-ring-offset);
+        }
+        .locale-nudge-dismiss {
+            min-width: 44px;
+            min-height: 44px;
+            border: none;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+        }
+        .locale-nudge-dismiss:hover,
+        .locale-nudge-dismiss:focus-visible {
+            color: var(--color-text-primary);
+        }
+        .locale-nudge-dismiss:focus-visible {
+            outline: 2px solid var(--color-focus-ring);
+            outline-offset: var(--focus-ring-offset);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .locale-nudge {
+                transition: none;
+            }
+        }
         .lang-switcher-chevron {
             font-size: 12px;
             opacity: 0.85;
@@ -1322,6 +1380,23 @@ html {
             font-size: 15px;
             color: var(--text-light);
             font-style: italic;
+        }
+        .ecosystem-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-1) var(--space-3);
+            list-style: none;
+            margin: var(--space-3) 0 0;
+            padding: 0;
+        }
+        .ecosystem-links a {
+            color: var(--color-link);
+            font-size: var(--font-size-sm);
+        }
+        .ecosystem-links a:hover,
+        .ecosystem-links a:focus-visible {
+            color: var(--color-link-hover);
         }
 
         /* ===== FOOTER ===== */

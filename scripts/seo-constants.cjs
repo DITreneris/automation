@@ -112,8 +112,84 @@ function ogPrivacyBlock(pageUrl, langCode, title, description) {
     <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}">`;
 }
 
-function jsonLdLibrary(localePath, langCode, pageTitle, pageDescription) {
+const LIBRARY_STEPS = {
+  en: [
+    'AI Context Check',
+    'Organization Portrait',
+    'My Role in the Organization',
+    'Job Description + KPI',
+    'Core Work Processes',
+    'AI Help and Optimization',
+    'Daily Prompt Library',
+    'Critical Situation Simulation',
+  ],
+  lt: [
+    'DI konteksto patikra',
+    'Organizacijos portretas',
+    'Mano rolė organizacijoje',
+    'Pareigybės instrukcija + KPI',
+    'Pagrindiniai darbo procesai',
+    'DI pagalba ir optimizavimas',
+    'Kasdienė promptų biblioteka',
+    'Kritinių situacijų simuliacija',
+  ],
+  et: [
+    'Tehisintellekti konteksti kontroll',
+    'Organisatsiooni portree',
+    'Minu roll organisatsioonis',
+    'Ametijuhend + KPI',
+    'Põhitööprotsessid',
+    'Tehisintellekti abi ja optimeerimine',
+    'Igapäevane promptide kogu',
+    'Kriitilise olukorra simulatsioon',
+  ],
+  lv: [
+    'MI konteksta pārbaude',
+    'Organizācijas portrets',
+    'Mana loma organizācijā',
+    'Amata apraksts + KPI',
+    'Galvenie darba procesi',
+    'MI palīdzība un optimizācija',
+    'Ikdienas promptu bibliotēka',
+    'Kritiskas situācijas simulācija',
+  ],
+  ja: [
+    'AIコンテキスト診断',
+    '組織ポートレート',
+    '組織での役割',
+    '職務記述書 + KPI',
+    '中核の業務プロセス',
+    'AIによる支援と最適化',
+    '毎日使うプロンプト集',
+    '危機シナリオのシミュレーション',
+  ],
+  zh: [
+    'AI 上下文检查',
+    '组织画像',
+    '我在组织中的角色',
+    '职位说明 + KPI',
+    '核心工作流程',
+    'AI 协助与优化',
+    '日常提示词库',
+    '关键情境模拟',
+  ],
+};
+
+function jsonLdLibrary(localePath, langCode, pageTitle, pageDescription, stepNames) {
   const pageUrl = `${SITE_ORIGIN}${localePath}`;
+  const names = stepNames && stepNames.length === 8 ? stepNames : LIBRARY_STEPS.en;
+  const howToSteps = names.map((name, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name,
+    url: `${pageUrl}#block${i + 1}`,
+  }));
+  const listItems = names.map((name, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name,
+    url: `${pageUrl}#block${i + 1}`,
+  }));
   const graph = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -149,6 +225,22 @@ function jsonLdLibrary(localePath, langCode, pageTitle, pageDescription) {
         isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
         inLanguage: langCode,
       },
+      {
+        '@type': 'HowTo',
+        '@id': `${pageUrl}#howto`,
+        name: pageTitle,
+        description: pageDescription,
+        inLanguage: langCode,
+        step: howToSteps,
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#prompts`,
+        name: pageTitle,
+        numberOfItems: 8,
+        inLanguage: langCode,
+        itemListElement: listItems,
+      },
     ],
   };
   return `    <script type="application/ld+json">${JSON.stringify(graph)}</script>`;
@@ -174,4 +266,5 @@ module.exports = {
   ogLibraryBlock,
   ogPrivacyBlock,
   jsonLdLibrary,
+  LIBRARY_STEPS,
 };

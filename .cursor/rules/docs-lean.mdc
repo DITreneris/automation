@@ -7,5 +7,7 @@ globs: ["**/*.md", ".cursorrules", "AGENTS.md"]
 
 - Index: [docs/DOCUMENTATION.md](../../docs/DOCUMENTATION.md)
 - Operational lessons: [lessons/LESSONS.md](../../lessons/LESSONS.md)
-- No new root audit/roadmap files — use CHANGELOG `[Unreleased]` or [MUST_TODO.md](../../MUST_TODO.md)
+- Planning SSOT (Level C): [docs/GLOBAL_EPIC.md](../../docs/GLOBAL_EPIC.md) (why) + [docs/MVP_ROADMAP.md](../../docs/MVP_ROADMAP.md) (when)
+- Execution board: [MUST_TODO.md](../../MUST_TODO.md)
+- No new **root-level** audit or roadmap files — do not add `*ROADMAP*` / `*EPIC*` at repo root
 - Archive (read-only history): [docs/archive/](../../docs/archive/)

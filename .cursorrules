@@ -6,6 +6,9 @@
 |-------|--------|
 | Doc index | [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) |
 | Locales | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
+| Global epic (why) | [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) |
+| Waves (when) | [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) |
+| Now | [MUST_TODO.md](MUST_TODO.md) |
 | Scoped rules | [.cursor/rules/](.cursor/rules/) |
 | Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
 
@@ -27,4 +30,4 @@ Hero H1 = prize only (`Leisk DI atlikti 30–50% tavo kasdienių užduočių`). 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md): `npm test`, EN → `generate:et-lv` if needed, CHANGELOG on release.
 
-**Atnaujinta:** 2026-06-14
+**Atnaujinta:** 2026-08-15

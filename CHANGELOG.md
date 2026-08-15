@@ -6,15 +6,30 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ## [Unreleased]
 
-Kolonėlės pildomos iki kito semver release; paskutinis release – **[1.5.0]**.
-
 ### Prideta
-
-- **[Content] Simplified Chinese locale:** `/zh/` (`zh/index.html`, `zh/privacy.html`), `js/library.zh.js` (rankiniu, kaip JA), `scripts/prompt-bodies-zh.cjs`. `html lang` / `hreflang` = `zh-Hans`; switcher **简体中文**; `localStorage` / `data-lang` = `zh`; visi `zh*` naršyklės → `/zh/`. CJK font stack `html[lang^="zh"]`. Traditional / OpenCC – ne šiame cikle.
 
 ### Pakeista
 
-- **[Content] ZH chrome + prompt polish:** gramatika ir registras (你 / META `你是一名`；before-use `什么时候用` / `先替换` / `操作`)；8 kūnai nebe EN kalkė (P6 paste-hook, P5 80/20 kaip JA). Privatumas ištikimas EN, be PIPL/ICP.
+---
+
+## [1.6.0] - 2026-08-15
+
+### Prideta
+
+- **[Orchestrator] Global acquisition planning:** [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) (kodėl, 4 TAIP, kalbų bangos, switcher kanonas, SEO/AIEO/GEO); [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) pakeičia archyvinį 2026-02 MVP. [MUST_TODO.md](MUST_TODO.md) = Wave 0 lenta. Agentai: AGENTS misija = banga ne lubos; [locale-switcher](.cursor/skills/locale-switcher/SKILL.md); MULTILINGUAL §7 N+1 playbook.
+- **[Content] Simplified Chinese locale:** šešta kalba `/zh/` (`zh/index.html`, `zh/privacy.html`), `js/library.zh.js` (rankiniu, kaip JA), `scripts/prompt-bodies-zh.cjs` (korpusas; `ZH_PAIRS` generatoriuje nėra). `html lang` / `hreflang` = `zh-Hans` (`id="hreflang-zh"`); `og:locale` `zh_CN`; switcher **简体中文**; `localStorage` / `data-lang` = `zh`; visi `navigator.language` `zh*` → `/zh/`; `x-default` lieka `/en/`. Hero: `让 AI 完成你日常工作的 30%–50%` / `8 个带现成模板的练习，几分钟就能出结果。` CJK font stack `html[lang^="zh"]` ([css/library.css](css/library.css), [css/privacy.css](css/privacy.css)). Traditional / OpenCC / Baidu / ICP – ne šiame cikle.
+- **[QA] 6-locale wiring:** [tests/structure.test.js](tests/structure.test.js) `ALL_LANGS` += `zh`, `FOOTER_ENTITY_COPY.zh`, `lang="zh-Hans"`, library `lang-link >= 10`, privacy `lang-link >= 5`; [scripts/lint-html.mjs](scripts/lint-html.mjs) 13 failų; [scripts/pa11y-pages.cjs](scripts/pa11y-pages.cjs) `/zh/`, `/zh/privacy.html`; [eslint.config.js](eslint.config.js) `library.zh.js`; CI locale index += `zh/index.html`. [sitemap.xml](sitemap.xml) `/zh/` + `/zh/privacy.html`, `hreflang="zh-Hans"` visuose klasteriuose, `<lastmod>2026-08-15</lastmod>`.
+- **[UI] Switcher atpažinimas:** Lucide `languages` + endonimas + chevron; kiekvienas `.lang-link` turi `lang` ir `hreflang` (ZH: `zh-Hans`).
+- **[UI] Locale nudge:** [js/locale-nudge.js](js/locale-nudge.js) – suggest-don't-force juosta, kai nėra `localStorage.lang` ir naršyklės kalba mapina į kitą locale. Jokio 302 iš `/{locale}/`.
+- **[QA] AIEO:** [llms.txt](llms.txt) klientų klausimams (kas / kam / 8 žingsniai / kursas; be DS vidurių). JSON-LD `HowTo` + `ItemList` visose 6 bibliotekos locale.
+- **[QA] Hero lock:** struktūriniai assertai kanoniniam H1 / lead / title / OG visoms 6 kalboms.
+- **[UI] Ecosystem nuorodos:** `.cloud` / `.info` / `.space` / `.help` / `.blog` / `.pro` / `.ceo` kaip tikri `href` po diagrama. H2 lieka Daily Workflow Library.
+- **[UI] 404 kalba:** pirminė CTA href pagal `localStorage` → `navigator.language` → EN; locale nuorodos rašo `localStorage.lang`. Be `location.replace`.
+
+### Pakeista
+
+- **[Content] ZH chrome + prompt polish:** gramatika ir registras (lankytojas **你**; META `你是一名…`; before-use `什么时候用` / `先替换` / `操作`; progress `已完成 N / 8`). 8 kūnai nebe EN kalkė: P6 paste-hook (pokalbį / įklijuotą 5 žingsnį), P5 80/20 kaip JA, P1 `澄清`, P7 lentelė `[提示词] | [使用场景] | [解决的问题]`. Privatumas ištikimas EN (`资料库`, be PIPL/ICP).
+- **[Curriculum] Locale docs:** 6 kalbos – [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md), [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md), [README.md](README.md), [DEPLOYMENT.md](DEPLOYMENT.md), [MUST_TODO.md](MUST_TODO.md), [.cursor/skills/locale-sync/SKILL.md](.cursor/skills/locale-sync/SKILL.md), [.cursor/skills/hero-copy/SKILL.md](.cursor/skills/hero-copy/SKILL.md), [lessons/LESSONS.md](lessons/LESSONS.md) (`hreflang` = `zh-Hans`, ne `zh`).
 - **[UI] Prompt 7:** nuimtas unreleased takeaway (`textarea` + „Copy table“). Kortelė vėl kaip 1–6 ir 8; rinkinys lieka modelio lentelė.
 
 ---

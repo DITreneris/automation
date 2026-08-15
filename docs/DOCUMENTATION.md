@@ -36,10 +36,12 @@
 | [SECURITY.md](../SECURITY.md) | Saugumo pranešimai, scope | Nauji duomenų rinkimo kanalai |
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | PR, locale vartai, komandos | Merge / CI taisyklės |
 | [DEPLOYMENT.md](../DEPLOYMENT.md) | Vercel, post-deploy | Platforma, URL, troubleshooting |
-| [MUST_TODO.md](../MUST_TODO.md) | Aktyvūs P0 / atidėti darbai | Prioritetų pasikeitimas |
+| [MUST_TODO.md](../MUST_TODO.md) | Aktyvūs P0 / Wave checkbox'ai (dabar) | Prioritetų pasikeitimas |
+| [docs/GLOBAL_EPIC.md](GLOBAL_EPIC.md) | Pasaulinė gaudyklė – kodėl, bangos, switcher kanonas | Ambicijos ar kalbų politikos keitimas |
+| [docs/MVP_ROADMAP.md](MVP_ROADMAP.md) | Bangų laikas ir exit (pakeičia 2026-02 MVP) | Wave startas / exit |
 | [feedback-schema.md](../feedback-schema.md) | Feedback Store schema | Metrikų / feedback modelis |
 
-**HTML (juridinis / produktas):** `lt/privatumas.html`; `en|et|lv|ja/privacy.html` – Content; sinchronas pagal MULTILINGUAL.
+**HTML (juridinis / produktas):** `lt/privatumas.html`; `en|et|lv|ja|zh/privacy.html` – Content; sinchronas pagal MULTILINGUAL.
 
 ---
 
@@ -48,7 +50,7 @@
 Visa medžiaga: [docs/archive/README.md](archive/README.md).
 
 - Auditas ir memo (įgyvendinta arba perkelta į MULTILINGUAL / CHANGELOG)
-- MVP roadmap 2026-02 (pasenęs timeline)
+- MVP roadmap 2026-02 (pasenęs; pakeistas [MVP_ROADMAP.md](MVP_ROADMAP.md))
 - Integracijos (forma išjungta; vėlesniems etapams)
 
 **EN mikrotekstas:** kanonas – `en/index.html` + `js/library.js`; sinchronizacija – MULTILINGUAL §4, ne atskiras audit failas.
@@ -59,7 +61,8 @@ Visa medžiaga: [docs/archive/README.md](archive/README.md).
 
 - **Kodas** → susijęs Lygis A/B dokumentas tame pačiame PR (arba PR apraše – kodėl ne).
 - **Release** → `CHANGELOG.md`: `[Unreleased]` → `## [X.Y.Z] - YYYY-MM-DD`.
-- **EN šaltinis** → `npm run generate:et-lv`; LT/JA rankiniu; `npm test`.
+- **EN šaltinis** → `npm run generate:et-lv`; LT/JA/ZH rankiniu; `npm test`.
+- **Nauja kalba** → [MULTILINGUAL_STRUCTURE.md](MULTILINGUAL_STRUCTURE.md) §7; eilė – [GLOBAL_EPIC.md](GLOBAL_EPIC.md) / [MVP_ROADMAP.md](MVP_ROADMAP.md).
 
 ---
 

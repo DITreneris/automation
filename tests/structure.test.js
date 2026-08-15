@@ -21,6 +21,39 @@ const FOOTER_ENTITY_COPY = {
 
 const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja', 'zh'];
 
+const HERO_LOCK = {
+  lt: {
+    h1: 'Leisk DI atlikti 30–50% tavo kasdienių užduočių',
+    lead: '8 pratimai su paruoštais šablonais – rezultatai per kelias minutes.',
+    title: 'Leisk DI atlikti 30–50% tavo kasdienių užduočių – Promptų anatomija',
+  },
+  en: {
+    h1: 'Let AI do 30–50% of your daily tasks',
+    lead: '8 exercises with ready-made templates – results in minutes.',
+    title: 'Let AI do 30–50% of your daily tasks – Prompt Anatomy',
+  },
+  et: {
+    h1: 'Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest',
+    lead: '8 harjutust valmis mallidega – tulemused minutitega.',
+    title: 'Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia',
+  },
+  lv: {
+    h1: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem',
+    lead: '8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.',
+    title: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy',
+  },
+  ja: {
+    h1: 'AIに日々の作業の30〜50%を任せる',
+    lead: '定型テンプレート付きの演習8本。数分で結果が出ます。',
+    title: 'AIに日々の作業の30〜50%を任せる – プロンプトアナトミー',
+  },
+  zh: {
+    h1: '让 AI 完成你日常工作的 30%–50%',
+    lead: '8 个带现成模板的练习，几分钟就能出结果。',
+    title: '让 AI 完成你日常工作的 30%–50% – Prompt Anatomy',
+  },
+};
+
 const ROOT_INDEX = path.join(__dirname, '..', 'index.html');
 const LT_INDEX = path.join(__dirname, '..', 'lt', 'index.html');
 const LT_PRIVATUMAS = path.join(__dirname, '..', 'lt', 'privatumas.html');
@@ -119,6 +152,12 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes('../js/lang-switcher.js'), `${lang}: lang-switcher.js`)) passed++;
   else failed++;
+  if (assert(html.includes('../js/locale-nudge.js'), `${lang}: locale-nudge.js`)) passed++;
+  else failed++;
+  if (assert(!html.includes('class="locale-nudge"'), `${lang}: no static locale-nudge markup`)) passed++;
+  else failed++;
+  if (assert(!html.includes('location.replace'), `${lang}: no inter-locale replace in HTML`)) passed++;
+  else failed++;
   if (assert(html.includes('aria-current="page"'), `${lang}: aria-current=page`)) passed++;
   else failed++;
   if (assert(html.includes('../css/library.css'), `${lang}: library.css`)) passed++;
@@ -169,6 +208,8 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes('class="ecosystem"') && html.includes('ecosystem-figure') && html.includes('/assets/img/ecosystem/ecosystem-1200'), `${lang}: ecosystem section`)) passed++;
   else failed++;
+  if (assert(html.includes('class="ecosystem-links"') && html.includes('href="https://promptanatomy.cloud/"'), `${lang}: ecosystem spoke hrefs`)) passed++;
+  else failed++;
   const ecosystemIdx = html.indexOf('class="ecosystem"');
   const pageFooterIdx = html.indexOf('<footer class="footer">');
   if (assert(communityIdx > -1 && ecosystemIdx > communityIdx && pageFooterIdx > ecosystemIdx, `${lang}: community → ecosystem → footer order`)) passed++;
@@ -214,7 +255,33 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   return { passed, failed };
 }
 
-function checkLangSwitcher(html, label, currentLang, minLinks = 4) {
+function checkHeroLock(html, label, lock) {
+  let passed = 0;
+  let failed = 0;
+  if (assert(html.includes(`<h1>${lock.h1}</h1>`), `${label}: hero H1 lock`)) passed++;
+  else failed++;
+  if (assert(html.includes(`<title>${lock.title}</title>`), `${label}: title lock`)) passed++;
+  else failed++;
+  const ogTitleMatch = html.match(/property="og:title" content="([^"]*)"/);
+  if (assert(ogTitleMatch && ogTitleMatch[1] === lock.title, `${label}: og:title lock`)) passed++;
+  else failed++;
+  const descMatch = html.match(/name="description" content="([^"]*)"/);
+  if (assert(descMatch && descMatch[1] === lock.lead, `${label}: meta description lock`)) passed++;
+  else failed++;
+  const ogDescMatch = html.match(/property="og:description" content="([^"]*)"/);
+  if (assert(ogDescMatch && ogDescMatch[1] === lock.lead, `${label}: og:description lock`)) passed++;
+  else failed++;
+  const leadMatch = html.match(/<h1>[^<]*<\/h1>\s*<p>([^<]*)<\/p>/);
+  if (assert(leadMatch && leadMatch[1] === lock.lead, `${label}: hero lead lock`)) passed++;
+  else failed++;
+  const ritualRe = /ritual|rituaal|rituāls|儀式|仪式/i;
+  const h1Lead = `${lock.h1} ${leadMatch ? leadMatch[1] : ''}`;
+  if (assert(!ritualRe.test(h1Lead), `${label}: no ritual in H1/lead`)) passed++;
+  else failed++;
+  return { passed, failed };
+}
+
+function checkLangSwitcher(html, label, currentLang, minLinks = 4, libraryExtras = false) {
   let passed = 0;
   let failed = 0;
   for (const code of ALL_LANGS) {
@@ -225,6 +292,24 @@ function checkLangSwitcher(html, label, currentLang, minLinks = 4) {
   const linkCount = (html.match(/class="[^"]*\blang-link\b[^"]*"/g) || []).length;
   if (assert(linkCount >= minLinks, `${label}: lang-link >= ${minLinks}`)) passed++;
   else failed++;
+  if (libraryExtras) {
+    if (assert(html.includes('data-lucide="languages"'), `${label}: lucide languages icon`)) passed++;
+    else failed++;
+    const links = html.match(/<a[^>]*\blang-link\b[^>]*>/g) || [];
+    const allHaveLangHreflang = links.length > 0 && links.every(function (a) {
+      return /\slang="/.test(a) && /\shreflang="/.test(a);
+    });
+    if (assert(allHaveLangHreflang, `${label}: lang-link lang+hreflang`)) passed++;
+    else failed++;
+    const zhLinks = links.filter(function (a) { return /data-lang="zh"/.test(a); });
+    if (zhLinks.length) {
+      const zhOk = zhLinks.every(function (a) {
+        return /hreflang="zh-Hans"/.test(a) && /lang="zh-Hans"/.test(a);
+      });
+      if (assert(zhOk, `${label}: ZH option zh-Hans`)) passed++;
+      else failed++;
+    }
+  }
   return { passed, failed };
 }
 
@@ -252,6 +337,15 @@ function checkSeoHead(html, label, isLibrary) {
   if (isLibrary && assert(html.includes('application/ld+json') && html.includes('Organization'), `${label}: JSON-LD Organization`)) passed++;
   else if (!isLibrary) passed++;
   else failed++;
+  if (isLibrary) {
+    if (assert(html.includes('"@type":"HowTo"') && html.includes('"@type":"ItemList"'), `${label}: JSON-LD HowTo + ItemList`)) passed++;
+    else failed++;
+    if (assert(html.includes('"numberOfItems":8'), `${label}: JSON-LD numberOfItems 8`)) passed++;
+    else failed++;
+    const howToSteps = (html.match(/"@type":"HowToStep"/g) || []).length;
+    if (assert(howToSteps === 8, `${label}: JSON-LD 8 HowToStep`)) passed++;
+    else failed++;
+  }
   return { passed, failed };
 }
 
@@ -330,7 +424,10 @@ function run() {
   failed += ltRes.failed;
   if (assert(ltHtml.includes('lang="lt"'), 'LT: html lang="lt"')) passed++;
   else failed++;
-  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 10);
+  const ltHero = checkHeroLock(ltHtml, 'LT', HERO_LOCK.lt);
+  passed += ltHero.passed;
+  failed += ltHero.failed;
+  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 10, true);
   passed += ltSw.passed;
   failed += ltSw.failed;
   const ltSeo = checkSeoHead(ltHtml, 'LT', true);
@@ -348,7 +445,10 @@ function run() {
   failed += enRes.failed;
   if (assert(enHtml.includes('lang="en"'), 'EN: html lang="en"')) passed++;
   else failed++;
-  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 10);
+  const enHero = checkHeroLock(enHtml, 'EN', HERO_LOCK.en);
+  passed += enHero.passed;
+  failed += enHero.failed;
+  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 10, true);
   passed += enSw.passed;
   failed += enSw.failed;
   const enSeo = checkSeoHead(enHtml, 'EN', true);
@@ -366,7 +466,10 @@ function run() {
   failed += etRes.failed;
   if (assert(etHtml.includes('lang="et"'), 'ET: html lang="et"')) passed++;
   else failed++;
-  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 10);
+  const etHero = checkHeroLock(etHtml, 'ET', HERO_LOCK.et);
+  passed += etHero.passed;
+  failed += etHero.failed;
+  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 10, true);
   passed += etSw.passed;
   failed += etSw.failed;
   const etSeo = checkSeoHead(etHtml, 'ET', true);
@@ -384,7 +487,10 @@ function run() {
   failed += lvRes.failed;
   if (assert(lvHtml.includes('lang="lv"'), 'LV: html lang="lv"')) passed++;
   else failed++;
-  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 10);
+  const lvHero = checkHeroLock(lvHtml, 'LV', HERO_LOCK.lv);
+  passed += lvHero.passed;
+  failed += lvHero.failed;
+  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 10, true);
   passed += lvSw.passed;
   failed += lvSw.failed;
   const lvSeo = checkSeoHead(lvHtml, 'LV', true);
@@ -402,7 +508,10 @@ function run() {
   failed += jaRes.failed;
   if (assert(jaHtml.includes('lang="ja"'), 'JA: html lang="ja"')) passed++;
   else failed++;
-  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 10);
+  const jaHero = checkHeroLock(jaHtml, 'JA', HERO_LOCK.ja);
+  passed += jaHero.passed;
+  failed += jaHero.failed;
+  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 10, true);
   passed += jaSw.passed;
   failed += jaSw.failed;
   const jaSeo = checkSeoHead(jaHtml, 'JA', true);
@@ -420,7 +529,12 @@ function run() {
   failed += zhRes.failed;
   if (assert(zhHtml.includes('lang="zh-Hans"'), 'ZH: html lang="zh-Hans"')) passed++;
   else failed++;
-  const zhSw = checkLangSwitcher(zhHtml, 'ZH', 'zh', 10);
+  if (assert(zhHtml.includes('"inLanguage":"zh-Hans"'), 'ZH: JSON-LD inLanguage zh-Hans')) passed++;
+  else failed++;
+  const zhHero = checkHeroLock(zhHtml, 'ZH', HERO_LOCK.zh);
+  passed += zhHero.passed;
+  failed += zhHero.failed;
+  const zhSw = checkLangSwitcher(zhHtml, 'ZH', 'zh', 10, true);
   passed += zhSw.passed;
   failed += zhSw.failed;
   const zhSeo = checkSeoHead(zhHtml, 'ZH', true);
@@ -490,6 +604,10 @@ function run() {
   else failed++;
   if (assert(libraryCss.includes('.ritual-complete'), 'DS: .ritual-complete block')) passed++;
   else failed++;
+  if (assert(libraryCss.includes('.locale-nudge'), 'DS: .locale-nudge block')) passed++;
+  else failed++;
+  if (assert(libraryCss.includes('.ecosystem-links'), 'DS: .ecosystem-links block')) passed++;
+  else failed++;
   for (const lang of ALL_LANGS) {
     const idx = readFile(path.join(__dirname, '..', lang, 'index.html'));
     if (assert(idx && idx.includes('class="footer-meta"') && idx.includes('footer-meta-link'), `${lang}: footer-meta with privacy link`)) passed++;
@@ -524,6 +642,7 @@ function run() {
     'assets/img/ecosystem/ecosystem-1200.webp',
     'assets/img/ecosystem/ecosystem-1200.png',
     'assets/js/lucide.min.js',
+    'js/locale-nudge.js',
     '404.html',
   ];
   for (const f of assetFiles) {
@@ -541,6 +660,11 @@ function run() {
   const robots = readFile(path.join(assetRoot, 'robots.txt'));
   if (assert(robots && robots.includes('Sitemap:') && robots.includes('sitemap.xml'), 'robots.txt: Sitemap nuoroda')) passed++;
   else failed++;
+  const llms = readFile(path.join(assetRoot, 'llms.txt')) || '';
+  if (assert(llms.includes('Let AI do 30–50% of your daily tasks'), 'llms.txt: EN H1')) passed++;
+  else failed++;
+  if (assert(!llms.includes('tokens.css') && !llms.includes('#CFA73A'), 'llms.txt: no DS internals')) passed++;
+  else failed++;
 
   // --- Vercel deploy surface ---
   const vercelIgnore = readFile(path.join(assetRoot, '.vercelignore'));
@@ -552,6 +676,13 @@ function run() {
   }
   const notFound = readFile(path.join(assetRoot, '404.html'));
   if (assert(notFound && notFound.includes('href="/en/"'), '404.html: link to /en/')) passed++;
+  else failed++;
+  if (assert(
+    notFound && ALL_LANGS.every(function (code) {
+      return notFound.includes("localStorage.setItem('lang','" + code + "')");
+    }),
+    '404.html: locale links set localStorage'
+  )) passed++;
   else failed++;
 
   console.log('\n---');

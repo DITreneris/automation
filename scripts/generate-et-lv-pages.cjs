@@ -54,16 +54,17 @@ const ET_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                             id="lang-switcher-trigger-hero"
                             aria-expanded="false"
                             aria-controls="lang-switcher-menu-hero">
+                        <i data-lucide="languages" aria-hidden="true" class="lang-switcher-icon"></i>
                         <span class="lang-switcher-trigger-text">Eesti</span>
                         <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
                     </button>
                     <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
-                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                        <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
-                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
-                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
-                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" lang="lt" hreflang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page" lang="et">Eesti</span></li>
+                        <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" lang="lv" hreflang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
                 </nav>`;
 
@@ -73,16 +74,17 @@ const ET_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                         id="lang-switcher-trigger-footer"
                         aria-expanded="false"
                         aria-controls="lang-switcher-menu-footer">
+                    <i data-lucide="languages" aria-hidden="true" class="lang-switcher-icon"></i>
                     <span class="lang-switcher-trigger-text">Eesti</span>
                     <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
                 </button>
                 <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
-                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                    <li><span class="lang-option lang-option--current" aria-current="page">Eesti</span></li>
-                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
-                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
-                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
+                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" lang="lt" hreflang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                    <li><span class="lang-option lang-option--current" aria-current="page" lang="et">Eesti</span></li>
+                    <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" lang="lv" hreflang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
             </nav>`;
 
@@ -97,16 +99,17 @@ const LV_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                             id="lang-switcher-trigger-hero"
                             aria-expanded="false"
                             aria-controls="lang-switcher-menu-hero">
+                        <i data-lucide="languages" aria-hidden="true" class="lang-switcher-icon"></i>
                         <span class="lang-switcher-trigger-text">Latviešu</span>
                         <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
                     </button>
                     <ul class="lang-switcher-menu" id="lang-switcher-menu-hero" hidden>
-                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
-                        <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
-                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
-                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
+                        <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" lang="lt" hreflang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                        <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                        <li><a href="../et/" class="lang-option lang-link" data-lang="et" lang="et" hreflang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                        <li><span class="lang-option lang-option--current" aria-current="page" lang="lv">Latviešu</span></li>
+                        <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                        <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
                 </nav>`;
 
@@ -116,16 +119,17 @@ const LV_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                         id="lang-switcher-trigger-footer"
                         aria-expanded="false"
                         aria-controls="lang-switcher-menu-footer">
+                    <i data-lucide="languages" aria-hidden="true" class="lang-switcher-icon"></i>
                     <span class="lang-switcher-trigger-text">Latviešu</span>
                     <span class="lang-switcher-chevron" aria-hidden="true">▾</span>
                 </button>
                 <ul class="lang-switcher-menu" id="lang-switcher-menu-footer" hidden>
-                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
-                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
-                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
-                    <li><span class="lang-option lang-option--current" aria-current="page">Latviešu</span></li>
-                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
-                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
+                    <li><a href="../lt/" class="lang-option lang-link" data-lang="lt" lang="lt" hreflang="lt" onclick="try{localStorage.setItem('lang','lt')}catch(e){}">Lietuvių</a></li>
+                    <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
+                    <li><a href="../et/" class="lang-option lang-link" data-lang="et" lang="et" hreflang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
+                    <li><span class="lang-option lang-option--current" aria-current="page" lang="lv">Latviešu</span></li>
+                    <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
+                    <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
             </nav>`;
 
@@ -181,6 +185,15 @@ const ET_PAIRS = [
     '"description":"8 exercises with ready-made templates – results in minutes."',
     '"description":"8 harjutust valmis mallidega – tulemused minutitega."',
   ],
+  ['https://www.promptanatomy.info/en/#block', 'https://www.promptanatomy.info/et/#block'],
+  ['"name":"AI Context Check"', '"name":"Tehisintellekti konteksti kontroll"'],
+  ['"name":"Organization Portrait"', '"name":"Organisatsiooni portree"'],
+  ['"name":"My Role in the Organization"', '"name":"Minu roll organisatsioonis"'],
+  ['"name":"Job Description + KPI"', '"name":"Ametijuhend + KPI"'],
+  ['"name":"Core Work Processes"', '"name":"Põhitööprotsessid"'],
+  ['"name":"AI Help and Optimization"', '"name":"Tehisintellekti abi ja optimeerimine"'],
+  ['"name":"Daily Prompt Library"', '"name":"Igapäevane promptide kogu"'],
+  ['"name":"Critical Situation Simulation"', '"name":"Kriitilise olukorra simulatsioon"'],
   [
     '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
     '<title>Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia</title>',
@@ -610,8 +623,17 @@ const LV_PAIRS = [
   ],
   [
     '"description":"8 exercises with ready-made templates – results in minutes."',
-    '"description":"8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.">',
+    '"description":"8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā."',
   ],
+  ['https://www.promptanatomy.info/en/#block', 'https://www.promptanatomy.info/lv/#block'],
+  ['"name":"AI Context Check"', '"name":"MI konteksta pārbaude"'],
+  ['"name":"Organization Portrait"', '"name":"Organizācijas portrets"'],
+  ['"name":"My Role in the Organization"', '"name":"Mana loma organizācijā"'],
+  ['"name":"Job Description + KPI"', '"name":"Amata apraksts + KPI"'],
+  ['"name":"Core Work Processes"', '"name":"Galvenie darba procesi"'],
+  ['"name":"AI Help and Optimization"', '"name":"MI palīdzība un optimizācija"'],
+  ['"name":"Daily Prompt Library"', '"name":"Ikdienas promptu bibliotēka"'],
+  ['"name":"Critical Situation Simulation"', '"name":"Kritiskas situācijas simulācija"'],
   [
     '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
     '<title>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy</title>',

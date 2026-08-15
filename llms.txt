@@ -1,6 +1,12 @@
 # Prompt Anatomy – Daily Workflow Library
 
-> Free 8 copy-paste prompts in six locales. Companion to the Prompt Anatomy interactive course — not a lesser copy of it.
+> Free 8 copy-paste prompts, no account. Companion to the Prompt Anatomy interactive course — not a lesser copy of it. This site is the Daily Workflow Library, not the Hub.
+
+## What it is
+Let AI do 30–50% of your daily tasks. 8 exercises with ready-made templates – results in minutes.
+
+## Who it's for
+Managers, specialists, consultants, freelancers.
 
 ## Canonical site
 https://www.promptanatomy.info/
@@ -15,6 +21,19 @@ https://www.promptanatomy.info/sitemap.xml
 - Latviešu: https://www.promptanatomy.info/lv/
 - 日本語: https://www.promptanatomy.info/ja/
 - 简体中文: https://www.promptanatomy.info/zh/
+
+## The 8 prompts
+1. AI Context Check — https://www.promptanatomy.info/en/#block1
+2. Organization Portrait — https://www.promptanatomy.info/en/#block2
+3. My Role in the Organization — https://www.promptanatomy.info/en/#block3
+4. Job Description + KPI — https://www.promptanatomy.info/en/#block4
+5. Core Work Processes — https://www.promptanatomy.info/en/#block5
+6. AI Help and Optimization — https://www.promptanatomy.info/en/#block6
+7. Daily Prompt Library — https://www.promptanatomy.info/en/#block7
+8. Critical Situation Simulation — https://www.promptanatomy.info/en/#block8
+
+## After the 8 prompts
+Continue with the interactive course: https://www.promptanatomy.app/en
 
 ## Main product (interactive course)
 https://www.promptanatomy.app/en
@@ -36,11 +55,4 @@ Prompt Anatomy | 1311 Park St, Unit #654, Alameda, CA 94501, USA | info@promptan
 ## Note
 This site is the Daily Workflow Library: 8 prompts, no account. Not the Hub. The full course application lives at the main product URL above.
 
-## Design System (v2.0.1)
-- SSOT: `css/tokens.css` | Docs: `docs/design_system.md`
-- Brand colors: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
-- Components: `css/library.css` (imports tokens) | Privacy: `css/privacy.css`
-- Rules: no inline hex colors; use semantic tokens (`--color-link`, `--color-action-primary-bg`, `--color-focus-ring`)
-- Patterns: LibraryPage layout (hero → prompts → ritual-complete → next-steps → community → footer); CTA hierarchy (navy primary → badge → teal chips → community teal → earned course outline)
-- Validation: `npm run validate:tokens`, `npm run lint:design-tokens`
-- Machine-readable export: `tokens/tokens.json` (W3C DTCG 2025.10)
+This repo is a static library; agents see AGENTS.md.

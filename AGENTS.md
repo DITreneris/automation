@@ -8,7 +8,7 @@ Operational SSOT for AI coding agents. Human onboarding: [README.md](README.md).
 
 ## Mission
 
-Free static **6-locale** 8-prompt Daily Workflow Library (lt / en / et / lv / ja / zh).
+Free static 8-prompt Daily Workflow Library. Locales are a **wave, not a ceiling** (now: lt / en / et / lv / ja / zh). EN is canonical. A new locale = [MULTILINGUAL playbook](docs/MULTILINGUAL_STRUCTURE.md) §7 + one release. Strategy: [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md). Waves: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md). Now: [MUST_TODO.md](MUST_TODO.md).
 
 | Product | URL | Constant |
 |---------|-----|----------|
@@ -30,8 +30,9 @@ Never link the course to `promptanatomy.info/en` — that is the library EN page
 - **`npm test` must pass** before merge.
 - **No secrets** in Git (API keys, `.env`, real Google Script URLs).
 - **Local preview:** `npx serve . -l 3000` — **never** use `-s` (breaks locale paths).
+- **Locale URL is the contract:** `/{locale}/` always serves that language. Never 302 away from a locale URL (IP or `Accept-Language`). Root `/` is a `noindex` vestibule (`localStorage` → `navigator.language` → EN). Suggest-don't-force: nudge banner, not an inter-locale redirect. Course stays `COURSE_URL_EN` until `.app` has that locale.
 
-Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md).
+Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md). Switcher / root / nudge: [.cursor/skills/locale-switcher/SKILL.md](.cursor/skills/locale-switcher/SKILL.md).
 
 ---
 
@@ -48,9 +49,12 @@ Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md).
 | Shared styles | [css/tokens.css](css/tokens.css) (SSOT), [css/library.css](css/library.css) |
 | Privacy layout | [css/privacy.css](css/privacy.css) |
 | SEO / course / hub / ritual URLs | [scripts/seo-constants.cjs](scripts/seo-constants.cjs) |
-| Locale paths / hreflang | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
+| Locale paths / hreflang / N+1 | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
+| Global acquisition (why) | [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) |
+| Waves (when) | [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) |
+| Current checkboxes | [MUST_TODO.md](MUST_TODO.md) |
 | Structure tests | [tests/structure.test.js](tests/structure.test.js) |
-| Repo skills | [.cursor/skills/](.cursor/skills/) (hero-copy before any H1/OG change) |
+| Repo skills | [.cursor/skills/](.cursor/skills/) (hero-copy before H1/OG; locale-switcher before lang-switcher / root / nudge) |
 
 ---
 
@@ -95,7 +99,7 @@ Details: [docs/design_system.md](docs/design_system.md), [docs/BULLET_PROOF_PROM
 
 - Index: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) — update Level A/B when merge gates change.
 - EN changes: `npm run generate:et-lv`; no uncommitted diff in generated ET/LV/LT JS.
-- Do not create new root-level audit or roadmap files — use CHANGELOG `[Unreleased]` or [MUST_TODO.md](MUST_TODO.md).
+- Planning SSOT: [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) (why) + [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) (when). Execution board: [MUST_TODO.md](MUST_TODO.md). Do not create new **root-level** audit or roadmap files.
 
 ---
 
@@ -122,6 +126,8 @@ Report issues: [SECURITY.md](SECURITY.md).
 - Point course/badge links to `promptanatomy.info/en`
 - Call this site the Hub, or point `.footer-entity` at `COURSE_URL_EN` / `COURSE_RITUAL_URL`
 - Put a diagnostic or “what AI knows about your org” on the library H1 — prize only; never put “ritual” in customer-facing front-page copy; see [.cursor/skills/hero-copy/SKILL.md](.cursor/skills/hero-copy/SKILL.md)
+- 302 from `/{locale}/` based on IP or `Accept-Language`; auto-redirect between language versions
+- Treat “6 locales” as a product ceiling — add languages via the playbook, one release at a time
 - Use `serve -s` for local preview
 - Leave uncommitted generator diff after EN edits
 - Commit secrets or real integration URLs
@@ -143,11 +149,11 @@ Report issues: [SECURITY.md](SECURITY.md).
 
 | Role | Focus |
 |------|--------|
-| Content | Prompts, microcopy, 6-locale parity |
-| Curriculum | Structure, prompt sequence, MULTILINGUAL |
-| UI/UX | CSS, a11y, responsive |
-| QA | Tests, CHANGELOG, footer-contact kanon |
-| Orchestrator | CI, docs, release coordination |
+| Content | Prompts, microcopy, N+1 quality (register, not calque) |
+| Curriculum | Prompt sequence, MULTILINGUAL playbook, hreflang cluster, wave order |
+| UI/UX | CSS, a11y, switcher + nudge (no redesign, no H1 change) |
+| QA | Tests, CHANGELOG, footer-contact kanon, pa11y on a new locale |
+| Orchestrator | CI, wave exit, release, epic / roadmap / MUST_TODO links |
 
 Full workflow history: [docs/archive/](docs/archive/).
 
