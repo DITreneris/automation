@@ -41,7 +41,7 @@
 | [docs/MVP_ROADMAP.md](MVP_ROADMAP.md) | Bangų laikas ir exit (pakeičia 2026-02 MVP) | Wave startas / exit |
 | [feedback-schema.md](../feedback-schema.md) | Feedback Store schema | Metrikų / feedback modelis |
 
-**HTML (juridinis / produktas):** `lt/privatumas.html`; `en|et|lv|ja|zh/privacy.html` – Content; sinchronas pagal MULTILINGUAL.
+**HTML (juridinis / produktas):** `lt/privatumas.html`; `en|et|lv|de|ja|zh/privacy.html` – Content; sinchronas pagal MULTILINGUAL.
 
 ---
 

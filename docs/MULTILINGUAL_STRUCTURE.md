@@ -1,4 +1,4 @@
-# Daugiakalbiška struktūra (LT / EN / ET / LV / JA / ZH)
+# Daugiakalbiška struktūra (LT / EN / ET / LV / DE / JA / ZH)
 
 **Atsakingas:** Curriculum Agent  
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.  
@@ -26,10 +26,11 @@
 | EN | `/en/` (`en/index.html`) | `/en/privacy.html` |
 | ET | `/et/` (`et/index.html`) | `/et/privacy.html` |
 | LV | `/lv/` (`lv/index.html`) | `/lv/privacy.html` |
+| DE | `/de/` (`de/index.html`) | `/de/privacy.html` |
 | JA | `/ja/` (`ja/index.html`) | `/ja/privacy.html` |
 | ZH | `/zh/` (`zh/index.html`) | `/zh/privacy.html` |
 
-ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy.html`). LT išlaiko `privatumas.html`.
+ET, LV ir DE naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy.html`). LT išlaiko `privatumas.html`.
 
 ---
 
@@ -38,10 +39,10 @@ ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy
 ### Root `/`
 
 - Vienintelis failas: `index.html` (redirect puslapis).
-- Logika: nustatyti kalbą; tada `window.location.replace` į `base + '/lt/'`, `'/en/'`, `'/et/'`, `'/lv/'`, `'/ja/'` arba `'/zh/'`.
+- Logika: nustatyti kalbą; tada `window.location.replace` į `base + '/lt/'`, `'/en/'`, `'/et/'`, `'/lv/'`, `'/de/'`, `'/ja/'` arba `'/zh/'`.
 - Kalbos nustatymas (prioritetas):
-  1. `localStorage.getItem('lang')` – jei reikšmė `lt`, `en`, `et`, `lv`, `ja` arba `zh`.
-  2. `navigator.language` (žemiau): jei prasideda `lt` → `/lt/`; `et` arba `ee` → `/et/`; `lv` → `/lv/`; `ja` → `/ja/`; `zh` → `/zh/` (visi `zh*`, įskaitant zh-TW, kol nėra Traditional); kitaip fallback **`/en/`** (centrinė kalba).
+  1. `localStorage.getItem('lang')` – jei reikšmė `lt`, `en`, `et`, `lv`, `de`, `ja` arba `zh`.
+  2. `navigator.language` (žemiau): jei prasideda `lt` → `/lt/`; `et` arba `ee` → `/et/`; `lv` → `/lv/`; `de` → `/de/`; `ja` → `/ja/`; `zh` → `/zh/` (visi `zh*`, įskaitant zh-TW, kol nėra Traditional); kitaip fallback **`/en/`** (centrinė kalba).
 - **Base path:** Root deploy (Vercel) – base = `''`. Jei GitHub Pages project site (legacy), base = `/automation`. Pathname normalizavimas root redirect skripte: žr. `index.html`.
 - **Rankinės nuorodos** („Lietuvių“, „English“ ir t. t.) taip pat kviečia `localStorage.setItem('lang', …)`, kad elgsena sutaptų su kalbos jungikliu viduje locale.
 - **Locale URL = sutartis:** `/{locale}/` niekada 302 šalin (nei IP, nei `Accept-Language`). Nudge – [locale-switcher](../.cursor/skills/locale-switcher/SKILL.md); kanonas – [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §5.
@@ -58,18 +59,18 @@ ET ir LV naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `privacy
 - Elgsena: [js/lang-switcher.js](../js/lang-switcher.js) (toggle, Escape, outside click – neuždaro paspaudus dropdown viduje).
 - CSS ([css/library.css](../css/library.css)): `.header-top { z-index: 10 }` virš H1; meniu `z-index: 100`; `.header` lieka `overflow: hidden` (nenaudoti `overflow: visible` ant hero – dubliuojasi antraštė).
 - Lokaliai: `npx serve . -l 3000` (**be** `-s` – SPA režimas luzta santykinius locale kelius).
-- Etiketės gimąja kalba: **Lietuvių**, **English**, **Eesti**, **Latviešu**, **日本語**, **简体中文** (be vėliavų).
+- Etiketės gimąja kalba: **Lietuvių**, **English**, **Eesti**, **Latviešu**, **Deutsch**, **日本語**, **简体中文** (be vėliavų).
 
 **Privatumas** – legacy flat list (nekeičiamas šiame etape):
 
 - `<nav class="lang-switcher"><ul class="lang-switcher-list">…</ul></nav>`; inline CSS privacy puslapyje.
-- **Privatumo keliai:** `lt/privatumas.html` ↔ `en|et|lv|ja|zh/privacy.html`.
+- **Privatumo keliai:** `lt/privatumas.html` ↔ `en|et|lv|de|ja|zh/privacy.html`.
 
 ---
 
 ## 3. SEO (`hreflang`, canonical, OG)
 
-- Kiekvienas puslapis: `hreflang` `lt`, `en`, `et`, `lv`, `ja`, `zh-Hans` (`id="hreflang-zh"`) ir `x-default` (`<link rel="alternate" … id="hreflang-lt">` … `id="hreflang-default">`) su **absoliučiais** `https://www.promptanatomy.info/…` URL (ne `href="#"`). `html lang` ZH puslapyje = `zh-Hans`, ne `zh`.
+- Kiekvienas puslapis: `hreflang` `lt`, `en`, `et`, `lv`, `de`, `ja`, `zh-Hans` (`id="hreflang-zh"`) ir `x-default` (`<link rel="alternate" … id="hreflang-lt">` … `id="hreflang-default">`) su **absoliučiais** `https://www.promptanatomy.info/…` URL (ne `href="#"`). `html lang` ZH puslapyje = `zh-Hans`, ne `zh`.
 - **`x-default`:** anglų versija (`/en/` arba `/en/privacy.html`).
 - **`rel="canonical"`** ir **`meta name="description"`** – lokalizuoti per puslapį; kanoninis domenas `www.promptanatomy.info`.
 - **Open Graph / Twitter:** vienas paveikslėlis [`assets/img/og/og-image.png`](../assets/img/og/og-image.png) (dizaino šaltinis [`01_og_image.png`](../assets/img/og/01_og_image.png), generavimas `npm run generate:og-image` → 1200×630); **OG/Twitter title ir description lokalizuoti** (H1 + brand / lead, kaip `<title>` ir `meta description`); `og:image:alt` – „Prompt Anatomy – AI Automation Library“; `og:url` atitinka locale canonical.
@@ -90,10 +91,11 @@ Vienoda logika kaip LT: **tokenai atitinka kalbą**, EN lieka tarptautiniu šabl
 | EN | `[COMPANY]` | `[MY ROLE]` | `[PROMPT]` \| `[WHEN I USE IT]` \| `[PROBLEM IT SOLVES]` |
 | ET | `[ETTEVÕTE]` | `[MINU ROLL]` | `[KÜSITIS]` \| `[MILLAL KASUTAN]` \| `[MILLISE PROBLEEMI LAHENDAB]` |
 | LV | `[UZŅĒMUMS]` | `[MANA LOMA]` | `[PROMPTTEKSTS]` \| `[KAD LIETOJU]` \| `[KĀDU PROBLĒMU RISINA]` |
+| DE | `[UNTERNEHMEN]` | `[MEINE ROLLE]` | `[PROMPT]` \| `[WANN]` \| `[WELCHES PROBLEM]` |
 | JA | `[COMPANY]` | `[MY ROLE]` | `[プロンプト]` \| `[使用場面]` \| `[解決する課題]` |
 | ZH | `[公司]` | `[我的角色]` | `[提示词]` \| `[使用场景]` \| `[解决的问题]` |
 
-ET/LV tekstai: `scripts/prompt-bodies-et-lv.cjs`; JA / ZH promptų korpusas (ranka): `scripts/prompt-bodies-ja.cjs`, `scripts/prompt-bodies-zh.cjs`; po EN pakeitimų – `npm run generate:et-lv`.
+ET/LV tekstai: `scripts/prompt-bodies-et-lv.cjs`; DE: `scripts/prompt-bodies-de.cjs` + `scripts/de-pairs.cjs`; JA / ZH promptų korpusas (ranka): `scripts/prompt-bodies-ja.cjs`, `scripts/prompt-bodies-zh.cjs`; po EN pakeitimų – `npm run generate:et-lv`.
 
 ---
 
@@ -102,11 +104,11 @@ ET/LV tekstai: `scripts/prompt-bodies-et-lv.cjs`; JA / ZH promptų korpusas (ran
 Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `en/privacy.html`), reikia išlyginti:
 
 - **LT:** `lt/index.html`, `lt/privatumas.html`
-- **ET / LV:** regeneruoti iš EN naudojant `npm run generate:et-lv` ([scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs); žr. `scripts/prompt-bodies-et-lv.cjs` promptų tekstams) ir rankiniu būdu patikrinti / atnaujinti `et/privacy.html`, `lv/privacy.html`, jei privatumo tekstas keičiasi ne per generatorių.
+- **ET / LV / DE:** regeneruoti iš EN naudojant `npm run generate:et-lv` ([scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs); žr. `scripts/prompt-bodies-et-lv.cjs`, `scripts/prompt-bodies-de.cjs`, `scripts/de-pairs.cjs`) ir rankiniu būdu patikrinti / atnaujinti `et/privacy.html`, `lv/privacy.html`, `de/privacy.html`, jei privatumo tekstas keičiasi ne per generatorių.
 - **JA:** `ja/index.html`, `ja/privacy.html`, `js/library.ja.js` – rankiniu (generatorius JA negeneruoja).
 - **ZH:** `zh/index.html`, `zh/privacy.html`, `js/library.zh.js` – rankiniu (kaip JA; `ZH_PAIRS` generatoriuje nėra).
 
-**Bendri ištekliai (biblioteka):** [css/library.css](../css/library.css) – vienas stilių failas visoms kalboms; lokalizuotas code-block užrašas – trumpas inline `<style>:root { --codeblock-copy-hint: '…' }</style>` prieš `link` į `library.css`. **JavaScript:** kanonas – [js/library.js](../js/library.js) (EN). `library.lt.js`, `library.et.js`, `library.lv.js` generuojami tuo pačiu `generate:et-lv` (`LT_JS_PAIRS` / `ET_JS_PAIRS` / `LV_JS_PAIRS` [scripts/generate-et-lv-pages.cjs](../scripts/generate-et-lv-pages.cjs)). Rankiniu būdu šių JS failų neliesti. CI tikrina, kad po `generate:et-lv` nebūtų `git diff` šiuose failuose.
+**Bendri ištekliai (biblioteka):** [css/library.css](../css/library.css) – vienas stilių failas visoms kalboms; lokalizuotas code-block užrašas – trumpas inline `<style>:root { --codeblock-copy-hint: '…' }</style>` prieš `link` į `library.css`. **JavaScript:** kanonas – [js/library.js](../js/library.js) (EN). `library.lt.js`, `library.et.js`, `library.lv.js`, `library.de.js` generuojami tuo pačiu `generate:et-lv` (`LT_JS_PAIRS` / `ET_JS_PAIRS` / `LV_JS_PAIRS` / `DE_JS_PAIRS`). Rankiniu būdu šių JS failų neliesti. CI tikrina, kad po `generate:et-lv` nebūtų `git diff` šiuose failuose.
 
 - **PR:** [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) – checkbox „Daugiakalbystė (kai liečia EN)“.
 - **Pagrindinės vietos:** hero, instrukcijos, progress, mygtukai, JS pranešimai, code-block `::before`, footer, privatumas.
@@ -117,8 +119,8 @@ Kai keičiami **anglų (EN)** UI arba struktūriniai tekstai (`en/index.html`, `
 ## 5. Path → counterpart (santrauka)
 
 ```
-Biblioteka: /lt/ | /en/ | /et/ | /lv/ | /ja/ | /zh/  (kiekviena su index.html)
-Privatumas: /lt/privatumas.html ↔ /en/privacy.html ↔ /et/privacy.html ↔ /lv/privacy.html ↔ /ja/privacy.html ↔ /zh/privacy.html
+Biblioteka: /lt/ | /en/ | /et/ | /lv/ | /de/ | /ja/ | /zh/  (kiekviena su index.html)
+Privatumas: /lt/privatumas.html ↔ /en/privacy.html ↔ /et/privacy.html ↔ /lv/privacy.html ↔ /de/privacy.html ↔ /ja/privacy.html ↔ /zh/privacy.html
 ```
 
 Naudoti santykinius kelius (pvz. `../et/`, `../lt/privatumas.html`) arba base path pagal deploy.
@@ -128,7 +130,7 @@ Naudoti santykinius kelius (pvz. `../et/`, `../lt/privatumas.html`) arba base pa
 ## 6. Testai ir CI
 
 - Struktūriniai testai: [tests/structure.test.js](../tests/structure.test.js) – `data-hreflang-suite`, `hreflang.js`, `lang-switcher-list`, privatumo `lang-link`, root `localStorage`, `library.css` / locale `library*.js`.
-- GitHub Actions: [.github/workflows/ci.yml](../.github/workflows/ci.yml) – `npm install`, `npm run generate:et-lv` ir `git diff --exit-code` (`et/index.html`, `lv/index.html`, `js/library.et.js`, `js/library.lv.js`, `js/library.lt.js`), `npm test`, pa11y (per [scripts/pa11y-pages.cjs](../scripts/pa11y-pages.cjs), įskaitant `/ja/` ir `/zh/`). Actions versijos prisegtos prie commit SHA. Dependabot: [.github/dependabot.yml](../.github/dependabot.yml) (npm + GitHub Actions). (Dependency review žingsnis neįtrauktas, kol repozitorijoje neįjungtas Dependency graph.)
+- GitHub Actions: [.github/workflows/ci.yml](../.github/workflows/ci.yml) – `npm install`, `npm run generate:et-lv` ir `git diff --exit-code` (`et/index.html`, `lv/index.html`, `de/index.html`, `js/library.et.js`, `js/library.lv.js`, `js/library.de.js`, `js/library.lt.js`), `npm test`, pa11y (per [scripts/pa11y-pages.cjs](../scripts/pa11y-pages.cjs), įskaitant `/de/`, `/ja/` ir `/zh/`). Actions versijos prisegtos prie commit SHA. Dependabot: [.github/dependabot.yml](../.github/dependabot.yml) (npm + GitHub Actions). (Dependency review žingsnis neįtrauktas, kol repozitorijoje neįjungtas Dependency graph.)
 
 ---
 
@@ -152,4 +154,4 @@ Lotynų kalbos (DE, ES, FR, …) – generatoriaus poros + `prompt-bodies-{xx}.c
 10. **Docs:** šis failas §1–2, [AGENTS.md](../AGENTS.md), [MUST_TODO.md](../MUST_TODO.md), hero-copy kanoninės eilutės, [lessons/LESSONS.md](../lessons/LESSONS.md) jei naujas kodas (pvz. `zh-Hans`).
 11. **Kokybė:** registras (ne kalkė); H1/lead = [hero-copy](../.cursor/skills/hero-copy/SKILL.md); footer kanonas; `npm test`.
 
-**Nedaryti:** hand-edit `et/` / `lv/` / `library.{et,lv,lt}.js`; 302 iš kitos locale į naująją; vėliavos; du N+1 viename PR.
+**Nedaryti:** hand-edit `et/` / `lv/` / `de/` / `library.{et,lv,de,lt}.js`; 302 iš kitos locale į naująją; vėliavos; du N+1 viename PR.

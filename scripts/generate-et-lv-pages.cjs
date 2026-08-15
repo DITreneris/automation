@@ -1,10 +1,12 @@
 'use strict';
 
-/** ET/LV index + library.et.js, library.lv.js from en; library.lt.js from js/library.js via LT_JS_PAIRS. Run: npm run generate:et-lv */
+/** ET/LV/DE index + library.{et,lv,de}.js from en; library.lt.js from js/library.js via LT_JS_PAIRS. Run: npm run generate:et-lv */
 
 const fs = require('fs');
 const path = require('path');
 const { ET_PROMPTS, LV_PROMPTS } = require('./prompt-bodies-et-lv.cjs');
+const { DE_PROMPTS } = require('./prompt-bodies-de.cjs');
+const { DE_NAV, DE_FOOTER_NAV, DE_PAIRS, DE_JS_PAIRS } = require('./de-pairs.cjs');
 
 const root = path.join(__dirname, '..');
 const enPath = path.join(root, 'en', 'index.html');
@@ -63,6 +65,7 @@ const ET_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                         <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
                         <li><span class="lang-option lang-option--current" aria-current="page" lang="et">Eesti</span></li>
                         <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" lang="lv" hreflang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                        <li><a href="../de/" class="lang-option lang-link" data-lang="de" lang="de" hreflang="de" onclick="try{localStorage.setItem('lang','de')}catch(e){}">Deutsch</a></li>
                         <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                         <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
@@ -83,6 +86,7 @@ const ET_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                     <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
                     <li><span class="lang-option lang-option--current" aria-current="page" lang="et">Eesti</span></li>
                     <li><a href="../lv/" class="lang-option lang-link" data-lang="lv" lang="lv" hreflang="lv" onclick="try{localStorage.setItem('lang','lv')}catch(e){}">Latviešu</a></li>
+                    <li><a href="../de/" class="lang-option lang-link" data-lang="de" lang="de" hreflang="de" onclick="try{localStorage.setItem('lang','de')}catch(e){}">Deutsch</a></li>
                     <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
@@ -108,6 +112,7 @@ const LV_NAV = `                <nav class="lang-switcher lang-switcher--dropdow
                         <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
                         <li><a href="../et/" class="lang-option lang-link" data-lang="et" lang="et" hreflang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
                         <li><span class="lang-option lang-option--current" aria-current="page" lang="lv">Latviešu</span></li>
+                        <li><a href="../de/" class="lang-option lang-link" data-lang="de" lang="de" hreflang="de" onclick="try{localStorage.setItem('lang','de')}catch(e){}">Deutsch</a></li>
                         <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                         <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                     </ul>
@@ -128,6 +133,7 @@ const LV_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
                     <li><a href="../en/" class="lang-option lang-link" data-lang="en" lang="en" hreflang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a></li>
                     <li><a href="../et/" class="lang-option lang-link" data-lang="et" lang="et" hreflang="et" onclick="try{localStorage.setItem('lang','et')}catch(e){}">Eesti</a></li>
                     <li><span class="lang-option lang-option--current" aria-current="page" lang="lv">Latviešu</span></li>
+                    <li><a href="../de/" class="lang-option lang-link" data-lang="de" lang="de" hreflang="de" onclick="try{localStorage.setItem('lang','de')}catch(e){}">Deutsch</a></li>
                     <li><a href="../ja/" class="lang-option lang-link" data-lang="ja" lang="ja" hreflang="ja" onclick="try{localStorage.setItem('lang','ja')}catch(e){}">日本語</a></li>
                     <li><a href="../zh/" class="lang-option lang-link" data-lang="zh" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('lang','zh')}catch(e){}">简体中文</a></li>
                 </ul>
@@ -1062,9 +1068,17 @@ lvHtml = lvHtml.replace(FOOTER_LANG_NAV_RE, LV_FOOTER_NAV.trim());
 lvHtml = applyPairs(lvHtml, LV_PAIRS);
 lvHtml = lvHtml.replaceAll('../js/library.js', '../js/library.lv.js');
 
+let deHtml = replacePromptBodies(en, DE_PROMPTS);
+deHtml = deHtml.replace(LANG_NAV_RE, DE_NAV.trim());
+deHtml = deHtml.replace(FOOTER_LANG_NAV_RE, DE_FOOTER_NAV.trim());
+deHtml = applyPairs(deHtml, DE_PAIRS);
+deHtml = deHtml.replaceAll('../js/library.js', '../js/library.de.js');
+
 writeUtf8Lf(path.join(root, 'et', 'index.html'), etHtml);
 writeUtf8Lf(path.join(root, 'lv', 'index.html'), lvHtml);
+writeUtf8Lf(path.join(root, 'de', 'index.html'), deHtml);
 writeUtf8Lf(path.join(root, 'js', 'library.et.js'), applyPairs(libEn, ET_JS_PAIRS));
 writeUtf8Lf(path.join(root, 'js', 'library.lv.js'), applyPairs(libEn, LV_JS_PAIRS));
+writeUtf8Lf(path.join(root, 'js', 'library.de.js'), applyPairs(libEn, DE_JS_PAIRS));
 writeUtf8Lf(path.join(root, 'js', 'library.lt.js'), applyPairs(libEn, LT_JS_PAIRS));
-console.log('Wrote et/index.html, lv/index.html, js/library.et.js, js/library.lv.js, js/library.lt.js');
+console.log('Wrote et/index.html, lv/index.html, de/index.html, js/library.et.js, js/library.lv.js, js/library.de.js, js/library.lt.js');

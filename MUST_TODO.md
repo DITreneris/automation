@@ -1,8 +1,8 @@
 # MUST TODO – aktyvūs prioritetai
 
 **Atnaujinta:** 2026-08-15  
-**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (6 kalbos, **v1.6.0** paruošta; taginti tik paprašius).  
-**Banga:** Wave 0 – [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
+**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (6 kalbos, **v1.6.0**; `/de/` paruošta Unreleased, taginti 1.7.0 tik paprašius).  
+**Banga:** Wave 1 – [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
 
 | Strategija | Bangos |
 |------------|--------|
@@ -61,6 +61,14 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 - IP-prievarta locale URL; auto-redirect tarp kalbų versijų
 - Vėliavos kalbos jungiklyje; paieška jungiklyje
 - 10 kalbų viename PR
+
+---
+
+## MoSCoW – Wave 1
+
+### Must
+
+- [x] **DE locale** – `/de/` + `de/privacy.html` (ET/LV generatoriaus modelis: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs)). UI **Sie**; META **Du bist**. H1/lead užrakinti. 1.7.0 taginti tik paprašius.
 
 ---
 

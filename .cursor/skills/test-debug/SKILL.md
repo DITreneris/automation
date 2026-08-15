@@ -31,6 +31,8 @@ npx wait-on -t 60000 http://127.0.0.1:3000/
 PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs
 ```
 
+CI injects the locale nudge (browser language often `en` on `/lt/`). `.locale-nudge-link` must be `--brand-teal-dark` on `--white`. `--color-link` (`#008579`) on `--color-surface-page` is 4.27:1 and fails WCAG2AA G18.
+
 3. Read the failing assert in [tests/structure.test.js](tests/structure.test.js) — fix **product** HTML/JS first.
 4. Update tests only when the product change is intentional.
 5. For generator CI failure:
@@ -44,7 +46,7 @@ git diff -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/lib
 
 ## May inspect
 
-`tests/structure.test.js`, `*/index.html`, `scripts/pa11y-pages.cjs`, `scripts/pa11y.config.cjs`
+`tests/structure.test.js`, `*/index.html`, [js/locale-nudge.js](js/locale-nudge.js), [css/library.css](css/library.css) (`.locale-nudge`), `scripts/pa11y-pages.cjs`, `scripts/pa11y.config.cjs`
 
 ## May edit
 

@@ -1,5 +1,5 @@
 /**
- * Struktūriniai testai – LT / EN / ET / LV / JA / ZH puslapiai
+ * Struktūriniai testai – LT / EN / ET / LV / DE / JA / ZH puslapiai
  * Tikrina, kad visų kalbų index.html ir privatumo puslapiuose yra būtini elementai.
  * Paleisti: node tests/structure.test.js (arba npm test)
  */
@@ -15,11 +15,12 @@ const FOOTER_ENTITY_COPY = {
   lt: 'Promptų Anatomijos ekosistema · Mokymai ir checkout',
   et: 'Prompt Anatomy ökosüsteem · Koolitus ja kassa',
   lv: 'Prompt Anatomy ekosistēma · Apmācība un norēķins',
+  de: 'Teil von Prompt Anatomy · Training und Checkout',
   ja: 'Prompt Anatomyの一部 · 研修とチェックアウト',
   zh: 'Prompt Anatomy 的一部分 · 培训与结账',
 };
 
-const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'ja', 'zh'];
+const ALL_LANGS = ['lt', 'en', 'et', 'lv', 'de', 'ja', 'zh'];
 
 const HERO_LOCK = {
   lt: {
@@ -42,6 +43,11 @@ const HERO_LOCK = {
     lead: '8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.',
     title: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy',
   },
+  de: {
+    h1: 'Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen',
+    lead: '8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.',
+    title: 'Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy',
+  },
   ja: {
     h1: 'AIに日々の作業の30〜50%を任せる',
     lead: '定型テンプレート付きの演習8本。数分で結果が出ます。',
@@ -63,6 +69,8 @@ const ET_INDEX = path.join(__dirname, '..', 'et', 'index.html');
 const ET_PRIVACY = path.join(__dirname, '..', 'et', 'privacy.html');
 const LV_INDEX = path.join(__dirname, '..', 'lv', 'index.html');
 const LV_PRIVACY = path.join(__dirname, '..', 'lv', 'privacy.html');
+const DE_INDEX = path.join(__dirname, '..', 'de', 'index.html');
+const DE_PRIVACY = path.join(__dirname, '..', 'de', 'privacy.html');
 const JA_INDEX = path.join(__dirname, '..', 'ja', 'index.html');
 const JA_PRIVACY = path.join(__dirname, '..', 'ja', 'privacy.html');
 const ZH_INDEX = path.join(__dirname, '..', 'zh', 'index.html');
@@ -71,6 +79,7 @@ const JS_LIBRARY = path.join(__dirname, '..', 'js', 'library.js');
 const JS_LIBRARY_LT = path.join(__dirname, '..', 'js', 'library.lt.js');
 const JS_LIBRARY_ET = path.join(__dirname, '..', 'js', 'library.et.js');
 const JS_LIBRARY_LV = path.join(__dirname, '..', 'js', 'library.lv.js');
+const JS_LIBRARY_DE = path.join(__dirname, '..', 'js', 'library.de.js');
 const JS_LIBRARY_JA = path.join(__dirname, '..', 'js', 'library.ja.js');
 const JS_LIBRARY_ZH = path.join(__dirname, '..', 'js', 'library.zh.js');
 
@@ -352,7 +361,7 @@ function checkSeoHead(html, label, isLibrary) {
 function checkPrivacyI18n(html, label, currentLang) {
   let passed = 0;
   let failed = 0;
-  const ids = ['hreflang-lt', 'hreflang-en', 'hreflang-et', 'hreflang-lv', 'hreflang-ja', 'hreflang-zh', 'hreflang-default'];
+  const ids = ['hreflang-lt', 'hreflang-en', 'hreflang-et', 'hreflang-lv', 'hreflang-de', 'hreflang-ja', 'hreflang-zh', 'hreflang-default'];
   for (const id of ids) {
     if (assert(html.includes(`id="${id}"`), `${label} privacy: ${id}`)) passed++;
     else failed++;
@@ -366,7 +375,7 @@ function checkPrivacyI18n(html, label, currentLang) {
   if (assert(html.includes('lang-switcher-list'), `${label} privacy: lang-switcher-list`)) passed++;
   else failed++;
   const linkCount = (html.match(/class="[^"]*\blang-link\b[^"]*"/g) || []).length;
-  if (assert(linkCount >= 5, `${label} privacy: lang-link >= 5`)) passed++;
+  if (assert(linkCount >= 6, `${label} privacy: lang-link >= 6`)) passed++;
   else failed++;
   if (assert(html.includes('name="theme-color"') && html.includes('#0B1320'), `${label} privacy: theme-color #0B1320`)) passed++;
   else failed++;
@@ -427,7 +436,7 @@ function run() {
   const ltHero = checkHeroLock(ltHtml, 'LT', HERO_LOCK.lt);
   passed += ltHero.passed;
   failed += ltHero.failed;
-  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 10, true);
+  const ltSw = checkLangSwitcher(ltHtml, 'LT', 'lt', 12, true);
   passed += ltSw.passed;
   failed += ltSw.failed;
   const ltSeo = checkSeoHead(ltHtml, 'LT', true);
@@ -448,7 +457,7 @@ function run() {
   const enHero = checkHeroLock(enHtml, 'EN', HERO_LOCK.en);
   passed += enHero.passed;
   failed += enHero.failed;
-  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 10, true);
+  const enSw = checkLangSwitcher(enHtml, 'EN', 'en', 12, true);
   passed += enSw.passed;
   failed += enSw.failed;
   const enSeo = checkSeoHead(enHtml, 'EN', true);
@@ -469,7 +478,7 @@ function run() {
   const etHero = checkHeroLock(etHtml, 'ET', HERO_LOCK.et);
   passed += etHero.passed;
   failed += etHero.failed;
-  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 10, true);
+  const etSw = checkLangSwitcher(etHtml, 'ET', 'et', 12, true);
   passed += etSw.passed;
   failed += etSw.failed;
   const etSeo = checkSeoHead(etHtml, 'ET', true);
@@ -490,12 +499,35 @@ function run() {
   const lvHero = checkHeroLock(lvHtml, 'LV', HERO_LOCK.lv);
   passed += lvHero.passed;
   failed += lvHero.failed;
-  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 10, true);
+  const lvSw = checkLangSwitcher(lvHtml, 'LV', 'lv', 12, true);
   passed += lvSw.passed;
   failed += lvSw.failed;
   const lvSeo = checkSeoHead(lvHtml, 'LV', true);
   passed += lvSeo.passed;
   failed += lvSeo.failed;
+
+  // --- DE library ---
+  const deHtml = readFile(DE_INDEX);
+  if (!deHtml) {
+    console.error('❌ de/index.html nerastas');
+    process.exit(1);
+  }
+  const deRes = checkLibraryPage(deHtml, 'DE', 'Prompt kopieren', 'Zum Inhalt', 'privacy.html', JS_LIBRARY_DE);
+  passed += deRes.passed;
+  failed += deRes.failed;
+  if (assert(deHtml.includes('lang="de"'), 'DE: html lang="de"')) passed++;
+  else failed++;
+  if (assert(deHtml.includes('"inLanguage":"de"'), 'DE: JSON-LD inLanguage de')) passed++;
+  else failed++;
+  const deHero = checkHeroLock(deHtml, 'DE', HERO_LOCK.de);
+  passed += deHero.passed;
+  failed += deHero.failed;
+  const deSw = checkLangSwitcher(deHtml, 'DE', 'de', 12, true);
+  passed += deSw.passed;
+  failed += deSw.failed;
+  const deSeo = checkSeoHead(deHtml, 'DE', true);
+  passed += deSeo.passed;
+  failed += deSeo.failed;
 
   // --- JA library ---
   const jaHtml = readFile(JA_INDEX);
@@ -511,7 +543,7 @@ function run() {
   const jaHero = checkHeroLock(jaHtml, 'JA', HERO_LOCK.ja);
   passed += jaHero.passed;
   failed += jaHero.failed;
-  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 10, true);
+  const jaSw = checkLangSwitcher(jaHtml, 'JA', 'ja', 12, true);
   passed += jaSw.passed;
   failed += jaSw.failed;
   const jaSeo = checkSeoHead(jaHtml, 'JA', true);
@@ -534,7 +566,7 @@ function run() {
   const zhHero = checkHeroLock(zhHtml, 'ZH', HERO_LOCK.zh);
   passed += zhHero.passed;
   failed += zhHero.failed;
-  const zhSw = checkLangSwitcher(zhHtml, 'ZH', 'zh', 10, true);
+  const zhSw = checkLangSwitcher(zhHtml, 'ZH', 'zh', 12, true);
   passed += zhSw.passed;
   failed += zhSw.failed;
   const zhSeo = checkSeoHead(zhHtml, 'ZH', true);
@@ -550,6 +582,8 @@ function run() {
   else failed++;
   if (assert(readFile(LV_PRIVACY) !== null && readFile(LV_PRIVACY).length > 0, 'lv/privacy.html egzistuoja')) passed++;
   else failed++;
+  if (assert(readFile(DE_PRIVACY) !== null && readFile(DE_PRIVACY).length > 0, 'de/privacy.html egzistuoja')) passed++;
+  else failed++;
   if (assert(readFile(JA_PRIVACY) !== null && readFile(JA_PRIVACY).length > 0, 'ja/privacy.html egzistuoja')) passed++;
   else failed++;
   if (assert(readFile(ZH_PRIVACY) !== null && readFile(ZH_PRIVACY).length > 0, 'zh/privacy.html egzistuoja')) passed++;
@@ -559,24 +593,27 @@ function run() {
   const enPriv = readFile(EN_PRIVACY);
   const etPriv = readFile(ET_PRIVACY);
   const lvPriv = readFile(LV_PRIVACY);
+  const dePriv = readFile(DE_PRIVACY);
   const jaPriv = readFile(JA_PRIVACY);
   const zhPriv = readFile(ZH_PRIVACY);
   const prLt = checkPrivacyI18n(ltPriv || '', 'LT', 'lt');
   const prEn = checkPrivacyI18n(enPriv || '', 'EN', 'en');
   const prEt = checkPrivacyI18n(etPriv || '', 'ET', 'et');
   const prLv = checkPrivacyI18n(lvPriv || '', 'LV', 'lv');
+  const prDe = checkPrivacyI18n(dePriv || '', 'DE', 'de');
   const prJa = checkPrivacyI18n(jaPriv || '', 'JA', 'ja');
   const prZh = checkPrivacyI18n(zhPriv || '', 'ZH', 'zh');
-  passed += prLt.passed + prEn.passed + prEt.passed + prLv.passed + prJa.passed + prZh.passed;
-  failed += prLt.failed + prEn.failed + prEt.failed + prLv.failed + prJa.failed + prZh.failed;
+  passed += prLt.passed + prEn.passed + prEt.passed + prLv.passed + prDe.passed + prJa.passed + prZh.passed;
+  failed += prLt.failed + prEn.failed + prEt.failed + prLv.failed + prDe.failed + prJa.failed + prZh.failed;
   const prLtSeo = checkSeoHead(ltPriv || '', 'LT privacy', false);
   const prEnSeo = checkSeoHead(enPriv || '', 'EN privacy', false);
   const prEtSeo = checkSeoHead(etPriv || '', 'ET privacy', false);
   const prLvSeo = checkSeoHead(lvPriv || '', 'LV privacy', false);
+  const prDeSeo = checkSeoHead(dePriv || '', 'DE privacy', false);
   const prJaSeo = checkSeoHead(jaPriv || '', 'JA privacy', false);
   const prZhSeo = checkSeoHead(zhPriv || '', 'ZH privacy', false);
-  passed += prLtSeo.passed + prEnSeo.passed + prEtSeo.passed + prLvSeo.passed + prJaSeo.passed + prZhSeo.passed;
-  failed += prLtSeo.failed + prEnSeo.failed + prEtSeo.failed + prLvSeo.failed + prJaSeo.failed + prZhSeo.failed;
+  passed += prLtSeo.passed + prEnSeo.passed + prEtSeo.passed + prLvSeo.passed + prDeSeo.passed + prJaSeo.passed + prZhSeo.passed;
+  failed += prLtSeo.failed + prEnSeo.failed + prEtSeo.failed + prLvSeo.failed + prDeSeo.failed + prJaSeo.failed + prZhSeo.failed;
 
   // --- Design System 2.0 ---
   const tokensCss = readFile(path.join(__dirname, '..', 'css', 'tokens.css')) || '';

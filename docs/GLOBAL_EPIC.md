@@ -51,23 +51,23 @@ Kanonas: [.cursor/skills/hero-copy/SKILL.md](../.cursor/skills/hero-copy/SKILL.m
 
 ## 3. Būsena vs spraga
 
-**1.5.0** = 5 kalbos (lt / en / et / lv / ja). **ZH** Unreleased (`/zh/`, `hreflang` `zh-Hans`) – šešta kalba, dar ne release.
+**1.6.0** = 6 kalbos (lt / en / et / lv / ja / zh). Wave 0 discovery sluoksnis (switcher, nudge, AIEO) shipped.
 
 | Sluoksnis | Būsena | Spraga |
 |-----------|--------|--------|
 | Path locale `/lt/` … `/zh/` | Yra | Nėra |
 | `hreflang` + sitemap + `x-default` → `/en/` | Yra | Nėra |
-| Endonimai, be vėliavų, tikri `<a href>` | Yra | Triggeris tik „English ▾“ – japonas ant EN gali neatpažinti durų |
+| Endonimai, be vėliavų, tikri `<a href>` | Yra; triggeris Lucide `languages` + endonimas | Search tik nuo ~15 locale |
 | `localStorage` po kliko | Yra | Nėra |
 | Root `/` JS vestibiulis (`noindex`) | Yra | Leistinas; locale URL neliesti |
-| Nudge, kai URL ≠ naršyklė | Nėra | Google rekomenduoja; dabar žmogus paliekamas EN |
-| `llms.txt` | Yra, EN + DS viduriai | AIEO užuomazga, ne klientų klausimų žemėlapis |
-| JSON-LD | Organization + WebSite + WebPage | Nėra HowTo / ItemList |
+| Nudge, kai URL ≠ naršyklė | Yra ([js/locale-nudge.js](../js/locale-nudge.js)) | IP hintas – tik jei kalba neaiški; dabar išjungta |
+| `llms.txt` | Yra, klientų Q&A (kas / kam / 8 žingsniai / kursas) | Nėra |
+| JSON-LD | Organization + WebSite + WebPage + HowTo + ItemList | Nėra |
 | Indeksas | 2 URL kalbai | Plona klasikiniam SEO – sąmoningai; neplėsti katalogu |
 | Kursas po 8-o | Visada `COURSE_URL_EN` | Konversijos skylė JA/ZH (ir vėliau DE) |
-| Taisyklės | „6-locale“ kaip lubos | Bangos neaprašytos; N+1 brangus |
+| Taisyklės | Bangos + N+1 playbook | Kita kalba = kita banga, ne lubos |
 
-Architektūra pasaulio SEO jau teisinga (atskiras URL, `hreflang`, rankinis jungiklis). Trūksta **ekspansijos politikos** ir **atradimo sluoksnio**, ne naujo dizaino.
+Architektūra pasaulio SEO jau teisinga (atskiras URL, `hreflang`, rankinis jungiklis). Wave 0 atradimo sluoksnis shipped. Kita spraga – **kitos kalbos bangos** ir kurso locale `.app`, ne naujas dizainas.
 
 ---
 
@@ -107,7 +107,7 @@ Google (Search Central), Patrick Stox (2026-07), Crawlix (2026), Wikimedia ULS, 
 ### Jungiklis
 
 - Triggeris: Lucide `languages` + dabartinis endonimas + chevron. Ne vien gaublys (Wikimedia: gaublys skaitomas kaip lokacija).
-- Meniu: Lietuvių, English, Eesti, Latviešu, 日本語, 简体中文. Ant kiekvieno `<a>`: `lang` + `hreflang` (ZH: `zh-Hans`).
+- Meniu: Lietuvių, English, Eesti, Latviešu, Deutsch, 日本語, 简体中文. Ant kiekvieno `<a>`: `lang` + `hreflang` (ZH: `zh-Hans`).
 - Tikri `href`, full page load. `localStorage` tik po žmogaus kliko.
 - Iki ~10 kalbų – plokščias sąrašas, be paieškos. Nuo 8+ – footeris tampa **matomu** endonimų sąrašu. Paieška tik nuo ~15.
 

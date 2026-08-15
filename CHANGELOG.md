@@ -8,7 +8,11 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Prideta
 
+- **[Curriculum] German locale:** Wave 1 `/de/` (`de/index.html`, `de/privacy.html`) per N+1 playbook. Generator model like ET/LV: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs), `js/library.de.js`. UI **Sie**; META **Du bist**. H1 `Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen` / lead `8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.` Endonym **Deutsch**; `html lang` / `hreflang` = `de`; `og:locale` `de_DE`. Course links stay `COURSE_URL_EN`. 1.7.0 taginti tik paprašius.
+
 ### Pakeista
+
+- **[Orchestrator] Agent docs after 1.6.0:** AGENTS file map (`locale-nudge.js`, `lang-switcher.js`, HowTo JSON-LD); locale-switcher / locale-sync / test-debug / hero-copy skills; LESSONS pa11y G18 contrast rule.
 
 ### Taisyta
 

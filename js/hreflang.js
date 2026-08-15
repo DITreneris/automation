@@ -8,7 +8,7 @@
   if (!suite) return;
 
   var pathname = location.pathname;
-  var base = pathname.replace(/\/(lt|en|et|lv|ja|zh)(\/.*|$)/i, '');
+  var base = pathname.replace(/\/(lt|en|et|lv|de|ja|zh)(\/.*|$)/i, '');
   var origin = location.origin;
   var prefix = origin + base;
 
@@ -22,6 +22,7 @@
     set('hreflang-en', prefix + '/en/');
     set('hreflang-et', prefix + '/et/');
     set('hreflang-lv', prefix + '/lv/');
+    set('hreflang-de', prefix + '/de/');
     set('hreflang-ja', prefix + '/ja/');
     set('hreflang-zh', prefix + '/zh/');
     set('hreflang-default', prefix + '/en/');
@@ -30,6 +31,7 @@
     set('hreflang-en', prefix + '/en/privacy.html');
     set('hreflang-et', prefix + '/et/privacy.html');
     set('hreflang-lv', prefix + '/lv/privacy.html');
+    set('hreflang-de', prefix + '/de/privacy.html');
     set('hreflang-ja', prefix + '/ja/privacy.html');
     set('hreflang-zh', prefix + '/zh/privacy.html');
     set('hreflang-default', prefix + '/en/privacy.html');

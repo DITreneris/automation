@@ -30,7 +30,7 @@ Must be green before version bump.
 
 4. Bump `package.json` `"version"` to match.
 5. Leave a fresh empty `[Unreleased]` section at top of CHANGELOG.
-6. Update [MUST_TODO.md](MUST_TODO.md) if priorities changed.
+6. Update [MUST_TODO.md](MUST_TODO.md) if priorities changed. After a wave: sync [AGENTS.md](AGENTS.md) file map, `.cursor/skills/`, and [lessons/LESSONS.md](lessons/LESSONS.md) if shipped behavior is still missing there.
 7. Commit with `[Orchestrator]` prefix.
 8. Tag: `git tag vX.Y.Z` (only when user requests).
 9. GitHub Release: paste CHANGELOG section for that version.

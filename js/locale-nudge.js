@@ -6,13 +6,14 @@
 'use strict';
 
 (function () {
-  var SHIPPED = ['lt', 'en', 'et', 'lv', 'ja', 'zh'];
+  var SHIPPED = ['lt', 'en', 'et', 'lv', 'de', 'ja', 'zh'];
   var DISMISS_KEY = 'langNudgeDismissed';
   var CTA = {
     lt: 'Žiūrėti lietuviškai',
     en: 'View in English',
     et: 'Vaata eesti keeles',
     lv: 'Skatīt latviešu valodā',
+    de: 'Auf Deutsch ansehen',
     ja: '日本語で見る',
     zh: '查看简体中文',
   };
@@ -21,6 +22,7 @@
     en: 'Dismiss',
     et: 'Sulge',
     lv: 'Aizvērt',
+    de: 'Schließen',
     ja: '閉じる',
     zh: '关闭',
   };
@@ -29,6 +31,7 @@
     en: 'Language suggestion',
     et: 'Keele soovitus',
     lv: 'Valodas ieteikums',
+    de: 'Sprachvorschlag',
     ja: '言語の提案',
     zh: '语言建议',
   };
@@ -39,6 +42,7 @@
     if (n.indexOf('lt') === 0) return 'lt';
     if (n.indexOf('et') === 0 || n.indexOf('ee') === 0) return 'et';
     if (n.indexOf('lv') === 0) return 'lv';
+    if (n.indexOf('de') === 0) return 'de';
     if (n.indexOf('ja') === 0) return 'ja';
     if (n.indexOf('zh') === 0) return 'zh';
     if (n.indexOf('en') === 0) return 'en';
@@ -47,7 +51,7 @@
 
   function currentLocale() {
     var path = (window.location.pathname || '').toLowerCase();
-    var match = path.match(/\/(lt|en|et|lv|ja|zh)(?:\/|$)/);
+    var match = path.match(/\/(lt|en|et|lv|de|ja|zh)(?:\/|$)/);
     if (match) return match[1];
     var htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
     if (htmlLang.indexOf('zh') === 0) return 'zh';

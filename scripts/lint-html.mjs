@@ -20,6 +20,8 @@ const FILES = [
   'et/privacy.html',
   'lv/index.html',
   'lv/privacy.html',
+  'de/index.html',
+  'de/privacy.html',
   'ja/index.html',
   'ja/privacy.html',
   'zh/index.html',

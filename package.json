@@ -2,7 +2,7 @@
   "name": "di-promptu-biblioteka",
   "version": "1.6.0",
   "private": true,
-  "description": "DI Promptų Biblioteka – statinė HTML platforma",
+  "description": "Prompt Anatomy Daily Workflow Library – static 8-prompt site",
   "license": "CC-BY-4.0",
   "scripts": {
     "test": "node tests/structure.test.js && npm run validate:tokens && npm run lint:design-tokens && npm run lint:html && npm run lint:js",

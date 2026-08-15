@@ -3,13 +3,13 @@ description: Locale gates – EN canonical, ET/LV generated
 globs: ["*/index.html", "*/privacy.html", "js/library*.js"]
 ---
 
-# Locales (lt, en, et, lv, ja, zh)
+# Locales (lt, en, et, lv, de, ja, zh)
 
 - **Canonical:** `en/index.html`, `js/library.js` → then `npm run generate:et-lv`
 - **Manual:** `lt/` HTML, `ja/`, `zh/`, all privacy pages (`lt/privatumas.html`, `*/privacy.html`)
 - **ZH:** `html lang` / `hreflang` = `zh-Hans`; folder and `data-lang` stay `zh`
-- **Do not** hand-edit `et/` or `lv/` for EN parity — use the generator
-- CI: no uncommitted diff in `et/index.html`, `lv/index.html`, `js/library.{et,lv,lt}.js`
+- **Do not** hand-edit `et/`, `lv/`, or `de/index.html` for EN parity — use the generator
+- CI: no uncommitted diff in `et/index.html`, `lv/index.html`, `de/index.html`, `js/library.{et,lv,de,lt}.js`
 - Locales are a wave, not a ceiling. N+1 = [MULTILINGUAL playbook](../../docs/MULTILINGUAL_STRUCTURE.md) §7 + one release. Strategy: [GLOBAL_EPIC.md](../../docs/GLOBAL_EPIC.md)
 - Never 302 away from `/{locale}/` (IP or Accept-Language). Switcher / nudge: [locale-switcher](../skills/locale-switcher/SKILL.md)
 

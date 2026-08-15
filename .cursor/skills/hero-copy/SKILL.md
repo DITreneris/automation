@@ -31,10 +31,11 @@ Identity (not Hub, 8 prompts) never steals the H1. Consultant words never appear
 | LT | Leisk DI atlikti 30–50% tavo kasdienių užduočių | 8 pratimai su paruoštais šablonais – rezultatai per kelias minutes. |
 | ET | Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest | 8 harjutust valmis mallidega – tulemused minutitega. |
 | LV | Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem | 8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. |
+| DE | Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen | 8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. |
 | JA | AIに日々の作業の30〜50%を任せる | 定型テンプレート付きの演習8本。数分で結果が出ます。 |
 | ZH | 让 AI 完成你日常工作的 30%–50% | 8 个带现成模板的练习，几分钟就能出结果。 |
 
-Title / OG / JSON-LD `name` = H1 + brand suffix. Description = lead. Same meaning in all six — do not lengthen JA/ET/LV/ZH.
+Title / OG / JSON-LD `name` (WebPage + HowTo) = H1 + brand suffix. Description = lead. Same meaning in all locales — do not lengthen JA/ET/LV/DE/ZH. Locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)).
 
 Objectives H2: **What you get** / **Ką gausi**. Finish H2: **You finished the 8 prompts** / **Tu baigei 8 promptus**.
 
@@ -65,7 +66,7 @@ A 2026-08-14 identity pass put prompt 1 on the H1 and “ritual” on the lead, 
 
 ## May edit
 
-`en/index.html` first; then locale-sync. `scripts/seo-constants.cjs` `OG_LIBRARY_TITLE` / `OG_LIBRARY_DESCRIPTION`.
+`en/index.html` first; then locale-sync. `scripts/seo-constants.cjs` `OG_LIBRARY_TITLE` / `OG_LIBRARY_DESCRIPTION`. If the prize line changes, update `HERO_LOCK` in [tests/structure.test.js](tests/structure.test.js).
 
 ## Output
 

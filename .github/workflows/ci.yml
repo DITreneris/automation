@@ -28,15 +28,15 @@ jobs:
 
       - name: Verify locale library index files exist
         run: |
-          for f in lt/index.html en/index.html et/index.html lv/index.html ja/index.html zh/index.html; do
+          for f in lt/index.html en/index.html et/index.html lv/index.html de/index.html ja/index.html zh/index.html; do
             test -f "$f" || { echo "::error::Missing $f"; exit 1; }
           done
 
       - name: Verify ET/LV/LT generated output match generator (en source)
         run: |
           npm run generate:et-lv
-          git diff --exit-code -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js || {
-            echo "::error::Run npm run generate:et-lv locally and commit et/index.html, lv/index.html, js/library.et.js, js/library.lv.js, js/library.lt.js."
+          git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.js js/library.lv.js js/library.de.js js/library.lt.js || {
+            echo "::error::Run npm run generate:et-lv locally and commit et/index.html, lv/index.html, de/index.html, js/library.et.js, js/library.lv.js, js/library.de.js, js/library.lt.js."
             exit 1
           }
 

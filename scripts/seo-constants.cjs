@@ -19,6 +19,7 @@ const HREFLANG_LIBRARY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
     <link rel="alternate" hreflang="en" href="${SITE_ORIGIN}/en/" id="hreflang-en">
     <link rel="alternate" hreflang="et" href="${SITE_ORIGIN}/et/" id="hreflang-et">
     <link rel="alternate" hreflang="lv" href="${SITE_ORIGIN}/lv/" id="hreflang-lv">
+    <link rel="alternate" hreflang="de" href="${SITE_ORIGIN}/de/" id="hreflang-de">
     <link rel="alternate" hreflang="ja" href="${SITE_ORIGIN}/ja/" id="hreflang-ja">
     <link rel="alternate" hreflang="zh-Hans" href="${SITE_ORIGIN}/zh/" id="hreflang-zh">
     <link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/en/" id="hreflang-default">`;
@@ -27,6 +28,7 @@ const HREFLANG_PRIVACY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
     <link rel="alternate" hreflang="en" href="${SITE_ORIGIN}/en/privacy.html" id="hreflang-en">
     <link rel="alternate" hreflang="et" href="${SITE_ORIGIN}/et/privacy.html" id="hreflang-et">
     <link rel="alternate" hreflang="lv" href="${SITE_ORIGIN}/lv/privacy.html" id="hreflang-lv">
+    <link rel="alternate" hreflang="de" href="${SITE_ORIGIN}/de/privacy.html" id="hreflang-de">
     <link rel="alternate" hreflang="ja" href="${SITE_ORIGIN}/ja/privacy.html" id="hreflang-ja">
     <link rel="alternate" hreflang="zh-Hans" href="${SITE_ORIGIN}/zh/privacy.html" id="hreflang-zh">
     <link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/en/privacy.html" id="hreflang-default">`;
@@ -45,17 +47,19 @@ const OG_LOCALE = {
   lt: 'lt_LT',
   et: 'et_EE',
   lv: 'lv_LV',
+  de: 'de_DE',
   ja: 'ja_JP',
   zh: 'zh_CN',
 };
 
 const OG_LOCALE_ALTERNATES = {
-  en: ['lt_LT', 'et_EE', 'lv_LV', 'ja_JP', 'zh_CN'],
-  lt: ['en_US', 'et_EE', 'lv_LV', 'ja_JP', 'zh_CN'],
-  et: ['lt_LT', 'en_US', 'lv_LV', 'ja_JP', 'zh_CN'],
-  lv: ['lt_LT', 'en_US', 'et_EE', 'ja_JP', 'zh_CN'],
-  ja: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'zh_CN'],
-  zh: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'ja_JP'],
+  en: ['lt_LT', 'et_EE', 'lv_LV', 'de_DE', 'ja_JP', 'zh_CN'],
+  lt: ['en_US', 'et_EE', 'lv_LV', 'de_DE', 'ja_JP', 'zh_CN'],
+  et: ['lt_LT', 'en_US', 'lv_LV', 'de_DE', 'ja_JP', 'zh_CN'],
+  lv: ['lt_LT', 'en_US', 'et_EE', 'de_DE', 'ja_JP', 'zh_CN'],
+  de: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'ja_JP', 'zh_CN'],
+  ja: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'de_DE', 'zh_CN'],
+  zh: ['lt_LT', 'en_US', 'et_EE', 'lv_LV', 'de_DE', 'ja_JP'],
 };
 
 function ogLocaleAlternates(langCode) {
@@ -152,6 +156,16 @@ const LIBRARY_STEPS = {
     'MI palīdzība un optimizācija',
     'Ikdienas promptu bibliotēka',
     'Kritiskas situācijas simulācija',
+  ],
+  de: [
+    'KI-Kontextprüfung',
+    'Organisationsporträt',
+    'Meine Rolle in der Organisation',
+    'Stellenbeschreibung + KPI',
+    'Kernarbeitsprozesse',
+    'KI-Hilfe und Optimierung',
+    'Tägliche Prompt-Sammlung',
+    'Simulation kritischer Situationen',
   ],
   ja: [
     'AIコンテキスト診断',

@@ -24,7 +24,7 @@ Production site: https://www.promptanatomy.info/
 ## Project model
 
 - **Zero-build static site:** HTML + CSS + vanilla JavaScript. No React, Vite, or bundlers.
-- **Six locales:** `lt`, `en`, `et`, `lv`, `ja`, `zh` (`html lang` / `hreflang` = `zh-Hans`).
+- **Current locales:** `lt`, `en`, `et`, `lv`, `de`, `ja`, `zh` (`html lang` / `hreflang` = `zh-Hans`). Locales are a wave, not a ceiling.
 - **English is canonical** for structure and shared JS: `en/index.html`, `en/privacy.html`, `js/library.js`.
 
 ## Multilingual workflow
@@ -32,7 +32,7 @@ Production site: https://www.promptanatomy.info/
 | Locale | How to update |
 |--------|----------------|
 | EN | Edit `en/` and `js/library.js` directly |
-| ET, LV | Run `npm run generate:et-lv` after EN changes; commit generated files |
+| ET, LV, DE | Run `npm run generate:et-lv` after EN changes; commit generated files |
 | LT | Manual HTML: `lt/index.html`, `lt/privatumas.html`. JS: `LT_JS_PAIRS` then `generate:et-lv` (do not hand-edit `js/library.lt.js`) |
 | JA | Manual: `ja/index.html`, `js/library.ja.js`, `ja/privacy.html` |
 | ZH | Manual: `zh/index.html`, `js/library.zh.js`, `zh/privacy.html` |
@@ -41,7 +41,7 @@ After changing EN source (`en/index.html`, `en/privacy.html`, or `js/library.js`
 
 ```bash
 npm run generate:et-lv
-git diff --exit-code -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js
+git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.js js/library.lv.js js/library.de.js js/library.lt.js
 ```
 
 CI fails if generated files are out of sync.
@@ -74,7 +74,7 @@ GitHub Actions job `lint-and-test` in [.github/workflows/ci.yml](.github/workflo
 ```bash
 npm ci
 npm run generate:et-lv
-git diff --exit-code -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js
+git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.js js/library.lv.js js/library.de.js js/library.lt.js
 npm test
 npx serve . -l 3000 &
 npx wait-on -t 60000 http://127.0.0.1:3000/
@@ -83,7 +83,7 @@ PA11Y_BASE=http://127.0.0.1:3000 node scripts/pa11y-pages.cjs
 
 On Windows PowerShell, start `serve` in a separate terminal instead of `&`.
 
-`npm test` includes: structure tests, token validation, design-token lint, HTML validate (11 files), ESLint.
+`npm test` includes: structure tests, token validation, design-token lint, HTML validate (15 files), ESLint.
 
 ## Branch protection and releases
 

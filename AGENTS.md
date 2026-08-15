@@ -8,7 +8,7 @@ Operational SSOT for AI coding agents. Human onboarding: [README.md](README.md).
 
 ## Mission
 
-Free static 8-prompt Daily Workflow Library. Locales are a **wave, not a ceiling** (now: lt / en / et / lv / ja / zh). EN is canonical. A new locale = [MULTILINGUAL playbook](docs/MULTILINGUAL_STRUCTURE.md) §7 + one release. Strategy: [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md). Waves: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md). Now: [MUST_TODO.md](MUST_TODO.md).
+Free static 8-prompt Daily Workflow Library. Locales are a **wave, not a ceiling** (now: lt / en / et / lv / de / ja / zh). EN is canonical. A new locale = [MULTILINGUAL playbook](docs/MULTILINGUAL_STRUCTURE.md) §7 + one release. Strategy: [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md). Waves: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md). Now: [MUST_TODO.md](MUST_TODO.md).
 
 | Product | URL | Constant |
 |---------|-----|----------|
@@ -25,7 +25,7 @@ Never link the course to `promptanatomy.info/en` — that is the library EN page
 
 - **Zero-build:** plain HTML + [css/library.css](css/library.css) + vanilla JS. No React, Vite, Tailwind, or bundlers.
 - **EN is canonical:** [en/index.html](en/index.html), [en/privacy.html](en/privacy.html), [js/library.js](js/library.js).
-- After EN source changes: `npm run generate:et-lv` and commit generated files (ET/LV pages + `library.{et,lv,lt}.js`).
+- After EN source changes: `npm run generate:et-lv` and commit generated files (ET/LV/DE pages + `library.{et,lv,de,lt}.js`).
 - **LT HTML** ([lt/](lt/)), **JA** ([ja/](ja/), [js/library.ja.js](js/library.ja.js)), and **ZH** ([zh/](zh/), [js/library.zh.js](js/library.zh.js)): update manually. **LT JS** is generated (`LT_JS_PAIRS` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs)) — do not hand-edit `js/library.lt.js`.
 - **`npm test` must pass** before merge.
 - **No secrets** in Git (API keys, `.env`, real Google Script URLs).
@@ -45,10 +45,12 @@ Before locale or CI tasks, skim [lessons/LESSONS.md](lessons/LESSONS.md). Switch
 | LT copy / UI | [lt/index.html](lt/index.html); JS via `LT_JS_PAIRS` then `generate:et-lv` |
 | JA copy / UI | [ja/index.html](ja/index.html), [js/library.ja.js](js/library.ja.js) |
 | ZH copy / UI | [zh/index.html](zh/index.html), [js/library.zh.js](js/library.zh.js) |
-| ET / LV library pages | Generated — EN and/or pair `to` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs), then `npm run generate:et-lv` |
+| ET / LV / DE library pages | Generated — EN and/or pair `to` in [scripts/generate-et-lv-pages.cjs](scripts/generate-et-lv-pages.cjs) / [scripts/de-pairs.cjs](scripts/de-pairs.cjs), then `npm run generate:et-lv` |
 | Shared styles | [css/tokens.css](css/tokens.css) (SSOT), [css/library.css](css/library.css) |
 | Privacy layout | [css/privacy.css](css/privacy.css) |
-| SEO / course / hub / ritual URLs | [scripts/seo-constants.cjs](scripts/seo-constants.cjs) |
+| SEO / course / hub / ritual URLs | [scripts/seo-constants.cjs](scripts/seo-constants.cjs) (`jsonLdLibrary` = Organization + HowTo + ItemList) |
+| Language switcher JS | [js/lang-switcher.js](js/lang-switcher.js) |
+| Locale nudge | [js/locale-nudge.js](js/locale-nudge.js) (JS-only; no 302) |
 | Locale paths / hreflang / N+1 | [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) |
 | Global acquisition (why) | [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) |
 | Waves (when) | [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) |
@@ -81,6 +83,7 @@ CI parity: [CONTRIBUTING.md](CONTRIBUTING.md) §Reproduce CI locally.
 - `'use strict'` in JS; `textContent` for user data (not `innerHTML`).
 - Semantic HTML, WCAG AA, `prefers-reduced-motion`.
 - Colors: [css/tokens.css](css/tokens.css) only; semantic tokens (`--color-link`, `--color-action-primary-bg`).
+- Nudge / privacy links on light surfaces: `--brand-teal-dark` on `--white` (WCAG AA). `--color-link` on `--color-surface-page` fails pa11y (4.27:1).
 - Privacy pages: [css/tokens.css](css/tokens.css) + [css/privacy.css](css/privacy.css) — no inline hex.
 
 Details: [docs/design_system.md](docs/design_system.md), [docs/BULLET_PROOF_PROMPTS.md](docs/BULLET_PROOF_PROMPTS.md).
@@ -98,7 +101,7 @@ Details: [docs/design_system.md](docs/design_system.md), [docs/BULLET_PROOF_PROM
 ## Documentation rules
 
 - Index: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) — update Level A/B when merge gates change.
-- EN changes: `npm run generate:et-lv`; no uncommitted diff in generated ET/LV/LT JS.
+- EN changes: `npm run generate:et-lv`; no uncommitted diff in generated ET/LV/DE/LT JS.
 - Planning SSOT: [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) (why) + [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) (when). Execution board: [MUST_TODO.md](MUST_TODO.md). Do not create new **root-level** audit or roadmap files.
 
 ---
@@ -115,11 +118,11 @@ Report issues: [SECURITY.md](SECURITY.md).
 
 ## Edit freely
 
-`css/`, `en/`, `lt/` (HTML/privacy), `ja/`, `zh/`, `js/library.js`, `js/library.ja.js`, `js/library.zh.js`, `tests/`, `scripts/`, `assets/`, `lessons/`
+`css/`, `en/`, `lt/` (HTML/privacy), `ja/`, `zh/`, `js/library.js`, `js/library.ja.js`, `js/library.zh.js`, `js/lang-switcher.js`, `js/locale-nudge.js`, `tests/`, `scripts/`, `assets/`, `lessons/`
 
 ## Edit carefully
 
-`et/`, `lv/` (prefer generator), `js/library.{et,lv,lt}.js` (generated), [tokens/tokens.json](tokens/tokens.json), [vercel.json](vercel.json), [.github/workflows/](.github/workflows/)
+`et/`, `lv/`, `de/` (prefer generator), `js/library.{et,lv,de,lt}.js` (generated), [tokens/tokens.json](tokens/tokens.json), [vercel.json](vercel.json), [.github/workflows/](.github/workflows/)
 
 ## Never
 

@@ -9,7 +9,7 @@ description: >-
 
 ## When to use
 
-- Editing `.lang-switcher`, [js/lang-switcher.js](js/lang-switcher.js), or root [index.html](index.html)
+- Editing `.lang-switcher`, [js/lang-switcher.js](js/lang-switcher.js), [js/locale-nudge.js](js/locale-nudge.js), or root [index.html](index.html)
 - Adding a nudge when `navigator.language` ≠ current locale
 - Anyone proposes flags, IP geo-redirect, or auto-302 from `/{locale}/`
 
@@ -26,18 +26,20 @@ Root `/` is a `noindex` vestibule: `localStorage` → `navigator.language` → E
 ## Switcher UI
 
 - Trigger: Lucide `languages` + current **endonym** + chevron. Not globe-only. Not flags.
-- Options: native names (Lietuvių, English, Eesti, Latviešu, 日本語, 简体中文).
+- Options: native names (Lietuvių, English, Eesti, Latviešu, Deutsch, 日本語, 简体中文).
 - Each `<a>`: real `href`, `lang`, `hreflang` (ZH: `zh-Hans`). Full page load.
 - `localStorage.setItem('lang', …)` only after an explicit click.
 - Flat list until ~10 locales. Visible footer list from 8+. Search only from ~15.
 
 ## Nudge
 
-- Show when: no `localStorage.lang`, `navigator.language` maps to another locale, user is not on it.
+- Implementation: [js/locale-nudge.js](js/locale-nudge.js) — create the banner in the DOM (no static markup for crawlers).
+- Show when: no `localStorage.lang`, `navigator.language` maps to another locale, user is not on it, dismiss key unset.
 - Label = endonym CTA (`日本語で見る`), not “View in Japanese”.
-- Click → store `lang` + go. Dismiss → remember dismiss only.
+- Click → store `lang` + go. Dismiss → remember dismiss only (`langNudgeDismissed`).
+- Contrast: `.locale-nudge-link` = `--brand-teal-dark` on `--white` (AA). Do not use `--color-link` on `--color-surface-page`.
 - IP country hint only if language is ambiguous; never for `CH` / `BE` / `CA` / `SG`.
-- Do not change indexed HTML for bots.
+- Do not change indexed HTML for bots. Do not `location.replace` a locale URL.
 
 ## Do not
 
@@ -48,7 +50,7 @@ Root `/` is a `noindex` vestibule: `localStorage` → `navigator.language` → E
 
 ## May edit
 
-`*/index.html` switcher markup, [js/lang-switcher.js](js/lang-switcher.js), [css/library.css](css/library.css) switcher/nudge rules, root [index.html](index.html). After EN switcher changes: [locale-sync](../locale-sync/SKILL.md).
+`*/index.html` switcher markup, [js/lang-switcher.js](js/lang-switcher.js), [js/locale-nudge.js](js/locale-nudge.js), [css/library.css](css/library.css) switcher/nudge rules, root [index.html](index.html), [404.html](404.html) (same locale map; no replace). After EN switcher changes: [locale-sync](../locale-sync/SKILL.md).
 
 ## Output
 

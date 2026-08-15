@@ -19,6 +19,7 @@ https://www.promptanatomy.info/sitemap.xml
 - Lietuvių: https://www.promptanatomy.info/lt/
 - Eesti: https://www.promptanatomy.info/et/
 - Latviešu: https://www.promptanatomy.info/lv/
+- Deutsch: https://www.promptanatomy.info/de/
 - 日本語: https://www.promptanatomy.info/ja/
 - 简体中文: https://www.promptanatomy.info/zh/
 
@@ -46,6 +47,7 @@ https://www.promptanatomy.app/
 - Lietuvių: https://www.promptanatomy.info/lt/privatumas.html
 - Eesti: https://www.promptanatomy.info/et/privacy.html
 - Latviešu: https://www.promptanatomy.info/lv/privacy.html
+- Deutsch: https://www.promptanatomy.info/de/privacy.html
 - 日本語: https://www.promptanatomy.info/ja/privacy.html
 - 简体中文: https://www.promptanatomy.info/zh/privacy.html
 

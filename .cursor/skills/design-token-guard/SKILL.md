@@ -22,7 +22,8 @@ npm run lint:design-tokens
 
 3. If tokens changed, sync [docs/design_system.md](docs/design_system.md).
 4. If visible UI changed, run full `npm test` (includes HTML lint + pa11y in CI).
-5. For color/contrast changes, consider pa11y locally:
+5. Text links on light surfaces (nudge, privacy): `--brand-teal-dark` on `--white`. `--color-link` on `--color-surface-page` fails pa11y (4.27:1).
+6. For color/contrast changes, consider pa11y locally:
 
 ```bash
 npx serve . -l 3000

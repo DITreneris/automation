@@ -26,7 +26,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - [ ] **Kopijavimas:** Visi 8 promptai – pasirinkti → „Kopijuoti promptą“ → įklijuoti į DI (pvz. ChatGPT) – tekstas teisingas.
 - [ ] **Progresas:** „Pažymėjau kaip atlikau“ – varnelė įrašoma; perkrovus puslapį – progresas išsaugotas (localStorage).
 - [ ] **Skip link:** Tab iki „Praleisti į turinį“ – Enter – fokusas pereina į pagrindinį turinį.
-- [ ] **Kalbų jungiklis:** Hero + footer dropdown – 6 kalbos, be H1 dubliavimo; pasirinkus – teisingas locale URL ir turinys; root `/` numatytai → `/en/`. Lokaliai – `npx serve . -l 3000` (be `-s`).
+- [ ] **Kalbų jungiklis:** Hero + footer dropdown – 7 kalbos (Lietuvių, English, Eesti, Latviešu, Deutsch, 日本語, 简体中文), be H1 dubliavimo; pasirinkus – teisingas locale URL ir turinys; root `/` numatytai → `/en/`. Lokaliai – `npx serve . -l 3000` (be `-s`).
 - [ ] **Privatumas:** Nuoroda į privatumas.html veikia; privatumas.html atsidaro ir rodo turinį.
 
 ### Prieinamumas (a11y)
@@ -73,13 +73,13 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 ### Pavyzdys
 
 ```markdown
-## 2026-02-18 – pirmas deploy
+## YYYY-MM-DD – [v1.x.x] / po deploy
 
 - **Testeris:** QA
-- **URL:** https://DITreneris.github.io/03_uzduotys/
+- **URL:** https://www.promptanatomy.info/
 - **Naršyklė:** Chrome (desktop)
-- **Rezultatas:** ✅ Kopijavimas, progresas, skip link, privatumas – OK. Console be klaidų.
-- **Pastabos:** A11y tikrinta per CI (pa11y). Mobilus – planuojama kitame cikle.
+- **Rezultatas:** (įrašyti po gyvo testavimo – nekopijuoti sėkmės iš šio pavyzdžio)
+- **Pastabos:** Locale keliai `/lt/` `/en/` `/et/` `/lv/` `/de/` `/ja/` `/zh/`. Produkcijos tagas šiuo metu 1.6.0; `/de/` medyje, 1.7.0 tik paprašius.
 ```
 
 ---
@@ -90,4 +90,4 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - [QA_STANDARTAS.md](QA_STANDARTAS.md) – QA kriterijai ir nuoroda į spinoff01  
 - [DEPLOYMENT.md](../DEPLOYMENT.md) – kaip deploy ir kad po deploy būtų testuojama gyvai  
 
-**Paskutinis atnaujinimas:** 2026-03-29
+**Paskutinis atnaujinimas:** 2026-08-15
