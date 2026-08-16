@@ -7,19 +7,35 @@
 |-------|--------|
 | [GLOBAL_EPIC.md](GLOBAL_EPIC.md) | [MUST_TODO.md](../MUST_TODO.md) |
 
-Produktas shipped (8 promptai, kanoninė išvaizda, H1 lock). Šitas roadmap = **kada**: bangos, deliverables, exit. Checkbox'ai gyvena MUST_TODO, ne čia.
+Produktas shipped (8 promptai, kanoninė išvaizda, H1 lock). Wave 0 ir Wave 1 **baigtos**. Šitas roadmap = **kada**: bangos, deliverables, exit. Checkbox'ai gyvena MUST_TODO, ne čia.
 
 ---
 
 ## Principas
 
-Viena kalba = vienas release. Pirma padaryti, kad *esamos* kalbos būtų randamos ir teisingai pasitiktų. Tada `de`. Ne 10 kalbų viename PR.
+Viena kalba = vienas release. `de` jau gyvas (1.7.0). Dabar – kad *esamos* kalbos (pirmiausia LT/EN) būtų randamos Google ir modeliuose. Kita kalba tik su Hold kartele. Ne 10 kalbų viename PR.
 
 North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 ---
 
-## Wave 0 – Mašina (dabar – ~2 sav.)
+## Dabar – Atradimas (po 1.7.0)
+
+**Tikslas:** durys į Google ir modelius, ne aštunta kalba.
+
+**Deliverables** (checkbox'ai – [MUST_TODO.md](../MUST_TODO.md) „Dabar – atradimas“)
+
+- GSC nuosavybė + sitemap `https://www.promptanatomy.info/sitemap.xml`
+- `/lt/` ir `/en/` indeksuoti; `llms.txt` crawlable
+- Nauja kalba (`es` / `fr` / `nl`) – ne, kol ≥30 lankytojų / 90 d. ir bounce ant `/en/`
+
+**90 d. keliai (2026-08-16):** `/lt/` 206, `/en/` 115, `/ja/` 12, `/et/` `/lv/` po 3. Google referrer – 6.
+
+**Exit:** GSC sitemap „Sėkmingai“; `/lt/` ir `/en/` URL inspect OK.
+
+---
+
+## Wave 0 – Mašina (baigta, 1.6.0)
 
 **Tikslas:** šešios kalbos randamos ir perjungiamos pagal 2026 kanoną. N+1 tampa pigus.
 
@@ -41,7 +57,7 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 ---
 
-## Wave 1 – Europa (~1–3 mėn.)
+## Wave 1 – Europa (baigta, 1.7.0)
 
 **Tikslas:** įrodyti N+1 playbook su pirma ne-Baltijos, ne-CJK kalba.
 
@@ -55,7 +71,7 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 **Exit:** `de` gyvas, playbook praėjęs be rankinio ET/LV stiliaus chaoso; hreflang klasteris pilnas. **Pasiekta 2026-08-16.**
 
-**Prieš kitą kalbą:** Vercel Analytics – šalis × path × bounce; kartelė [MUST_TODO.md](../MUST_TODO.md) Hold.
+**Prieš kitą kalbą:** Vercel Analytics – šalis × path × bounce; kartelė [MUST_TODO.md](../MUST_TODO.md) „Dabar – atradimas“.
 
 ---
 

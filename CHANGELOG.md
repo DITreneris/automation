@@ -8,7 +8,12 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Prideta
 
+- **[QA] GSC HTML verify:** [google7305663b2567346e.html](google7305663b2567346e.html) root – Search Console nuosavybė `https://www.promptanatomy.info/`. Sitemap pateikta (`/sitemap.xml`); pirmas nuskaitymas 2026-08-16 dar failino (failas 200 + `application/xml`, 14 URL).
+
 ### Pakeista
+
+- **[UI] Ecosystem spoke chips:** `.ecosystem-links` – pill chip’ai kaip `.tag` (mono hostname, `--brand-teal-dark`, be underline), ne nuogas URL sąrašas po diagrama.
+- **[Orchestrator] Board after 1.7.0:** [MUST_TODO.md](MUST_TODO.md) ir [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – Wave 0/1 baigtos; dabar atradimas (GSC, LT/EN), ne `es`/`fr`/`nl`.
 
 ### Taisyta
 

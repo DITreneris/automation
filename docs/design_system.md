@@ -226,6 +226,8 @@ Gradient `--blue-light` → `--orange-light`; primary filled teal CTA; antrinis 
 
 Kaip `.next-steps`; WebP + PNG; `npm run generate:ecosystem`.
 
+`.ecosystem-links` – tikri `href` po diagrama (paveikslas nepaspaudžiamas). Ne nuogas URL sąrašas: pill chip’ai kaip `.tag` (`--bg-subtle`, `--brand-teal-dark` ant `--white`, mono hostname, be underline).
+
 ### 2.8 Footer (`.footer`)
 
 **Light card** (ne content module): `1px solid var(--border)`, `border-radius: var(--radius-lg)`, be `box-shadow`; padding `var(--space-6) var(--space-5)`.
