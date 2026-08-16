@@ -179,6 +179,14 @@ const ET_PAIRS = [
     '"@id":"https://www.promptanatomy.info/et/#webpage"',
   ],
   [
+    '"@id":"https://www.promptanatomy.info/en/#howto"',
+    '"@id":"https://www.promptanatomy.info/et/#howto"',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#prompts"',
+    '"@id":"https://www.promptanatomy.info/et/#prompts"',
+  ],
+  [
     '"url":"https://www.promptanatomy.info/en/"',
     '"url":"https://www.promptanatomy.info/et/"',
   ],
@@ -617,6 +625,14 @@ const LV_PAIRS = [
   [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
     '"@id":"https://www.promptanatomy.info/lv/#webpage"',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#howto"',
+    '"@id":"https://www.promptanatomy.info/lv/#howto"',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#prompts"',
+    '"@id":"https://www.promptanatomy.info/lv/#prompts"',
   ],
   [
     '"url":"https://www.promptanatomy.info/en/"',

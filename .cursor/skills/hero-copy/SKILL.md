@@ -37,7 +37,7 @@ Identity (not Hub, 8 prompts) never steals the H1. Consultant words never appear
 
 Title / OG / JSON-LD `name` (WebPage + HowTo) = H1 + brand suffix. Description = lead. Same meaning in all locales — do not lengthen JA/ET/LV/DE/ZH. Locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)).
 
-Objectives H2: **What you get** / **Ką gausi**. Finish H2: **You finished the 8 prompts** / **Tu baigei 8 promptus**.
+Objectives H2: **What you get** / **Ką gausi** / **Was Sie bekommen**. Finish H2: **You finished the 8 prompts** / **Tu baigei 8 promptus** / **Sie haben die 8 Prompts abgeschlossen**.
 
 ## Banned on the front page (visible text)
 
@@ -45,7 +45,7 @@ Do not propose, restore, or “A/B” these as H1, lead, OG, objectives, finish 
 
 - Know what AI knows about your org / Sužinok, ką DI žino apie tavo organizaciją
 - Any prompt-1 diagnostic as the sale
-- **ritual / rituaal / rituāls / 儀式 / 仪式** — in any customer-facing sentence
+- **ritual / Ritual / rituaal / rituāls / 儀式 / 仪式** — in any customer-facing sentence
 - “Org ritual”, “8-step ritual”, “Use spoke”, “operating layer”
 - Get 30–50% of your week back / Susigrąžink 30–50% savo savaitės (pathos)
 - Compound H1: prize + mechanism in one line

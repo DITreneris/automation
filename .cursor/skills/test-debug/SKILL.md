@@ -39,7 +39,7 @@ CI injects the locale nudge (browser language often `en` on `/lt/`). `.locale-nu
 
 ```bash
 npm run generate:et-lv
-git diff -- et/index.html lv/index.html js/library.et.js js/library.lv.js js/library.lt.js
+git diff -- et/index.html lv/index.html de/index.html js/library.et.js js/library.lv.js js/library.de.js js/library.lt.js
 ```
 
 6. Re-run `npm test`.

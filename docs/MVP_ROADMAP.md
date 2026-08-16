@@ -1,6 +1,6 @@
 # MVP Roadmap – Pasaulinė gaudyklė
 
-**Atnaujinta:** 2026-08-15  
+**Atnaujinta:** 2026-08-16  
 **Pakeičia:** [archive/MVP_ROADMAP_2026-02.md](archive/MVP_ROADMAP_2026-02.md) (forma, CAPTCHA, kelias iki production – produktas jau gyvas).
 
 | Kodėl | Dabar |
@@ -49,13 +49,13 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 **Deliverables**
 
-- `de` (DACH) – vienas release
-- Tada `es` **arba** `fr` – ne abi vienu metu
+- [x] `de` (DACH) – 1.7.0
+- `es` **arba** `fr` – **nepradėta** (Vercel 1 m.: FR 4, ES 0). Hold, kol ≥30 lankytojų / 90 d. ir bounce ant `/en/`
 - Lotynų kalbos per generatorių (ET/LV modelis)
 
-**Exit:** `de` gyvas, playbook praėjęs be rankinio ET/LV stiliaus chaoso; hreflang klasteris pilnas.
+**Exit:** `de` gyvas, playbook praėjęs be rankinio ET/LV stiliaus chaoso; hreflang klasteris pilnas. **Pasiekta 2026-08-16.**
 
-**Prieš startą:** Wave 0 exit; Vercel Analytics – iš kurių šalių ateina į EN.
+**Prieš kitą kalbą:** Vercel Analytics – šalis × path × bounce; kartelė [MUST_TODO.md](../MUST_TODO.md) Hold.
 
 ---
 
@@ -63,7 +63,7 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 **Tikslas:** plėsti ten, kur analitika rodo bounce / srautą, ne ten, kur „norisi“.
 
-**Kandidatai (eilė neįšaldyta):** `pt-BR`, `ko` (ranka kaip JA), `it` / `pl` / `nl`, `id`.
+**Kandidatai (eilė neįšaldyta; `nl` parkuota – 8 lankytojai / 1 m.):** `pt-BR`, `ko` (ranka kaip JA), `it` / `pl` / `nl`, `id`.
 
 **Exit:** kiekviena kalba – atskiras release; footeris tampa matomu endonimų sąrašu, kai aktyvių locale ≥ 8.
 

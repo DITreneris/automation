@@ -79,7 +79,7 @@ Po kiekvieno deploy atlikti gyvą testavimą ir rezultatus įrašyti čia (arba 
 - **URL:** https://www.promptanatomy.info/
 - **Naršyklė:** Chrome (desktop)
 - **Rezultatas:** (įrašyti po gyvo testavimo – nekopijuoti sėkmės iš šio pavyzdžio)
-- **Pastabos:** Locale keliai `/lt/` `/en/` `/et/` `/lv/` `/de/` `/ja/` `/zh/`. Produkcijos tagas šiuo metu 1.6.0; `/de/` medyje, 1.7.0 tik paprašius.
+- **Pastabos:** Locale keliai `/lt/` `/en/` `/et/` `/lv/` `/de/` `/ja/` `/zh/`. Produkcijos tagas **1.7.0** (7 kalbos).
 ```
 
 ---

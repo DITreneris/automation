@@ -26,7 +26,7 @@ Root `/` is a `noindex` vestibule: `localStorage` → `navigator.language` → E
 ## Switcher UI
 
 - Trigger: Lucide `languages` + current **endonym** + chevron. Not globe-only. Not flags.
-- Options: native names (Lietuvių, English, Eesti, Latviešu, Deutsch, 日本語, 简体中文).
+- Options: native names (Lietuvių, English, Eesti, Latviešu, Deutsch, 日本語, 简体中文). Order = Baltic cluster, then DE, then CJK. Insert the next Latin locale after Deutsch, before 日本語.
 - Each `<a>`: real `href`, `lang`, `hreflang` (ZH: `zh-Hans`). Full page load.
 - `localStorage.setItem('lang', …)` only after an explicit click.
 - Flat list until ~10 locales. Visible footer list from 8+. Search only from ~15.
@@ -35,7 +35,7 @@ Root `/` is a `noindex` vestibule: `localStorage` → `navigator.language` → E
 
 - Implementation: [js/locale-nudge.js](js/locale-nudge.js) — create the banner in the DOM (no static markup for crawlers).
 - Show when: no `localStorage.lang`, `navigator.language` maps to another locale, user is not on it, dismiss key unset.
-- Label = endonym CTA (`日本語で見る`), not “View in Japanese”.
+- Label = endonym CTA (`Auf Deutsch ansehen`, `日本語で見る`), not “View in German/Japanese”.
 - Click → store `lang` + go. Dismiss → remember dismiss only (`langNudgeDismissed`).
 - Contrast: `.locale-nudge-link` = `--brand-teal-dark` on `--white` (AA). Do not use `--color-link` on `--color-surface-page`.
 - IP country hint only if language is ambiguous; never for `CH` / `BE` / `CA` / `SG`.

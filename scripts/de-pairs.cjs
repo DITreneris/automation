@@ -87,6 +87,14 @@ const DE_PAIRS = [
     '"@id":"https://www.promptanatomy.info/de/#webpage"',
   ],
   [
+    '"@id":"https://www.promptanatomy.info/en/#howto"',
+    '"@id":"https://www.promptanatomy.info/de/#howto"',
+  ],
+  [
+    '"@id":"https://www.promptanatomy.info/en/#prompts"',
+    '"@id":"https://www.promptanatomy.info/de/#prompts"',
+  ],
+  [
     '"url":"https://www.promptanatomy.info/en/"',
     '"url":"https://www.promptanatomy.info/de/"',
   ],
@@ -334,7 +342,7 @@ const DE_PAIRS = [
   ['<strong>Readiness</strong>', '<strong>Bereitschaft</strong>'],
   [
     '<p>Simulations help you learn to manage crises before they happen. Better to practice with AI than in a real situation.</p>',
-    '<p>Simulationen helfen, Krisen zu führen, bevor sie eintreten. Besser mit der KI üben als in der echten Lage.</p>',
+    '<p>Simulationen helfen, Krisen zu bewältigen, bevor sie eintreten. Besser mit der KI üben als in der echten Lage.</p>',
   ],
   ['aria-label="Copy prompt 8 to clipboard"', 'aria-label="Prompt 8 in die Zwischenablage kopieren"'],
   [

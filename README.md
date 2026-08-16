@@ -61,7 +61,7 @@ Locales are a **wave, not a ceiling**. Current tree: `lt` / `en` / `et` / `lv` /
 
 English is canonical (`en/index.html`, `en/privacy.html`, `js/library.js`). After EN source changes, run `npm run generate:et-lv` and commit generated ET / LV / DE pages plus `js/library.{et,lv,de,lt}.js`. LT HTML, JA, and ZH are updated by hand.
 
-Last tagged release is **1.6.0** (six locales in production). German (`/de/`) is in this tree; tag **1.7.0** only when asked.
+Last tagged release is **1.7.0** (seven locales in production: lt / en / et / lv / de / ja / zh).
 
 | Locale | Library | Privacy | How it is maintained |
 |--------|---------|---------|----------------------|

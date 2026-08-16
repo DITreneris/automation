@@ -4,14 +4,14 @@ Recurring themes from repo audits and CI — operational, not historical.
 
 ## Locale drift
 
-- **Cause:** EN changed without `npm run generate:et-lv` or without LT/JA manual sync
+- **Cause:** EN changed without `npm run generate:et-lv` or without LT/JA/ZH manual sync
 - **Fix:** [locale-sync skill](../.cursor/skills/locale-sync/SKILL.md)
-- **Gate:** CI `git diff --exit-code` on generated files
+- **Gate:** CI `git diff --exit-code` on `et/` `lv/` `de/` index + `js/library.{et,lv,de,lt}.js`
 
 ## Agent wrong-file edits
 
-- **Cause:** Five `library.*.js` copies; agents patch `library.lt.js` or `et/index.html` when those files are generated
-- **Fix:** EN HTML/JS first; LT HTML manual; LT/ET/LV JS and ET/LV index only via pair tables + `npm run generate:et-lv` — [locale-sync](../.cursor/skills/locale-sync/SKILL.md)
+- **Cause:** Generated `library.*.js` / locale index copies; agents patch `library.lt.js`, `et/index.html`, or `de/index.html`
+- **Fix:** EN HTML/JS first; LT/JA/ZH HTML manual; ET/LV/DE index + `library.{et,lv,de,lt}.js` only via pair tables + `npm run generate:et-lv`. DE pairs: [scripts/de-pairs.cjs](../scripts/de-pairs.cjs) — [locale-sync](../.cursor/skills/locale-sync/SKILL.md)
 
 ## Context duplication
 
@@ -32,13 +32,13 @@ Recurring themes from repo audits and CI — operational, not historical.
 ## Pair-key break after EN reword
 
 - **Cause:** Generator `from` is an exact EN substring; rephrasing EN without updating pairs throws `Missing substring`
-- **Fix:** Same commit: new EN text + matching `from` in `ET_PAIRS` / `LV_PAIRS` / JS pairs
+- **Fix:** Same commit: new EN text + matching `from` in `ET_PAIRS` / `LV_PAIRS` / `DE_PAIRS` ([scripts/de-pairs.cjs](../scripts/de-pairs.cjs)) / JS pairs
 - **Gate:** `npm run generate:et-lv` then `git diff --exit-code` on generated files
 
 ## Locale register / calque
 
-- **Cause:** Formal Teie/Jūs applied to prompt META, or JA/ET lead padded beyond EN meaning
-- **Fix:** Visitor register on UI only; model `you` in META; canonical leads in [hero-copy](../.cursor/skills/hero-copy/SKILL.md)
+- **Cause:** Formal Teie/Jūs/Sie applied to prompt META, or JA/ET/DE lead padded beyond EN meaning
+- **Fix:** Visitor register on UI only; model `you` / `Du bist` in META; canonical leads in [hero-copy](../.cursor/skills/hero-copy/SKILL.md)
 
 ## Local preview failures
 

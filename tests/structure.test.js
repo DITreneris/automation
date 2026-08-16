@@ -573,6 +573,26 @@ function run() {
   passed += zhSeo.passed;
   failed += zhSeo.failed;
 
+  const jsonLdByLang = [
+    ['lt', ltHtml],
+    ['en', enHtml],
+    ['et', etHtml],
+    ['lv', lvHtml],
+    ['de', deHtml],
+    ['ja', jaHtml],
+    ['zh', zhHtml],
+  ];
+  for (const [code, html] of jsonLdByLang) {
+    if (assert(html.includes('/' + code + '/#howto'), code + ': JSON-LD #howto on locale URL')) passed++;
+    else failed++;
+    if (assert(html.includes('/' + code + '/#prompts'), code + ': JSON-LD #prompts on locale URL')) passed++;
+    else failed++;
+    if (code !== 'en') {
+      if (assert(!html.includes('/en/#howto'), code + ': JSON-LD HowTo @id is not EN')) passed++;
+      else failed++;
+    }
+  }
+
   // --- Privacy pages exist ---
   if (assert(readFile(LT_PRIVATUMAS) !== null && readFile(LT_PRIVATUMAS).length > 0, 'lt/privatumas.html egzistuoja')) passed++;
   else failed++;
@@ -603,6 +623,8 @@ function run() {
   const prDe = checkPrivacyI18n(dePriv || '', 'DE', 'de');
   const prJa = checkPrivacyI18n(jaPriv || '', 'JA', 'ja');
   const prZh = checkPrivacyI18n(zhPriv || '', 'ZH', 'zh');
+  if (assert(enPriv && (enPriv.includes('Vercel') || enPriv.includes('Web Analytics')), 'EN privacy: Vercel Web Analytics')) passed++;
+  else failed++;
   passed += prLt.passed + prEn.passed + prEt.passed + prLv.passed + prDe.passed + prJa.passed + prZh.passed;
   failed += prLt.failed + prEn.failed + prEt.failed + prLv.failed + prDe.failed + prJa.failed + prZh.failed;
   const prLtSeo = checkSeoHead(ltPriv || '', 'LT privacy', false);
@@ -699,6 +721,10 @@ function run() {
   else failed++;
   const llms = readFile(path.join(assetRoot, 'llms.txt')) || '';
   if (assert(llms.includes('Let AI do 30–50% of your daily tasks'), 'llms.txt: EN H1')) passed++;
+  else failed++;
+  if (assert(llms.includes('https://www.promptanatomy.info/lt/#block1'), 'llms.txt: LT #block1')) passed++;
+  else failed++;
+  if (assert(llms.includes('https://www.promptanatomy.info/de/#block1'), 'llms.txt: DE #block1')) passed++;
   else failed++;
   if (assert(!llms.includes('tokens.css') && !llms.includes('#CFA73A'), 'llms.txt: no DS internals')) passed++;
   else failed++;

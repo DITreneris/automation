@@ -1,14 +1,15 @@
 # MUST TODO – aktyvūs prioritetai
 
-**Atnaujinta:** 2026-08-15  
-**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (6 kalbos, **v1.6.0**; `/de/` paruošta Unreleased, taginti 1.7.0 tik paprašius).  
-**Banga:** Wave 1 – [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
+**Atnaujinta:** 2026-08-16  
+**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (7 kalbos, **v1.7.0**).  
+**Banga:** Hold – [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
 
 | Strategija | Bangos |
 |------------|--------|
 | [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) | [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) |
 
-> Kontaktų forma ir Google Sheets – **Won't** šitam ciklui ([docs/archive/integrations/](docs/archive/integrations/)).
+> Kontaktų forma ir Google Sheets – **Won't** šitam ciklui ([docs/archive/integrations/](docs/archive/integrations/)).  
+> `.app` kursas lieka `COURSE_URL_EN` – neperdarome.
 
 North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead = 8 pratimai su šablonais; 8 promptai → kasdienis rinkinys; be paskyros. Žr. [.cursor/skills/hero-copy/SKILL.md](.cursor/skills/hero-copy/SKILL.md).
 
@@ -19,6 +20,17 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 - [ ] `npm test` praeina
 - [ ] Jei keista EN (`en/index.html`, `en/privacy.html`, `js/library.js`) – `npm run generate:et-lv`, be necommitinto diff
 - [ ] Footer `.footer-contact` kanonas visose aktyviose locale (žr. [AGENTS.md](AGENTS.md) QA)
+
+---
+
+## Hold – kita kalba tik su srautu
+
+Vercel Analytics (1 m., projektas `automation`, 2026-08-16): ~300 lankytojų. LT 61% (193), US 19%, IE 7% (EN). NL 8, FR 4, DE 3, ES 0.
+
+Kartelė N+1: ≥30 lankytojų / 90 d. iš tos šalies **ir** bounce ant `/en/`. Iki tol:
+
+- [ ] **Parkuota:** `nl` / `es` / `fr` (ir kita Wave 2 kalba)
+- [ ] Žmogaus GSC: ar `/lt/` ir `/en/` indeksuoti; sitemap resubmit jei reikia
 
 ---
 
@@ -40,14 +52,15 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 ### Should
 
 - [x] **Ecosystem nuorodos** – diagrama ne dekoracija: `.cloud` / `.space` / `.blog` (ir kt.) kaip tikros nuorodos. H2 lieka Daily Workflow Library, ne Hub.
-- [ ] **ET/LV/ZH privatumo politika** – juridinė peržiūra (redaktoriaus kalba – 2026-08-14).
+- [x] **EN privacy Analytics** – Vercel Web Analytics atskleista EN ir sinchronizuota visose locale (2026-08-16).
+- [ ] **ET/LV/ZH privatumo politika** – juridinė / redaktoriaus kalbos peržiūra (EN šaltinis jau atnaujintas).
 - [x] **404 kalbos logika** – ta pati kaip root vestibiulis, arba nuorodos į visas locale (dabar visada EN → `/en/`).
 
 ### Could
 
 - [ ] Dinaminis progress `aria-label` (archyvuotas MICROCOPY §7.5)
 - [ ] Print / vienas puslapis visiems 8 (vis dar zero-build, be paskyros)
-- [ ] Kurso nuoroda ne tik `/en` – **tik jei** `.app` turės kitas kalbas. Šiandien kanonas = `COURSE_URL_EN`
+- [ ] Kurso nuoroda ne tik `/en` – **tik jei** `.app` turės kitas kalbas. Šiandien kanonas = `COURSE_URL_EN` (`.app` lieka EN)
 - [ ] Footerio matomas endonimų sąrašas – kai aktyvių locale ≥ 8
 
 ### Won't (šitas ciklas)
@@ -61,6 +74,7 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 - IP-prievarta locale URL; auto-redirect tarp kalbų versijų
 - Vėliavos kalbos jungiklyje; paieška jungiklyje
 - 10 kalbų viename PR
+- `nl` / `es` / `fr` be Hold kartelės
 
 ---
 
@@ -68,7 +82,8 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 
 ### Must
 
-- [x] **DE locale** – `/de/` + `de/privacy.html` (ET/LV generatoriaus modelis: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs)). UI **Sie**; META **Du bist**. H1/lead užrakinti. 1.7.0 taginti tik paprašius.
+- [x] **DE locale** – `/de/` + `de/privacy.html` (ET/LV generatoriaus modelis: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs)). UI **Sie**; META **Du bist**. H1/lead užrakinti.
+- [x] **1.7.0 release** – [CHANGELOG.md](CHANGELOG.md) `## [1.7.0] - 2026-08-16`; `package.json` 1.7.0; tag `v1.7.0`.
 
 ---
 

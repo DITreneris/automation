@@ -1,6 +1,6 @@
 # Global Epic – Pasaulinė klientų gaudyklė
 
-**Atnaujinta:** 2026-08-15  
+**Atnaujinta:** 2026-08-16  
 **Atsakingas:** Orchestrator (strategija); bangų vykdymas – pagal [§9](#9-agentų-rolės)
 
 | Dabar | Kada | Kodėl |
@@ -51,7 +51,7 @@ Kanonas: [.cursor/skills/hero-copy/SKILL.md](../.cursor/skills/hero-copy/SKILL.m
 
 ## 3. Būsena vs spraga
 
-**1.6.0** = 6 kalbos (lt / en / et / lv / ja / zh). Wave 0 discovery sluoksnis (switcher, nudge, AIEO) shipped.
+**1.7.0** = 7 kalbos (lt / en / et / lv / de / ja / zh). Wave 0 discovery sluoksnis ir Wave 1 DE shipped.
 
 | Sluoksnis | Būsena | Spraga |
 |-----------|--------|--------|
@@ -61,13 +61,13 @@ Kanonas: [.cursor/skills/hero-copy/SKILL.md](../.cursor/skills/hero-copy/SKILL.m
 | `localStorage` po kliko | Yra | Nėra |
 | Root `/` JS vestibiulis (`noindex`) | Yra | Leistinas; locale URL neliesti |
 | Nudge, kai URL ≠ naršyklė | Yra ([js/locale-nudge.js](../js/locale-nudge.js)) | IP hintas – tik jei kalba neaiški; dabar išjungta |
-| `llms.txt` | Yra, klientų Q&A (kas / kam / 8 žingsniai / kursas) | Nėra |
-| JSON-LD | Organization + WebSite + WebPage + HowTo + ItemList | Nėra |
+| `llms.txt` | Yra; 8 promptų URL EN + LT/DE/JA/ZH | Nėra |
+| JSON-LD | Organization + WebSite + WebPage + HowTo + ItemList; `#howto` / `#prompts` ant locale URL | Nėra |
 | Indeksas | 2 URL kalbai | Plona klasikiniam SEO – sąmoningai; neplėsti katalogu |
-| Kursas po 8-o | Visada `COURSE_URL_EN` | Konversijos skylė JA/ZH (ir vėliau DE) |
-| Taisyklės | Bangos + N+1 playbook | Kita kalba = kita banga, ne lubos |
+| Kursas po 8-o | Visada `COURSE_URL_EN` (`.app` lieka EN) | Konversijos skylė JA/ZH/DE – Could, ne šitas ciklas |
+| Taisyklės | Bangos + N+1 playbook | Kita kalba = Hold kartelė (≥30 / 90 d. + bounce ant `/en/`), ne lubos |
 
-Architektūra pasaulio SEO jau teisinga (atskiras URL, `hreflang`, rankinis jungiklis). Wave 0 atradimo sluoksnis shipped. Kita spraga – **kitos kalbos bangos** ir kurso locale `.app`, ne naujas dizainas.
+Architektūra pasaulio SEO jau teisinga (atskiras URL, `hreflang`, rankinis jungiklis). Kita spraga – **LT/EN atradimas** (indeksas, citatos), ne aštunta kalba ir ne naujas dizainas.
 
 ---
 
@@ -80,8 +80,8 @@ LT / ET / LV – namų rinka ir kokybės etalonas. **Prižiūrėti, ne plėsti.*
 | Banga | Kalbos | Kaip |
 |-------|--------|------|
 | 0 | ZH ship (1.6.0); playbook; switcher; nudge; AIEO | Užrakinti mašiną |
-| 1 | `de`, tada `es` **arba** `fr` (viena po vienos) | Lotynų generatorius (ET/LV modelis) |
-| 2 | `ko` (ranka kaip JA); `pt-BR`; `it` / `pl` / `nl`; `id` | Pagal Vercel Analytics (šalis × locale × bounce) |
+| 1 | `de` shipped (1.7.0). `es` / `fr` – Hold (analitika: FR 4, ES 0 / 1 m.) | Lotynų generatorius (ET/LV modelis) |
+| 2 | `ko` (ranka kaip JA); `pt-BR`; `it` / `pl` / `nl`; `id` | Hold, kol šalis × locale × bounce peržengia kartelę |
 | 3 | `zh-Hant`; `ar` (RTL = atskiras UI); kurso locale `.app` | Tik su priežastimi |
 
 **ZH caveat:** ChatGPT / Claude žemyne blokuojami. `/zh/` pirmiausia gaudo Singapūrą, diasporą ir vietinius modelius – ne „1.4 mlrd. ChatGPT vartotojų“.

@@ -8,15 +8,30 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Prideta
 
-- **[Curriculum] German locale:** Wave 1 `/de/` (`de/index.html`, `de/privacy.html`) per N+1 playbook. Generator model like ET/LV: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs), `js/library.de.js`. UI **Sie**; META **Du bist**. H1 `Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen` / lead `8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.` Endonym **Deutsch**; `html lang` / `hreflang` = `de`; `og:locale` `de_DE`. Course links stay `COURSE_URL_EN`. 1.7.0 taginti tik paprašius.
+### Pakeista
+
+### Taisyta
+
+---
+
+## [1.7.0] - 2026-08-16
+
+### Prideta
+
+- **[Curriculum] German locale:** Wave 1 `/de/` (`de/index.html`, `de/privacy.html`) per N+1 playbook. Generator model like ET/LV: [scripts/de-pairs.cjs](scripts/de-pairs.cjs), [scripts/prompt-bodies-de.cjs](scripts/prompt-bodies-de.cjs), `js/library.de.js`. UI **Sie**; META **Du bist**. H1 `Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen` / lead `8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.` Endonym **Deutsch**; `html lang` / `hreflang` = `de`; `og:locale` `de_DE`. Course links stay `COURSE_URL_EN`.
+- **[QA] llms.txt locale doors:** 8 promptų URL LT / DE / JA / ZH (`#block1`…`#block8`); ET/LV – bibliotekos URL. EN sąrašas lieka kanoninis.
 
 ### Pakeista
 
 - **[Orchestrator] Agent docs after 1.6.0:** AGENTS file map (`locale-nudge.js`, `lang-switcher.js`, HowTo JSON-LD); locale-switcher / locale-sync / test-debug / hero-copy skills; LESSONS pa11y G18 contrast rule.
+- **[Content] Privacy Analytics H2:** EN atskleidžia Vercel Web Analytics (kelias, šaltinis, šalis, įrenginys; be slapukų ir paskyros); sušvelninta „no sending to servers“. Sinchronas LT/ET/LV/DE/JA/ZH. Redaktoriaus juridinė peržiūra lieka atvira.
+- **[Orchestrator] Hold on NL/ES/FR:** Vercel 1 m. (~300 lankytojų: LT 61%, NL 8, FR 4, DE 3, ES 0). Kita kalba tik ≥30 / 90 d. ir bounce ant `/en/`. `.app` lieka EN. [MUST_TODO.md](MUST_TODO.md), [docs/GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md), [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md).
+- **[Content] DE content pass:** UI Sie / META Du bist; viena kalkė – „Krisen zu führen“ → „Krisen zu bewältigen“.
 
 ### Taisyta
 
 - **[QA] Locale nudge contrast:** `.locale-nudge-link` uses `--brand-teal-dark` on `--white` (WCAG AA ≥4.5:1; was teal on page surface at 4.27:1).
+- **[QA] JSON-LD HowTo / ItemList `@id`:** ET/LV/DE generatoriaus poros `en/#howto` → locale `#howto`, `en/#prompts` → locale `#prompts`. LT/JA/ZH jau buvo teisingi.
 
 ---
 

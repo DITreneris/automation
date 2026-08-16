@@ -9,7 +9,7 @@ description: Sync ET/LV/DE/LT from EN after en/index.html, en/privacy.html, or j
 
 - You changed `en/index.html`, `en/privacy.html`, or `js/library.js` (including switcher, JSON-LD, ecosystem HTML)
 - CI failed on generator diff step
-- User asks to sync locales or fix ET/LV drift
+- User asks to sync locales or fix ET/LV/DE drift
 
 ## Steps
 
@@ -35,7 +35,7 @@ git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.
 10. If new URLs or hreflang: check `sitemap.xml` and [docs/MULTILINGUAL_STRUCTURE.md](docs/MULTILINGUAL_STRUCTURE.md) §7 (N+1 playbook). Adding a language is a wave, not a sixth-locale ceiling — [GLOBAL_EPIC.md](docs/GLOBAL_EPIC.md) §4, [MVP_ROADMAP.md](docs/MVP_ROADMAP.md).
 11. Footer-entity visible text is asserted per locale (`FOOTER_ENTITY_COPY` in [tests/structure.test.js](tests/structure.test.js)) — update the assert when the product line changes.
 12. **Switcher NAV templates:** `ET_NAV` / `ET_FOOTER_NAV` / `LV_NAV` / `LV_FOOTER_NAV` in the generator; `DE_NAV` / `DE_FOOTER_NAV` in [scripts/de-pairs.cjs](scripts/de-pairs.cjs) — Lucide `languages`, `lang` + `hreflang` on options (ZH: `zh-Hans`).
-13. **JSON-LD HowTo / ItemList:** extend `jsonLdLibrary()` in [scripts/seo-constants.cjs](scripts/seo-constants.cjs); add ET/LV pairs for step `"name":"…"` and `en/#block` or ET/LV keep English names. `locale-nudge.js` is shared — do not generate per locale.
+13. **JSON-LD HowTo / ItemList:** extend `jsonLdLibrary()` in [scripts/seo-constants.cjs](scripts/seo-constants.cjs); add ET/LV/DE pairs for step `"name":"…"` and `en/#block` or keep English names. `locale-nudge.js` is shared — do not generate per locale.
 14. Hero H1 / lead / OG are locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)) — do not change without a new prize line.
 15. Run `npm test`.
 
@@ -47,11 +47,11 @@ git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.
 
 ## May inspect
 
-`en/`, `js/library.js`, `js/locale-nudge.js` (shared, not generated), `scripts/generate-et-lv-pages.cjs`, `scripts/seo-constants.cjs`, `scripts/prompt-bodies-et-lv.cjs`, `scripts/prompt-bodies-zh.cjs`, `docs/MULTILINGUAL_STRUCTURE.md`, `docs/GLOBAL_EPIC.md`
+`en/`, `js/library.js`, `js/locale-nudge.js` (shared, not generated), `scripts/generate-et-lv-pages.cjs`, `scripts/de-pairs.cjs`, `scripts/seo-constants.cjs`, `scripts/prompt-bodies-et-lv.cjs`, `scripts/prompt-bodies-de.cjs`, `scripts/prompt-bodies-zh.cjs`, `docs/MULTILINGUAL_STRUCTURE.md`, `docs/GLOBAL_EPIC.md`
 
 ## May edit
 
-`lt/index.html`, `lt/privatumas.html`, `ja/`, `zh/`, pair tables + prompt-body modules, privacy ET/LV, outputs after `npm run generate:et-lv`
+`lt/index.html`, `lt/privatumas.html`, `ja/`, `zh/`, pair tables + prompt-body modules, privacy ET/LV/DE, outputs after `npm run generate:et-lv`
 
 ## Do not
 

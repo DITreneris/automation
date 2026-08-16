@@ -33,6 +33,51 @@ https://www.promptanatomy.info/sitemap.xml
 7. Daily Prompt Library — https://www.promptanatomy.info/en/#block7
 8. Critical Situation Simulation — https://www.promptanatomy.info/en/#block8
 
+## Prompts by language
+
+### Lietuvių
+1. DI konteksto patikra — https://www.promptanatomy.info/lt/#block1
+2. Organizacijos portretas — https://www.promptanatomy.info/lt/#block2
+3. Mano rolė organizacijoje — https://www.promptanatomy.info/lt/#block3
+4. Pareigybės instrukcija + KPI — https://www.promptanatomy.info/lt/#block4
+5. Pagrindiniai darbo procesai — https://www.promptanatomy.info/lt/#block5
+6. DI pagalba ir optimizavimas — https://www.promptanatomy.info/lt/#block6
+7. Kasdienė promptų biblioteka — https://www.promptanatomy.info/lt/#block7
+8. Kritinių situacijų simuliacija — https://www.promptanatomy.info/lt/#block8
+
+### Deutsch
+1. KI-Kontextprüfung — https://www.promptanatomy.info/de/#block1
+2. Organisationsporträt — https://www.promptanatomy.info/de/#block2
+3. Meine Rolle in der Organisation — https://www.promptanatomy.info/de/#block3
+4. Stellenbeschreibung + KPI — https://www.promptanatomy.info/de/#block4
+5. Kernarbeitsprozesse — https://www.promptanatomy.info/de/#block5
+6. KI-Hilfe und Optimierung — https://www.promptanatomy.info/de/#block6
+7. Tägliche Prompt-Sammlung — https://www.promptanatomy.info/de/#block7
+8. Simulation kritischer Situationen — https://www.promptanatomy.info/de/#block8
+
+### 日本語
+1. AIコンテキスト診断 — https://www.promptanatomy.info/ja/#block1
+2. 組織ポートレート — https://www.promptanatomy.info/ja/#block2
+3. 組織での役割 — https://www.promptanatomy.info/ja/#block3
+4. 職務記述書 + KPI — https://www.promptanatomy.info/ja/#block4
+5. 中核の業務プロセス — https://www.promptanatomy.info/ja/#block5
+6. AIによる支援と最適化 — https://www.promptanatomy.info/ja/#block6
+7. 毎日使うプロンプト集 — https://www.promptanatomy.info/ja/#block7
+8. 危機シナリオのシミュレーション — https://www.promptanatomy.info/ja/#block8
+
+### 简体中文
+1. AI 上下文检查 — https://www.promptanatomy.info/zh/#block1
+2. 组织画像 — https://www.promptanatomy.info/zh/#block2
+3. 我在组织中的角色 — https://www.promptanatomy.info/zh/#block3
+4. 职位说明 + KPI — https://www.promptanatomy.info/zh/#block4
+5. 核心工作流程 — https://www.promptanatomy.info/zh/#block5
+6. AI 协助与优化 — https://www.promptanatomy.info/zh/#block6
+7. 日常提示词库 — https://www.promptanatomy.info/zh/#block7
+8. 关键情境模拟 — https://www.promptanatomy.info/zh/#block8
+
+Eesti: https://www.promptanatomy.info/et/  
+Latviešu: https://www.promptanatomy.info/lv/
+
 ## After the 8 prompts
 Continue with the interactive course: https://www.promptanatomy.app/en
 
