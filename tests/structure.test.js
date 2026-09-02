@@ -7,9 +7,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { COURSE_URL_EN, COURSE_RITUAL_URL, HUB_ENTITY_URL } = require('../scripts/seo-constants.cjs');
+const { COURSE_URL_EN, COURSE_RITUAL_URL, COURSE_COMMUNITY_URL, HUB_ENTITY_URL } = require('../scripts/seo-constants.cjs');
 const HUB_ENTITY_HREF = HUB_ENTITY_URL.replace(/&/g, '&amp;');
 const COURSE_RITUAL_HREF = COURSE_RITUAL_URL.replace(/&/g, '&amp;');
+const COURSE_COMMUNITY_HREF = COURSE_COMMUNITY_URL.replace(/&/g, '&amp;');
 const FOOTER_ENTITY_COPY = {
   en: 'Part of Prompt Anatomy · Training &amp; checkout',
   lt: 'Promptų Anatomijos ekosistema · Mokymai ir checkout',
@@ -190,7 +191,7 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   const heroCtaCount = (html.match(/class="cta-button"/g) || []).length;
   if (assert(heroCtaCount === 1, `${lang}: exactly one hero primary CTA`)) passed++;
   else failed++;
-  if (assert(html.includes(`href="${COURSE_URL_EN}"`) && html.includes('community-cta-secondary'), `${lang}: community secondary links to course`)) passed++;
+  if (assert(html.includes(`href="${COURSE_COMMUNITY_HREF}"`) && html.includes('community-cta-secondary'), `${lang}: community secondary links to course`)) passed++;
   else failed++;
   if (assert(html.includes('id="ritual-complete"'), `${lang}: ritual-complete`)) passed++;
   else failed++;
@@ -209,8 +210,8 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
     ? html.slice(communityIdx, html.indexOf('class="ecosystem"'))
     : '';
   if (assert(
-    communitySlice.includes(`href="${COURSE_URL_EN}"`) && !communitySlice.includes('ritual_complete'),
-    `${lang}: community secondary is COURSE_URL_EN without ritual UTM`
+    communitySlice.includes(`href="${COURSE_COMMUNITY_HREF}"`) && !communitySlice.includes('ritual_complete'),
+    `${lang}: community secondary is COURSE_COMMUNITY_URL without ritual UTM`
   )) passed++;
   else failed++;
   if (assert(!html.includes('Welcome to the Prompt Anatomy Hub'), `${lang}: ecosystem is not Hub`)) passed++;

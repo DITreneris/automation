@@ -1,8 +1,8 @@
 # MUST TODO – aktyvūs prioritetai
 
-**Atnaujinta:** 2026-08-16  
-**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (7 kalbos, **v1.7.0**, tagas gyvas).  
-**Dabar:** Atradimas (GSC + LT/EN) – ne nauja kalba. Bangos: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
+**Atnaujinta:** 2026-09-02  
+**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (7 kalbos, **v1.7.0**, tagas gyvas). FIRST IMPROVE share DONE (`/en/` + `/lt/`, 2026-09-01).  
+**Dabar:** Operatoriaus GSC žvilgsnis – ne nauja kalba, ne bounce, ne events. Bangos: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
 
 | Strategija | Bangos |
 |------------|--------|
@@ -23,15 +23,19 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 
 ---
 
-## Dabar – atradimas (Google ir modeliai)
+## Dabar – operatorius (ne kodo banga)
 
-Srautas ankstyvas (~1 mėn. gyvo piko). 90 d. keliai (Vercel, 2026-08-16): `/lt/` 206, `/en/` 115, `/ja/` 12, `/et/` 3, `/lv/` 3. Google referrer – 6. 1 m. šalys: LT 61%, US 19%, IE 7% (EN), NL 8, FR 4, DE 3, ES 0.
+FIRST IMPROVE share DONE 2026-09-01 (`/en/` + `/lt/`). Posted share ≠ PR. Nepradėti bounce, custom events, naujos kalbos, hero, suliejimo su `.app`.
+
+**Last 30 Days** (Tomas paste, Production `automation-seven-ochre`, 2026-09-02): 91 lankytojai (−36% vs prior 30 d.), 135 views, bounce 75% (copy-out). Keliai: `/lt` 49, `/en` 39, `/zh` 5, `/et` 4, `/ja` 2, `/zh/privacy` 2, `/de` 1. Facebook 5+4; `google.com` = 0; events 0. CN 13% ≠ `zh-Hant`.
 
 - [x] **1.7.0** – DE + `llms.txt` locale URL + privacy Analytics + JSON-LD `#howto` ant locale. Tag [v1.7.0](https://github.com/DITreneris/automation/releases/tag/v1.7.0)
 - [x] **GSC verify** – [google7305663b2567346e.html](google7305663b2567346e.html) root; nuosavybė `https://www.promptanatomy.info/`
-- [x] **Sitemap pateikta** – `https://www.promptanatomy.info/sitemap.xml` (2026-08-16). Failas gyvas: 200, `application/xml`, 14 URL. Pirmas GSC nuskaitymas – „Nepavyko nuskaityti“ (pirmos dienos crawleris, ne blogas XML)
-- [ ] **GSC sėkmė** – sitemap statusas „Sėkmingai“; URL inspect `/lt/`, `/en/`, `llms.txt`; resubmit jei vis dar raudona po 24 val.
-- [ ] **Parkuota:** `nl` / `es` / `fr` – kartelė ≥30 lankytojų / 90 d. iš tos šalies **ir** bounce ant `/en/`
+- [x] **Sitemap pateikta** – `https://www.promptanatomy.info/sitemap.xml` (2026-08-16). Failas gyvas 2026-09-02: 200, `application/xml`, 14 URL.
+- [x] **FIRST IMPROVE** – `/en/` ir `/lt/` papostinti 2026-09-01. Nekartoti.
+- [x] **Community UTM** – `COURSE_COMMUNITY_URL` (`utm_source=info`, `utm_medium=community`). Ritualas ir entity footer nekeisti. Badge lieka plikas `COURSE_URL_EN`.
+- [ ] **GSC sėkmė** – operatoriaus žvilgsnis (ne PR): sitemap „Sėkmingai“; URL inspect `/lt/`, `/en/`, `llms.txt`. Sitemap XML jau 200.
+- [ ] **Parkuota:** `nl` / `es` / `fr` – kartelė ≥30 lankytojų / 90 d. iš tos šalies **ir** bounce ant `/en/`. Hold.
 
 ---
 
@@ -76,6 +80,8 @@ Srautas ankstyvas (~1 mėn. gyvo piko). 90 d. keliai (Vercel, 2026-08-16): `/lt/
 - Vėliavos / paieška jungiklyje
 - 10 kalbų viename PR
 - `nl` / `es` / `fr` be atradimo kartelės
+- Bounce „fix“, custom events, mobile redesign iš 30 d. lango
+- Pakartoti FIRST IMPROVE share kaip ticketą
 
 ---
 

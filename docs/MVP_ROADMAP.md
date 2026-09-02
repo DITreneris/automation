@@ -1,6 +1,6 @@
 # MVP Roadmap – Pasaulinė gaudyklė
 
-**Atnaujinta:** 2026-08-16  
+**Atnaujinta:** 2026-09-02  
 **Pakeičia:** [archive/MVP_ROADMAP_2026-02.md](archive/MVP_ROADMAP_2026-02.md) (forma, CAPTCHA, kelias iki production – produktas jau gyvas).
 
 | Kodėl | Dabar |
@@ -19,19 +19,20 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 ---
 
-## Dabar – Atradimas (po 1.7.0)
+## Dabar – po FIRST IMPROVE (operatorius, ne kodo banga)
 
-**Tikslas:** durys į Google ir modelius, ne aštunta kalba.
+**Tikslas:** durys į Google ir modelius, ne aštunta kalba. Share `/en/` + `/lt/` DONE 2026-09-01 — nekartoti, neimti kaip PR.
 
-**Deliverables** (checkbox'ai – [MUST_TODO.md](../MUST_TODO.md) „Dabar – atradimas“)
+**Deliverables** (checkbox'ai – [MUST_TODO.md](../MUST_TODO.md) „Dabar – operatorius“)
 
-- GSC nuosavybė + sitemap `https://www.promptanatomy.info/sitemap.xml`
-- `/lt/` ir `/en/` indeksuoti; `llms.txt` crawlable
+- GSC nuosavybė + sitemap gyvas (200, 14 URL, 2026-09-02)
+- GSC „Sėkmingai“ + URL inspect – operatoriaus žvilgsnis, ne kodas
 - Nauja kalba (`es` / `fr` / `nl`) – ne, kol ≥30 lankytojų / 90 d. ir bounce ant `/en/`
+- Nepradėti bounce, custom events, locale, hero
 
-**90 d. keliai (2026-08-16):** `/lt/` 206, `/en/` 115, `/ja/` 12, `/et/` `/lv/` po 3. Google referrer – 6.
+**Last 30 Days (2026-09-02):** 91 lankytojai, `/lt` 49, `/en` 39, Facebook 9, `google.com` = 0, bounce 75% (copy-out).
 
-**Exit:** GSC sitemap „Sėkmingai“; `/lt/` ir `/en/` URL inspect OK.
+**Exit:** GSC sitemap „Sėkmingai“; `/lt/` ir `/en/` URL inspect OK. Ne nauja kalba.
 
 ---
 

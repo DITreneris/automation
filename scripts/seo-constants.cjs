@@ -12,6 +12,9 @@ const HUB_ENTITY_URL =
 /** Earned handoff after the 8-step ritual. Not the entity footer. */
 const COURSE_RITUAL_URL =
   'https://www.promptanatomy.app/en?utm_source=info&utm_medium=ritual_complete&utm_campaign=ecosystem';
+/** Community-section course CTA. Not ritual-complete and not the entity footer. */
+const COURSE_COMMUNITY_URL =
+  'https://www.promptanatomy.app/en?utm_source=info&utm_medium=community&utm_campaign=ecosystem';
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/img/og/og-image.png`;
 const OG_IMAGE_ALT = 'Prompt Anatomy – AI Automation Library';
 
@@ -264,6 +267,7 @@ module.exports = {
   SITE_ORIGIN,
   COURSE_URL_EN,
   COURSE_RITUAL_URL,
+  COURSE_COMMUNITY_URL,
   HUB_URL,
   HUB_ENTITY_URL,
   OG_IMAGE_URL,
