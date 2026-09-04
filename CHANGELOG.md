@@ -10,6 +10,7 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 - **[QA] GSC HTML verify:** [google7305663b2567346e.html](google7305663b2567346e.html) root – Search Console nuosavybė `https://www.promptanatomy.info/`. Sitemap pateikta (`/sitemap.xml`); pirmas nuskaitymas 2026-08-16 dar failino (failas 200 + `application/xml`, 14 URL).
 - **[QA] Community course UTM:** community antrinis CTA visose 7 locale → `COURSE_COMMUNITY_URL` (`utm_source=info`, `utm_medium=community`). Ritualas (`ritual_complete`) ir entity footer (`entity_footer`) nekeisti; badge lieka plikas `COURSE_URL_EN`.
+- **[QA] AI crawler robots:** [robots.txt](robots.txt) – `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot` `Allow: /` (taip pat kaip kituose spoke). Sitemap eilutė nepakitusi.
 
 ### Pakeista
 
