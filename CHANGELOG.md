@@ -17,6 +17,7 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 - **[UI] Ecosystem spoke chips:** `.ecosystem-links` – pill chip’ai kaip `.tag` (mono hostname, `--brand-teal-dark`, be underline), ne nuogas URL sąrašas po diagrama.
 - **[Orchestrator] Board after 1.7.0:** [MUST_TODO.md](MUST_TODO.md) ir [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – Wave 0/1 baigtos; dabar atradimas (GSC, LT/EN), ne `es`/`fr`/`nl`.
 - **[Orchestrator] Board after FIRST IMPROVE:** [MUST_TODO.md](MUST_TODO.md) ir [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – share `/en/` + `/lt/` DONE 2026-09-01; 30 d. langas 91 / 75% / Facebook 9 / `google.com` 0; GSC lieka operatoriaus žvilgsnis. Nepradėti bounce, events, naujos kalbos.
+- **[Orchestrator] Agent docs after community UTM:** keturi `.app` URL (badge `COURSE_URL_EN`, community `COURSE_COMMUNITY_URL`, ritualas, entity footer) – [AGENTS.md](AGENTS.md), GLOBAL_EPIC, MULTILINGUAL, design_system, LESSONS, audit-patterns. Palace wake: [.cursor/rules/agentsmemory.mdc](.cursor/rules/agentsmemory.mdc).
 
 ### Taisyta
 
