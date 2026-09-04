@@ -187,7 +187,7 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 | Hero secondary | `.header-brand a.badge` | Semi-transparent ant hero | Kursas → `COURSE_URL_EN` |
 | Nav chip | `.next-steps-links a` | `--brand-teal` outline | Vidinė navigacija 1–8 |
 | Community primary | `.community-cta-primary` | `--brand-teal` filled | „Join Telegram“ |
-| Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `COURSE_URL_EN` (community) arba `COURSE_RITUAL_URL` (`#ritual-complete`) |
+| Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `COURSE_COMMUNITY_URL` (community) arba `COURSE_RITUAL_URL` (`#ritual-complete`) |
 | Success | `.btn.success` | `--green` | Po kopijavimo |
 
 **Focus:** dažniausiai `var(--focus-ring-width) solid var(--accent-gold)`; hero `.cta-button` – baltas ringas (`var(--white)`).
@@ -262,7 +262,7 @@ prompts 1–8 → ritual-complete → next-steps → community → ecosystem →
 ```
 
 - Vienas hero primary CTA („Use first prompt“)
-- Kursas: badge + community → `COURSE_URL_EN`; earned handoff → `COURSE_RITUAL_URL`
+- Kursas: badge → `COURSE_URL_EN`; community → `COURSE_COMMUNITY_URL`; earned handoff → `COURSE_RITUAL_URL`
 - Entity footer → `HUB_ENTITY_URL` (ne kursas)
 - Telegram tik `.community` sekcijoje
 - Šis puslapis nėra Hub

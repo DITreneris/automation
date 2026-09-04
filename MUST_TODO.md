@@ -96,7 +96,7 @@ FIRST IMPROVE share DONE 2026-09-01 (`/en/` + `/lt/`). Posted share ≠ PR. Nepr
 
 ## Padaryta (1.5.0)
 
-- [x] Handoff po prompto 8 (`#ritual-complete` + `COURSE_RITUAL_URL`); trys `.app` URL
+- [x] Handoff po prompto 8 (`#ritual-complete` + `COURSE_RITUAL_URL`); keturi `.app` URL (`COURSE_COMMUNITY_URL` community)
 - [x] Entity footer → `HUB_ENTITY_URL` (QW1b)
 - [x] Front page be „ritual“; H1/lead grąžinti
 - [x] 5-locale language pass

@@ -13,7 +13,8 @@ Free static 8-prompt Daily Workflow Library. Locales are a **wave, not a ceiling
 | Product | URL | Constant |
 |---------|-----|----------|
 | **Library (this repo)** | https://www.promptanatomy.info/ | `SITE_ORIGIN` |
-| **Interactive course** | https://www.promptanatomy.app/en | `COURSE_URL_EN` (badge, community) |
+| **Interactive course** | https://www.promptanatomy.app/en | `COURSE_URL_EN` (badge only) |
+| **Community course CTA** | course `/en` + UTM | `COURSE_COMMUNITY_URL` (`utm_medium=community`) |
 | **Hub (entity / checkout)** | https://www.promptanatomy.app/ + UTM | `HUB_ENTITY_URL` (`.footer-entity` only) |
 | **Handoff after prompt 8** | `COURSE_URL_EN` + `utm_medium=ritual_complete` | `COURSE_RITUAL_URL` (`#ritual-complete` only) |
 
@@ -127,6 +128,7 @@ Report issues: [SECURITY.md](SECURITY.md).
 ## Never
 
 - Point course/badge links to `promptanatomy.info/en`
+- Put `ritual_complete` on the community CTA, or revert community to bare `COURSE_URL_EN` (use `COURSE_COMMUNITY_URL`)
 - Call this site the Hub, or point `.footer-entity` at `COURSE_URL_EN` / `COURSE_RITUAL_URL`
 - Put a diagnostic or “what AI knows about your org” on the library H1 — prize only; never put “ritual” in customer-facing front-page copy; see [.cursor/skills/hero-copy/SKILL.md](.cursor/skills/hero-copy/SKILL.md)
 - 302 from `/{locale}/` based on IP or `Accept-Language`; auto-redirect between language versions
@@ -162,4 +164,4 @@ Full workflow history: [docs/archive/](docs/archive/).
 
 ---
 
-**Last updated:** 2026-08-15
+**Last updated:** 2026-09-02

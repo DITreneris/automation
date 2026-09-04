@@ -44,3 +44,15 @@ Recurring themes from repo audits and CI — operational, not historical.
 
 - **Cause:** `serve -s` single-page mode
 - **Fix:** `npx serve . -l 3000` without `-s`
+
+## Course UTM channel mix
+
+- **Cause:** Agents treat every `.app/en` link as `COURSE_URL_EN`, or copy `ritual_complete` onto the community button
+- **Fix:** Four constants in [scripts/seo-constants.cjs](../scripts/seo-constants.cjs) — badge = `COURSE_URL_EN`; community = `COURSE_COMMUNITY_URL`; `#ritual-complete` = `COURSE_RITUAL_URL`; `.footer-entity` = `HUB_ENTITY_URL`
+- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — community slice has `utm_medium=community` and no `ritual_complete`; badge still matches bare `COURSE_URL_EN`
+
+## Ecosystem spoke list as leftover HTML
+
+- **Cause:** Static ecosystem PNG is not clickable; agents dump raw hostnames under the figure, or delete `.ecosystem-links` to “clean” the design
+- **Fix:** Keep the hrefs; style as `.tag` chips in [css/library.css](../css/library.css) (`.ecosystem-links`). Spec: [docs/design_system.md](../docs/design_system.md) §2.7
+- **Gate:** `class="ecosystem-links"` + `href="https://promptanatomy.cloud/"` in [tests/structure.test.js](../tests/structure.test.js)

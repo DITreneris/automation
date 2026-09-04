@@ -43,7 +43,7 @@ Jau shipped. Neliesti be naujos prizinės eilutės iš savininko.
 - 8 promptai → kasdienis rinkinys; be paskyros.
 - Front page niekada nesako „ritualas“. ID/UTM `#ritual-complete` gali likti.
 - Zero-build: HTML + CSS + vanilla JS. Jokio React/Vite/bundlerio.
-- Trys `.app` URL: `COURSE_URL_EN`, `HUB_ENTITY_URL`, `COURSE_RITUAL_URL` – [scripts/seo-constants.cjs](../scripts/seo-constants.cjs).
+- Keturi `.app` URL: `COURSE_URL_EN` (badge), `COURSE_COMMUNITY_URL`, `HUB_ENTITY_URL`, `COURSE_RITUAL_URL` – [scripts/seo-constants.cjs](../scripts/seo-constants.cjs).
 
 Kanonas: [.cursor/skills/hero-copy/SKILL.md](../.cursor/skills/hero-copy/SKILL.md).
 

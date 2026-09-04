@@ -4,11 +4,12 @@
 **Tikslas:** Path atitikmenys ir routing taisyklės – vienas šaltinis tiesiai UI/UX ir Content.  
 **Bangos / N+1:** [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §4, šio failo [§7](#7-locale-n1-playbook). Jungiklis: [.cursor/skills/locale-switcher/SKILL.md](../.cursor/skills/locale-switcher/SKILL.md).
 
-**Trys `.app` URL** ([scripts/seo-constants.cjs](../scripts/seo-constants.cjs)):
+**Keturi `.app` URL** ([scripts/seo-constants.cjs](../scripts/seo-constants.cjs)):
 
 | Constant | Kur | URL |
 |----------|-----|-----|
-| `COURSE_URL_EN` | Badge, community secondary | `https://www.promptanatomy.app/en` |
+| `COURSE_URL_EN` | Badge only | `https://www.promptanatomy.app/en` |
+| `COURSE_COMMUNITY_URL` | `.community-cta-secondary` | course `/en` + `utm_medium=community` |
 | `HUB_ENTITY_URL` | `.footer-entity` only | hub root + `utm_medium=entity_footer` |
 | `COURSE_RITUAL_URL` | `#ritual-complete` only | course `/en` + `utm_medium=ritual_complete` |
 
