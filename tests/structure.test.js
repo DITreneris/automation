@@ -184,7 +184,17 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
   else failed++;
   if (assert(html.includes('1311 Park St') && html.includes('Alameda, CA 94501'), `${lang}: footer-contact address`)) passed++;
   else failed++;
-  if (assert(html.includes(`href="${COURSE_URL_EN}"`) && html.includes('class="badge"'), `${lang}: badge links to course`)) passed++;
+  const brandIdx = html.indexOf('class="header-brand"');
+  const switcherIdx = html.indexOf('class="lang-switcher', brandIdx);
+  const badgeSlice = brandIdx > -1 && switcherIdx > brandIdx
+    ? html.slice(brandIdx, switcherIdx)
+    : '';
+  if (assert(
+    badgeSlice.includes('class="badge"') &&
+      badgeSlice.includes(`href="${COURSE_URL_EN}"`) &&
+      !badgeSlice.includes('utm_'),
+    `${lang}: badge is bare COURSE_URL_EN`
+  )) passed++;
   else failed++;
   if (assert(!html.includes('cta-button-outline'), `${lang}: no hero outline CTA`)) passed++;
   else failed++;
@@ -704,6 +714,7 @@ function run() {
     'assets/js/lucide.min.js',
     'js/locale-nudge.js',
     '404.html',
+    'google7305663b2567346e.html',
   ];
   for (const f of assetFiles) {
     if (assert(fs.existsSync(path.join(assetRoot, f)), `Asset egzistuoja: ${f}`)) passed++;
@@ -719,6 +730,15 @@ function run() {
   else failed++;
   const robots = readFile(path.join(assetRoot, 'robots.txt'));
   if (assert(robots && robots.includes('Sitemap:') && robots.includes('sitemap.xml'), 'robots.txt: Sitemap nuoroda')) passed++;
+  else failed++;
+  if (assert(robots && robots.includes('User-agent: OAI-SearchBot'), 'robots.txt: OAI-SearchBot')) passed++;
+  else failed++;
+  if (assert(robots && robots.includes('User-agent: ChatGPT-User'), 'robots.txt: ChatGPT-User')) passed++;
+  else failed++;
+  if (assert(robots && robots.includes('User-agent: PerplexityBot'), 'robots.txt: PerplexityBot')) passed++;
+  else failed++;
+  const gscVerify = readFile(path.join(assetRoot, 'google7305663b2567346e.html')) || '';
+  if (assert(gscVerify.includes('google-site-verification: google7305663b2567346e.html'), 'GSC HTML verify payload')) passed++;
   else failed++;
   const llms = readFile(path.join(assetRoot, 'llms.txt')) || '';
   if (assert(llms.includes('Let AI do 30–50% of your daily tasks'), 'llms.txt: EN H1')) passed++;

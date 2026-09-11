@@ -21,6 +21,8 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Taisyta
 
+- **[QA] Discovery + badge asserts:** [tests/structure.test.js](tests/structure.test.js) – `robots.txt` crawler `User-agent` (`OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot`) ir GSC HTML (`google7305663b2567346e.html` + payload); badge href – `.header-brand` slice (plikas `COURSE_URL_EN`, be `utm_`). `robots.txt` baitai nepakeisti.
+
 ---
 
 ## [1.7.0] - 2026-08-16

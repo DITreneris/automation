@@ -49,7 +49,13 @@ Recurring themes from repo audits and CI — operational, not historical.
 
 - **Cause:** Agents treat every `.app/en` link as `COURSE_URL_EN`, or copy `ritual_complete` onto the community button
 - **Fix:** Four constants in [scripts/seo-constants.cjs](../scripts/seo-constants.cjs) — badge = `COURSE_URL_EN`; community = `COURSE_COMMUNITY_URL`; `#ritual-complete` = `COURSE_RITUAL_URL`; `.footer-entity` = `HUB_ENTITY_URL`
-- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — community slice has `utm_medium=community` and no `ritual_complete`; badge still matches bare `COURSE_URL_EN`
+- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — community slice has `utm_medium=community` and no `ritual_complete`; badge is the `.header-brand` slice (bare `COURSE_URL_EN`, no `utm_`)
+
+## Discovery files
+
+- **Cause:** Agents delete the GSC HTML verify file or drop AI crawler `User-agent` groups from `robots.txt`; CI used to stay green (Sitemap line only)
+- **Fix:** Keep [google7305663b2567346e.html](../google7305663b2567346e.html) at root (`google-site-verification: google7305663b2567346e.html`). Keep `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot` in [robots.txt](../robots.txt). Do not rewrite robots to move `Sitemap:`
+- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — file in `assetFiles` + payload string; robots `User-agent:` names + existing Sitemap assert
 
 ## Ecosystem spoke list as leftover HTML
 
