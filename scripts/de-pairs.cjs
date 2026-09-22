@@ -47,8 +47,8 @@ const DE_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
 const DE_PAIRS = [
   ['<html lang="en" data-hreflang-suite="library">', '<html lang="de" data-hreflang-suite="library">'],
   [
-    '<meta name="description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.">',
+    '<meta name="description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. Kopieren Sie eine Vorlage, fügen Sie sie ein – die Aufgabe ist schon in Bewegung.">',
   ],
   [
     '<link rel="canonical" href="https://www.promptanatomy.info/en/">',
@@ -68,19 +68,19 @@ const DE_PAIRS = [
   ],
   [
     '<meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta property="og:title" content="Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy">',
+    '<meta property="og:title" content="Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen">',
   ],
   [
-    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta property="og:description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.">',
+    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta property="og:description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. Kopieren Sie eine Vorlage, fügen Sie sie ein – die Aufgabe ist schon in Bewegung.">',
   ],
   [
     '<meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta name="twitter:title" content="Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy">',
+    '<meta name="twitter:title" content="Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen">',
   ],
   [
-    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="twitter:description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.">',
+    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="twitter:description" content="8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. Kopieren Sie eine Vorlage, fügen Sie sie ein – die Aufgabe ist schon in Bewegung.">',
   ],
   [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
@@ -101,11 +101,11 @@ const DE_PAIRS = [
   ['"inLanguage":"en"', '"inLanguage":"de"'],
   [
     '"name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy"',
-    '"name":"Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy"',
+    '"name":"Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen"',
   ],
   [
-    '"description":"8 exercises with ready-made templates – results in minutes."',
-    '"description":"8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten."',
+    '"description":"8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving."',
+    '"description":"8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. Kopieren Sie eine Vorlage, fügen Sie sie ein – die Aufgabe ist schon in Bewegung."',
   ],
   ['https://www.promptanatomy.info/en/#block', 'https://www.promptanatomy.info/de/#block'],
   ['"name":"AI Context Check"', '"name":"KI-Kontextprüfung"'],
@@ -118,7 +118,7 @@ const DE_PAIRS = [
   ['"name":"Critical Situation Simulation"', '"name":"Simulation kritischer Situationen"'],
   [
     '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
-    '<title>Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy</title>',
+    '<title>Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen</title>',
   ],
   [
     "<style>:root { --codeblock-copy-hint: 'Select and copy'; }</style>",

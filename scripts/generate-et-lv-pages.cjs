@@ -143,8 +143,8 @@ const LV_FOOTER_NAV = `            <nav class="lang-switcher lang-switcher--drop
 const ET_PAIRS = [
   ['<html lang="en" data-hreflang-suite="library">', '<html lang="et" data-hreflang-suite="library">'],
   [
-    '<meta name="description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+    '<meta name="description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="description" content="8 harjutust valmis mallidega – tulemused minutitega. Kopeerige üks mall, kleepige sisse – ja ülesanne liigub juba praegu.">',
   ],
   [
     '<link rel="canonical" href="https://www.promptanatomy.info/en/">',
@@ -160,19 +160,19 @@ const ET_PAIRS = [
   ],
   [
     '<meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta property="og:title" content="Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia">',
+    '<meta property="og:title" content="Laske tehisintellektil 30–50% igapäevastest ülesannetest">',
   ],
   [
-    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta property="og:description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta property="og:description" content="8 harjutust valmis mallidega – tulemused minutitega. Kopeerige üks mall, kleepige sisse – ja ülesanne liigub juba praegu.">',
   ],
   [
     '<meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta name="twitter:title" content="Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia">',
+    '<meta name="twitter:title" content="Laske tehisintellektil 30–50% igapäevastest ülesannetest">',
   ],
   [
-    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="twitter:description" content="8 harjutust valmis mallidega – tulemused minutitega.">',
+    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="twitter:description" content="8 harjutust valmis mallidega – tulemused minutitega. Kopeerige üks mall, kleepige sisse – ja ülesanne liigub juba praegu.">',
   ],
   [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
@@ -193,11 +193,11 @@ const ET_PAIRS = [
   ['"inLanguage":"en"', '"inLanguage":"et"'],
   [
     '"name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy"',
-    '"name":"Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia"',
+    '"name":"Laske tehisintellektil 30–50% igapäevastest ülesannetest"',
   ],
   [
-    '"description":"8 exercises with ready-made templates – results in minutes."',
-    '"description":"8 harjutust valmis mallidega – tulemused minutitega."',
+    '"description":"8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving."',
+    '"description":"8 harjutust valmis mallidega – tulemused minutitega. Kopeerige üks mall, kleepige sisse – ja ülesanne liigub juba praegu."',
   ],
   ['https://www.promptanatomy.info/en/#block', 'https://www.promptanatomy.info/et/#block'],
   ['"name":"AI Context Check"', '"name":"Tehisintellekti konteksti kontroll"'],
@@ -210,7 +210,7 @@ const ET_PAIRS = [
   ['"name":"Critical Situation Simulation"', '"name":"Kriitilise olukorra simulatsioon"'],
   [
     '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
-    '<title>Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia</title>',
+    '<title>Laske tehisintellektil 30–50% igapäevastest ülesannetest</title>',
   ],
   [
     "<style>:root { --codeblock-copy-hint: 'Select and copy'; }</style>",
@@ -591,8 +591,8 @@ const ET_JS_PAIRS = [
 const LV_PAIRS = [
   ['<html lang="en" data-hreflang-suite="library">', '<html lang="lv" data-hreflang-suite="library">'],
   [
-    '<meta name="description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.">',
+    '<meta name="description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. Nokopējiet vienu veidni, ielīmējiet – un uzdevums jau kustas.">',
   ],
   [
     '<link rel="canonical" href="https://www.promptanatomy.info/en/">',
@@ -608,19 +608,19 @@ const LV_PAIRS = [
   ],
   [
     '<meta property="og:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta property="og:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy">',
+    '<meta property="og:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem">',
   ],
   [
-    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta property="og:description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.">',
+    '<meta property="og:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta property="og:description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. Nokopējiet vienu veidni, ielīmējiet – un uzdevums jau kustas.">',
   ],
   [
     '<meta name="twitter:title" content="Let AI do 30–50% of your daily tasks – Prompt Anatomy">',
-    '<meta name="twitter:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy">',
+    '<meta name="twitter:title" content="Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem">',
   ],
   [
-    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes.">',
-    '<meta name="twitter:description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.">',
+    '<meta name="twitter:description" content="8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.">',
+    '<meta name="twitter:description" content="8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. Nokopējiet vienu veidni, ielīmējiet – un uzdevums jau kustas.">',
   ],
   [
     '"@id":"https://www.promptanatomy.info/en/#webpage"',
@@ -641,11 +641,11 @@ const LV_PAIRS = [
   ['"inLanguage":"en"', '"inLanguage":"lv"'],
   [
     '"name":"Let AI do 30–50% of your daily tasks – Prompt Anatomy"',
-    '"name":"Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy"',
+    '"name":"Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem"',
   ],
   [
-    '"description":"8 exercises with ready-made templates – results in minutes."',
-    '"description":"8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā."',
+    '"description":"8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving."',
+    '"description":"8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. Nokopējiet vienu veidni, ielīmējiet – un uzdevums jau kustas."',
   ],
   ['https://www.promptanatomy.info/en/#block', 'https://www.promptanatomy.info/lv/#block'],
   ['"name":"AI Context Check"', '"name":"MI konteksta pārbaude"'],
@@ -658,7 +658,7 @@ const LV_PAIRS = [
   ['"name":"Critical Situation Simulation"', '"name":"Kritiskas situācijas simulācija"'],
   [
     '<title>Let AI do 30–50% of your daily tasks – Prompt Anatomy</title>',
-    '<title>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy</title>',
+    '<title>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem</title>',
   ],
   [
     "<style>:root { --codeblock-copy-hint: 'Select and copy'; }</style>",

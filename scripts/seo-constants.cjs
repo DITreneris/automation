@@ -39,7 +39,7 @@ const HREFLANG_PRIVACY = `    <link rel="alternate" hreflang="lt" href="${SITE_O
 const OG_LIBRARY_TITLE =
   'Let AI do 30–50% of your daily tasks – Prompt Anatomy';
 const OG_LIBRARY_DESCRIPTION =
-  '8 exercises with ready-made templates – results in minutes.';
+  '8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.';
 
 const OG_PRIVACY_TITLE = 'Privacy policy – Prompt Anatomy';
 const OG_PRIVACY_DESCRIPTION =

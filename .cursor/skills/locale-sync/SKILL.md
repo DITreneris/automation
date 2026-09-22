@@ -36,7 +36,7 @@ git diff --exit-code -- et/index.html lv/index.html de/index.html js/library.et.
 11. Footer-entity visible text is asserted per locale (`FOOTER_ENTITY_COPY` in [tests/structure.test.js](tests/structure.test.js)) — update the assert when the product line changes.
 12. **Switcher NAV templates:** `ET_NAV` / `ET_FOOTER_NAV` / `LV_NAV` / `LV_FOOTER_NAV` in the generator; `DE_NAV` / `DE_FOOTER_NAV` in [scripts/de-pairs.cjs](scripts/de-pairs.cjs) — Lucide `languages`, `lang` + `hreflang` on options (ZH: `zh-Hans`).
 13. **JSON-LD HowTo / ItemList:** extend `jsonLdLibrary()` in [scripts/seo-constants.cjs](scripts/seo-constants.cjs); add ET/LV/DE pairs for step `"name":"…"` and `en/#block` or keep English names. `locale-nudge.js` is shared — do not generate per locale.
-14. Hero H1 / lead / OG are locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)) — do not change without a new prize line.
+14. Hero H1 and the visible lead stay locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)). SERP `title` and meta `description` are separate fields with length caps. Do not glue the title back onto H1 + brand, and do not set the description equal to the lead. The description’s second sentence is meta-only: one catchy line (copy, paste, the task moves), not a list.
 15. Run `npm test`.
 
 ## Register (visitor vs model)

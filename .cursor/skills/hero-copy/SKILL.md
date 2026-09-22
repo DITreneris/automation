@@ -35,7 +35,7 @@ Identity (not Hub, 8 prompts) never steals the H1. Consultant words never appear
 | JA | AIに日々の作業の30〜50%を任せる | 定型テンプレート付きの演習8本。数分で結果が出ます。 |
 | ZH | 让 AI 完成你日常工作的 30%–50% | 8 个带现成模板的练习，几分钟就能出结果。 |
 
-Title / OG / JSON-LD `name` (WebPage + HowTo) = H1 + brand suffix. Description = lead. Same meaning in all locales — do not lengthen JA/ET/LV/DE/ZH. Locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)).
+Title / OG / twitter title / JSON-LD `name` (WebPage + HowTo + ItemList) is a SERP title, not the H1. Latin title ≤ 60. EN, JA, and ZH keep H1 + brand. LT, LV, and DE drop the brand (`og:site_name` keeps it). ET title is a shorter prize line; the visible H1 stays full. Description (meta, og, twitter, JSON-LD) = lead + one catchy second sentence: copy, paste, the task moves. Not a list of jobs or prompt titles. Latin description 120–155. JA/ZH description 40–90. H1 and the visible lead stay short. Locked in `HERO_LOCK` ([tests/structure.test.js](tests/structure.test.js)).
 
 Objectives H2: **What you get** / **Ką gausi** / **Was Sie bekommen**. Finish H2: **You finished the 8 prompts** / **Tu baigei 8 promptus** / **Sie haben die 8 Prompts abgeschlossen**.
 

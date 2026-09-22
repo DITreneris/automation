@@ -27,37 +27,44 @@ const HERO_LOCK = {
   lt: {
     h1: 'Leisk DI atlikti 30–50% tavo kasdienių užduočių',
     lead: '8 pratimai su paruoštais šablonais – rezultatai per kelias minutes.',
-    title: 'Leisk DI atlikti 30–50% tavo kasdienių užduočių – Promptų anatomija',
+    title: 'Leisk DI atlikti 30–50% tavo kasdienių užduočių',
+    description: '8 pratimai su paruoštais šablonais – rezultatai per kelias minutes. Nukopijuok vieną šabloną, įklijuok – ir užduotis jau pajuda.',
   },
   en: {
     h1: 'Let AI do 30–50% of your daily tasks',
     lead: '8 exercises with ready-made templates – results in minutes.',
     title: 'Let AI do 30–50% of your daily tasks – Prompt Anatomy',
+    description: '8 exercises with ready-made templates – results in minutes. Copy one template, paste it in, and the task is already moving.',
   },
   et: {
     h1: 'Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest',
     lead: '8 harjutust valmis mallidega – tulemused minutitega.',
-    title: 'Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest – Prompti anatoomia',
+    title: 'Laske tehisintellektil 30–50% igapäevastest ülesannetest',
+    description: '8 harjutust valmis mallidega – tulemused minutitega. Kopeerige üks mall, kleepige sisse – ja ülesanne liigub juba praegu.',
   },
   lv: {
     h1: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem',
     lead: '8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.',
-    title: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem – Prompt Anatomy',
+    title: 'Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem',
+    description: '8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā. Nokopējiet vienu veidni, ielīmējiet – un uzdevums jau kustas.',
   },
   de: {
     h1: 'Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen',
     lead: '8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.',
-    title: 'Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen – Prompt Anatomy',
+    title: 'Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen',
+    description: '8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten. Kopieren Sie eine Vorlage, fügen Sie sie ein – die Aufgabe ist schon in Bewegung.',
   },
   ja: {
     h1: 'AIに日々の作業の30〜50%を任せる',
     lead: '定型テンプレート付きの演習8本。数分で結果が出ます。',
     title: 'AIに日々の作業の30〜50%を任せる – プロンプトアナトミー',
+    description: '定型テンプレート付きの演習8本。数分で結果が出ます。一つコピーして貼るだけ。仕事が動き出します。',
   },
   zh: {
     h1: '让 AI 完成你日常工作的 30%–50%',
     lead: '8 个带现成模板的练习，几分钟就能出结果。',
     title: '让 AI 完成你日常工作的 30%–50% – Prompt Anatomy',
+    description: '8 个带现成模板的练习，几分钟就能出结果。复制一条，贴进去，任务马上就开始动了。',
   },
 };
 
@@ -285,14 +292,28 @@ function checkHeroLock(html, label, lock) {
   const ogTitleMatch = html.match(/property="og:title" content="([^"]*)"/);
   if (assert(ogTitleMatch && ogTitleMatch[1] === lock.title, `${label}: og:title lock`)) passed++;
   else failed++;
+  const twTitleMatch = html.match(/name="twitter:title" content="([^"]*)"/);
+  if (assert(twTitleMatch && twTitleMatch[1] === lock.title, `${label}: twitter:title lock`)) passed++;
+  else failed++;
   const descMatch = html.match(/name="description" content="([^"]*)"/);
-  if (assert(descMatch && descMatch[1] === lock.lead, `${label}: meta description lock`)) passed++;
+  if (assert(descMatch && descMatch[1] === lock.description, `${label}: meta description lock`)) passed++;
   else failed++;
   const ogDescMatch = html.match(/property="og:description" content="([^"]*)"/);
-  if (assert(ogDescMatch && ogDescMatch[1] === lock.lead, `${label}: og:description lock`)) passed++;
+  if (assert(ogDescMatch && ogDescMatch[1] === lock.description, `${label}: og:description lock`)) passed++;
+  else failed++;
+  const twDescMatch = html.match(/name="twitter:description" content="([^"]*)"/);
+  if (assert(twDescMatch && twDescMatch[1] === lock.description, `${label}: twitter:description lock`)) passed++;
   else failed++;
   const leadMatch = html.match(/<h1>[^<]*<\/h1>\s*<p>([^<]*)<\/p>/);
   if (assert(leadMatch && leadMatch[1] === lock.lead, `${label}: hero lead lock`)) passed++;
+  else failed++;
+  const latin = label === 'EN' || label === 'LT' || label === 'ET' || label === 'LV' || label === 'DE';
+  if (latin) {
+    if (assert(lock.title.length <= 60, `${label}: title <= 60 (${lock.title.length})`)) passed++;
+    else failed++;
+    if (assert(lock.description.length >= 120 && lock.description.length <= 155, `${label}: description 120–155 (${lock.description.length})`)) passed++;
+    else failed++;
+  } else if (assert(lock.description.length >= 40 && lock.description.length <= 90, `${label}: description 40–90 (${lock.description.length})`)) passed++;
   else failed++;
   const ritualRe = /ritual|rituaal|rituāls|儀式|仪式/i;
   const h1Lead = `${lock.h1} ${leadMatch ? leadMatch[1] : ''}`;
