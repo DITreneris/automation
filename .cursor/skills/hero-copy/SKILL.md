@@ -63,6 +63,7 @@ A 2026-08-14 identity pass put prompt 1 on the H1 and “ritual” on the lead, 
 - Trade punch for internal vocabulary
 - Offer three “better” H1s when the canonical line already sells
 - Put ritual / spoke / operating layer anywhere a visitor can read
+- Change title, H1, lead, or OG because Search Console shows the page and nobody has clicked. A small brand-query sample is not a snippet failure. A Request Indexing toast is not an index verdict.
 
 ## May edit
 

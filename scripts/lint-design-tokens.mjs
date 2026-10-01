@@ -17,9 +17,13 @@ const PRIVACY_FILES = [
   'en/privacy.html',
   'et/privacy.html',
   'lv/privacy.html',
+  'de/privacy.html',
   'ja/privacy.html',
+  'zh/privacy.html',
   'lt/privatumas.html',
 ];
+
+const COMPONENT_CSS = ['css/library.css', 'css/privacy.css'];
 
 let errors = 0;
 
@@ -71,12 +75,36 @@ for (const rel of PRIVACY_FILES) {
   }
 }
 
-// Hex in library.css outside comments (tokens imported)
-const libraryCss = readFileSync(join(root, 'css', 'library.css'), 'utf8');
-const hexInLibrary = libraryCss.match(/#[0-9A-Fa-f]{3,8}/g) || [];
-if (hexInLibrary.length > 0) {
-  for (const hex of hexInLibrary) {
-    fail(`library.css contains hex ${hex} – use var(--token) from tokens.css`);
+function stripComments(css) {
+  return css.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
+// Hex, rgba, and the color keyword white belong in tokens.css only.
+for (const rel of COMPONENT_CSS) {
+  const css = stripComments(readFileSync(join(root, rel), 'utf8'));
+  const hexes = css.match(/#[0-9A-Fa-f]{3,8}/g) || [];
+  for (const hex of hexes) {
+    fail(`${rel} contains hex ${hex} – use var(--token) from tokens.css`);
+  }
+  if (/rgba?\s*\(/i.test(css)) {
+    fail(`${rel} contains rgb/rgba – move the value into tokens.css`);
+  }
+  const bareWhite = css.match(/(?<![\w-])white(?![\w-])/gi) || [];
+  if (bareWhite.length > 0) {
+    fail(`${rel} contains the color keyword white – use var(--white)`);
+  }
+}
+
+// Inline <style> hex is illegal. <meta name="theme-color"> may stay a literal.
+for (const file of walk(root)) {
+  const rel = relative(root, file).replace(/\\/g, '/');
+  if (!rel.endsWith('.html')) continue;
+  const html = readFileSync(file, 'utf8');
+  const styles = html.match(/<style[^>]*>[\s\S]*?<\/style>/gi) || [];
+  for (const block of styles) {
+    if (/#[0-9A-Fa-f]{3,8}/i.test(block) || /rgba?\s*\(/i.test(block)) {
+      fail(`${rel}: inline <style> with a raw color – use tokens.css`);
+    }
   }
 }
 

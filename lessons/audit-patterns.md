@@ -57,6 +57,12 @@ Recurring themes from repo audits and CI — operational, not historical.
 - **Fix:** Keep [google7305663b2567346e.html](../google7305663b2567346e.html) at root (`google-site-verification: google7305663b2567346e.html`). Keep `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot` in [robots.txt](../robots.txt). Do not rewrite robots to move `Sitemap:`
 - **Gate:** [tests/structure.test.js](../tests/structure.test.js) — file in `assetFiles` + payload string; robots `User-agent:` names + existing Sitemap assert
 
+## Zero-click Search Console is not a rewrite
+
+- **Cause:** A 0-click or “URL unknown” report is read as a broken title, H1, or sitemap
+- **Fix:** 2026-10-01 baseline in [MUST_TODO.md](../MUST_TODO.md): 0 clicks, 138 impressions (30 Jun–27 Sep). `/en/` and `/de/` are indexed. `/zh/` Request Indexing was submitted 2026-10-01 and the screen still said the URL is not on Google. Sitemap Pending on both properties, 0 errors — do not bump `lastmod` (`2026-08-15` is locked in [tests/structure.test.js](../tests/structure.test.js))
+- **Gate:** [hero-copy](../.cursor/skills/hero-copy/SKILL.md) — canonical H1, title, and lead stay unless the user writes a new prize line
+
 ## Ecosystem spoke list as leftover HTML
 
 - **Cause:** Static ecosystem PNG is not clickable; agents dump raw hostnames under the figure, or delete `.ecosystem-links` to “clean” the design

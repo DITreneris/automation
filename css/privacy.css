@@ -109,6 +109,6 @@ a:hover {
 .lang-switcher .lang-link:hover,
 .lang-switcher .lang-link:focus-visible {
     background: var(--color-surface-subtle);
-    outline: 2px solid var(--focus-ring-color);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
 }

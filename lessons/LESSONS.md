@@ -30,6 +30,7 @@ Short rules for agents and contributors. **Not** historical audits — see [docs
 | 2026-06-14 | Footer contact CI fail | Kanon: `info@promptanatomy.app`, `1311 Park St`, Alameda CA 94501 | [tests/structure.test.js](../tests/structure.test.js) |
 | 2026-08-16 | Ecosystem URL cemetery | Diagram is a static PNG — keep real `.ecosystem-links` hrefs (a11y + SEO + structure tests). Do not leave raw underlined hostnames; style as `.tag` chips (`--bg-subtle`, `--brand-teal-dark`, mono, no underline). Do not delete the list to “clean” the figure. | [css/library.css](../css/library.css), [docs/design_system.md](../docs/design_system.md) §2.7 |
 | 2026-09-02 | Community CTA bare or ritual UTM | `.community-cta-secondary` → `COURSE_COMMUNITY_URL` (`utm_source=info`, `utm_medium=community`). Do not reuse `ritual_complete`. Badge stays bare `COURSE_URL_EN`. | [scripts/seo-constants.cjs](../scripts/seo-constants.cjs), structure.test.js |
+| 2026-10-01 | 0 GSC clicks treated as a rewrite | Do not change title, H1, lead, or sitemap `lastmod` on a small sample. 2026-10-01: 0 clicks / 138 impressions (30 Jun–27 Sep). `/zh/` Request Indexing is a queue, not indexed. Pending sitemap with 0 errors is not a repo defect. | [MUST_TODO.md](../MUST_TODO.md), [audit-patterns.md](audit-patterns.md) |
 
 ## Patterns
 

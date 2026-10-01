@@ -9,5 +9,8 @@ globs: css/**
 - Semantic layer: `--color-link`, `--color-action-primary-bg`, `--color-focus-ring`
 - Type: `--font-size-hero` (clamp), `--font-size-h2`, `--font-size-button`; space includes `--space-0` / `--space-1` / `--space-1_5`
 - Brand: gold `#CFA73A`, navy `#0B1320`, teal `#008579`
-- Validate: `npm run validate:tokens` && `npm run lint:design-tokens`
+- Light focus ring: `--color-focus-ring` → `--accent-dark`. Hero focus stays `--white`. Success fill: `--color-feedback-success` → `--green-hover`. Keep `.btn.success:hover` (same fill; it blocks the navy hover).
+- Gold `#CFA73A` is decorative. `tokens.json` must not call it the focus ring (2.27:1 on white).
+- Font: `'Inter', system-ui, -apple-system, sans-serif` (`404.html` does not load Inter).
+- Validate: `npm run validate:tokens` && `npm run lint:design-tokens` && `npm run check:contrast`
 - Docs: [docs/design_system.md](../../docs/design_system.md)

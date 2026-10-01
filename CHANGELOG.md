@@ -8,18 +8,31 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Prideta
 
+### Pakeista
+
+### Taisyta
+
+---
+
+## [1.7.1] - 2026-10-01
+
+### Prideta
+
 - **[QA] GSC HTML verify:** [google7305663b2567346e.html](google7305663b2567346e.html) root – Search Console nuosavybė `https://www.promptanatomy.info/`. Sitemap pateikta (`/sitemap.xml`); pirmas nuskaitymas 2026-08-16 dar failino (failas 200 + `application/xml`, 14 URL).
 - **[QA] Community course UTM:** community antrinis CTA visose 7 locale → `COURSE_COMMUNITY_URL` (`utm_source=info`, `utm_medium=community`). Ritualas (`ritual_complete`) ir entity footer (`entity_footer`) nekeisti; badge lieka plikas `COURSE_URL_EN`.
 - **[QA] AI crawler robots:** [robots.txt](robots.txt) – `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot` `Allow: /` (taip pat kaip kituose spoke). Sitemap eilutė nepakitusi.
 
 ### Pakeista
 
+- **[UI] Kontrastas:** instrukcijų numeriai `--accent-dark`; nukopijuoto mygtuko užpildas `--green-hover`; šviesus focus ringas navy, ne auksas; `--error` `#C53030`. Šešėliai ir `rgba` iš [css/library.css](css/library.css) perkelti į [css/tokens.css](css/tokens.css). Pašalinti nenaudojami `--blue`, `--orange`, `--purple`. `404.html` naudoja `--color-text-on-dark`. Patikros: `check-contrast`, DE/ZH privacy lint, kiekvienas CSS hex privalomas [docs/design_system.md](docs/design_system.md). JSON auksas nebėra „focus ring“; `check-contrast` laiko selektorių taisykles; 404 šriftas turi `system-ui` atsarginį.
 - **[Content] SERP title ir aprašymas:** bibliotekos title ≤ 60 (LT/LV/DE be ženklo, ET trumpesnis prizas). Aprašymas = lead + vienas kablys (nukopijuok, įklijuok, užduotis pajuda), ne darbų sąrašas. H1, matomas lead ir OG paveikslas lieka.
 - **[UI] Ecosystem spoke chips:** `.ecosystem-links` – pill chip’ai kaip `.tag` (mono hostname, `--brand-teal-dark`, be underline), ne nuogas URL sąrašas po diagrama.
 - **[Orchestrator] Board after 1.7.0:** [MUST_TODO.md](MUST_TODO.md) ir [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – Wave 0/1 baigtos; dabar atradimas (GSC, LT/EN), ne `es`/`fr`/`nl`.
 - **[Orchestrator] Board after FIRST IMPROVE:** [MUST_TODO.md](MUST_TODO.md) ir [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – share `/en/` + `/lt/` DONE 2026-09-01; 30 d. langas 91 / 75% / Facebook 9 / `google.com` 0; GSC lieka operatoriaus žvilgsnis. Nepradėti bounce, events, naujos kalbos.
 - **[Orchestrator] Board after GSC peek:** [MUST_TODO.md](MUST_TODO.md) / [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – 2026-09-11: 5 indexed (`ja/lt/en/et/lv`), 0 clicks / 92 impressions, `/de/`+`/zh/` dar ne; freeze; ne mass Request Indexing.
 - **[Orchestrator] Board after Vercel MCP 30d:** [MUST_TODO.md](MUST_TODO.md) / [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – 2026-09-15: Production `automation` 89 lankytojai / 131 views (−27% vs prior 122); `/en` 45, `/lt` 37; Facebook 18; `google.com` 0; events 0. Freeze laikosi.
+- **[Orchestrator] Board after Vercel MCP 30d (plateau):** [MUST_TODO.md](MUST_TODO.md) / [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – 2026-09-30: 79/111 vs prior 77/115 (plokštuma); `/en` 38, `/lt` 33; Facebook 18; `google.com` 0; `gemini.google.com` 1; Hub `utm_source=info` 1. Freeze laikosi.
+- **[Orchestrator] Board after GSC baseline:** [MUST_TODO.md](MUST_TODO.md) / [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md) – 2026-10-01: 0 clicks / 138 impressions (30 Jun–27 Sep); `/en/` ir `/de/` indexed; `/zh/` Request Indexing pateiktas, ekrane vis dar „URL nėra Google“; sitemap Pending abiejose nuosavybėse, 0 klaidų. Freeze. Ne title/H1, ne `lastmod`.
 - **[Orchestrator] Agent docs after community UTM:** keturi `.app` URL (badge `COURSE_URL_EN`, community `COURSE_COMMUNITY_URL`, ritualas, entity footer) – [AGENTS.md](AGENTS.md), GLOBAL_EPIC, MULTILINGUAL, design_system, LESSONS, audit-patterns. Palace wake: [.cursor/rules/agentsmemory.mdc](.cursor/rules/agentsmemory.mdc).
 
 ### Taisyta

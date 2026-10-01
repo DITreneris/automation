@@ -56,7 +56,7 @@ html {
         .header {
             position: relative;
             background: linear-gradient(to right, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
-            color: white;
+            color: var(--white);
             padding: 56px 48px;
             border-radius: var(--radius-xl);
             margin-bottom: 48px;
@@ -127,7 +127,7 @@ html {
         .header-brand a.badge:hover,
         .header-brand a.badge:focus-visible {
             background: var(--surface-hero-badge-hover);
-            outline: 2px solid white;
+            outline: 2px solid var(--white);
             outline-offset: var(--focus-ring-offset);
         }
 
@@ -160,7 +160,7 @@ html {
         .lang-switcher-trigger:hover,
         .lang-switcher-trigger:focus-visible {
             background: var(--surface-hero-badge-hover);
-            outline: 2px solid white;
+            outline: 2px solid var(--white);
             outline-offset: var(--focus-ring-offset);
         }
         .lang-switcher-icon {
@@ -194,7 +194,7 @@ html {
             color: var(--brand-teal-hover);
         }
         .locale-nudge-link:focus-visible {
-            outline: 2px solid var(--color-focus-ring);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: var(--focus-ring-offset);
         }
         .locale-nudge-dismiss {
@@ -213,7 +213,7 @@ html {
             color: var(--color-text-primary);
         }
         .locale-nudge-dismiss:focus-visible {
-            outline: 2px solid var(--color-focus-ring);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: var(--focus-ring-offset);
         }
         @media (prefers-reduced-motion: reduce) {
@@ -262,11 +262,11 @@ html {
         }
         .lang-option--current {
             font-weight: 700;
-            background: rgba(11, 19, 32, 0.06);
+            background: var(--surface-navy-06);
         }
         a.lang-option:hover,
         a.lang-option:focus-visible {
-            background: rgba(11, 19, 32, 0.08);
+            background: var(--surface-navy-08);
             outline: 2px solid var(--accent-dark);
             outline-offset: -2px;
         }
@@ -275,12 +275,12 @@ html {
             margin-bottom: 0;
         }
         .lang-switcher--footer .lang-switcher-trigger {
-            background: rgba(11, 19, 32, 0.06);
+            background: var(--surface-navy-06);
             color: var(--accent-dark);
         }
         .lang-switcher--footer .lang-switcher-trigger:hover,
         .lang-switcher--footer .lang-switcher-trigger:focus-visible {
-            background: rgba(11, 19, 32, 0.1);
+            background: var(--surface-navy-10);
             outline-color: var(--accent-dark);
         }
 
@@ -353,7 +353,7 @@ html {
             min-height: 44px;
             min-width: 44px;
             border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--on-dark-strong);
             font-size: 17px;
             font-weight: 700;
             cursor: pointer;
@@ -363,7 +363,7 @@ html {
         }
 
         .cta-button-outline:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--surface-white-15);
             border-color: var(--white);
             color: var(--white);
         }
@@ -376,7 +376,7 @@ html {
         .cta-secondary {
             font-size: 15px;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--on-dark-strong);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
@@ -392,7 +392,7 @@ html {
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: var(--overlay-modal);
             backdrop-filter: blur(4px);
             z-index: 2000;
             display: none;
@@ -409,14 +409,14 @@ html {
         }
 
         .modal {
-            background: white;
+            background: var(--white);
             border-radius: var(--radius-xl);
             padding: 40px;
             max-width: 500px;
             width: 100%;
             max-height: calc(100vh - 40px);
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-modal);
             transform: scale(0.9);
             transition: transform 0.3s ease;
             position: relative;
@@ -507,13 +507,13 @@ html {
 
         .form-input:focus {
             border-color: var(--accent-dark);
-            box-shadow: 0 0 0 4px rgba(11, 19, 32, 0.12);
+            box-shadow: var(--shadow-focus-navy);
         }
 
         .form-input:focus-visible {
             outline: none;
             border-color: var(--accent-dark);
-            box-shadow: 0 0 0 4px rgba(11, 19, 32, 0.2);
+            box-shadow: var(--shadow-focus-navy-strong);
         }
 
         .form-input.error {
@@ -536,7 +536,7 @@ html {
             padding: 16px;
             min-height: 44px;
             background: var(--accent-dark);
-            color: white;
+            color: var(--white);
             border: none;
             border-radius: 10px;
             font-size: 18px;
@@ -549,11 +549,11 @@ html {
         .form-submit:hover:not(:disabled) {
             background: var(--accent-dark-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(11, 19, 32, 0.4);
+            box-shadow: var(--shadow-lift-navy);
         }
 
         .form-submit:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -576,7 +576,7 @@ html {
             left: 50%;
             margin-left: -10px;
             margin-top: -10px;
-            border: 3px solid white;
+            border: 3px solid var(--white);
             border-radius: 50%;
             border-top-color: transparent;
             animation: spin 0.8s linear infinite;
@@ -600,7 +600,7 @@ html {
             width: 64px;
             height: 64px;
             background: var(--green);
-            color: white;
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -662,12 +662,12 @@ html {
             position: absolute;
             left: -28px;
             font-weight: 800;
-            color: var(--accent-gold-dark);
+            color: var(--accent-dark);
             font-size: 20px;
         }
 
         .instructions code {
-            background: white;
+            background: var(--white);
             border: 2px solid var(--accent-gold);
             padding: 4px 10px;
             border-radius: 6px;
@@ -782,7 +782,7 @@ html {
             justify-content: center;
             font-size: 24px;
             font-weight: 800;
-            box-shadow: 0 4px 12px rgba(207, 167, 58, 0.35);
+            box-shadow: var(--shadow-number);
         }
 
         .category {
@@ -840,7 +840,7 @@ html {
         }
 
         .prompt--collapsible summary.prompt-header:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: -3px;
         }
 
@@ -898,7 +898,7 @@ html {
         }
 
         .code-block:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -909,7 +909,7 @@ html {
             right: 20px;
             transform: translateY(-100%);
             background: var(--accent-dark);
-            color: white;
+            color: var(--white);
             padding: 6px 14px;
             border-radius: 6px;
             font-size: 13px;
@@ -926,7 +926,7 @@ html {
         .code-block.selected {
             background: var(--orange-light);
             border-color: var(--green);
-            box-shadow: 0 0 0 4px rgba(56, 161, 105, 0.2);
+            box-shadow: var(--shadow-focus-green);
         }
 
         .code-text {
@@ -1032,7 +1032,7 @@ html {
             align-items: center;
             gap: 12px;
             background: var(--accent-dark);
-            color: white;
+            color: var(--white);
             padding: 18px 36px;
             min-height: 44px;
             min-width: 44px;
@@ -1043,7 +1043,7 @@ html {
             cursor: pointer;
             transition: all 0.2s;
             font-family: 'Inter', sans-serif;
-            box-shadow: 0 4px 12px rgba(11, 19, 32, 0.35);
+            box-shadow: var(--shadow-btn);
             outline: none;
         }
 
@@ -1053,7 +1053,7 @@ html {
         }
 
         .btn:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1069,12 +1069,13 @@ html {
         }
 
         .btn.success {
-            background: var(--green);
-            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+            background: var(--color-feedback-success);
+            box-shadow: var(--shadow-btn-success);
         }
 
+        /* Beats @media (hover: hover) .btn:hover, which would paint this button navy. */
         .btn.success:hover {
-            background: var(--green-hover);
+            background: var(--color-feedback-success);
         }
 
         .prompt-done-wrap {
@@ -1118,7 +1119,7 @@ html {
         }
 
         .prompt-next-link:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
             border-radius: var(--radius-sm);
         }
@@ -1211,7 +1212,7 @@ html {
         }
 
         .next-steps-links a:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1220,7 +1221,7 @@ html {
             position: fixed;
             bottom: calc(32px + env(safe-area-inset-bottom, 0px));
             right: 32px;
-            background: white;
+            background: var(--white);
             border: 3px solid var(--green);
             color: var(--text);
             padding: 20px 32px;
@@ -1234,7 +1235,7 @@ html {
             display: flex;
             align-items: center;
             gap: 14px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-toast);
         }
 
         .toast.show {
@@ -1246,7 +1247,7 @@ html {
             width: 32px;
             height: 32px;
             background: var(--green);
-            color: white;
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1269,7 +1270,7 @@ html {
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow-soft);
         }
 
         .community h2 {
@@ -1302,11 +1303,11 @@ html {
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-raised);
         }
 
         .community-cta-primary:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1333,7 +1334,7 @@ html {
         }
 
         .community-cta-secondary:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1410,7 +1411,7 @@ html {
             color: var(--brand-teal-dark);
         }
         .ecosystem-links a:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: var(--focus-ring-offset);
         }
 
@@ -1418,7 +1419,7 @@ html {
         .footer {
             margin-top: 48px;
             padding: var(--space-6) var(--space-5);
-            background: white;
+            background: var(--white);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             text-align: center;
@@ -1511,7 +1512,7 @@ html {
 
         .footer-contact a:focus-visible,
         .footer-meta-link:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1537,7 +1538,7 @@ html {
         }
 
         .footer-entity a:focus-visible {
-            outline: var(--focus-ring-width) solid var(--accent-gold);
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
             outline-offset: 2px;
         }
 
@@ -1804,7 +1805,7 @@ html {
         /* ===== PRINT ===== */
         @media print {
             body {
-                background: white;
+                background: var(--white);
             }
 
             .prompt-footer,
@@ -1848,13 +1849,13 @@ html {
             .btn:hover {
                 background: var(--accent-dark-hover);
                 transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(11, 19, 32, 0.4);
+                box-shadow: var(--shadow-lift-navy-lg);
             }
 
             .community-cta-primary:hover {
                 background: var(--brand-teal-hover);
                 transform: scale(1.02);
-                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+                box-shadow: var(--shadow-raised);
             }
         }
 

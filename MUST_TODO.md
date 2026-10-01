@@ -1,8 +1,8 @@
 # MUST TODO – aktyvūs prioritetai
 
-**Atnaujinta:** 2026-09-02  
-**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (7 kalbos, **v1.7.0**, tagas gyvas). FIRST IMPROVE share DONE (`/en/` + `/lt/`, 2026-09-01).  
-**Dabar:** Operatoriaus GSC žvilgsnis – ne nauja kalba, ne bounce, ne events. Bangos: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
+**Atnaujinta:** 2026-10-01  
+**Būsena:** Produkcijoje – `https://www.promptanatomy.info/` (7 kalbos, **v1.7.1**). FIRST IMPROVE share DONE (`/en/` + `/lt/`, 2026-09-01). GSC 2026-10-01: **0** clicks, **138** impressions (30 Jun–27 Sep). `/en/` ir `/de/` indexed. `/zh/` unknown.  
+**Dabar:** Freeze kodo – ne nauja kalba, ne bounce, ne events, ne mass Request Indexing, ne title/H1. `/zh/` indeksavimo užklausa pateikta 2026-10-01 (eilėje, dar ne indexed). Bangos: [docs/MVP_ROADMAP.md](docs/MVP_ROADMAP.md)
 
 | Strategija | Bangos |
 |------------|--------|
@@ -27,14 +27,16 @@ North star (jau shipped, neliesti): H1 = 30–50% kasdienių užduočių; lead =
 
 FIRST IMPROVE share DONE 2026-09-01 (`/en/` + `/lt/`). Posted share ≠ PR. Nepradėti bounce, custom events, naujos kalbos, hero, suliejimo su `.app`.
 
-**Last 30 Days** (Tomas paste, Production `automation-seven-ochre`, 2026-09-02): 91 lankytojai (−36% vs prior 30 d.), 135 views, bounce 75% (copy-out). Keliai: `/lt` 49, `/en` 39, `/zh` 5, `/et` 4, `/ja` 2, `/zh/privacy` 2, `/de` 1. Facebook 5+4; `google.com` = 0; events 0. CN 13% ≠ `zh-Hant`.
+**Last 30 Days** (Vercel MCP, Production `automation` / `prj_RKGLsCfZdpm2krXSSadbFpyY2CAH`, 2026-08-31→09-30): **79** lankytojai / **111** views (plokštuma vs prior 30 d. 77/115; ne −27% vs liepa). Keliai: `/en` 38, `/lt` 33, `/zh` 3, `/lv` 1, `/et` 1. Facebook 12+6; LinkedIn 4; `google.com` = 0; `gemini.google.com` = 1; events 0. US 28 / LT 27 / CN 4. Desktop 61, mobile 14. NL 1 — vis dar Hold. Hub `utm_source=info` = 1 (buvo 2).
 
 - [x] **1.7.0** – DE + `llms.txt` locale URL + privacy Analytics + JSON-LD `#howto` ant locale. Tag [v1.7.0](https://github.com/DITreneris/automation/releases/tag/v1.7.0)
 - [x] **GSC verify** – [google7305663b2567346e.html](google7305663b2567346e.html) root; nuosavybė `https://www.promptanatomy.info/`
-- [x] **Sitemap pateikta** – `https://www.promptanatomy.info/sitemap.xml` (2026-08-16). Failas gyvas 2026-09-02: 200, `application/xml`, 14 URL.
+- [x] **Sitemap pateikta** – `https://www.promptanatomy.info/sitemap.xml` (2026-08-16). Failas gyvas 2026-09-02: 200, `application/xml`, 14 URL. 2026-10-01 API: ta pati URL **Pending** abiejose nuosavybėse (`sc-domain:promptanatomy.info` ir `https://www.promptanatomy.info/`), pateikta 2026-09-03, 0 klaidų, 0 įspėjimų, contents tušti. Nėra fetch/parse defekto repozitorijoje. `lastmod` 2026-08-15 neliečiamas.
 - [x] **FIRST IMPROVE** – `/en/` ir `/lt/` papostinti 2026-09-01. Nekartoti.
 - [x] **Community UTM** – `COURSE_COMMUNITY_URL` (`utm_source=info`, `utm_medium=community`). Ritualas ir entity footer nekeisti. Badge lieka plikas `COURSE_URL_EN`.
-- [ ] **GSC sėkmė** – operatoriaus žvilgsnis (ne PR): sitemap „Sėkmingai“; URL inspect `/lt/`, `/en/`, `llms.txt`. Sitemap XML jau 200.
+- [x] **GSC peek** – 2026-09-11 (Tomas paste + `docs/GSC/*.csv`). Tada: indexed **5**; `/de/` `/zh/` dar ne; **0** clicks, **92** impressions. Pakeista 2026-10-01 eilute žemiau.
+- [x] **GSC baseline** – 2026-10-01, `sc-domain:promptanatomy.info`, web, stabilus langas 30 Jun–27 Sep 2026. **0** clicks, **138** impressions (ankstesni 90 d. ir YoY 90 d. = 0). URL Inspection: `/en/` ir `/de/` submitted and indexed (crawl 25 Sep ir 24 Sep); `/zh/` „URL is unknown to Google“. Įvardytos užklausos tik prekės ženklas (`prompt anatomy` 21 @ 8.7 ant `/en/`). Search appearance tuščia. Ne title, ne H1, ne naujas puslapis. Kitas matavimas: vienas stabilus 28 d. langas po `/zh/` Request Indexing, ne kopijos perrašymas.
+- [x] **Request Indexing tik `/zh/`** – 2026-10-01 Tomas, `https://www.promptanatomy.info/zh/`. GSC: „Indeksavimo užklausa pateikta“, URL prioritetinėje tikrinimo eilėje. Tuo pačiu metu ekrane vis dar „URL nėra Google“ — užklausa ≠ indexed. Ne mass. Ne Sutvarkėte. Kitas skaitymas: vienas stabilus 28 d. langas po šios datos.
 - [ ] **Parkuota:** `nl` / `es` / `fr` – kartelė ≥30 lankytojų / 90 d. iš tos šalies **ir** bounce ant `/en/`. Hold.
 
 ---

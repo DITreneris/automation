@@ -1,6 +1,6 @@
 # MVP Roadmap – Pasaulinė gaudyklė
 
-**Atnaujinta:** 2026-09-02  
+**Atnaujinta:** 2026-10-01  
 **Pakeičia:** [archive/MVP_ROADMAP_2026-02.md](archive/MVP_ROADMAP_2026-02.md) (forma, CAPTCHA, kelias iki production – produktas jau gyvas).
 
 | Kodėl | Dabar |
@@ -25,14 +25,15 @@ North star ir Won't: [GLOBAL_EPIC.md](GLOBAL_EPIC.md) §2 ir §8.
 
 **Deliverables** (checkbox'ai – [MUST_TODO.md](../MUST_TODO.md) „Dabar – operatorius“)
 
-- GSC nuosavybė + sitemap gyvas (200, 14 URL, 2026-09-02)
-- GSC „Sėkmingai“ + URL inspect – operatoriaus žvilgsnis, ne kodas
+- GSC nuosavybė gyva. Sitemap `https://www.promptanatomy.info/sitemap.xml` 2026-10-01 abiejose nuosavybėse Pending (pateikta 2026-09-03, 0 klaidų). Failas 2026-09-02 buvo 200, 14 URL. Repo defekto nėra; `lastmod` neliečiamas.
+- GSC baseline 2026-10-01: **0** clicks, **138** impressions (30 Jun–27 Sep). `/en/` ir `/de/` indexed. `/zh/` unknown to Google. 2026-09-11 peek (5 indexed, 92 impressions, `/de/` dar ne) pasenęs.
+- Request Indexing tik `/zh/` pateiktas 2026-10-01. Eilėje, dar ne indexed. Ne mass RI. Ne Sutvarkėte.
 - Nauja kalba (`es` / `fr` / `nl`) – ne, kol ≥30 lankytojų / 90 d. ir bounce ant `/en/`
-- Nepradėti bounce, custom events, locale, hero
+- Nepradėti bounce, custom events, locale, hero, title/H1
 
-**Last 30 Days (2026-09-02):** 91 lankytojai, `/lt` 49, `/en` 39, Facebook 9, `google.com` = 0, bounce 75% (copy-out).
+**Last 30 Days (Vercel MCP, 2026-08-31→09-30):** 79 lankytojai / 111 views (plokštuma vs prior 77/115). `/en` 38, `/lt` 33, Facebook 12+6, `google.com` = 0, `gemini.google.com` 1, events 0. GSC paaiškina `google.com` = 0: parodymai yra, paspaudimų nėra. NL 1 — vis dar Hold. Hub `utm_source=info` = 1.
 
-**Exit:** GSC sitemap „Sėkmingai“; `/lt/` ir `/en/` URL inspect OK. Ne nauja kalba.
+**Exit (operatorius):** 2026-10-01 baseline įrašytas. Sitemap nėra „Sėkmingai“ — Pending, be klaidų teksto. `/zh/` Request Indexing pateiktas 2026-10-01, URL vis dar ne Google. Kitas matavimas — vienas stabilus 28 d. langas po šios datos. Ne nauja kalba, ne kopijos perrašymas.
 
 ---
 

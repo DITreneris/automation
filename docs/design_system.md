@@ -1,8 +1,8 @@
 # Design System v2.0 – DI Promptų Biblioteka
 
-**DS versija:** 2.0.1  
-**Data:** 2026-08-14  
-**Produkto versija:** 1.5.0  
+**DS versija:** 2.0.2  
+**Data:** 2026-10-01  
+**Produkto versija:** 1.7.0  
 **Šaltinis tiesos (SSOT):** [`css/tokens.css`](../css/tokens.css)  
 **Komponentai:** [`css/library.css`](../css/library.css) (importuoja tokens), [`css/privacy.css`](../css/privacy.css)  
 **Mašininis eksportas:** [`tokens/tokens.json`](../tokens/tokens.json) (DTCG 2025.10)
@@ -15,10 +15,10 @@ Kanoninis dizaino sistemos dokumentas. Biblioteka naudoja tą pačią brand šei
 
 | Laukas | Reikšmė |
 |--------|---------|
-| DS versija | 2.0.1 (nepriklausoma nuo produkto SemVer) |
-| Produkto versija | 1.5.0 |
+| DS versija | 2.0.2 (nepriklausoma nuo produkto SemVer) |
+| Produkto versija | 1.7.0 |
 | SSOT | `css/tokens.css` |
-| Validacija | `npm run validate:tokens`, `npm run lint:design-tokens` |
+| Validacija | `npm run validate:tokens`, `npm run lint:design-tokens`, `npm run check:contrast` |
 | A11y | pa11y WCAG2AA – [`scripts/pa11y-pages.cjs`](../scripts/pa11y-pages.cjs) |
 
 ---
@@ -29,12 +29,12 @@ Kanoninis dizaino sistemos dokumentas. Biblioteka naudoja tą pačią brand šei
 
 | Rolė | Token | Hex | Naudojimas |
 |------|-------|-----|------------|
-| Gold accent | `--accent-gold` | `#CFA73A` | Progresas, badge, focus ring |
+| Gold accent | `--accent-gold` | `#CFA73A` | Progresas, badge, dekoratyvūs rėmeliai |
 | Gold hover | `--accent-gold-hover` | `#E8B93C` | Hover būsenos |
 | Dark navy | `--accent-dark` | `#0B1320` | Hero, primary CTA, antraštės |
 | Bibliotekos teal | `--brand-teal` | `#008579` | Nav chip (outline), community CTA (filled), footer nuorodos, kategorijos |
 
-**WCAG:** Tekstas `--text` ant `--bg` ≥ 4.5:1. Ant `--accent-gold` – tamsus tekstas (`--text`). Ant `--accent-dark` ir `--brand-teal` – baltas (`--white`).
+**WCAG:** Tekstas `--text` ant `--bg` ≥ 4.5:1. Ant `--accent-gold` – tamsus tekstas (`--text`). Ant `--accent-dark` ir `--brand-teal` – baltas (`--white`). Šviesus focus ringas – `--color-focus-ring` (`--accent-dark`), ne auksas. `--brand-teal` ant `--bg` yra žemiau 4.5:1; nuorodos ant puslapio fono naudoja `--brand-teal-dark`.
 
 ### 1.2 Semantic layer (intent)
 
@@ -50,12 +50,14 @@ Naudok komponentuose ir `privacy.css`:
 | `--color-action-primary-hover` | `--accent-dark-hover` | Primary hover |
 | `--color-link` | `--brand-teal` | Nuorodos |
 | `--color-link-hover` | `--brand-teal-hover` | Nuorodų hover |
-| `--color-focus-ring` | `--accent-gold` | Focus ring |
-| `--color-feedback-success` | `--green` | Sėkmė (toast, .btn.success) |
+| `--color-focus-ring` | `--accent-dark` | Focus ring šviesiuose paviršiuose |
+| `--color-feedback-success` | `--green-hover` | Užpildas, ant kurio laikosi baltas tekstas (`.btn.success`) |
 | `--color-feedback-error` | `--error` | Klaidos |
 | `--color-border-default` | `--border` | Rėmeliai |
+| `--color-text-on-dark` | `#F5F5F5` | Tekstas ant tamsaus fono (404) |
+| `--color-print-border` | `#000000` | Spausdinimo rėmelis |
 
-**Deprecations:** `--blue` → naudok `--accent-dark`; `--tertiary` → preferuok `--brand-teal` naujame kode.
+**Deprecations:** `--tertiary` → preferuok `--brand-teal` naujame kode. `--blue`, `--orange` ir `--purple` pašalinti (DS 2.0.2).
 
 ### 1.3 Primitives – neutralūs ir tekstas
 
@@ -67,6 +69,8 @@ Naudok komponentuose ir `privacy.css`:
 | `--text` | `#1A202C` |
 | `--text-light` | `#4A5568` |
 | `--border` | `#CBD5E0` |
+| `--color-print-border` | `#000000` |
+| `--color-text-on-dark` | `#F5F5F5` |
 
 ### 1.4 Primitives – akcentai
 
@@ -98,14 +102,11 @@ Naudok komponentuose ir `privacy.css`:
 
 | Token | Hex |
 |-------|-----|
-| `--blue` | `#0B1320` |
 | `--blue-light` | `#E8ECF0` |
-| `--orange` | `#B8932E` |
 | `--orange-light` | `#FBF6EB` |
 | `--green` | `#38A169` |
 | `--green-hover` | `#2F855A` |
-| `--purple` | `#6B5B95` |
-| `--error` | `#E53E3E` |
+| `--error` | `#C53030` |
 
 ### 1.7 Elevation
 
@@ -117,6 +118,18 @@ Naudok komponentuose ir `privacy.css`:
 | `--shadow-accent-ring` | `0 0 0 4px rgba(207, 167, 58, 0.15)` |
 | `--shadow-cta` | `0 4px 14px rgba(11, 19, 32, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08)` |
 | `--shadow-cta-hover` | `0 8px 28px rgba(11, 19, 32, 0.55), 0 0 20px rgba(255, 255, 255, 0.12)` |
+| `--shadow-modal` | `0 20px 60px rgba(0, 0, 0, 0.3)` |
+| `--shadow-focus-navy` | `0 0 0 4px rgba(11, 19, 32, 0.12)` |
+| `--shadow-focus-navy-strong` | `0 0 0 4px rgba(11, 19, 32, 0.2)` |
+| `--shadow-lift-navy` | `0 6px 20px rgba(11, 19, 32, 0.4)` |
+| `--shadow-lift-navy-lg` | `0 8px 20px rgba(11, 19, 32, 0.4)` |
+| `--shadow-btn` | `0 4px 12px rgba(11, 19, 32, 0.35)` |
+| `--shadow-number` | `0 4px 12px rgba(207, 167, 58, 0.35)` |
+| `--shadow-focus-green` | `0 0 0 4px rgba(56, 161, 105, 0.2)` |
+| `--shadow-btn-success` | `0 4px 12px rgba(56, 161, 105, 0.3)` |
+| `--shadow-toast` | `0 12px 40px rgba(0, 0, 0, 0.15)` |
+| `--shadow-soft` | `0 6px 20px rgba(0, 0, 0, 0.06)` |
+| `--shadow-raised` | `0 6px 16px rgba(0, 0, 0, 0.12)` |
 
 ### 1.8 Radius ir spacing
 
@@ -135,7 +148,7 @@ Naudok komponentuose ir `privacy.css`:
 
 | Token / taisyklė | Reikšmė |
 |------------------|---------|
-| `--font-family-sans` | `'Inter', -apple-system, sans-serif` |
+| `--font-family-sans` | `'Inter', system-ui, -apple-system, sans-serif` |
 | `--font-family-mono` | `'JetBrains Mono', monospace` |
 | `--font-size-xs` | `0.75rem` (12) |
 | `--font-size-sm` | `0.875rem` (14) |
@@ -161,8 +174,15 @@ Naudok komponentuose ir `privacy.css`:
 | `--duration-fast` | `0.2s` |
 | `--ease-default` | `ease` |
 | `--overlay-hero` | `rgba(0, 0, 0, 0.1)` |
+| `--overlay-modal` | `rgba(0, 0, 0, 0.6)` |
 | `--surface-hero-badge` | `rgba(255, 255, 255, 0.25)` |
 | `--surface-hero-badge-hover` | `rgba(255, 255, 255, 0.4)` |
+| `--surface-navy-06` | `rgba(11, 19, 32, 0.06)` |
+| `--surface-navy-08` | `rgba(11, 19, 32, 0.08)` |
+| `--surface-navy-10` | `rgba(11, 19, 32, 0.1)` |
+| `--surface-white-15` | `rgba(255, 255, 255, 0.15)` |
+| `--on-dark-strong` | `rgba(255, 255, 255, 0.9)` |
+| `--color-text-on-dark-muted` | `rgba(255, 255, 255, 0.85)` |
 
 ### 1.11 Responsive (breakpoints)
 
@@ -188,18 +208,18 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 | Nav chip | `.next-steps-links a` | `--brand-teal` outline | Vidinė navigacija 1–8 |
 | Community primary | `.community-cta-primary` | `--brand-teal` filled | „Join Telegram“ |
 | Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `COURSE_COMMUNITY_URL` (community) arba `COURSE_RITUAL_URL` (`#ritual-complete`) |
-| Success | `.btn.success` | `--green` | Po kopijavimo |
+| Success | `.btn.success` | `--color-feedback-success` (`--green-hover`) | Po kopijavimo |
 
-**Focus:** dažniausiai `var(--focus-ring-width) solid var(--accent-gold)`; hero `.cta-button` – baltas ringas (`var(--white)`).
+**Focus:** šviesūs paviršiai – `var(--focus-ring-width) solid var(--focus-ring-color)` (navy). Hero `.cta-button` ir badge – baltas ringas (`var(--white)`). Auksas lieka progresui ir dekoratyviems rėmeliams.
 
 ### 2.2 Component states
 
 | Component | Default | Hover | Focus | Active/Success |
 |-----------|---------|-------|-------|----------------|
 | `.cta-button` | `--cta-bg` + `--shadow-cta` | `--cta-hover` + `--shadow-cta-hover` | white ring | – |
-| `.btn` | `--accent-dark` | `--accent-dark-hover` | `--accent-gold` ring | `.success` → `--green` |
-| `.community-cta-primary` | `--brand-teal` filled | `--brand-teal-hover` | gold ring | – |
-| `.next-steps-links a` | `--brand-teal` outline | `--tertiary-light` bg, `--brand-teal-hover` border | gold ring | – |
+| `.btn` | `--accent-dark` | `--accent-dark-hover` | `--color-focus-ring` | `.success` → `--color-feedback-success` |
+| `.community-cta-primary` | `--brand-teal` filled | `--brand-teal-hover` | navy ring | – |
+| `.next-steps-links a` | `--brand-teal` outline | `--tertiary-light` bg, `--brand-teal-hover` border | navy ring | – |
 | `.header-brand a.badge` | `--surface-hero-badge` | `--surface-hero-badge-hover` | white ring | – |
 
 ### 2.3 Hero (`.header`)
@@ -297,7 +317,8 @@ Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline �
 
 - Pažymėk `/* @deprecated use --X */` `tokens.css`
 - Pašalink po vieno release ciklo
-- `--blue` → `--accent-dark`; `--tertiary` → `--brand-teal`
+- `--tertiary` → `--brand-teal` (alias lieka)
+- `--blue`, `--orange`, `--purple` pašalinti DS 2.0.2
 
 ### 4.3 Taisyklės
 
@@ -317,10 +338,11 @@ Primary navy (`.cta-button`, `.btn`) → hero badge → nav chips teal outline �
 
 | Versija | Data | Pakeitimai |
 |---------|------|------------|
+| DS 2.0.2 | 2026-10-01 | Šviesus focus ringas = navy; `.btn.success` = `--green-hover`; `--error` `#C53030`; pašalinti `--blue` / `--orange` / `--purple`; šešėliai iš `library.css` perkelti į tokenus; `check-contrast` |
 | DS 2.0.1 | 2026-08-14 | Spacing `0`/`1`/`1_5`; type scale `rem` + fluid hero `clamp`; H1/lead/CTA/H2 ant tokenų |
 | DS 2.0 | 2026-05-29 | `tokens.css` SSOT; `privacy.css`; semantic layer; governance; patterns; DTCG export; CI validation |
 | DS 1.0 | 2026-05-29 | Pradinis dokumentas; `--brand-teal`; STYLEGUIDE perkeltas čia |
 
 ---
 
-**Paskutinis atnaujinimas:** 2026-08-14
+**Paskutinis atnaujinimas:** 2026-10-01
