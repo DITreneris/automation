@@ -115,7 +115,7 @@
             <ol>
                 <li>Izvēlieties promptu un nospiediet <strong>„Kopēt promptu“</strong> zem teksta — viss teksts tiek nokopēts ar vienu klikšķi. Datorā varat arī atlasīt tekstu un izmantot <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>
                 <li>Ielīmējiet ChatGPT, Claude vai citā MI rīkā</li>
-                <li>Ja promptā ir <code>[UZŅĒMUMS]</code> – aizstājiet ar savu vai klienta uzņēmuma nosaukumu; ja <code>[MANA LOMA]</code> – ar savu amatu. MI loma (piem. „kritisks analītiķis“) jau ir promptā – nav jāmaina.</li>
+                <li>Ja promptā ir <code>[UZŅĒMUMS]</code> – aizstājiet ar savu vai klienta uzņēmuma nosaukumu; ja <code>[MANA LOMA]</code> – ar savu amatu. MI loma (piem. „kritisks analītiķis“) jau ir promptā – nav jāmaina. Ja promptā ir <code>[PROCESI]</code>, ielīmējiet 5. soļa sarakstu tikai tad, ja šajā sarunā tā vēl nav. Citādi atstājiet vietturi.</li>
             </ol>
         </section>
 
@@ -148,9 +148,13 @@
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: Tu esi kritisks biznesa analītiķis. Mērķis: noskaidrot, ko mākslīgais intelekts patiesi zina par organizāciju un kur nepieciešama precizēšana.
 
-INPUT: Uzņēmums [UZŅĒMUMS]. Tikai pamatojoties uz publiski pieejamu informāciju un vispārējām tirgus zināšanām, apraksti, kā TU saproti šo uzņēmumu. Struktūra: 1) Ko zini ar pārliecību 2) Kādus pieņēmumus izdari 3) Kur trūkst informācijas un vari kļūdīties. Beigās skaidri atzīmē: "Šie punkti prasa precizējumu no lietotāja."
+INPUT: Uzņēmums [UZŅĒMUMS]. Izmanto tikai publiski pieejamu informāciju un vispārējas tirgus zināšanas.
 
-OUTPUT: Rezultāts: īsa strukturēta atbilde – skaidri redzams, kur MI var kļūdīties un ko precizēt pirms turpināt.</pre>
+OUTPUT: Uzraksti īsu atbildi latviešu valodā, trīs daļās:
+1) Ko zini ar pārliecību
+2) Kādus pieņēmumus izdari
+3) Kur trūkst informācijas un vari kļūdīties
+Noslēdz ar atsevišķu rindu: "Šie punkti prasa precizējumu no lietotāja." Bez ievada un bez padoma, ko darīt tālāk.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -198,7 +202,7 @@ OUTPUT: Rezultāts: īsa strukturēta atbilde – skaidri redzams, kur MI var k�
                             <span class="prompt-time">~3–5 min</span>
                         </div>
                         <h2 class="prompt-title" id="prompt-title-2">Organizācijas portrets</h2>
-                        <p class="prompt-desc">Atveriet promptu — iegūstiet strukturētu uzņēmuma profilu ~5 minūtēs</p>
+                        <p class="prompt-desc">Atveriet promptu — iegūstiet strukturētu uzņēmuma profilu</p>
                     </div>
                     <span class="prompt-chevron" aria-hidden="true">▾</span>
                 </summary>
@@ -212,9 +216,14 @@ OUTPUT: Rezultāts: īsa strukturēta atbilde – skaidri redzams, kur MI var k�
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: Tu esi pieredzējis biznesa analītiķis. Mērķis: izveidot skaidru organizācijas profilu un kontekstu.
 
-INPUT: Uzņēmums [UZŅĒMUMS]. Analizē un apraksti: aptuvenais izmērs (darbinieki, apgrozījums); galvenās darbības jomas; vadības/organizācijas modelis; tipiski izaicinājumi šajā nozarē. Atbildi īsi un strukturēti. Atzīmē, kur izdari pieņēmumus.
+INPUT: Uzņēmums [UZŅĒMUMS].
 
-OUTPUT: Rezultāts: organizācijas portrets, ko izmantot kā kontekstu citiem promptiem.</pre>
+OUTPUT: Uzraksti īsu organizācijas portretu ar četrām virsrakstiem:
+- Aptuvenais izmērs (darbinieki, apgrozījums)
+- Galvenās darbības jomas
+- Vadības / organizācijas modelis
+- Tipiski izaicinājumi šajā nozarē
+Atzīmē katru pieņēmumu.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -239,7 +248,6 @@ OUTPUT: Rezultāts: organizācijas portrets, ko izmantot kā kontekstu citiem pr
                     <ul>
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -277,9 +285,14 @@ OUTPUT: Rezultāts: organizācijas portrets, ko izmantot kā kontekstu citiem pr
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: Tu esi organizācijas dizaina konsultants. Mērķis: aprakstīt lietotāja lomu organizācijā – mērķi, pienākumus un ietekmi.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Pamatojoties uz organizācijas analīzi, apraksti šo lomu. Iekļauj: galvenais lomas mērķis; 5–7 pamatpienākumi; lēmumu līmenis (operatīvs / taktisks / stratēģisks); kam atskaitās un ar ko ikdienā sadarbojas. Raksti īsi, bez teorijas.
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS].
 
-OUTPUT: Rezultāts: skaidrs lomas apraksts – izmantojiet kā atsauci nākamajiem soļiem.</pre>
+OUTPUT: Uzraksti lomas aprakstu, kas ietver:
+- galveno lomas mērķi
+- 5–7 pamatpienākumus
+- lēmumu līmeni (operatīvs / taktisks / stratēģisks)
+- kam atskaitās un ar ko ikdienā sadarbojas
+Raksti īsi, bez teorijas.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -305,7 +318,6 @@ OUTPUT: Rezultāts: skaidrs lomas apraksts – izmantojiet kā atsauci nākamaji
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc);</li>
                         <li>[MANA LOMA] → jūsu amata nosaukums (piem. pārdošanas vadītājs).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -343,9 +355,14 @@ OUTPUT: Rezultāts: skaidrs lomas apraksts – izmantojiet kā atsauci nākamaji
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: Tu esi pieredzējis vadītājs. Mērķis: izveidot praktisku amata aprakstu ar KPI.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Izveido amata aprakstu. Iekļauj: pamatpienākumus; nepieciešamās kompetences; 5–7 izmērāmus KPI; kā izskatās "labs sniegums" pēc 6 mēnešiem. Fokuss uz reālo darbu, ne HR birokrātiju.
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS].
 
-OUTPUT: Rezultāts: amata apraksts pašnovērtējumam vai jauna darbinieka ievadīšanai.</pre>
+OUTPUT: Uzraksti amata aprakstu, kas ietver:
+- pamatpienākumus
+- nepieciešamās kompetences
+- 5–7 izmērāmus KPI
+- kā izskatās "labs sniegums" pēc 6 mēnešiem
+Fokuss uz reālo darbu, ne HR birokrātiju.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -371,7 +388,6 @@ OUTPUT: Rezultāts: amata apraksts pašnovērtējumam vai jauna darbinieka ievad
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc);</li>
                         <li>[MANA LOMA] → jūsu amata nosaukums (piem. pārdošanas vadītājs).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -409,9 +425,14 @@ OUTPUT: Rezultāts: amata apraksts pašnovērtējumam vai jauna darbinieka ievad
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: Tu esi biznesa procesu analītiķis. Mērķis: identificēt 5 svarīgākos darba procesus (Pareto 80/20) – kur tiek tērēts laiks un enerģija.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Apraksti 5 svarīgākos procesus, ko šī loma patiesi veic. Katram: mērķis; galvenie soļi; iesaistītās lomas; kur tas parasti "iesprūst". 80% darbības, 20% skaidrojums.
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS].
 
-OUTPUT: Rezultāts: procesu saraksts, lai redzētu, kur MI būs lielākā ietekme (6. solis).</pre>
+OUTPUT: Apraksti tieši 5 procesus. Katram:
+- mērķis
+- galvenie soļi
+- iesaistītās lomas
+- kur tas parasti iesprūst
+80% darbības, 20% skaidrojums.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -437,7 +458,6 @@ OUTPUT: Rezultāts: procesu saraksts, lai redzētu, kur MI būs lielākā ietekm
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc);</li>
                         <li>[MANA LOMA] → jūsu amata nosaukums (piem. pārdošanas vadītājs).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -475,9 +495,14 @@ OUTPUT: Rezultāts: procesu saraksts, lai redzētu, kur MI būs lielākā ietekm
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: Tu esi MI ieviešanas konsultants. Mērķis: novērtēt procesus un ieteikt konkrētus veidus, kā tos uzlabot, izmantojot ChatGPT vai citus MI rīkus.
 
-INPUT: Novērtē (jau aprakstītos) procesus un dod 8–10 idejas. Katrai: ko dara MI; kuru procesa daļu atvieglo; reāls ieguvums (laiks / kvalitāte / izmaksas); ieviešanas grūtības (viegli / vidēji / grūti). Raksti saprotami lietotājam bez tehniskām zināšanām.
+INPUT: Procesi [PROCESI]. Ja šis vietturis ir aizpildīts, izmanto šo sarakstu. Ja tur joprojām ir [PROCESI], izmanto procesu sarakstu, kas šajā sarunā no 5. soļa jau ir.
 
-OUTPUT: Rezultāts: 8–10 konkrētas idejas, kur MI var ietaupīt stundas nedēļā.</pre>
+OUTPUT: Dod 8–10 idejas. Katrai:
+- ko dara MI
+- kuru soli tas atvieglo
+- ieguvums (laiks / kvalitāte / izmaksas)
+- grūtības (viegli / vidēji / grūti)
+Raksti vienkāršā valodā.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -498,7 +523,10 @@ OUTPUT: Rezultāts: 8–10 konkrētas idejas, kur MI var ietaupīt stundas nedē
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">Pirms lietošanas</h3>
                     <p><strong>Lietojiet, kad:</strong> jau ir procesu apraksti (5. solis); vēlaties konkrētus veidus MI lietošanai; vēlaties ietaupīt laiku.</p>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
+                    <p><strong>Pirms lietošanas aizstājiet:</strong></p>
+                    <ul>
+                        <li>[PROCESI] → 5. soļa saraksts, ja šajā sarunā tā vēl nav. Citādi atstājiet vietturi.</li>
+                    </ul>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -536,9 +564,9 @@ OUTPUT: Rezultāts: 8–10 konkrētas idejas, kur MI var ietaupīt stundas nedē
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: Tu esi promptu inženieris. Mērķis: izveidot 10–12 īsus ikdienas promptus šai konkrētajai lomai un uzņēmumam.
 
-INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS]. Izveido promptus, kas palīdz: plānošanā; problēmu risināšanā; komunikācijā; lēmumu pieņemšanā. Dod tabulu: [PROMPTTEKSTS] | [KAD LIETOJU] | [KĀDU PROBLĒMU RISINA].
+INPUT: Loma [MANA LOMA], uzņēmums [UZŅĒMUMS].
 
-OUTPUT: Rezultāts: personīga promptu kolekcija – tabula ikdienas lietošanai.</pre>
+OUTPUT: Uzraksti tabulu ar 10–12 rindām un kolonnām [PROMPTTEKSTS] | [KAD LIETOJU] | [KĀDU PROBLĒMU RISINA]. Aptver plānošanu, problēmu risināšanu, komunikāciju un lēmumu pieņemšanu.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -564,7 +592,6 @@ OUTPUT: Rezultāts: personīga promptu kolekcija – tabula ikdienas lietošanai
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc);</li>
                         <li>[MANA LOMA] → jūsu amata nosaukums (piem. pārdošanas vadītājs).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -602,9 +629,13 @@ OUTPUT: Rezultāts: personīga promptu kolekcija – tabula ikdienas lietošanai
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: Tu esi stratēģiskās plānošanas konsultants. Mērķis: simulēt kritiskas situācijas un rīcības plānu – sagatavoties spiedienam un nenoteiktībai.
 
-INPUT: Uzņēmums [UZŅĒMUMS], loma [MANA LOMA]. Iedomājies kritisku situāciju, kas tieši ietekmē šo lomu. Dod: 2 reālistiskus scenārijus; rīcības plānu pirmajiem 14 dienām; kā MI var palīdzēt; galvenos riskus un veiksmes kritērijus.
+INPUT: Uzņēmums [UZŅĒMUMS], loma [MANA LOMA].
 
-OUTPUT: Rezultāts: scenāriji un 14 dienu plāns – labāk trenēties ar MI iepriekš nekā reālā situācijā.</pre>
+OUTPUT: Iedomājies kritisku situāciju, kas tieši ietekmē šo lomu. Dod:
+- 2 reālistiskus scenārijus
+- rīcības plānu pirmajām 14 dienām
+- kā MI var palīdzēt
+- galvenos riskus un veiksmes kritērijus</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -630,7 +661,6 @@ OUTPUT: Rezultāts: scenāriji un 14 dienu plāns – labāk trenēties ar MI ie
                         <li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc);</li>
                         <li>[MANA LOMA] → jūsu amata nosaukums (piem. pārdošanas vadītājs).</li>
                     </ul>
-                    <p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informācija par šo promptu">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -709,7 +739,7 @@ OUTPUT: Rezultāts: scenāriji un 14 dienu plāns – labāk trenēties ar MI ie
 
         <footer class="footer">
             <h3>Veiksmi ar promptiem <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – nav jāmaina.</p>
+            <p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – nav jāmaina. Ja promptā ir [PROCESI], ielīmējiet 5. soļa sarakstu tikai tad, ja šajā sarunā tā vēl nav.</p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> MI optimizēts</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>

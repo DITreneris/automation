@@ -301,7 +301,7 @@ html {
             text-wrap: pretty;
         }
 
-        .header-meta {
+        .header p.header-meta {
             font-size: var(--font-size-meta);
             font-weight: var(--font-weight-semibold);
             opacity: 0.85;
@@ -747,6 +747,10 @@ html {
             margin-left: 8px;
         }
 
+        .prompt-meta .prompt-time {
+            display: none;
+        }
+
         /* ===== PROMPT CARD ===== */
         .prompt {
             background: var(--white);
@@ -759,8 +763,8 @@ html {
         }
 
         .prompt-header {
-            background: linear-gradient(to right, var(--blue-light), var(--orange-light));
-            border-bottom: 3px solid var(--accent-dark);
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
             padding: 36px 40px;
         }
 
@@ -798,7 +802,7 @@ html {
         }
 
         .prompt-title {
-            font-size: 32px;
+            font-size: var(--font-size-h2-lg);
             font-weight: 800;
             color: var(--text);
             margin-bottom: 12px;
@@ -806,9 +810,9 @@ html {
         }
 
         .prompt-desc {
-            font-size: 19px;
+            font-size: var(--font-size-body-sm);
             color: var(--text-light);
-            line-height: 1.5;
+            line-height: var(--line-height-body);
             font-weight: 500;
         }
 
@@ -829,6 +833,7 @@ html {
             cursor: pointer;
             list-style: none;
             margin: 0;
+            border-bottom: none;
         }
 
         .prompt--collapsible summary.prompt-header::-webkit-details-marker {
@@ -863,7 +868,7 @@ html {
         }
 
         .prompt--collapsible .prompt-details[open] > summary.prompt-header {
-            border-bottom: 3px solid var(--accent-dark);
+            border-bottom: 1px solid var(--border);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -932,7 +937,7 @@ html {
         .code-text {
             font-family: 'JetBrains Mono', monospace;
             font-size: 16px;
-            line-height: 2;
+            line-height: var(--line-height-body);
             color: var(--text);
             white-space: pre-wrap;
             font-weight: 500;
@@ -949,8 +954,8 @@ html {
         }
 
         .before-use-title {
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: var(--font-size-body);
+            font-weight: 800;
             color: var(--text);
             margin: 0 0 12px 0;
         }
@@ -1022,7 +1027,7 @@ html {
         }
 
         .prompt-body > .prompt-footer {
-            padding: 0 0 var(--space-6);
+            padding: 0 0 var(--space-2);
             background: transparent;
             border-top: none;
         }
@@ -1126,11 +1131,11 @@ html {
 
         /* ===== PROGRESS INDICATOR (S1) ===== */
         .progress-wrap {
-            background: var(--orange-light);
-            border: 2px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 14px 20px;
-            margin-bottom: 24px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: var(--space-6);
             min-height: 44px;
         }
 
@@ -1583,7 +1588,7 @@ html {
                 border-radius: var(--radius-lg);
             }
 
-            .header p {
+            .header p:not(.header-meta) {
                 font-size: 18px;
             }
 
@@ -1603,11 +1608,11 @@ html {
             }
 
             .prompt-body > .prompt-footer {
-                padding: 0 0 20px;
+                padding: 0 0 var(--space-2);
             }
 
             .prompt-title {
-                font-size: 26px;
+                font-size: var(--font-size-h2-lg);
             }
 
             .code-text {
@@ -1628,6 +1633,30 @@ html {
 
             .header-top {
                 align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .header .lang-switcher--dropdown {
+                margin-left: 0;
+            }
+
+            .header .lang-switcher-menu {
+                left: 0;
+                right: auto;
+            }
+
+            .instructions-title {
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .instructions-title > span:not(.prompt-time) {
+                flex: 1;
+            }
+
+            .instructions-title .prompt-time {
+                flex: 1 0 100%;
+                margin-left: 0;
             }
 
             .header-cta {
@@ -1686,7 +1715,7 @@ html {
             }
 
             .prompt-title {
-                font-size: 22px;
+                font-size: var(--font-size-h2-lg);
             }
 
             .code-block {
@@ -1697,6 +1726,8 @@ html {
                 padding: 14px 28px;
                 font-size: 16px;
                 min-height: 44px;
+                width: 100%;
+                justify-content: center;
             }
 
             .modal-overlay {
@@ -1754,7 +1785,7 @@ html {
             }
 
             .prompt-body > .prompt-footer {
-                padding: 0 0 16px;
+                padding: 0 0 var(--space-2);
             }
 
             .code-text {
@@ -1775,7 +1806,7 @@ html {
             }
 
             .progress-wrap {
-                padding: 12px 16px;
+                padding: 0;
             }
 
             .next-steps,

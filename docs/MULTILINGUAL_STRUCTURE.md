@@ -86,15 +86,15 @@ ET, LV ir DE naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `pri
 
 Vienoda logika kaip LT: **tokenai atitinka kalbą**, EN lieka tarptautiniu šablonu `[COMPANY]` / `[MY ROLE]`.
 
-| Kalba | Įmonė / organizacija | Rolė / pareigos | 7-o prompto lentelė (stulpelių antraštės) |
-|--------|----------------------|-----------------|-------------------------------------------|
-| LT | `[ĮMONĖ]` | `[MANO ROLĖ]` | `[PROMPTAS]` \| `[KADA NAUDOJU]` \| `[KOKIĄ PROBLEMĄ SPRENDŽIA]` |
-| EN | `[COMPANY]` | `[MY ROLE]` | `[PROMPT]` \| `[WHEN I USE IT]` \| `[PROBLEM IT SOLVES]` |
-| ET | `[ETTEVÕTE]` | `[MINU ROLL]` | `[KÜSITIS]` \| `[MILLAL KASUTAN]` \| `[MILLISE PROBLEEMI LAHENDAB]` |
-| LV | `[UZŅĒMUMS]` | `[MANA LOMA]` | `[PROMPTTEKSTS]` \| `[KAD LIETOJU]` \| `[KĀDU PROBLĒMU RISINA]` |
-| DE | `[UNTERNEHMEN]` | `[MEINE ROLLE]` | `[PROMPT]` \| `[WANN]` \| `[WELCHES PROBLEM]` |
-| JA | `[COMPANY]` | `[MY ROLE]` | `[プロンプト]` \| `[使用場面]` \| `[解決する課題]` |
-| ZH | `[公司]` | `[我的角色]` | `[提示词]` \| `[使用场景]` \| `[解决的问题]` |
+| Kalba | Įmonė / organizacija | Rolė / pareigos | 6-o prompto procesai | 7-o prompto lentelė (stulpelių antraštės) |
+|--------|----------------------|-----------------|---------------------|-------------------------------------------|
+| LT | `[ĮMONĖ]` | `[MANO ROLĖ]` | `[PROCESAI]` | `[PROMPTAS]` \| `[KADA NAUDOJU]` \| `[KOKIĄ PROBLEMĄ SPRENDŽIA]` |
+| EN | `[COMPANY]` | `[MY ROLE]` | `[PROCESSES]` | `[PROMPT]` \| `[WHEN I USE IT]` \| `[PROBLEM IT SOLVES]` |
+| ET | `[ETTEVÕTE]` | `[MINU ROLL]` | `[PROTSESSID]` | `[KÜSITIS]` \| `[MILLAL KASUTAN]` \| `[MILLISE PROBLEEMI LAHENDAB]` |
+| LV | `[UZŅĒMUMS]` | `[MANA LOMA]` | `[PROCESI]` | `[PROMPTTEKSTS]` \| `[KAD LIETOJU]` \| `[KĀDU PROBLĒMU RISINA]` |
+| DE | `[UNTERNEHMEN]` | `[MEINE ROLLE]` | `[PROZESSE]` | `[PROMPT]` \| `[WANN]` \| `[WELCHES PROBLEM]` |
+| JA | `[COMPANY]` | `[MY ROLE]` | `[PROCESSES]` | `[プロンプト]` \| `[使用場面]` \| `[解決する課題]` |
+| ZH | `[公司]` | `[我的角色]` | `[流程]` | `[提示词]` \| `[使用场景]` \| `[解决的问题]` |
 
 ET/LV tekstai: `scripts/prompt-bodies-et-lv.cjs`; DE: `scripts/prompt-bodies-de.cjs` + `scripts/de-pairs.cjs`; JA / ZH promptų korpusas (ranka): `scripts/prompt-bodies-ja.cjs`, `scripts/prompt-bodies-zh.cjs`; po EN pakeitimų – `npm run generate:et-lv`.
 

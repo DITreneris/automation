@@ -115,7 +115,7 @@
             <ol>
                 <li>Valige prompt ja vajutage teksti all olevat <strong>„Kopeerige prompt“</strong> — kogu tekst kopeeritakse ühe klõpsuga. Arvutis saate ka teksti märgistada ja kasutada <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>
                 <li>Kleepige ChatGPT-sse, Claudesse või teise tehisintellekti tööriista</li>
-                <li>Kui promptis on <code>[ETTEVÕTE]</code> – asendage oma või kliendi ettevõtte nimega; kui <code>[MINU ROLL]</code> – asendage oma ametinimetusega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea.</li>
+                <li>Kui promptis on <code>[ETTEVÕTE]</code> – asendage oma või kliendi ettevõtte nimega; kui <code>[MINU ROLL]</code> – asendage oma ametinimetusega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea. Kui promptis on <code>[PROTSESSID]</code>, kleepige 5. sammu loend ainult siis, kui seda selles vestluses veel ei ole. Muul juhul jätke kohatäide alles.</li>
             </ol>
         </section>
 
@@ -148,9 +148,13 @@
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: Sa oled kriitiline ärianalüütik. Eesmärk: välja selgitada, mida tehisintellekt tegelikult organisatsiooni kohta teab ja kus vajab täpsustusi.
 
-INPUT: Ettevõte [ETTEVÕTE]. Ainult avaliku teabe ja üldiste turuteadmiste põhjal kirjelda, kuidas SINA seda ettevõtet mõistad. Struktuur: 1) Mida tead kindlalt 2) Milliseid eeldusi teed 3) Kus informatsioon puudub ja võid eksida. Lõpus märgi selgelt: "Need punktid vajavad kasutajalt täpsustamist."
+INPUT: Ettevõte [ETTEVÕTE]. Kasuta ainult avalikku teavet ja üldisi turuteadmisi.
 
-OUTPUT: Tulemus: lühike struktureeritud vastus – näete selgelt, kus tehisintellekt võib eksida ja mida enne jätkamist täpsustada.</pre>
+OUTPUT: Kirjuta lühike vastus eesti keeles, kolmes osas:
+1) Mida tead kindlalt
+2) Milliseid eeldusi teed
+3) Kus informatsioon puudub ja võid eksida
+Lõpeta eraldi reaga: "Need punktid vajavad kasutajalt täpsustamist." Ilma sissejuhatuse ja ilma nõuanneteta, mida edasi teha.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -198,7 +202,7 @@ OUTPUT: Tulemus: lühike struktureeritud vastus – näete selgelt, kus tehisint
                             <span class="prompt-time">~3–5 min</span>
                         </div>
                         <h2 class="prompt-title" id="prompt-title-2">Organisatsiooni portree</h2>
-                        <p class="prompt-desc">Avage prompt — saate struktureeritud ettevõtte profiili ~5 minutiga</p>
+                        <p class="prompt-desc">Avage prompt — saate struktureeritud ettevõtte profiili</p>
                     </div>
                     <span class="prompt-chevron" aria-hidden="true">▾</span>
                 </summary>
@@ -212,9 +216,14 @@ OUTPUT: Tulemus: lühike struktureeritud vastus – näete selgelt, kus tehisint
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: Sa oled kogenud ärianalüütik. Eesmärk: luua selge organisatsiooni profiil ja kontekst.
 
-INPUT: Ettevõte [ETTEVÕTE]. Analüüsi ja kirjelda: umbkaudne suurus (töötajad, käive); peamised tegevusvaldkonnad; juhtimine/organisatsioonimudel; tüüpilised väljakutsed selles sektoris. Hoia vastus lühike ja struktureeritud. Märgi, kus teed eeldusi.
+INPUT: Ettevõte [ETTEVÕTE].
 
-OUTPUT: Tulemus: organisatsiooni portree, mida saate kasutada teiste promptide kontekstina.</pre>
+OUTPUT: Kirjuta lühike organisatsiooni portree nelja pealkirjaga:
+- Ligikaudne suurus (töötajad, käive)
+- Peamised tegevusvaldkonnad
+- Juhtimine / organisatsioonimudel
+- Tüüpilised väljakutsed selles sektoris
+Märgi iga eeldus.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -239,7 +248,6 @@ OUTPUT: Tulemus: organisatsiooni portree, mida saate kasutada teiste promptide k
                     <ul>
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -277,9 +285,14 @@ OUTPUT: Tulemus: organisatsiooni portree, mida saate kasutada teiste promptide k
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: Sa oled organisatsioonidisaini konsultant. Eesmärk: kirjeldada kasutaja rolli organisatsioonis – eesmärk, vastutus ja mõju.
 
-INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Organisatsiooni analüüsi põhjal kirjelda seda rolli. Kaasa: rolli peamine eesmärk; 5–7 põhikohustust; otsustamise tase (operatiivne / taktikaline / strateegiline); kellele antakse aru ja kellega töötatakse igapäevaselt. Kirjuta lühidalt, ilma teooriata.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE].
 
-OUTPUT: Tulemus: selge rollikirjeldus – kasutage järgmiste sammude jaoks.</pre>
+OUTPUT: Kirjuta rollikirjeldus, mis sisaldab:
+- rolli peamist eesmärki
+- 5–7 põhikohustust
+- otsustamise taset (operatiivne / taktikaline / strateegiline)
+- kellele antakse aru ja kellega töötatakse igapäevaselt
+Kirjuta lühidalt, ilma teooriata.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -305,7 +318,6 @@ OUTPUT: Tulemus: selge rollikirjeldus – kasutage järgmiste sammude jaoks.</pr
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
                         <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -343,9 +355,14 @@ OUTPUT: Tulemus: selge rollikirjeldus – kasutage järgmiste sammude jaoks.</pr
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: Sa oled kogenud juht. Eesmärk: luua praktiline ametijuhend koos KPI-dega.
 
-INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo ametijuhend. Kaasa: põhikohustused; nõutavad pädevused; 5–7 mõõdetavat KPI-d; milline on "hea tulemus" 6 kuu pärast. Keskendu tegelikule tööle, mitte HR paberimajandusele.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE].
 
-OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisseelamiseks.</pre>
+OUTPUT: Kirjuta ametijuhend, mis sisaldab:
+- põhikohustusi
+- nõutavaid pädevusi
+- 5–7 mõõdetavat KPI-d
+- milline on "hea tulemus" 6 kuu pärast
+Keskendu tegelikule tööle, mitte HR paberimajandusele.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -371,7 +388,6 @@ OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisse
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
                         <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -409,9 +425,14 @@ OUTPUT: Tulemus: ametijuhend, mis sobib enesehindluseks või uue töötaja sisse
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: Sa oled äriprotsesside analüütik. Eesmärk: tuvastada 5 kõige olulisemat tööprotsessi (Pareto 80/20) – kuhu aeg ja energia läheb.
 
-INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Kirjelda 5 kõige olulisemat protsessi, mida see roll tegelikult teeb. Igaühe jaoks: eesmärk; peamised sammud; osapooled; kus see tavaliselt kinni jookseb. 80% tegevus, 20% selgitus.
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE].
 
-OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõju (samm 6).</pre>
+OUTPUT: Kirjelda täpselt 5 protsessi. Igaühe jaoks:
+- eesmärk
+- peamised sammud
+- osapooled
+- kus see tavaliselt kinni jookseb
+80% tegevus, 20% selgitus.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -437,7 +458,6 @@ OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõ
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
                         <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -475,9 +495,14 @@ OUTPUT: Tulemus: protsesside loend, et näha, kus tehisintellektil on suurim mõ
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: Sa oled tehisintellekti rakendamise konsultant. Eesmärk: hinnata protsesse ja pakkuda konkreetseid viise nende parandamiseks ChatGPT või muude tehisintellekti tööriistadega.
 
-INPUT: Hinda (juba kirjeldatud) protsesse ja anna 8–10 ideed. Igaühe jaoks: mida tehisintellekt teeb; millist protsessi osa see kergendab; tegelik kasu (aeg / kvaliteet / kulu); rakendamise raskus (lihtne / keskmine / raske). Kirjuta mittetehnilisele kasutajale.
+INPUT: Protsessid [PROTSESSID]. Kui see kohatäide on täidetud, kasuta seda loendit. Kui seal on endiselt [PROTSESSID], kasuta protsesside loendit, mis on selles vestluses 5. sammust juba olemas.
 
-OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tunde säästa.</pre>
+OUTPUT: Anna 8–10 ideed. Igaühe jaoks:
+- mida tehisintellekt teeb
+- millist sammu see kergendab
+- kasu (aeg / kvaliteet / kulu)
+- raskus (lihtne / keskmine / raske)
+Kirjuta lihtsas keeles.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -498,7 +523,10 @@ OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tun
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">Enne kasutamist</h3>
                     <p><strong>Kasutage, kui:</strong> teil on juba protsessikirjeldused (samm 5); soovite konkreetseid viise tehisintellekti kasutamiseks; soovite aega säästa.</p>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
+                    <p><strong>Enne kasutamist asendage:</strong></p>
+                    <ul>
+                        <li>[PROTSESSID] → 5. sammu loend, kui seda selles vestluses veel ei ole. Muul juhul jätke kohatäide alles.</li>
+                    </ul>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -536,9 +564,9 @@ OUTPUT: Tulemus: 8–10 konkreetset ideed, kus tehisintellekt võib nädalas tun
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: Sa oled promptide koostaja. Eesmärk: luua 10–12 lühikest igapäevast prompti selle rolli ja ettevõtte jaoks.
 
-INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE]. Loo promptid, mis aitavad: planeerimisel; probleemide lahendamisel; suhtluses; otsustamisel. Anna tabel: [KÜSITIS] | [MILLAL KASUTAN] | [MILLISE PROBLEEMI LAHENDAB].
+INPUT: Roll [MINU ROLL], ettevõte [ETTEVÕTE].
 
-OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saate iga päev kasutada.</pre>
+OUTPUT: Kirjuta tabel 10–12 reaga ja veergudega [KÜSITIS] | [MILLAL KASUTAN] | [MILLISE PROBLEEMI LAHENDAB]. Kata planeerimine, probleemide lahendamine, suhtlus ja otsustamine.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -564,7 +592,6 @@ OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saate iga päev kasutada
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
                         <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -602,9 +629,13 @@ OUTPUT: Tulemus: isiklik promptide kogu – tabel, mida saate iga päev kasutada
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: Sa oled strateegilise planeerimise konsultant. Eesmärk: simuleerida kriitilisi olukordi ja tegevusplaani – valmistuda surveks ja ebakindluseks.
 
-INPUT: Ettevõte [ETTEVÕTE], roll [MINU ROLL]. Kujuta ette kriitilist olukorda, mis mõjutab otse seda rolli. Anna: 2 realistlikku stsenaariumit; tegevusplaan esimeseks 14 päevaks; kuidas tehisintellekt saab aidata; peamised riskid ja edu kriteeriumid.
+INPUT: Ettevõte [ETTEVÕTE], roll [MINU ROLL].
 
-OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisintellektiga ette kui päris olukorras.</pre>
+OUTPUT: Kujuta ette kriitilist olukorda, mis mõjutab otse seda rolli. Anna:
+- 2 realistlikku stsenaariumit
+- tegevusplaan esimeseks 14 päevaks
+- kuidas tehisintellekt saab aidata
+- peamised riskid ja edu kriteeriumid</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -630,7 +661,6 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
                         <li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc);</li>
                         <li>[MINU ROLL] → teie ametinimetus (nt müügijuht).</li>
                     </ul>
-                    <p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Teave selle prompti kohta">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -709,7 +739,7 @@ OUTPUT: Tulemus: stsenaariumid ja 14-päevane plaan – parem harjutada tehisint
 
         <footer class="footer">
             <h3>Edu promptidega <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>
+            <p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea. Kui promptis on [PROTSESSID], kleepige 5. sammu loend ainult siis, kui seda selles vestluses veel ei ole.</p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Tehisintellektile optimeeritud</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>

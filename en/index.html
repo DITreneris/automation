@@ -115,7 +115,7 @@
             <ol>
                 <li>Choose a prompt and tap <strong>“Copy prompt”</strong> below the text – everything is copied in one step. On a computer, you can also select the text and use <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>
                 <li>Paste into ChatGPT, Claude, or another AI tool</li>
-                <li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it.</li>
+                <li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it. If <code>[PROCESSES]</code> is there, paste the step 5 list only when this chat does not already have it. Otherwise leave the placeholder.</li>
             </ol>
         </section>
 
@@ -148,9 +148,13 @@
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: You are a critical business analyst. Goal: find out what the AI knows about the organization and where clarification is needed.
 
-INPUT: Company [COMPANY]. Based only on publicly available information and general market knowledge, describe how YOU understand this company. Structure: 1) What you know for certain; 2) What assumptions you make; 3) Where information is missing and you might be wrong. Clearly mark at the end: "These points need clarification from the user."
+INPUT: Company [COMPANY]. Use only publicly available information and general market knowledge.
 
-OUTPUT: Result: a short structured answer – you can see where the AI might be wrong and what to clarify before going further.</pre>
+OUTPUT: Write a short answer in English, in three parts:
+1) What you know for certain
+2) What assumptions you make
+3) Where information is missing and you might be wrong
+End with a separate line: "These points need clarification from the user." No introduction and no advice on what to do next.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -198,7 +202,7 @@ OUTPUT: Result: a short structured answer – you can see where the AI might be 
                             <span class="prompt-time">~3–5 min</span>
                         </div>
                         <h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>
-                        <p class="prompt-desc">Open for the prompt – get a structured company profile in ~5 min</p>
+                        <p class="prompt-desc">Open for the prompt – get a structured company profile</p>
                     </div>
                     <span class="prompt-chevron" aria-hidden="true">▾</span>
                 </summary>
@@ -212,9 +216,14 @@ OUTPUT: Result: a short structured answer – you can see where the AI might be 
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: You are an experienced business analyst. Goal: create a clear organization profile and context.
 
-INPUT: Company [COMPANY]. Analyze and describe: approximate size (employees, revenue); main business areas; management/organizational model; typical challenges in this sector. Keep the answer short and structured. Mark where you are making assumptions.
+INPUT: Company [COMPANY].
 
-OUTPUT: Result: an organization portrait you can use as context for other prompts.</pre>
+OUTPUT: Write a short organization portrait with four headings:
+- Approximate size (employees, revenue)
+- Main business areas
+- Management / organizational model
+- Typical challenges in this sector
+Mark each assumption.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -239,7 +248,6 @@ OUTPUT: Result: an organization portrait you can use as context for other prompt
                     <ul>
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -277,9 +285,14 @@ OUTPUT: Result: an organization portrait you can use as context for other prompt
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: You are an organization design consultant. Goal: describe the user's role in the organization – purpose, responsibilities, and impact.
 
-INPUT: Role [MY ROLE], company [COMPANY]. Based on the organization analysis, describe this role. Include: the role's main purpose; 5–7 core responsibilities; decision level (operational / tactical / strategic); who they report to and who they work with daily. Write concisely, no theory.
+INPUT: Role [MY ROLE], company [COMPANY].
 
-OUTPUT: Result: a clear role description – use as a reference for the next steps.</pre>
+OUTPUT: Write a role description that includes:
+- the role's main purpose
+- 5–7 core responsibilities
+- decision level (operational / tactical / strategic)
+- who they report to and who they work with daily
+Write concisely, no theory.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -305,7 +318,6 @@ OUTPUT: Result: a clear role description – use as a reference for the next ste
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc);</li>
                         <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -343,9 +355,14 @@ OUTPUT: Result: a clear role description – use as a reference for the next ste
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: You are an experienced manager. Goal: create a practical job description with KPIs.
 
-INPUT: Role [MY ROLE], company [COMPANY]. Create a job description. Include: core responsibilities; required competencies; 5–7 measurable KPIs; what “good performance” looks like after 6 months. Focus on real work, not HR paperwork.
+INPUT: Role [MY ROLE], company [COMPANY].
 
-OUTPUT: Result: a job description suitable for self-assessment or onboarding a new hire.</pre>
+OUTPUT: Write a job description that includes:
+- core responsibilities
+- required competencies
+- 5–7 measurable KPIs
+- what “good performance” looks like after 6 months
+Focus on real work, not HR paperwork.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -371,7 +388,6 @@ OUTPUT: Result: a job description suitable for self-assessment or onboarding a n
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc);</li>
                         <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -409,9 +425,14 @@ OUTPUT: Result: a job description suitable for self-assessment or onboarding a n
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: You are a business process analyst. Goal: identify the 5 most important work processes (Pareto 80/20) – where time and energy go.
 
-INPUT: Role [MY ROLE], company [COMPANY]. Describe the 5 most important processes this role carries out. For each: purpose; main steps; roles involved; where it usually gets stuck. 80% actions, 20% explanation.
+INPUT: Role [MY ROLE], company [COMPANY].
 
-OUTPUT: Result: a list of processes so you can see where AI will have the biggest impact (step 6).</pre>
+OUTPUT: Describe exactly 5 processes. For each include:
+- purpose
+- main steps
+- roles involved
+- where it usually gets stuck
+80% actions, 20% explanation.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -437,7 +458,6 @@ OUTPUT: Result: a list of processes so you can see where AI will have the bigges
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc);</li>
                         <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -475,9 +495,14 @@ OUTPUT: Result: a list of processes so you can see where AI will have the bigges
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: You are an AI implementation consultant. Goal: assess the processes and suggest concrete ways to improve them using ChatGPT or other AI tools.
 
-INPUT: Assess the (already described) processes and give 8–10 ideas. For each: what the AI does; which part of the process it eases; real benefit (time / quality / cost); implementation difficulty (easy / medium / hard). Write for a non-technical user.
+INPUT: Processes [PROCESSES]. If this placeholder is filled in, use that list. If it still says [PROCESSES], use the process list already in this chat from step 5.
 
-OUTPUT: Result: 8–10 concrete ideas where AI can save hours per week.</pre>
+OUTPUT: Give 8–10 ideas. For each include:
+- what the AI does
+- which step it eases
+- benefit (time / quality / cost)
+- difficulty (easy / medium / hard)
+Write in plain language.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -498,7 +523,10 @@ OUTPUT: Result: 8–10 concrete ideas where AI can save hours per week.</pre>
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">Before using</h3>
                     <p><strong>Use when:</strong> you already have process descriptions (step 5); you want concrete ways to use AI; you want to save time.</p>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
+                    <p><strong>Replace before using:</strong></p>
+                    <ul>
+                        <li>[PROCESSES] → the step 5 list, if this chat does not already have it. Otherwise leave the placeholder.</li>
+                    </ul>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -536,9 +564,9 @@ OUTPUT: Result: 8–10 concrete ideas where AI can save hours per week.</pre>
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: You are a prompt engineer. Goal: create 10–12 short, daily-use prompts for this specific role and company.
 
-INPUT: Role [MY ROLE], company [COMPANY]. Create prompts that help with: planning; problem-solving; communication; decision-making. Provide a table: [PROMPT] | [WHEN I USE IT] | [PROBLEM IT SOLVES].
+INPUT: Role [MY ROLE], company [COMPANY].
 
-OUTPUT: Result: a personal prompt collection – a table you can use every day.</pre>
+OUTPUT: Write a table of 10–12 rows with columns [PROMPT] | [WHEN I USE IT] | [PROBLEM IT SOLVES]. Cover planning, problem-solving, communication, and decision-making.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -564,7 +592,6 @@ OUTPUT: Result: a personal prompt collection – a table you can use every day.<
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc);</li>
                         <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -602,9 +629,13 @@ OUTPUT: Result: a personal prompt collection – a table you can use every day.<
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: You are a strategic planning consultant. Goal: simulate critical situations and an action plan – prepare for pressure and uncertainty.
 
-INPUT: Company [COMPANY], role [MY ROLE]. Imagine a critical situation that directly affects this role. Provide: 2 realistic scenarios; an action plan for the first 14 days; how AI can help; main risks and success criteria.
+INPUT: Company [COMPANY], role [MY ROLE].
 
-OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in advance than in a real situation.</pre>
+OUTPUT: Imagine a critical situation that directly affects this role. Provide:
+- 2 realistic scenarios
+- an action plan for the first 14 days
+- how AI can help
+- main risks and success criteria</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -630,7 +661,6 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
                         <li>[COMPANY] → your company or your client's (e.g. Acme Inc);</li>
                         <li>[MY ROLE] → your job title (e.g. Sales Manager).</li>
                     </ul>
-                    <p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Information about this prompt">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -709,7 +739,7 @@ OUTPUT: Result: scenarios and a 14-day plan – better to practice with AI in ad
 
         <footer class="footer">
             <h3>Good luck with your prompts <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>
+            <p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. If the prompt has [PROCESSES], paste the step 5 list only when this chat does not already have it.</p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>

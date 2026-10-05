@@ -10,6 +10,14 @@ Formatas pagal [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), versija
 
 ### Pakeista
 
+- **[Content] OUTPUT yra artefaktas:** aštuoniuose promptuose kopijuojamas OUTPUT nurodo formą, struktūrą ir apimtį. Nauda žmogui lieka info dėžutėje. 6-as promptas turi procesų lauką iš 5 žingsnio.
+- **[UI] Promptų kortelė:** pavadinimas 24px (kaip sekcijos H2), aprašymas 16px, prompto tekstas `--line-height-body`. Baltas header, atidarytos kortelės skirtukas 1px. Laiko žetonas lieka tik „Kaip naudoti“. Progreso juosta be kreminio rėmo. Tarpas po „Atlikta“ sutrauktas.
+- **[UI] Telefonas:** „Kam skirta“ lieka meta dydžio. Kalbos jungiklis lygiuojasi su ženklu. How-to žetonas savo eilutėje. Copy per visą kortelės plotį nuo 480px.
+- **[Content] Kartojama eilutė:** promptuose 2–8 pašalinta „nukopijuok ir įklijuok“ po Copy mygtuku. 1-as promptas palieka „tai ne anketa“.
+- **[Content] 2-o prompto aprašymas:** laikas išimtas iš sakinio po pavadinimu. „~3–5 min“ lieka how-to žetone.
+- **[Content] 6 prompto procesai:** `[PROCESAI]` pildomas tik kai 5 žingsnio sąrašo tame pokalbyje dar nėra. Kopijuojamas promptas liepia modeliui imti jau esantį sąrašą. How-to ir pabaigos priminimas tai pasako.
+- **[UI] Telefonas:** hero kalbos meniu nuo 480px atsiveria nuo kairės, kad neišlįstų už ekrano.
+
 ### Taisyta
 
 ---

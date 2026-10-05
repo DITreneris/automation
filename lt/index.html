@@ -115,7 +115,7 @@
             <ol>
                 <li>Pasirink promptą ir spausk <strong>„Kopijuoti promptą“</strong> po tekstu – viskas nukopijuojama vienu paspaudimu. Kompiuteryje gali ir pažymėti tekstą bei naudoti <code>Ctrl+C</code> / <code>Cmd+C</code>.</li>
                 <li>Įklijuok į ChatGPT, Claude ar kitą DI įrankį.</li>
-                <li>Jei prompte yra <code>[ĮMONĖ]</code> – pakeisk į savo arba kliento įmonę; jei yra <code>[MANO ROLĖ]</code> – pakeisk į savo pareigas. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia.</li>
+                <li>Jei prompte yra <code>[ĮMONĖ]</code> – pakeisk į savo arba kliento įmonę; jei yra <code>[MANO ROLĖ]</code> – pakeisk į savo pareigas. DI rolė (pvz. „kritiškas analitikas“) jau nurodyta prompte – jos keisti nereikia. Jei yra <code>[PROCESAI]</code>, 5 žingsnio sąrašą įklijuok tik tada, kai jo šiame pokalbyje dar nėra. Kitaip palik žymeklį.</li>
             </ol>
         </section>
 
@@ -148,9 +148,13 @@
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: Tu esi kritiškas verslo analitikas. Tikslas: išsiaiškinti, ką DI tikrai žino apie organizaciją ir kur reikia patikslinimų.
 
-INPUT: Įmonė [ĮMONĖ]. Remdamasis tik viešai prieinama informacija ir bendromis rinkos žiniomis, aprašyk, kaip TU supranti šią įmonę. Struktūra: 1) Ką žinai užtikrintai 2) Kokias prielaidas darai 3) Kur trūksta informacijos ir rizikuoji klysti. Pabaigoje aiškiai pažymėk: „Šios vietos reikalauja patikslinimo iš vartotojo“.
+INPUT: Įmonė [ĮMONĖ]. Remkis tik viešai prieinama informacija ir bendromis rinkos žiniomis.
 
-OUTPUT: Rezultatas: trumpas struktūruotas atsakymas – aiškiai matai, kur DI gali klysti ir ką patikslinti prieš toliau naudodamas.</pre>
+OUTPUT: Parašyk trumpą atsakymą lietuviškai, trimis dalimis:
+1) Ką žinai užtikrintai
+2) Kokias prielaidas darai
+3) Kur trūksta informacijos ir rizikuoji klysti
+Pabaigoje atskira eilutė: „Šios vietos reikalauja patikslinimo iš vartotojo“. Be įžangos ir be patarimų, ką daryti toliau.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -198,7 +202,7 @@ OUTPUT: Rezultatas: trumpas struktūruotas atsakymas – aiškiai matai, kur DI 
                             <span class="prompt-time">~3–5 min</span>
                         </div>
                         <h2 class="prompt-title" id="prompt-title-2">Organizacijos portretas</h2>
-                        <p class="prompt-desc">Atidaryk promptą – gauk struktūruotą įmonės profilį per ~5 min</p>
+                        <p class="prompt-desc">Atidaryk promptą – gauk struktūruotą įmonės profilį</p>
                     </div>
                     <span class="prompt-chevron" aria-hidden="true">▾</span>
                 </summary>
@@ -212,9 +216,14 @@ OUTPUT: Rezultatas: trumpas struktūruotas atsakymas – aiškiai matai, kur DI 
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: Tu esi patyręs verslo analitikas. Tikslas: sukurti išsamų organizacijos profilį ir kontekstą.
 
-INPUT: Įmonė [ĮMONĖ]. Išanalizuok ir aprašyk: apytikslį dydį (darbuotojai, apyvarta); pagrindines veiklos sritis; valdymo / organizacinį modelį; tipinius iššūkius šiame sektoriuje Lietuvoje. Atsakymas – trumpas, struktūruotas. Pažymėk, kur daromos prielaidos.
+INPUT: Įmonė [ĮMONĖ]. Kontekstas: šis sektorius Lietuvoje.
 
-OUTPUT: Rezultatas: organizacijos portretas, kurį galėsi naudoti kaip kontekstą kitiems promptams.</pre>
+OUTPUT: Parašyk trumpą organizacijos portretą su keturiomis antraštėmis:
+- Apytikslis dydis (darbuotojai, apyvarta)
+- Pagrindinės veiklos sritys
+- Valdymo / organizacinis modelis
+- Tipiniai iššūkiai šiame sektoriuje
+Pažymėk kiekvieną prielaidą.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -239,7 +248,6 @@ OUTPUT: Rezultatas: organizacijos portretas, kurį galėsi naudoti kaip kontekst
                     <ul>
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -277,9 +285,14 @@ OUTPUT: Rezultatas: organizacijos portretas, kurį galėsi naudoti kaip kontekst
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: Tu esi organizacijų dizaino konsultantas. Tikslas: aprašyti vartotojo rolę organizacijoje – tikslą, atsakomybes ir įtaką.
 
-INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ]. Remdamasis organizacijos analize, aprašyk šią rolę. Įtrauk: pagrindinį rolės tikslą; 5–7 pagrindines atsakomybes; sprendimų lygį (operacinis / taktinis / strateginis); kam atsiskaito ir su kuo dirba kasdien. Rašyk glaustai, be teorijos.
+INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ].
 
-OUTPUT: Rezultatas: aiškus rolės aprašymas – naudok kaip atskaitos tašką tolesniems žingsniams.</pre>
+OUTPUT: Parašyk rolės aprašymą, kuriame yra:
+- pagrindinis rolės tikslas
+- 5–7 pagrindinės atsakomybės
+- sprendimų lygis (operacinis / taktinis / strateginis)
+- kam atsiskaito ir su kuo dirba kasdien
+Rašyk glaustai, be teorijos.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -305,7 +318,6 @@ OUTPUT: Rezultatas: aiškus rolės aprašymas – naudok kaip atskaitos tašką 
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva);</li>
                         <li>[MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -343,9 +355,14 @@ OUTPUT: Rezultatas: aiškus rolės aprašymas – naudok kaip atskaitos tašką 
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: Tu esi patyręs vadovas. Tikslas: sukurti praktišką pareigybių aprašą su KPI.
 
-INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ]. Sukurk pareigybės instrukciją. Įtrauk: pagrindines atsakomybes; reikalingas kompetencijas; 5–7 pamatuojamus KPI; kaip atrodo „gera veikla“ po 6 mėn. Orientacija – realus darbas, ne HR formalizmas.
+INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ].
 
-OUTPUT: Rezultatas: pareigybės instrukcija, tinkanti asmeniniam vertinimui ar naujo darbuotojo įvedimui.</pre>
+OUTPUT: Parašyk pareigybės instrukciją, kurioje yra:
+- pagrindinės atsakomybės
+- reikalingos kompetencijos
+- 5–7 pamatuojami KPI
+- kaip atrodo „gera veikla“ po 6 mėn.
+Orientacija – realus darbas, ne HR formalizmas.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -371,7 +388,6 @@ OUTPUT: Rezultatas: pareigybės instrukcija, tinkanti asmeniniam vertinimui ar n
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva);</li>
                         <li>[MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -409,9 +425,14 @@ OUTPUT: Rezultatas: pareigybės instrukcija, tinkanti asmeniniam vertinimui ar n
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: Tu esi verslo procesų analitikas. Tikslas: identifikuoti 5 svarbiausius darbo procesus (Pareto 80/20) – kur dingsta laikas ir energija.
 
-INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ]. Aprašyk 5 svarbiausius procesus, kuriuos realiai vykdo ši rolė. Kiekvienam procesui: tikslas; pagrindiniai žingsniai; įtrauktos rolės; kur dažniausiai stringa. 80 % – veiksmai, 20 % – paaiškinimai.
+INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ].
 
-OUTPUT: Rezultatas: sąrašas procesų, pagal kurį galėsi nustatyti, kur DI padarys didžiausią įtaką (žingsnis 6).</pre>
+OUTPUT: Aprašyk lygiai 5 procesus. Kiekvienam:
+- tikslas
+- pagrindiniai žingsniai
+- įtrauktos rolės
+- kur dažniausiai stringa
+80 % veiksmai, 20 % paaiškinimai.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -437,7 +458,6 @@ OUTPUT: Rezultatas: sąrašas procesų, pagal kurį galėsi nustatyti, kur DI pa
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva);</li>
                         <li>[MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -475,9 +495,14 @@ OUTPUT: Rezultatas: sąrašas procesų, pagal kurį galėsi nustatyti, kur DI pa
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: Tu esi DI diegimo konsultantas. Tikslas: įvertinti procesus ir pateikti konkrečius būdus juos pagerinti naudojant ChatGPT ar kitus DI įrankius.
 
-INPUT: Įvertink (jau aprašytus) procesus ir pateik 8–10 būdų. Kiekvienam: ką daro DI; kurią vietą procese palengvina; reali nauda (laikas / kokybė / kaštai); diegimo sudėtingumas (lengva / vidutinė / sudėtinga). Rašyk ne techniniam vartotojui.
+INPUT: Procesai [PROCESAI]. Jei šis žymeklis užpildytas, naudok tą sąrašą. Jei vis dar parašyta [PROCESAI], naudok procesų sąrašą, kuris jau yra šiame pokalbyje iš 5 žingsnio.
 
-OUTPUT: Rezultatas: 8–10 konkrečių idėjų, kur DI gali sutaupyti valandų per savaitę.</pre>
+OUTPUT: Pateik 8–10 idėjų. Kiekvienai:
+- ką daro DI
+- kurią proceso vietą palengvina
+- nauda (laikas / kokybė / kaštai)
+- sudėtingumas (lengva / vidutinė / sudėtinga)
+Rašyk paprasta kalba.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -498,7 +523,10 @@ OUTPUT: Rezultatas: 8–10 konkrečių idėjų, kur DI gali sutaupyti valandų p
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">Prieš naudojant</h3>
                     <p><strong>Naudok kai:</strong> jau turi procesų aprašymą (žingsnis 5); nori konkrečių DI naudojimo būdų; nori sutaupyti laiko.</p>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
+                    <p><strong>Pakeisk prieš naudodamas:</strong></p>
+                    <ul>
+                        <li>[PROCESAI] → 5 žingsnio sąrašas, jei jo šiame pokalbyje dar nėra. Kitaip palik žymeklį.</li>
+                    </ul>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -536,9 +564,9 @@ OUTPUT: Rezultatas: 8–10 konkrečių idėjų, kur DI gali sutaupyti valandų p
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: Tu esi promptų inžinierius. Tikslas: sukurti 10–12 trumpų, kasdien naudojamų promptų konkrečiai rolei ir įmonei.
 
-INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ]. Sukurk promptus, kurie padėtų: planuoti; spręsti problemas; komunikuoti; priimti sprendimus. Pateik lentelę: [PROMPTAS] | [KADA NAUDOJU] | [KOKIĄ PROBLEMĄ SPRENDŽIA].
+INPUT: Rolė [MANO ROLĖ], įmonė [ĮMONĖ].
 
-OUTPUT: Rezultatas: asmeninė promptų kolekcija – lentelė, kurią galėsi naudoti kasdien.</pre>
+OUTPUT: Parašyk lentelę iš 10–12 eilučių, stulpeliais [PROMPTAS] | [KADA NAUDOJU] | [KOKIĄ PROBLEMĄ SPRENDŽIA]. Apimk planavimą, problemų sprendimą, komunikaciją ir sprendimų priėmimą.</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -564,7 +592,6 @@ OUTPUT: Rezultatas: asmeninė promptų kolekcija – lentelė, kurią galėsi na
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva);</li>
                         <li>[MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -602,9 +629,13 @@ OUTPUT: Rezultatas: asmeninė promptų kolekcija – lentelė, kurią galėsi na
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: Tu esi strateginio planavimo konsultantas. Tikslas: kritinių situacijų ir veiksmų plano simuliacija – pasiruošti spaudimui ir neapibrėžtumui.
 
-INPUT: Įmonė [ĮMONĖ], rolė [MANO ROLĖ]. Įsivaizduok kritinę situaciją, kuriai tiesiogiai įtaką daro ši rolė. Pateik: 2 realistiškus scenarijus; veiksmų planą pirmoms 14 dienų; kaip DI gali padėti; pagrindines rizikas ir sėkmės kriterijus.
+INPUT: Įmonė [ĮMONĖ], rolė [MANO ROLĖ].
 
-OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI iš anksto, nei realioje situacijoje.</pre>
+OUTPUT: Įsivaizduok kritinę situaciją, kuriai tiesiogiai įtaką daro ši rolė. Pateik:
+- 2 realistiškus scenarijus
+- veiksmų planą pirmoms 14 dienų
+- kaip DI gali padėti
+- pagrindines rizikas ir sėkmės kriterijus</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -630,7 +661,6 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
                         <li>[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva);</li>
                         <li>[MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).</li>
                     </ul>
-                    <p><strong>Ką daryti:</strong> Nukopijuok aukščiau esantį tekstą ir įklijuok į ChatGPT arba Claude.</p>
                 </section>
                 <div class="info-box" role="note" aria-label="Informacija apie promptą">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -709,7 +739,7 @@ OUTPUT: Rezultatas: scenarijai ir 14 dienų planas – geriau praktikuoti su DI 
 
         <footer class="footer">
             <h3>Sėkmės su promptais <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>Jei prompte yra [ĮMONĖ] arba [MANO ROLĖ] – pakeisk savo duomenimis. DI rolė (pvz. „kritiškas analitikas“) – jos keisti nereikia.</p>
+            <p>Jei prompte yra [ĮMONĖ] arba [MANO ROLĖ] – pakeisk savo duomenimis. DI rolė (pvz. „kritiškas analitikas“) – jos keisti nereikia. Jei yra [PROCESAI], 5 žingsnio sąrašą įklijuok tik tada, kai jo šiame pokalbyje dar nėra.</p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> DI optimizuota</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 promptai</span>

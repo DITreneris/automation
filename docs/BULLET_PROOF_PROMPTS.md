@@ -14,7 +14,7 @@ Vienoda trijų blokų struktūra kiekvienam promptui:
 |--------|-----------|----------|
 | **META** | DI rolė + tikslas. Aiški formuluotė „Tu esi X. Tikslas: Y.“ (ne „Rolė – X“). | *Tu esi kritiškas verslo analitikas. Tikslas: išsiaiškinti, ką DI tikrai žino apie organizaciją.* |
 | **INPUT** | Vartotojo pildomi laukai: [ĮMONĖ], [MANO ROLĖ]. + „Pakeisk prieš naudodamas:“ su paaiškinimais ir pavyzdžiais. | *[ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva). [MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas).* |
-| **OUTPUT** | Konkretus rezultatas: formatas, apimtis, kalba/tonas. „Rezultatas:“ – ką vartotojas gaus. | *Rezultatas: trumpas struktūruotas atsakymas (1–3) ir pažymėtos vietos, kurioms reikia patikslinimo.* |
+| **OUTPUT** | Įsakymas modeliui: formatas, struktūra, skaičius, tonas, kalba. Be „Rezultatas:“ ir be kreipinio į skaitytoją. | *Parašyk trumpą atsakymą trimis dalimis: 1) ką žinai užtikrintai 2) prielaidos 3) kur trūksta informacijos. Pabaigoje atskira eilutė. Be įžangos.* |
 
 **Kodėl:** KISS – vienodas skaitymas; vartotojas iš karto mato, ką įrašyti (INPUT) ir ką gauti (OUTPUT), be priklausomybės nuo instrukcijų viršuje.
 
@@ -34,6 +34,7 @@ Vienoda trijų blokų struktūra kiekvienam promptui:
 - Kiekvienas promptas, kuriame yra [ĮMONĖ] arba [MANO ROLĖ], turi bloką **Pakeisk prieš naudodamas:**
   - [ĮMONĖ] → tavo arba kliento įmonė (pvz. Telia Lietuva)
   - [MANO ROLĖ] → tavo pareigos (pvz. Pardavimų vadovas)
+- [PROCESAI] (6 promptas) pildomas tik kai 5 žingsnio sąrašo tame pokalbyje nėra. Kitaip modelis ima jau esantį sąrašą, o žymeklis lieka.
 
 ### 2.3 Jokios dviprasmybės dėl rolės
 
@@ -44,9 +45,11 @@ Vienoda trijų blokų struktūra kiekvienam promptui:
 
 - Promptas suprantamas net jei vartotojas nematė „Kaip naudoti šią biblioteką“ ar žingsnių aprašymo.
 
-### 2.5 Aiškus rezultato pažadas (OUTPUT)
+### 2.5 Nauda žmogui – info dėžutėje
 
-- Vartotojas iš karto supranta, ką gaus. Pvz.: *Rezultatas: gausi aiškų rolės aprašymą, kurį galėsi naudoti kaip atskaitos tašką.*
+- Kopijuojamas OUTPUT yra įsakymas modeliui: formatas, struktūra, skaičius, tonas, kalba.
+- Nauda žmogui lieka `.info-box` po „Prieš naudojant“. Ta dėžutė nekopijuojama.
+- OUTPUT viduje nėra „Rezultatas:“ ir nėra kreipinio į skaitytoją (matai, naudok, galėsi).
 
 ### 2.6 Aiški vartotojo užduotis
 
@@ -84,4 +87,4 @@ Projektuojama ne idealiam, o **realiam vartotojui**. Realus vartotojas: skuba, n
 - **Atsakingas:** Content / QA.
 - **Kada:** Po turinio ar struktūros (META/INPUT/OUTPUT, „Naudok kai“) pakeitimų.
 
-**Paskutinis atnaujinimas:** 2026-02-24
+**Paskutinis atnaujinimas:** 2026-10-05

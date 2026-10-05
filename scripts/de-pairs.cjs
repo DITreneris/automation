@@ -174,8 +174,8 @@ const DE_PAIRS = [
     '<li>Fügen Sie ihn in ChatGPT, Claude oder ein anderes KI-Werkzeug ein</li>',
   ],
   [
-    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it.</li>`,
-    '<li>Steht im Prompt <code>[UNTERNEHMEN]</code> – ersetzen Sie es durch Ihr Unternehmen oder das Ihrer Kundin bzw. Ihres Kunden; steht <code>[MEINE ROLLE]</code> – ersetzen Sie es durch Ihre Rolle. Die KI-Rolle (z. B. „kritischer Analyst“) steht schon im Prompt – Sie müssen sie nicht ändern.</li>',
+    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it. If <code>[PROCESSES]</code> is there, paste the step 5 list only when this chat does not already have it. Otherwise leave the placeholder.</li>`,
+    '<li>Steht im Prompt <code>[UNTERNEHMEN]</code> – ersetzen Sie es durch Ihr Unternehmen oder das Ihrer Kundin bzw. Ihres Kunden; steht <code>[MEINE ROLLE]</code> – ersetzen Sie es durch Ihre Rolle. Die KI-Rolle (z. B. „kritischer Analyst“) steht schon im Prompt – Sie müssen sie nicht ändern. Steht <code>[PROZESSE]</code> im Prompt, fügen Sie die Liste aus Schritt 5 nur ein, wenn sie in diesem Chat noch nicht steht. Sonst lassen Sie den Platzhalter stehen.</li>',
   ],
   [
     `<p id="progressText">You've used 0 of 8 prompts.</p>`,
@@ -196,16 +196,16 @@ const DE_PAIRS = [
   ],
   ['<p><strong>Replace before using:</strong></p>', '<p><strong>Vor der Nutzung ersetzen:</strong></p>'],
   [
+    '<li>[PROCESSES] → the step 5 list, if this chat does not already have it. Otherwise leave the placeholder.</li>',
+    '<li>[PROZESSE] → die Liste aus Schritt 5, nur wenn sie in diesem Chat noch nicht steht. Sonst lassen Sie den Platzhalter stehen.</li>',
+  ],
+  [
     `<li>[COMPANY] → your company or your client's (e.g. Acme Inc).</li>`,
     '<li>[UNTERNEHMEN] → Ihr Unternehmen oder das Ihrer Kundin bzw. Ihres Kunden (z. B. Acme Inc).</li>',
   ],
   [
     '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>',
     '<p><strong>Was tun:</strong> Das ist kein Fragebogen. Kopieren Sie den Text oben und fügen Sie ihn in ChatGPT oder Claude ein.</p>',
-  ],
-  [
-    '<p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Was tun:</strong> Kopieren Sie den Text oben und fügen Sie ihn in ChatGPT oder Claude ein.</p>',
   ],
   ['aria-label="Information about this prompt">', 'aria-label="Hinweise zu diesem Prompt">'],
   ['<strong>Why it matters</strong>', '<strong>Warum das zählt</strong>'],
@@ -219,7 +219,7 @@ const DE_PAIRS = [
   ['<span>Mark as done</span>', '<span>Als erledigt markieren</span>'],
   ['<div class="category">Analysis</div>', '<div class="category">Analyse</div>'],
   ['<h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>', '<h2 class="prompt-title" id="prompt-title-2">Organisationsporträt</h2>'],
-  ['<p class="prompt-desc">Open for the prompt – get a structured company profile in ~5 min</p>', '<p class="prompt-desc">Öffnen für den Prompt – in ca. 5 Min. ein strukturiertes Unternehmensprofil</p>'],
+  ['<p class="prompt-desc">Open for the prompt – get a structured company profile</p>', '<p class="prompt-desc">Öffnen für den Prompt – ein strukturiertes Unternehmensprofil</p>'],
   ['aria-label="Select and copy prompt 2"', 'aria-label="Prompt 2 markieren und kopieren"'],
   ['<h3 class="before-use-title" id="before-use-title-2">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-2">Vor der Nutzung</h3>'],
   [
@@ -435,8 +435,8 @@ const DE_PAIRS = [
     '<h3>Viel Erfolg mit Ihren Prompts <i data-lucide="rocket" aria-hidden="true"></i></h3>',
   ],
   [
-    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>',
-    '<p>Steht im Prompt [UNTERNEHMEN] oder [MEINE ROLLE] – ersetzen Sie es durch Ihre Angaben. Die KI-Rolle (z. B. „kritischer Analyst“) ist schon gesetzt – Sie müssen sie nicht ändern.</p>',
+    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. If the prompt has [PROCESSES], paste the step 5 list only when this chat does not already have it.</p>',
+    '<p>Steht im Prompt [UNTERNEHMEN] oder [MEINE ROLLE] – ersetzen Sie es durch Ihre Angaben. Die KI-Rolle (z. B. „kritischer Analyst“) ist schon gesetzt – Sie müssen sie nicht ändern. Steht [PROZESSE] im Prompt, fügen Sie die Liste aus Schritt 5 nur ein, wenn sie in diesem Chat noch nicht steht.</p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Für KI optimiert</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 Prompts</span>'],

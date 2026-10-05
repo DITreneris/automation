@@ -258,6 +258,65 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
     if (assert(blockIdx > -1 && footerIdx > blockIdx && beforeIdx > footerIdx, `${lang}: prompt ${i} CTA before before-use`)) passed++;
     else failed++;
   }
+  const outputPromise = {
+    lt: 'OUTPUT: Rezultatas:',
+    en: 'OUTPUT: Result:',
+    et: 'OUTPUT: Tulemus:',
+    lv: 'OUTPUT: Rezultāts:',
+    de: 'OUTPUT: Ergebnis:',
+    ja: 'OUTPUT: 結果：',
+    zh: 'OUTPUT: 结果：',
+  }[String(lang).toLowerCase()];
+  const processToken = {
+    lt: '[PROCESAI]',
+    en: '[PROCESSES]',
+    et: '[PROTSESSID]',
+    lv: '[PROCESI]',
+    de: '[PROZESSE]',
+    ja: '[PROCESSES]',
+    zh: '[流程]',
+  }[String(lang).toLowerCase()];
+  for (let i = 1; i <= 8; i++) {
+    const pre = html.match(new RegExp(`<pre class="code-text" id="prompt${i}">([\\s\\S]*?)</pre>`));
+    if (assert(pre && pre[1].includes('OUTPUT:') && !pre[1].includes(outputPromise), `${lang}: prompt ${i} OUTPUT is the artifact`)) passed++;
+    else failed++;
+    if (i === 6) {
+      if (assert(pre && pre[1].includes(processToken), `${lang}: prompt 6 processes token`)) passed++;
+      else failed++;
+    }
+  }
+  const processFallback = {
+    lt: 'jau yra šiame pokalbyje iš 5 žingsnio',
+    en: 'already in this chat from step 5',
+    et: 'selles vestluses 5. sammust juba olemas',
+    lv: 'šajā sarunā no 5. soļa jau ir',
+    de: 'in diesem Chat aus Schritt 5 schon vorliegt',
+    ja: 'このチャットのステップ5ですでにある',
+    zh: '这次对话里第 5 步已经有的',
+  }[String(lang).toLowerCase()];
+  const processPasteOrder = {
+    lt: 'Įklijuok sąrašą iš 5 žingsnio.',
+    en: 'Paste the list from step 5.',
+    et: 'Kleebi loend 5. sammust.',
+    lv: 'Ielīmē sarakstu no 5. soļa.',
+    de: 'Füge die Liste aus Schritt 5 ein.',
+    ja: 'ステップ5の一覧を貼ってください。',
+    zh: '请贴上第 5 步的清单。',
+  }[String(lang).toLowerCase()];
+  const instructions = html.slice(html.indexOf('class="instructions"'), html.indexOf('id="progressIndicator"'));
+  const footerStart = html.indexOf('class="footer"');
+  const footerReminder = html.slice(footerStart, html.indexOf('class="tags"', footerStart));
+  if (assert(instructions.includes(processToken), `${lang}: how-to names process token`)) passed++;
+  else failed++;
+  if (assert(footerReminder.includes(processToken), `${lang}: footer names process token`)) passed++;
+  else failed++;
+  const pre6 = html.match(/<pre class="code-text" id="prompt6">([\s\S]*?)<\/pre>/);
+  if (assert(pre6 && pre6[1].includes(processFallback) && !pre6[1].includes(processPasteOrder), `${lang}: prompt 6 uses chat list when placeholder remains`)) passed++;
+  else failed++;
+  if (String(lang).toLowerCase() === 'zh') {
+    if (assert(!html.includes('贴在这段提示词后面'), 'zh: no paste-after instruction')) passed++;
+    else failed++;
+  }
   const nextLinkCount = (html.match(/class="[^"]*\bprompt-next-link\b[^"]*"/g) || []).length;
   if (assert(nextLinkCount === 8, `${lang}: prompt-next-link count === 8`)) passed++;
   else failed++;

@@ -115,7 +115,7 @@
             <ol>
                 <li>选一条提示词，点文本下方的<strong>「复制提示词」</strong>——一次就能全部复制。在电脑上也可以选中文本，再按 <code>Ctrl+C</code> / <code>Cmd+C</code>。</li>
                 <li>粘贴到 ChatGPT、Claude 或其他 AI 工具。</li>
-                <li>如果提示词里有 <code>[公司]</code>，换成你或客户的公司名；如果有 <code>[我的角色]</code>，换成你的职位。AI 的角色（例如“批判性分析师”）已经写在提示词里——不用改。</li>
+                <li>如果提示词里有 <code>[公司]</code>，换成你或客户的公司名；如果有 <code>[我的角色]</code>，换成你的职位。AI 的角色（例如“批判性分析师”）已经写在提示词里——不用改。如果有 <code>[流程]</code>，只有当这次对话里还没有第 5 步清单时才贴上。否则留着占位符。</li>
             </ol>
         </section>
 
@@ -148,9 +148,13 @@
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt1">META: 你是一名批判性的商业分析师。目标：根据公开信息，写明你对这家组织已经知道什么，以及哪些地方必须向用户澄清。
 
-INPUT: 公司 [公司]。请仅根据公开信息和一般市场知识，描述你如何理解这家公司。请按此结构写：1）你有把握的事实；2）你做了哪些假设；3）信息不足、可能出错的地方。结尾必须明确标出：“以下各点需要用户澄清。”
+INPUT: 公司 [公司]。请只用公开信息和一般市场知识。
 
-OUTPUT: 结果：一份简短、结构化的回答——能看出你可能错在哪里，以及继续之前该澄清什么。</pre>
+OUTPUT: 请用中文写一份简短回答，分成三部分：
+1）你有把握的事实
+2）你做了哪些假设
+3）信息不足、可能出错的地方
+结尾单独一行写：“以下各点需要用户澄清。”不要写开场，也不要建议下一步做什么。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -198,7 +202,7 @@ OUTPUT: 结果：一份简短、结构化的回答——能看出你可能错在
                             <span class="prompt-time">约 3–5 分钟</span>
                         </div>
                         <h2 class="prompt-title" id="prompt-title-2">组织画像</h2>
-                        <p class="prompt-desc">展开后可见全文，约 5 分钟得到结构化公司画像</p>
+                        <p class="prompt-desc">展开后可见全文，得到结构化公司画像</p>
                     </div>
                     <span class="prompt-chevron" aria-hidden="true">▾</span>
                 </summary>
@@ -212,9 +216,14 @@ OUTPUT: 结果：一份简短、结构化的回答——能看出你可能错在
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt2">META: 你是一名经验丰富的商业分析师。目标：写出清晰的组织画像和上下文。
 
-INPUT: 公司 [公司]。请分析并描述：大致规模（人数、营收）；主要业务领域；管理/组织模式；该行业的典型挑战。请写短、有结构。凡是假设，必须标出。
+INPUT: 公司 [公司]。
 
-OUTPUT: 结果：一份组织画像，可作为其他提示词的上下文。</pre>
+OUTPUT: 请用四个标题写一份简短的组织画像：
+- 大致规模（人数、营收）
+- 主要业务领域
+- 管理 / 组织模式
+- 该行业的典型挑战
+每一处假设都要标出。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -239,7 +248,6 @@ OUTPUT: 结果：一份组织画像，可作为其他提示词的上下文。</p
                     <ul>
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -277,9 +285,14 @@ OUTPUT: 结果：一份组织画像，可作为其他提示词的上下文。</p
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt3">META: 你是一名组织设计顾问。目标：描述这个角色在组织中的目的、职责和影响。
 
-INPUT: 角色 [我的角色]，公司 [公司]。请根据上文的组织画像描述这个角色（若无，请先根据 [公司] 推断并标出假设）。请包括：角色的主要目的；5–7 项核心职责；决策层级（运营 / 战术 / 战略）；向谁汇报、日常和谁协作。请写短，不要理论。
+INPUT: 角色 [我的角色]，公司 [公司]。
 
-OUTPUT: 结果：一份清晰的角色描述——供后续步骤对照。</pre>
+OUTPUT: 请写一份角色描述，包括：
+- 角色的主要目的
+- 5–7 项核心职责
+- 决策层级（运营 / 战术 / 战略）
+- 向谁汇报、日常和谁协作
+请写短，不要理论。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -305,7 +318,6 @@ OUTPUT: 结果：一份清晰的角色描述——供后续步骤对照。</pre>
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
                         <li>[我的角色] → 你的职位（例如销售经理）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -343,9 +355,14 @@ OUTPUT: 结果：一份清晰的角色描述——供后续步骤对照。</pre>
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt4">META: 你是一名经验丰富的管理者。目标：写出实用的职位说明和 KPI。
 
-INPUT: 角色 [我的角色]，公司 [公司]。请撰写职位说明。请包括：核心职责；所需能力；5–7 个可衡量的 KPI；6 个月后“表现良好”是什么样。请聚焦真实工作，而不是人事套话。
+INPUT: 角色 [我的角色]，公司 [公司]。
 
-OUTPUT: 结果：一份可用于自我评估或新人入职的职位说明。</pre>
+OUTPUT: 请写一份职位说明，包括：
+- 核心职责
+- 所需能力
+- 5–7 个可衡量的 KPI
+- 6 个月后“表现良好”是什么样
+请聚焦真实工作，而不是人事套话。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -371,7 +388,6 @@ OUTPUT: 结果：一份可用于自我评估或新人入职的职位说明。</p
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
                         <li>[我的角色] → 你的职位（例如销售经理）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -409,9 +425,14 @@ OUTPUT: 结果：一份可用于自我评估或新人入职的职位说明。</p
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt5">META: 你是一名业务流程分析师。目标：找出最重要的 5 个工作流程（帕累托 80/20）——时间和精力花在哪里。
 
-INPUT: 角色 [我的角色]，公司 [公司]。请列出这个角色实际执行的 5 个最重要流程。每个流程请写明：目的；主要步骤；相关角色；通常卡在哪里。说明约占 20%，具体动作列出来约占 80%。
+INPUT: 角色 [我的角色]，公司 [公司]。
 
-OUTPUT: 结果：一份流程清单，用来看出 AI 影响最大的地方（第 6 步）。</pre>
+OUTPUT: 请正好写出 5 个流程。每个请写明：
+- 目的
+- 主要步骤
+- 相关角色
+- 通常卡在哪里
+具体动作约占 80%，说明约占 20%。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -437,7 +458,6 @@ OUTPUT: 结果：一份流程清单，用来看出 AI 影响最大的地方（�
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
                         <li>[我的角色] → 你的职位（例如销售经理）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -475,9 +495,14 @@ OUTPUT: 结果：一份流程清单，用来看出 AI 影响最大的地方（�
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt6">META: 你是一名 AI 落地顾问。目标：评估这些流程，并给出用 ChatGPT 或其他 AI 工具改进它们的具体办法。
 
-INPUT: 请评估这段对话里已有的流程，或用户贴在下方的流程描述，给出 8–10 个想法。每个想法请写明：AI 做什么；能简化流程的哪一步；实际收益（时间 / 质量 / 成本）；实施难度（容易 / 中等 / 难）。请用非技术用户能看懂的话写。
+INPUT: 流程 [流程]。如果这个占位符已经填好，就用那份清单。如果仍是 [流程]，就用这次对话里第 5 步已经有的流程清单。
 
-OUTPUT: 结果：8–10 个具体想法，每个都写清时间 / 质量 / 成本收益，以及实施难度。</pre>
+OUTPUT: 请给出 8–10 个想法。每个请写明：
+- AI 做什么
+- 能简化哪一步
+- 收益（时间 / 质量 / 成本）
+- 难度（容易 / 中等 / 难）
+请用白话写。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -498,7 +523,11 @@ OUTPUT: 结果：8–10 个具体想法，每个都写清时间 / 质量 / 成�
                 <section class="before-use" id="before-use-6" aria-labelledby="before-use-title-6">
                     <h3 class="before-use-title" id="before-use-title-6">使用前</h3>
                     <p><strong>什么时候用：</strong>你已经有流程描述（第 5 步）；想要具体的 AI 用法；想节省时间。</p>
-                    <p><strong>操作：</strong>先完成第 5 步，或把第 5 步的流程描述贴在这段提示词后面。然后复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
+                    <p><strong>先替换：</strong></p>
+                    <ul>
+                        <li>[流程] → 第 5 步的清单。只有这次对话里还没有时才贴上。否则留着占位符。</li>
+                    </ul>
+                    <p><strong>操作：</strong>只有当这次对话里还没有第 5 步清单时，才把清单填进 [流程]。否则留着占位符。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -536,9 +565,9 @@ OUTPUT: 结果：8–10 个具体想法，每个都写清时间 / 质量 / 成�
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt7">META: 你是一名提示词工程师。目标：为这个具体角色和公司写出 10–12 条可日常使用的短提示词。
 
-INPUT: 角色 [我的角色]，公司 [公司]。请写出帮助以下方面的提示词：规划；解决问题；沟通；决策。请用表格给出：[提示词] | [使用场景] | [解决的问题]。
+INPUT: 角色 [我的角色]，公司 [公司]。
 
-OUTPUT: 结果：一套个人提示词——一张每天能用的表。</pre>
+OUTPUT: 请写一张 10–12 行的表，列是 [提示词] | [使用场景] | [解决的问题]。覆盖规划、解决问题、沟通和决策。</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -564,7 +593,6 @@ OUTPUT: 结果：一套个人提示词——一张每天能用的表。</pre>
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
                         <li>[我的角色] → 你的职位（例如销售经理）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -602,9 +630,13 @@ OUTPUT: 结果：一套个人提示词——一张每天能用的表。</pre>
                      onkeydown="handleCodeBlockKeydown(event, this)">
                     <pre class="code-text" id="prompt8">META: 你是一名战略规划顾问。目标：模拟关键情境并给出行动计划——为压力和不确定性做准备。
 
-INPUT: 公司 [公司]，角色 [我的角色]。请设想一个直接影响这个角色的关键情境。请给出：2 个现实场景；前 14 天的行动计划；AI 能如何帮忙；主要风险和成功标准。
+INPUT: 公司 [公司]，角色 [我的角色]。
 
-OUTPUT: 结果：场景和 14 天计划——最好先和 AI 演练，而不是等到真发生。</pre>
+OUTPUT: 请设想一个直接影响这个角色的关键情境。请给出：
+- 2 个现实场景
+- 前 14 天的行动计划
+- AI 能如何帮忙
+- 主要风险和成功标准</pre>
                 </div>
             <div class="prompt-footer">
                 <button class="btn" 
@@ -630,7 +662,6 @@ OUTPUT: 结果：场景和 14 天计划——最好先和 AI 演练，而不是�
                         <li>[公司] → 你或客户的公司（例如 Acme Inc）；</li>
                         <li>[我的角色] → 你的职位（例如销售经理）。</li>
                     </ul>
-                    <p><strong>操作：</strong>复制上面的文本，粘贴到 ChatGPT 或 Claude。</p>
                 </section>
                 <div class="info-box" role="note" aria-label="关于这条提示词">
                     <div class="info-icon" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
@@ -708,7 +739,7 @@ OUTPUT: 结果：场景和 14 天计划——最好先和 AI 演练，而不是�
 
         <footer class="footer">
             <h3>祝你用好这些提示词 <i data-lucide="rocket" aria-hidden="true"></i></h3>
-            <p>如果提示词里有 [公司] 或 [我的角色]，换成你的信息。AI 的角色（例如“批判性分析师”）已经写好——不用改。</p>
+            <p>如果提示词里有 [公司] 或 [我的角色]，换成你的信息。AI 的角色（例如“批判性分析师”）已经写好——不用改。如果有 [流程]，只有当这次对话里还没有第 5 步清单时才贴上。</p>
             <div class="tags" role="list">
                 <span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI 优化</span>
                 <span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 条提示词</span>

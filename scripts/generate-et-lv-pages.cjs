@@ -266,8 +266,8 @@ const ET_PAIRS = [
     '<li>Kleepige ChatGPT-sse, Claudesse või teise tehisintellekti tööriista</li>',
   ],
   [
-    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it.</li>`,
-    '<li>Kui promptis on <code>[ETTEVÕTE]</code> – asendage oma või kliendi ettevõtte nimega; kui <code>[MINU ROLL]</code> – asendage oma ametinimetusega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea.</li>',
+    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it. If <code>[PROCESSES]</code> is there, paste the step 5 list only when this chat does not already have it. Otherwise leave the placeholder.</li>`,
+    '<li>Kui promptis on <code>[ETTEVÕTE]</code> – asendage oma või kliendi ettevõtte nimega; kui <code>[MINU ROLL]</code> – asendage oma ametinimetusega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba promptis – seda muutma ei pea. Kui promptis on <code>[PROTSESSID]</code>, kleepige 5. sammu loend ainult siis, kui seda selles vestluses veel ei ole. Muul juhul jätke kohatäide alles.</li>',
   ],
   [
     `<p id="progressText">You've used 0 of 8 prompts.</p>`,
@@ -288,16 +288,16 @@ const ET_PAIRS = [
   ],
   ['<p><strong>Replace before using:</strong></p>', '<p><strong>Enne kasutamist asendage:</strong></p>'],
   [
+    '<li>[PROCESSES] → the step 5 list, if this chat does not already have it. Otherwise leave the placeholder.</li>',
+    '<li>[PROTSESSID] → 5. sammu loend, kui seda selles vestluses veel ei ole. Muul juhul jätke kohatäide alles.</li>',
+  ],
+  [
     `<li>[COMPANY] → your company or your client's (e.g. Acme Inc).</li>`,
     '<li>[ETTEVÕTE] → teie või kliendi ettevõte (nt Acme Inc).</li>',
   ],
   [
     '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>',
     '<p><strong>Mida teha:</strong> See ei ole küsimustik. Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
-  ],
-  [
-    '<p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Mida teha:</strong> Kopeerige ülalolev tekst ja kleepige ChatGPT-sse või Claudesse.</p>',
   ],
   ['aria-label="Information about this prompt">', 'aria-label="Teave selle prompti kohta">'],
   ['<strong>Why it matters</strong>', '<strong>Miks see loeb</strong>'],
@@ -311,7 +311,7 @@ const ET_PAIRS = [
   ['<span>Mark as done</span>', '<span>Märkige tehtuks</span>'],
   ['<div class="category">Analysis</div>', '<div class="category">Analüüs</div>'],
   ['<h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>', '<h2 class="prompt-title" id="prompt-title-2">Organisatsiooni portree</h2>'],
-  ['<p class="prompt-desc">Open for the prompt – get a structured company profile in ~5 min</p>', '<p class="prompt-desc">Avage prompt — saate struktureeritud ettevõtte profiili ~5 minutiga</p>'],
+  ['<p class="prompt-desc">Open for the prompt – get a structured company profile</p>', '<p class="prompt-desc">Avage prompt — saate struktureeritud ettevõtte profiili</p>'],
   ['aria-label="Select and copy prompt 2"', 'aria-label="Valige ja kopeerige prompt 2"'],
   ['<h3 class="before-use-title" id="before-use-title-2">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-2">Enne kasutamist</h3>'],
   [
@@ -527,8 +527,8 @@ const ET_PAIRS = [
     '<h3>Edu promptidega <i data-lucide="rocket" aria-hidden="true"></i></h3>',
   ],
   [
-    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>',
-    '<p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea.</p>',
+    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. If the prompt has [PROCESSES], paste the step 5 list only when this chat does not already have it.</p>',
+    '<p>Kui promptis on [ETTEVÕTE] või [MINU ROLL] – asendage oma andmetega. Tehisintellekti roll (nt „kriitiline analüütik“) on juba seatud – seda muutma ei pea. Kui promptis on [PROTSESSID], kleepige 5. sammu loend ainult siis, kui seda selles vestluses veel ei ole.</p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> Tehisintellektile optimeeritud</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],
@@ -708,8 +708,8 @@ const LV_PAIRS = [
   ],
   ['<li>Paste into ChatGPT, Claude, or another AI tool</li>', '<li>Ielīmējiet ChatGPT, Claude vai citā MI rīkā</li>'],
   [
-    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it.</li>`,
-    '<li>Ja promptā ir <code>[UZŅĒMUMS]</code> – aizstājiet ar savu vai klienta uzņēmuma nosaukumu; ja <code>[MANA LOMA]</code> – ar savu amatu. MI loma (piem. „kritisks analītiķis“) jau ir promptā – nav jāmaina.</li>',
+    `<li>If the prompt has <code>[COMPANY]</code> – replace with your company or your client's; if <code>[MY ROLE]</code> – replace with your role. The AI role (e.g. “critical analyst”) is already in the prompt – no need to change it. If <code>[PROCESSES]</code> is there, paste the step 5 list only when this chat does not already have it. Otherwise leave the placeholder.</li>`,
+    '<li>Ja promptā ir <code>[UZŅĒMUMS]</code> – aizstājiet ar savu vai klienta uzņēmuma nosaukumu; ja <code>[MANA LOMA]</code> – ar savu amatu. MI loma (piem. „kritisks analītiķis“) jau ir promptā – nav jāmaina. Ja promptā ir <code>[PROCESI]</code>, ielīmējiet 5. soļa sarakstu tikai tad, ja šajā sarunā tā vēl nav. Citādi atstājiet vietturi.</li>',
   ],
   [`<p id="progressText">You've used 0 of 8 prompts.</p>`, '<p id="progressText">Esat izmantojuši 0 no 8 promptiem.</p>'],
   ['aria-label="Progress">', 'aria-label="Progres">'],
@@ -727,16 +727,16 @@ const LV_PAIRS = [
   ],
   ['<p><strong>Replace before using:</strong></p>', '<p><strong>Pirms lietošanas aizstājiet:</strong></p>'],
   [
+    '<li>[PROCESSES] → the step 5 list, if this chat does not already have it. Otherwise leave the placeholder.</li>',
+    '<li>[PROCESI] → 5. soļa saraksts, ja šajā sarunā tā vēl nav. Citādi atstājiet vietturi.</li>',
+  ],
+  [
     `<li>[COMPANY] → your company or your client's (e.g. Acme Inc).</li>`,
     '<li>[UZŅĒMUMS] → jūsu vai klienta uzņēmums (piem. Acme Inc).</li>',
   ],
   [
     '<p><strong>What to do:</strong> This is not a questionnaire. Copy the text above and paste it into ChatGPT or Claude.</p>',
     '<p><strong>Ko darīt:</strong> Tas nav jautājumu saraksts. Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
-  ],
-  [
-    '<p><strong>What to do:</strong> Copy the text above and paste it into ChatGPT or Claude.</p>',
-    '<p><strong>Ko darīt:</strong> Kopējiet augstāk esošo tekstu un ielīmējiet ChatGPT vai Claude.</p>',
   ],
   ['aria-label="Information about this prompt">', 'aria-label="Informācija par šo promptu">'],
   ['<strong>Why it matters</strong>', '<strong>Kāpēc tas svarīgi</strong>'],
@@ -750,7 +750,7 @@ const LV_PAIRS = [
   ['<span>Mark as done</span>', '<span>Atzīmēt kā izdarītu</span>'],
   ['<div class="category">Analysis</div>', '<div class="category">Analīze</div>'],
   ['<h2 class="prompt-title" id="prompt-title-2">Organization Portrait</h2>', '<h2 class="prompt-title" id="prompt-title-2">Organizācijas portrets</h2>'],
-  ['<p class="prompt-desc">Open for the prompt – get a structured company profile in ~5 min</p>', '<p class="prompt-desc">Atveriet promptu — iegūstiet strukturētu uzņēmuma profilu ~5 minūtēs</p>'],
+  ['<p class="prompt-desc">Open for the prompt – get a structured company profile</p>', '<p class="prompt-desc">Atveriet promptu — iegūstiet strukturētu uzņēmuma profilu</p>'],
   ['aria-label="Select and copy prompt 2"', 'aria-label="Atlasīt un kopēt promptu 2"'],
   ['<h3 class="before-use-title" id="before-use-title-2">Before using</h3>', '<h3 class="before-use-title" id="before-use-title-2">Pirms lietošanas</h3>'],
   [
@@ -966,8 +966,8 @@ const LV_PAIRS = [
     '<h3>Veiksmi ar promptiem <i data-lucide="rocket" aria-hidden="true"></i></h3>',
   ],
   [
-    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it.</p>',
-    '<p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – nav jāmaina.</p>',
+    '<p>If the prompt has [COMPANY] or [MY ROLE] – replace with your details. The AI role (e.g. “critical analyst”) is already set – no need to change it. If the prompt has [PROCESSES], paste the step 5 list only when this chat does not already have it.</p>',
+    '<p>Ja promptā ir [UZŅĒMUMS] vai [MANA LOMA] – aizstājiet ar saviem datiem. MI loma (piem. „kritisks analītiķis“) jau ir iestatīta – nav jāmaina. Ja promptā ir [PROCESI], ielīmējiet 5. soļa sarakstu tikai tad, ja šajā sarunā tā vēl nav.</p>',
   ],
   ['<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> AI-optimized</span>', '<span class="tag" role="listitem"><i data-lucide="bot" aria-hidden="true"></i> MI optimizēts</span>'],
   ['<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompts</span>', '<span class="tag" role="listitem"><i data-lucide="book-marked" aria-hidden="true"></i> 8 prompti</span>'],
