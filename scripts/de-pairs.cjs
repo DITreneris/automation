@@ -129,8 +129,8 @@ const DE_PAIRS = [
     '<a href="#main-content" class="skip-link">Zum Inhalt</a>',
   ],
   [
-    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>',
-    'aria-label="Vollständiger Prompt-Anatomy-Kurs – interaktiv (öffnet in neuem Tab)">Prompt Anatomy</a>',
+    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)"><span class="brand-tile"',
+    'aria-label="Vollständiger Prompt-Anatomy-Kurs – interaktiv (öffnet in neuem Tab)"><span class="brand-tile"',
   ],
   ['<h1>Let AI do 30–50% of your daily tasks</h1>', '<h1>Lassen Sie KI 30–50% Ihrer täglichen Aufgaben erledigen</h1>'],
   ['<p>8 exercises with ready-made templates – results in minutes.</p>', '<p>8 Übungen mit fertigen Vorlagen – Ergebnisse in Minuten.</p>'],
@@ -407,8 +407,8 @@ const DE_PAIRS = [
     '<h2 id="ecosystem-title">Daily Workflow Library</h2>',
   ],
   [
-    '<p class="ecosystem-lead">Your AI operating system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
-    '<p class="ecosystem-lead">Ihr KI-Betriebssystem für Strategie, Taktik und Betrieb. Sie sind in der Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Your AI training system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Ihr KI-Trainingssystem für Strategie, Taktik und Betrieb. Sie sind in der Daily Workflow Library.</p>',
   ],
   [
     'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',

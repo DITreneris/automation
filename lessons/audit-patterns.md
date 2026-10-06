@@ -48,8 +48,8 @@ Recurring themes from repo audits and CI — operational, not historical.
 ## Course UTM channel mix
 
 - **Cause:** Agents treat every `.app/en` link as `COURSE_URL_EN`, or copy `ritual_complete` onto the community button
-- **Fix:** Four constants in [scripts/seo-constants.cjs](../scripts/seo-constants.cjs) — badge = `COURSE_URL_EN`; community = `COURSE_COMMUNITY_URL`; `#ritual-complete` = `COURSE_RITUAL_URL`; `.footer-entity` = `HUB_ENTITY_URL`
-- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — community slice has `utm_medium=community` and no `ritual_complete`; badge is the `.header-brand` slice (bare `COURSE_URL_EN`, no `utm_`)
+- **Fix:** Four constants in [scripts/seo-constants.cjs](../scripts/seo-constants.cjs) — header lockup = `COURSE_URL_EN`; community = `COURSE_COMMUNITY_URL`; `#ritual-complete` = `COURSE_RITUAL_URL`; `.footer-entity` = `HUB_ENTITY_URL`
+- **Gate:** [tests/structure.test.js](../tests/structure.test.js) — community slice has `utm_medium=community` and no `ritual_complete`; lockup is the `.header-brand` slice (bare `COURSE_URL_EN`, no `utm_`, no `class="badge"`)
 
 ## Discovery files
 

@@ -29,7 +29,7 @@ Kanoninis dizaino sistemos dokumentas. Biblioteka naudoja tą pačią brand šei
 
 | Rolė | Token | Hex | Naudojimas |
 |------|-------|-----|------------|
-| Gold accent | `--accent-gold` | `#CFA73A` | Progresas, badge, dekoratyvūs rėmeliai |
+| Gold accent | `--accent-gold` | `#CFA73A` | Progresas, lockup antras žodis, dekoratyvūs rėmeliai |
 | Gold hover | `--accent-gold-hover` | `#E8B93C` | Hover būsenos |
 | Dark navy | `--accent-dark` | `#0B1320` | Hero, primary CTA, antraštės |
 | Bibliotekos teal | `--brand-teal` | `#008579` | Nav chip (outline), community CTA (filled), footer nuorodos, kategorijos |
@@ -162,7 +162,8 @@ Naudok komponentuose ir `privacy.css`:
 | `--font-size-hero` | `clamp(1.75rem, 2vw + 1.5rem, 3.25rem)` |
 | `--line-height-body` | `1.6` |
 | H2 (sekcijos) | `--font-size-h2` / 800 |
-| Meta / badge | `--font-size-meta` / `--font-size-sm` |
+| Meta | `--font-size-meta` |
+| Lockup | `--font-size-body-sm` / `--font-weight-black` (900) |
 
 ### 1.10 Focus, motion, overlays
 
@@ -204,13 +205,13 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 | Variantas | CSS klasė | Spalva | Kada |
 |-----------|-----------|--------|------|
 | Primary action | `.cta-button`, `.btn` | `--accent-dark` | Hero „Use first prompt“, „Copy prompt“ |
-| Hero secondary | `.header-brand a.badge` | Semi-transparent ant hero | Kursas → `COURSE_URL_EN` |
+| Hero lockup | `.header-brand a.brand-lockup` | Navy tile, white + gold wordmark | Kursas → `COURSE_URL_EN` |
 | Nav chip | `.next-steps-links a` | `--brand-teal` outline | Vidinė navigacija 1–8 |
 | Community primary | `.community-cta-primary` | `--brand-teal` filled | „Join Telegram“ |
 | Community secondary | `.community-cta-secondary` | Navy outline | Kursas → `COURSE_COMMUNITY_URL` (community) arba `COURSE_RITUAL_URL` (`#ritual-complete`) |
 | Success | `.btn.success` | `--color-feedback-success` (`--green-hover`) | Po kopijavimo |
 
-**Focus:** šviesūs paviršiai – `var(--focus-ring-width) solid var(--focus-ring-color)` (navy). Hero `.cta-button` ir badge – baltas ringas (`var(--white)`). Auksas lieka progresui ir dekoratyviems rėmeliams.
+**Focus:** šviesūs paviršiai – `var(--focus-ring-width) solid var(--focus-ring-color)` (navy). Hero `.cta-button` ir lockup – baltas ringas (`var(--white)`). Auksas lieka progresui, antram lockup žodžiui ir dekoratyviems rėmeliams.
 
 ### 2.2 Component states
 
@@ -220,11 +221,11 @@ Media queries naudoja fiksuotas reikšmes (CSS `@media` negali naudoti `var()`):
 | `.btn` | `--accent-dark` | `--accent-dark-hover` | `--color-focus-ring` | `.success` → `--color-feedback-success` |
 | `.community-cta-primary` | `--brand-teal` filled | `--brand-teal-hover` | navy ring | – |
 | `.next-steps-links a` | `--brand-teal` outline | `--tertiary-light` bg, `--brand-teal-hover` border | navy ring | – |
-| `.header-brand a.badge` | `--surface-hero-badge` | `--surface-hero-badge-hover` | white ring | – |
+| `.header-brand a.brand-lockup` | navy tile + white / gold words | white ring | white ring | – |
 
 ### 2.3 Hero (`.header`)
 
-Tamsus gradientas (`--hero-gradient-*`), overlay `--overlay-hero`, badge (kursas), kalbų dropdown, vienas `.cta-button`.
+Tamsus gradientas (`--hero-gradient-*`), overlay `--overlay-hero`, lockup (kursas, `COURSE_URL_EN`), kalbų dropdown, vienas `.cta-button`.
 
 ### 2.4 Prompt kortelė (`.prompt`)
 

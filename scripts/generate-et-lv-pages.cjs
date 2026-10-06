@@ -221,8 +221,8 @@ const ET_PAIRS = [
     '<a href="#main-content" class="skip-link">Otse sisuni</a>',
   ],
   [
-    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>',
-    'aria-label="Prompt Anatomy interaktiivne kursus (avaneb uuel kaardil)">Prompt Anatomy</a>',
+    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)"><span class="brand-tile"',
+    'aria-label="Prompt Anatomy interaktiivne kursus (avaneb uuel kaardil)"><span class="brand-tile"',
   ],
   ['<h1>Let AI do 30–50% of your daily tasks</h1>', '<h1>Laske tehisintellektil teha 30–50% teie igapäevastest ülesannetest</h1>'],
   ['<p>8 exercises with ready-made templates – results in minutes.</p>', '<p>8 harjutust valmis mallidega – tulemused minutitega.</p>'],
@@ -499,8 +499,8 @@ const ET_PAIRS = [
     '<h2 id="ecosystem-title">Daily Workflow Library</h2>',
   ],
   [
-    '<p class="ecosystem-lead">Your AI operating system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
-    '<p class="ecosystem-lead">Teie tehisintellekti operatsioonisüsteem strateegia, taktika ja operatsioonide jaoks. Olete Daily Workflow Library\'s.</p>',
+    '<p class="ecosystem-lead">Your AI training system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Teie tehisintellekti koolitussüsteem strateegia, taktika ja operatsioonide jaoks. Olete Daily Workflow Library\'s.</p>',
   ],
   [
     'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',
@@ -669,8 +669,8 @@ const LV_PAIRS = [
     '<a href="#main-content" class="skip-link">Tieši uz saturu</a>',
   ],
   [
-    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)">Prompt Anatomy</a>',
-    'aria-label="Pilnā Prompt Anatomy – interaktīvs kurss (atveras jaunā cilnē)">Prompt Anatomy</a>',
+    'aria-label="Full Prompt Anatomy – interactive course (opens in new tab)"><span class="brand-tile"',
+    'aria-label="Pilnā Prompt Anatomy – interaktīvs kurss (atveras jaunā cilnē)"><span class="brand-tile"',
   ],
   ['<h1>Let AI do 30–50% of your daily tasks</h1>', '<h1>Ļaujiet MI veikt 30–50% no jūsu ikdienas uzdevumiem</h1>'],
   ['<p>8 exercises with ready-made templates – results in minutes.</p>', '<p>8 vingrinājumi ar gatavām veidnēm – rezultāti dažu minūšu laikā.</p>'],
@@ -938,8 +938,8 @@ const LV_PAIRS = [
     '<h2 id="ecosystem-title">Daily Workflow Library</h2>',
   ],
   [
-    '<p class="ecosystem-lead">Your AI operating system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
-    '<p class="ecosystem-lead">Jūsu mākslīgā intelekta operētājsistēma stratēģijai, taktikai un operācijām. Jūs atrodaties Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Your AI training system for strategy, tactics, and operations. You are in the Daily Workflow Library.</p>',
+    '<p class="ecosystem-lead">Jūsu mākslīgā intelekta apmācības sistēma stratēģijai, taktikai un operācijām. Jūs atrodaties Daily Workflow Library.</p>',
   ],
   [
     'alt="Diagram: promptanatomy.app at the center, connected to promptanatomy.cloud, promptanatomy.info, promptanatomy.space, promptanatomy.help, promptanatomy.blog, promptanatomy.pro, and promptanatomy.ceo"',

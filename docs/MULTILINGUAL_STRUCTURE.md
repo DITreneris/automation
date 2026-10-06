@@ -52,7 +52,7 @@ ET, LV ir DE naudoja tuos pačius failų pavadinimus kaip EN (`index.html`, `pri
 
 **Biblioteka** (`*/index.html`) – compact dropdown (hero + footer):
 
-- Hero viršuje: `<div class="header-top">` su `<div class="header-brand">` (badge'ai) ir `<nav class="lang-switcher lang-switcher--dropdown">` dešinėje.
+- Hero viršuje: `<div class="header-top">` su `<div class="header-brand">` (lockup, ne `class="badge"`) ir `<nav class="lang-switcher lang-switcher--dropdown">` dešinėje.
 - Trigger: Lucide `languages` + dabartinis endonimas + chevron (`<button class="lang-switcher-trigger">`); meniu `<ul class="lang-switcher-menu" hidden>`.
 - Dabartinė kalba meniu: `<span class="lang-option lang-option--current" aria-current="page" lang="…">`; kitos – `<a class="lang-option lang-link" data-lang="…" lang="…" hreflang="…" href="…" onclick="…localStorage.setItem('lang',…)">`. ZH: `lang` / `hreflang` = `zh-Hans`, `data-lang` = `zh`.
 - Nudge: [js/locale-nudge.js](../js/locale-nudge.js) – JS-only juosta, kai nėra `localStorage.lang` ir `navigator.language` mapina į kitą locale. Jokio 302 iš `/{locale}/`.

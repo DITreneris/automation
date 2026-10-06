@@ -109,7 +109,7 @@ const RULE_LOCKS = [
   ['.btn.success:hover', 'background: var(--color-feedback-success)'],
   ['.btn:focus-visible', 'outline: var(--focus-ring-width) solid var(--focus-ring-color)'],
   ['.cta-button:focus-visible', 'outline: var(--focus-ring-width) solid var(--white)'],
-  ['.header-brand a.badge:focus-visible', 'outline: 2px solid var(--white)'],
+  ['.header-brand a.brand-lockup:focus-visible', 'outline: 2px solid var(--white)'],
 ];
 
 function escapeRegExp(value) {

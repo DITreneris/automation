@@ -197,12 +197,41 @@ function checkLibraryPage(html, lang, copyButtonText, skipText, privacyLink, lib
     ? html.slice(brandIdx, switcherIdx)
     : '';
   if (assert(
-    badgeSlice.includes('class="badge"') &&
+    badgeSlice.includes('class="brand-lockup"') &&
+      badgeSlice.includes('class="brand-tile"') &&
+      badgeSlice.includes('class="brand-name-first"') &&
+      badgeSlice.includes('class="brand-name-second"') &&
       badgeSlice.includes(`href="${COURSE_URL_EN}"`) &&
-      !badgeSlice.includes('utm_'),
-    `${lang}: badge is bare COURSE_URL_EN`
+      !badgeSlice.includes('utm_') &&
+      !badgeSlice.includes('class="badge"'),
+    `${lang}: lockup is bare COURSE_URL_EN`
   )) passed++;
   else failed++;
+  const leadMatch = html.match(/<p class="ecosystem-lead">([^<]*)<\/p>/);
+  const ecosystemLead = leadMatch ? leadMatch[1] : '';
+  const bannedLead = [
+    'operating system',
+    'operacinė sistema',
+    'operatsioonisüsteem',
+    'operētājsistēma',
+    'Betriebssystem',
+    'AI OS',
+  ];
+  if (assert(
+    ecosystemLead.length > 0 && !bannedLead.some((phrase) => ecosystemLead.includes(phrase)),
+    `${lang}: ecosystem lead is a training system`
+  )) passed++;
+  else failed++;
+  if (String(lang).toLowerCase() === 'lt') {
+    if (assert(
+      html.includes('property="og:site_name" content="Promptų Anatomija"') &&
+        badgeSlice.includes('brand-name-first">Promptų') &&
+        badgeSlice.includes('brand-name-second">Anatomija') &&
+        ecosystemLead.includes('Tu esi čia – Daily Workflow Library'),
+      `${lang}: LT name is Promptų Anatomija`
+    )) passed++;
+    else failed++;
+  }
   if (assert(!html.includes('cta-button-outline'), `${lang}: no hero outline CTA`)) passed++;
   else failed++;
   const heroCtaCount = (html.match(/class="cta-button"/g) || []).length;
@@ -686,6 +715,11 @@ function run() {
 
   // --- Privacy pages exist ---
   if (assert(readFile(LT_PRIVATUMAS) !== null && readFile(LT_PRIVATUMAS).length > 0, 'lt/privatumas.html egzistuoja')) passed++;
+  else failed++;
+  if (assert(
+    readFile(LT_PRIVATUMAS).includes('property="og:site_name" content="Promptų Anatomija"'),
+    'lt/privatumas.html og:site_name Promptų Anatomija'
+  )) passed++;
   else failed++;
   if (assert(readFile(EN_PRIVACY) !== null && readFile(EN_PRIVACY).length > 0, 'en/privacy.html egzistuoja')) passed++;
   else failed++;
